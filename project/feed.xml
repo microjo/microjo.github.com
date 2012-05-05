@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <title>Jonathan's Blog</title>
+    <link href="http://microjo.github.com/project/feed.html" rel="self" />
+    
+    <link href="http://microjo.github.com/project.html" />
+    
+    <updated>2012-05-06T04:29:16Z</updated>
+    <id>http://microjo.github.com</id>
+    <entry>
+        <title type="html"><![CDATA[iStuff 主题 - M8NewUI]]></title>
+        <author><name>microjo</name><uri>http://microjo.github.com</uri></author>
+        <link href="http://microjo.github.com/project/istuff_theme_m8newui.html"/>
+        <updated>2010-05-15T09:50:00Z</updated>
+        <published>2010-05-15T09:50:00Z</published>
+        <id>http://microjo.github.com/project/istuff_theme_m8newui.html</id>
+        <category scheme="http://microjo.github.com/tag/m8.html" term="M8" label="M8" />
+        <category scheme="http://microjo.github.com/tag/istuff.html" term="iStuff" label="Istuff" />
+        <category scheme="http://microjo.github.com/tag/theme.html" term="theme" label="Theme" />
+        <content type="html" xml:base="http://microjo.github.com" xml:lang="en">
+            <![CDATA[ <p>MEIZU New UI Style, made by microjo (follow me at <a href="https://twitter.com/micro4jo">@micro4jo</a>)</p>
+<ul>
+<li>version: 1.2</li>
+<li>requirement: iStuff ver &gt; 1.6.0</li>
+<li>info:<ol>
+<li>picture resource is from MEIZU M8 firmware, © MEIZU</li>
+<li>other is © microjo, you can use for free</li>
+</ol>
+</li>
+<li>
+<p>use:<br />
+extract files to data/themes/ folder, and change config.txt to use this style.
+将压缩包中解压缩（含原始目录），将其复制到 iStuff 安装目录 <code>/data/themes</code> 下面，然后修改设置 <code>config.txt</code> 中主题设置项：<code>theme=m8</code>。</p>
+</li>
+<li>
+<p>update:</p>
+<p>1.2  修改扩展页面以符合 M8 UI 界面 <a href="http://img.ly/199A">截图1</a> <a href="http://img.ly/199I">截图2</a></p>
+<p>1.1  修改快速主页和书签页面，尤其书签页面改动多些，应该比较像 M8 的 UI 界面 <a href="http://img.ly/17LV">截图</a></p>
+<p>1.0（使用 iStuff 1.5.0）  修改页面缩放的按钮，谢谢作者修改了界面以配合 <a href="http://img.ly/15rD">截图</a></p>
+<p>0.7  调整首页的样式 <a href="http://img.ly/14hL">截图</a></p>
+<p>0.6  初始版本 <a href="http://img.ly/13Tn">截图1</a> <a href="http://img.ly/13IT">截图2</a></p>
+</li>
+</ul> ]]>
+        </content>
+    </entry>
+    </feed>

@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <title>Jonathan's Blog</title>
+    <link href="http://microjo.github.com/note/feed.html" rel="self" />
+    
+    <link href="http://microjo.github.com/note.html" />
+    
+    <updated>2012-05-06T04:29:16Z</updated>
+    <id>http://microjo.github.com</id>
+    <entry>
+        <title type="html"><![CDATA[IE6-8 支持 HTML5 元素]]></title>
+        <author><name>microjo</name><uri>http://microjo.github.com</uri></author>
+        <link href="http://microjo.github.com/note/html5_ie678.html"/>
+        <updated>2012-05-01T19:45:00Z</updated>
+        <published>2012-05-01T19:45:00Z</published>
+        <id>http://microjo.github.com/note/html5_ie678.html</id>
+        <category scheme="http://microjo.github.com/tag/html5.html" term="HTML5" label="Html5" />
+        <category scheme="http://microjo.github.com/tag/ie.html" term="IE" label="Ie" />
+        <content type="html" xml:base="http://microjo.github.com" xml:lang="en">
+            <![CDATA[ <p>最近博客改用 github pages，并且使用这个静态博客生成工具 <a href="http://lepture.com/project/liquidluck/" title="Felix Felicis(aka liquidluck)">Felix Felicis</a>。
+奇怪的是，IE8 下页面显示不正常。在网上搜索原因和解决办法时，
+发现<em> IE8 以上通过 F12 能调出相关调试工具</em>，
+调试中得知默认主题使用了 IE6-8 不支持的 HTML5 元素，
+进而找到：<a href="http://cll.socss.cn/archives/382">让IE也支持html5标准</a>、<a href="http://code.google.com/p/html5shiv/" title="HTML5 IE enabling script">HTML5 Shiv</a>。</p>
+<p>解决方法是在模板文件 <code>_templates\layout.html</code> 中的 <code>&lt;head&gt;</code> 元素内添加</p>
+<pre><code>&lt;!--[if lt IE 9]&gt;
+&lt;script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"&gt;&lt;/script&gt;
+&lt;![endif]--&gt;
+</code></pre>
+<p>考虑到国内访问 googlecode 的抽风情况，可以将源文件下载放到 <code>static</code> 目录下，然后在相同地方添加</p>
+<pre><code>&lt;!--[if lt IE 9]&gt;
+&lt;script src="{{static_url('html5.js')}}"&gt;&lt;/script&gt;
+&lt;![endif]--&gt;
+</code></pre>
+<p><code>html5.js</code> 添加了 IE6-8 不支持的 HTML5 元素，并且包含了默认的样式。
+这个脚本必须放在 <code>&lt;body&gt;</code> 前，比如这里是在 <code>&lt;head&gt;</code> 范围内。
+放在加载 CSS 代码前面和后面都没有关系，但是从性能方面来说，最好放在 CSS 后面。</p> ]]>
+        </content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Qt Learning Notes]]></title>
+        <author><name>microjo</name><uri>http://microjo.github.com</uri></author>
+        <link href="http://microjo.github.com/note/qt_learning_notes.html"/>
+        <updated>2012-03-03T14:32:00Z</updated>
+        <published>2012-03-03T14:32:00Z</published>
+        <id>http://microjo.github.com/note/qt_learning_notes.html</id>
+        <category scheme="http://microjo.github.com/tag/qt.html" term="Qt" label="Qt" />
+        <category scheme="http://microjo.github.com/tag/harmattan.html" term="Harmattan" label="Harmattan" />
+        <category scheme="http://microjo.github.com/tag/qt mobility.html" term="Qt Mobility" label="Qt Mobility" />
+        <category scheme="http://microjo.github.com/tag/n950.html" term="N950" label="N950" />
+        <category scheme="http://microjo.github.com/tag/n9.html" term="N9" label="N9" />
+        <content type="html" xml:base="http://microjo.github.com" xml:lang="en">
+            <![CDATA[ <ol>
+<li>
+<p><a href="http://www.developer.nokia.com/Community/Wiki/MeeGo_1.2_Harmattan_Security_Tokens">MeeGo 1.2 Harmattan Security Tokens</a><br />
+使用 qt mobility 需要设置隐私标识</p>
+</li>
+<li>
+<p><a href="http://qt-project.org/forums/viewthread/8375/">Using the camera api on the n950</a></p>
+</li>
+</ol> ]]>
+        </content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[android apktool 升级使用问题一则]]></title>
+        <author><name>microjo</name><uri>http://microjo.github.com</uri></author>
+        <link href="http://microjo.github.com/note/apktool_update_usenote.html"/>
+        <updated>2011-05-18T05:40:00Z</updated>
+        <published>2011-05-18T05:40:00Z</published>
+        <id>http://microjo.github.com/note/apktool_update_usenote.html</id>
+        <category scheme="http://microjo.github.com/tag/android.html" term="android" label="Android" />
+        <category scheme="http://microjo.github.com/tag/apktool.html" term="apktool" label="Apktool" />
+        <category scheme="http://microjo.github.com/tag/gui.html" term="gui" label="Gui" />
+        <content type="html" xml:base="http://microjo.github.com" xml:lang="en">
+            <![CDATA[ <p>最近使用 Dodo APKTools 修改 <code>Zinio.apk</code>，反编译提示成功，修改 xml 文档后，重新编译也提示成功，但是找不到 apk 文件，原因不明。后来使用机锋论上的 apktool GUI 反编译，出现错误信息，反编译失败。日志显示：</p>
+<pre><code>I: Loading resource table from file: C:\Users\用户名\apktool\framework\1.apk
+
+Exception in thread "main" brut.androlib.err.UndefinedResObject: resource spec: 0x01030118
+    at brut.androlib.res.data.ResPackage.getResSpec(Unknown Source)
+    at brut.androlib.res.data.ResTable.getResSpec(Unknown Source)
+    at brut.androlib.res.data.ResTable.getResSpec(Unknown Source)
+    at brut.androlib.res.data.value.ResReferenceValue.getReferent(Unknown Source)
+    at brut.androlib.res.data.value.ResReferenceValue.toResXmlFormat(Unknown Source)
+    at brut.androlib.res.data.value.ResStyleValue.serializeToXml(Unknown Source)
+    at brut.androlib.res.AndrolibResources.generateValuesFile(Unknown Source)
+    at brut.androlib.res.AndrolibResources.decode(Unknown Source)
+    at brut.androlib.Androlib.decodeResourcesFull(Unknown Source)
+    at brut.androlib.ApkDecoder.decode(Unknown Source)
+    at brut.apktool.Main.cmdDecode(Unknown Source)
+    at brut.apktool.Main.main(Unknown Source)
+</code></pre>
+<p>联系 apktool GUI 作者反映了问题，使用新版仍然有这个问题。索性到 <a href="http://code.google.com/p/android-apktool">apktool 官网</a>下载了最新的版本，用命令行反编译，还是出现同样的问题，提示也类似。既然提示使用了一个 resource table 文件，我删除掉让命令行重新生成，再次使用命令行反编译竟然成功。反过来，重新使用 Dodo APKTools 修改 apk 也成功了。说明 apktool 使用过程中释放了一些文件，这些文件不会随着 apktool 的升级而自动重新生成，必须先清除掉旧版本的文件，才能自动产生新版本文件。因此，建议<em>使用 apktool 包括以其为内核的软件，在升级 apktool 时，将系统用户目录 <code>\apktool\framework</code>（以 Win7 举例：<code>C:\Users\用户名\apktool\framework</code>）中的文件清除，保证使用新的文件</em>。</p> ]]>
+        </content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[自定义诺基亚 Ovi 套件的安装目录]]></title>
+        <author><name>microjo</name><uri>http://microjo.github.com</uri></author>
+        <link href="http://microjo.github.com/note/custom_ovi_installdir.html"/>
+        <updated>2011-03-22T07:20:00Z</updated>
+        <published>2011-03-22T07:20:00Z</published>
+        <id>http://microjo.github.com/note/custom_ovi_installdir.html</id>
+        <category scheme="http://microjo.github.com/tag/诺基亚 ovi 套件.html" term="诺基亚 Ovi 套件" label="诺基亚 Ovi 套件" />
+        <category scheme="http://microjo.github.com/tag/nokia ovi suite.html" term="Nokia Ovi Suite" label="Nokia Ovi Suite" />
+        <content type="html" xml:base="http://microjo.github.com" xml:lang="en">
+            <![CDATA[ <p>真不知是认为现在用户希望安装什么都不用管最好，还是认为现在硬盘大到不需要关心安装到哪里，诺基亚 Ovi 套件在安装的时候根本没有给用户选择的余地，一律安装到系统盘（C）。以下是从网络上搜索到的自定义安装套件路径的方法：</p>
+<blockquote>
+<h3 id="how-to-change-the-installation-directory-for-nokia-ovi">转载自 <a href="http://discussions.europe.nokia.com/t5/Nokia-Suite/How-to-Change-the-Installation-Directory-for-Nokia-OVI/td-p/583982">How to Change the Installation Directory for Nokia OVI?</a></h3>
+<p>if you want to install Nokia Ovi Suite to for example D: drive, to directory "D:\Program files", you could start installation application from command line following way:
+举例将诺基亚 Ovi 套件安装到 <code>D:\Program Files</code> 目录下面，在命令行下面输入下面命令进行安装：</p>
+<pre><code>Nokia_Ovi_Suite_webinstaller_ALL.exe /TARGET="D:\Program files"
+</code></pre>
+<p>This would create a new folder "Nokia Ovi Suite" under D:\Program files\ and install Nokia Ovi Suite there.
+诺基亚 Ovi 套件会在 <code>D:\Program files</code> 目录下面创建新目录 <code>Nokia Ovi Suite</code>，并安装到此目录下面。</p>
+</blockquote>
+<p>经实际使用，确实能达到目的。注意在 Windows Vista 和 Windows 7 下面安装时，必须有管理员权限才能安装。</p> ]]>
+        </content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[VC++下面字符集转换（ANSI/Unicode/UTF-8）]]></title>
+        <author><name>microjo</name><uri>http://microjo.github.com</uri></author>
+        <link href="http://microjo.github.com/note/vc++_charset_convert.html"/>
+        <updated>2009-03-16T11:50:00Z</updated>
+        <published>2009-03-16T11:50:00Z</published>
+        <id>http://microjo.github.com/note/vc++_charset_convert.html</id>
+        <category scheme="http://microjo.github.com/tag/vc++.html" term="VC++" label="Vc++" />
+        <category scheme="http://microjo.github.com/tag/unicode.html" term="Unicode" label="Unicode" />
+        <category scheme="http://microjo.github.com/tag/utf-8.html" term="UTF-8" label="Utf-8" />
+        <category scheme="http://microjo.github.com/tag/转换.html" term="转换" label="转换" />
+        <content type="html" xml:base="http://microjo.github.com" xml:lang="en">
+            <![CDATA[ <p>使用 VC++2005 编写 WINCE 的程序需要考虑字符集的问题，尤其使用一些开源库，经常需要字符集的转换。在网上搜索了一些字符集相关的文章或帖子：</p>
+<ul>
+<li>
+<p><a href="http://www.cnblogs.com/xiongeee/archive/2007/10/29/942132.html">字符集之间转换(UTF-8,UNICODE,Gb2312)</a><br />
+使用类中静态方法实现，归入类中比较容易识别。其实是不是可以用命名空间实现？</p>
+</li>
+<li>
+<p><a href="http://topic.csdn.net/u/20081217/17/cfc4ae53-375c-4732-b8c0-23a689e1e6a4.html">unicode 转换成 UTF-8 出现问题</a><br />
+15、20、27楼的内容。</p>
+</li>
+<li>
+<p><a href="http://www.cnblogs.com/xiaoyz/archive/2008/10/11/1308860.html">C++的中英文字符串表示(string, wstring)</a></p>
+</li>
+<li>
+<p><a href="http://blog.csdn.net/ice197983/article/details/1533878">VS2005：C++ std::string, std::wstring 转换方法</a></p>
+</li>
+</ul> ]]>
+        </content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[字幕相关软件工具]]></title>
+        <author><name>microjo</name><uri>http://microjo.github.com</uri></author>
+        <link href="http://microjo.github.com/note/subtitle_notes.html"/>
+        <updated>2009-02-22T12:14:00Z</updated>
+        <published>2009-02-22T12:14:00Z</published>
+        <id>http://microjo.github.com/note/subtitle_notes.html</id>
+        <category scheme="http://microjo.github.com/tag/字幕.html" term="字幕" label="字幕" />
+        <category scheme="http://microjo.github.com/tag/压制.html" term="压制" label="压制" />
+        <content type="html" xml:base="http://microjo.github.com" xml:lang="en">
+            <![CDATA[ <ul>
+<li>
+<p><a href="http://www.sapikachu.net/%E7%94%A8%E4%BA%8Emkv%E5%86%85%E5%B5%8C%E7%9A%84%E5%AD%97%E4%BD%93%E7%B2%BE%E7%AE%80%E5%B7%A5%E5%85%B72011-12-03%E6%9B%B4%E6%96%B0/">用于MKV内嵌的字体精简工具</a><br />
+MKV 内嵌字体如果能像 PDF 只嵌入需要的字体子集该多好～ 这个工具就是用来生成需要的字体子集。</p>
+</li>
+<li>
+<p><a href="http://shooter.cn/wiki/%E5%9C%A8Linux%E4%B8%8A%E7%94%A8subtitleeditor%E5%88%B6%E4%BD%9C%E5%AD%97%E5%B9%95">在 Linux 上用 subtitleeditor 制作字幕</a><br />
+很不错的字幕工具，可以在 getdeb.net 下载0.25版的64位 deb 包，什么时候能够有最新版的64位 deb 包呢？</p>
+</li>
+</ul> ]]>
+        </content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Ubuntu 8.04/8.10 Flash 中文显示]]></title>
+        <author><name>microjo</name><uri>http://microjo.github.com</uri></author>
+        <link href="http://microjo.github.com/note/ubuntu_flash_zh.html"/>
+        <updated>2008-12-25T10:28:00Z</updated>
+        <published>2008-12-25T10:28:00Z</published>
+        <id>http://microjo.github.com/note/ubuntu_flash_zh.html</id>
+        <category scheme="http://microjo.github.com/tag/flash.html" term="Flash" label="Flash" />
+        <category scheme="http://microjo.github.com/tag/ubuntu.html" term="Ubuntu" label="Ubuntu" />
+        <category scheme="http://microjo.github.com/tag/中文显示.html" term="中文显示" label="中文显示" />
+        <content type="html" xml:base="http://microjo.github.com" xml:lang="en">
+            <![CDATA[ <p>修改 <code>/etc/fonts/conf.d/49-sansserif.conf</code>，如下所示文件内容中 <code>WenQuanYi Zen Hei</code> 改为需要的中文字体。</p>
+<div class="code"><div class="highlight"><pre><span class="cp">&lt;?xml version=&quot;1.0&quot;?&gt;</span>
+<span class="cp">&lt;!DOCTYPE fontconfig SYSTEM &quot;fonts.dtd&quot;&gt;</span>
+<span class="nt">&lt;fontconfig&gt;</span>
+<span class="c">&lt;!--</span>
+<span class="c">  If the font still has no generic name, add sans-serif</span>
+<span class="c"> --&gt;</span>
+    <span class="nt">&lt;match</span> <span class="na">target=</span><span class="s">&quot;pattern&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;test</span> <span class="na">qual=</span><span class="s">&quot;all&quot;</span> <span class="na">name=</span><span class="s">&quot;family&quot;</span> <span class="na">compare=</span><span class="s">&quot;not_eq&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;string&gt;</span>sans-serif<span class="nt">&lt;/string&gt;</span>
+        <span class="nt">&lt;/test&gt;</span>
+        <span class="nt">&lt;test</span> <span class="na">qual=</span><span class="s">&quot;all&quot;</span> <span class="na">name=</span><span class="s">&quot;family&quot;</span> <span class="na">compare=</span><span class="s">&quot;not_eq&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;string&gt;</span>serif<span class="nt">&lt;/string&gt;</span>
+        <span class="nt">&lt;/test&gt;</span>
+        <span class="nt">&lt;test</span> <span class="na">qual=</span><span class="s">&quot;all&quot;</span> <span class="na">name=</span><span class="s">&quot;family&quot;</span> <span class="na">compare=</span><span class="s">&quot;not_eq&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;string&gt;</span>monospace<span class="nt">&lt;/string&gt;</span>
+        <span class="nt">&lt;/test&gt;</span>
+        <span class="nt">&lt;edit</span> <span class="na">name=</span><span class="s">&quot;family&quot;</span> <span class="na">mode=</span><span class="s">&quot;append_last&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;string&gt;</span>WenQuanYi Zen Hei<span class="nt">&lt;/string&gt;</span>
+        <span class="nt">&lt;/edit&gt;</span>
+    <span class="nt">&lt;/match&gt;</span>
+<span class="nt">&lt;/fontconfig&gt;</span>
+</pre></div>
+</div>
+
+<p>该文件是对没有基本的字体名称（sans-serif/serif/monospace）的字体添加一个字体。由于 Flash 没有指定显示的字体，因此此文件起作用。</p> ]]>
+        </content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Excel 金额大小写转换公式]]></title>
+        <author><name>microjo</name><uri>http://microjo.github.com</uri></author>
+        <link href="http://microjo.github.com/note/execl_money_conversion.html"/>
+        <updated>2008-12-12T09:48:00Z</updated>
+        <published>2008-12-12T09:48:00Z</published>
+        <id>http://microjo.github.com/note/execl_money_conversion.html</id>
+        <category scheme="http://microjo.github.com/tag/excel.html" term="excel" label="Excel" />
+        <category scheme="http://microjo.github.com/tag/text.html" term="TEXT" label="Text" />
+        <category scheme="http://microjo.github.com/tag/金额大小写转换.html" term="金额大小写转换" label="金额大小写转换" />
+        <content type="html" xml:base="http://microjo.github.com" xml:lang="en">
+            <![CDATA[ <blockquote>
+<ol>
+<li>
+<p>转自<em>财务经理人 Henry </em>网友，充分利用 Execl 的中文大写转换功能</p>
+<pre><code>=IF(ROUND(G8,2)&lt;0,"无效数值",IF(ROUND(G8,2)=0,"零",IF(ROUND(G8,2)&lt;1,"",TEXT(INT(ROUND(G8,2)),"[dbnum2]")&amp;"元")&amp;IF(INT(ROUND(G8,2)*10)-INT(ROUND(G8,2))*10=0,IF(INT(ROUND(G8,2))* (INT(ROUND(G8,2)*100)-INT(ROUND(G8,2)*10)*10)=0,"","零"),TEXT(INT(ROUND(G8,2)*10)-INT(ROUND(G8,2))*10,"[dbnum2]")&amp;"角")&amp;IF((INT(ROUND(G8,2)*100)-INT(ROUND(G8,2)*10)*10)=0,"整",TEXT((INT(ROUND(G8,2)*100)-INT(ROUND(G8,2)*10)*10),"[dbnum2]")&amp;"分")))
+</code></pre>
+<p>注：“G8”是 Excel 表格中金额小写所在的单元格，各人使用时只需修改下小写所在单元格位置即可。<br />
+例1、56137.16 → 伍万陆仟壹佰叁拾柒元壹角陆分<br />
+例2、760090.40 → 柒拾陆万零玖拾元肆角整</p>
+</li>
+<li>
+<p><em>shenboo@ExcelHOME</em></p>
+<p>附一个我做的人民币大写公式吧，在我的机器上是没有问题的，可是有些机器上就不行。</p>
+<pre><code>SUBSTITUTE(IF(TRUNC(单元格)=0,IF(MID(单元格,LEN(TEXT(单元格,"0.00"))-1,1)="0","",TEXT(MID(单元格,LEN(TEXT(单元格,"0.00"))-1,1),"[DBNUM2]") &amp; "角") &amp; IF(RIGHT(TEXT(单元格,"0.00"),1)="0","",TEXT(RIGHT(TEXT(ROUND(单元格,2),"0.00"),1),"[DBNUM2]")&amp;"分"), IF(TRUNC(单元格)=单元格,TEXT(TRUNC(单元格),"[DBNUM2]")&amp;"元",TEXT(TRUNC(单元格)," [DBNUM2]")&amp;"元" &amp; IF(MID(单元格,LEN(TEXT(单元格,"0.00"))-1,1)="0","零",TEXT(MID(单元格,LEN(TEXT(单元格,"0.00"))-1,1),"[DBNUM2]") &amp; "角") &amp; IF(RIGHT(TEXT(单元格,"0.00"),1)="0","",TEXT(RIGHT(TEXT(ROUND(单元格,2),"0.00"),1),"[DBNUM2]")&amp;"分"))),"-","负")
+</code></pre>
+</li>
+</ol>
+</blockquote>
+<p>上面两个主要使用的 TEXT 函数，这个函数里面重要的就是第二个参数 format_text。“[DBNum2]”的可以把数字转换为中文大写形式。</p>
+<h2 id="">相关文章</h2>
+<ul>
+<li><a href="http://www.ozgrid.com/Excel/CustomFormats.htm">Excel Custom Formats: Numbers/Text Formats in Excel Spreadsheets</a></li>
+<li><a href="http://zhidao.baidu.com/question/59085606.html">Excel：关于格式输出[$-409]、[DBNum2]的帮助怎么查找</a></li>
+<li><a href="http://huangweidongmei.blog.sohu.com/82608212.html">excel 学习笔记之三（单元格自定义）</a></li>
+</ul> ]]>
+        </content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[编译 kvm 时选择需要编译的音频驱动]]></title>
+        <author><name>microjo</name><uri>http://microjo.github.com</uri></author>
+        <link href="http://microjo.github.com/note/kvm_compile_audio.html"/>
+        <updated>2008-12-04T17:33:00Z</updated>
+        <published>2008-12-04T17:33:00Z</published>
+        <id>http://microjo.github.com/note/kvm_compile_audio.html</id>
+        <category scheme="http://microjo.github.com/tag/kvm.html" term="kvm" label="Kvm" />
+        <category scheme="http://microjo.github.com/tag/pulseaudio.html" term="PulseAudio" label="Pulseaudio" />
+        <category scheme="http://microjo.github.com/tag/音频.html" term="音频" label="音频" />
+        <content type="html" xml:base="http://microjo.github.com" xml:lang="en">
+            <![CDATA[ <p>使用 kvm 作为虚拟机安装 windows 系统，速度感觉很快，但是音频老是有问题：在进入虚拟机使用声卡后，外面的 ubuntu 不能够播放音乐。使用参数 <code>-audio-help</code> 查询支持的音频输出有哪些，发现有 alsa、oss、wav 等。依次 alsa、oss 作为输出使用都是类似的问题，差点就放弃使用声卡。由于 ubuntu 8.10 使用 PulseAudio 作为系统的声音服务，能够支持多个应用程序播放音频，就想 kvm 是否支持 PulseAudio 输出呢？Google 之后发现从 kvm 71 开始支持，参考官方 wiki 中的编译方法：</p>
+<div class="code"><div class="highlight"><pre>tar xzf kvm-release.tar.gz
+<span class="nb">cd </span>kvm-release
+./configure --prefix<span class="o">=</span>/usr/local/kvm
+make
+sudo make install
+sudo /sbin/modprobe kvm-intel
+<span class="c"># or: sudo /sbin/modprobe kvm-amd</span>
+</pre></div>
+</div>
+
+<p>编译安装之后，查询还是没有支持 PulseAudio 输出。于是，用 <code>./configure --help</code> 查询编译参数，里面没有提及声音驱动的设置。进一步查看 configure 的源代码，发现里面还设置了 qemu 目录下文件编译的参数，所以在 qemu 目录下面，执行 <code>./configure --help</code> 发现有了声音驱动的参数设置：</p>
+<pre><code>--audio-drv-list=LIST set audio drivers list:
+Available drivers: oss alsa sdl esd pa fmod
+</code></pre>
+<p>编译使用参数 <code>--audio-drv-list="alsa oss pa"</code>，其中 pa 表示 PulseAudio。编译安装后，配置参数 <code>export QEMU_AUDIO_DRV=pa</code> 使用 PulseAudio 输出成功解决问题，但是好像稳定性有问题，在虚拟机下面播放音频关闭后，会莫名奇妙的跳出。</p> ]]>
+        </content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[收集压制 DVD 相关的文章]]></title>
+        <author><name>microjo</name><uri>http://microjo.github.com</uri></author>
+        <link href="http://microjo.github.com/note/dvdrip_notes.html"/>
+        <updated>2008-11-24T23:05:00Z</updated>
+        <published>2008-11-24T23:05:00Z</published>
+        <id>http://microjo.github.com/note/dvdrip_notes.html</id>
+        <category scheme="http://microjo.github.com/tag/megui.html" term="megui" label="Megui" />
+        <category scheme="http://microjo.github.com/tag/tivtc.html" term="TIVTC" label="Tivtc" />
+        <category scheme="http://microjo.github.com/tag/压制.html" term="压制" label="压制" />
+        <content type="html" xml:base="http://microjo.github.com" xml:lang="en">
+            <![CDATA[ <p>最近下载了一张电影 DVD，正在学习用 megui 压制，在网上找到的相关有用文章：</p>
+<ul>
+<li>
+<p><a href="http://wenku.baidu.com/view/4b482cd380eb6294dd886c5f.html">使用 MeGUI 制作可变形 DVDRip 的具体方法（作者：羊@CGTOP）</a>
+正在按照这种方式压制中...</p>
+</li>
+<li>
+<p><a href="http://www.nmm-hd.org/bbs/thread-119-1-1.html">【新手问题分类 FAQ 系列】第二讲 影片类型 修订版 Ver.1（作者：dgwxx@NMM）</a><br />
+了解片源的状况才好处理</p>
+</li>
+<li>
+<p><a href="http://zanetu.ycool.com/post.1970147.html">TIVTC 杂谈（作者：Zane）</a></p>
+</li>
+<li>
+<p><a href="http://www.nmm-hd.org/bbs/thread-663-1-1.html">TIVTC 的自动交错帧记录与手动 OVR 脚本（作者：dgwxx@NMM）</a><br />
+学习到了一种使用 TIVTC 的方法，肯定在以后手动 IVTC 使非常有帮助</p>
+</li>
+<li>
+<p><a href="http://www.av110.net/shipinruanjian/200902/1917.html">高品质 X264 视频制作工具 meGUI 使用教程（四）实战篇（作者：shadowchen@CGTOP）</a><br />
+实战压制流程，从使用 DVD Decrypter 到 megui 压制、封装</p>
+</li>
+</ul> ]]>
+        </content>
+    </entry>
+    </feed>

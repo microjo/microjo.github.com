@@ -1,0 +1,123 @@
+<!DOCTYPE HTML>
+<html lang="zh">
+    <head>
+        <meta charset="UTF-8">
+        <title>修改基于 glibc 的程序 - GMPC | Jonathan's Blog</title>
+        <script>if (top !== self) top.location = self.location;</script>
+        <!--[if lt IE 9]>
+        <script src="/static/html5.js?v=4443b"></script>
+        <![endif]-->
+        <meta name="HandheldFriendly" content="True" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0" />
+        
+<meta name="author" content="microjo" />
+
+        
+        <link rel="alternate" type="application/rss+xml" href="/feed.html" title="Jonathan's Blog Feed" />
+        <link rel="stylesheet" href="/static/style.css?v=47c21" />
+        
+<link rel="canonical" href="/work/gmpc_modified.html" />
+<link rel="stylesheet" href="/static/syntax.css?v=dbf77" />
+
+        
+     </head>
+     <body>
+         <header id="header">
+             <nav class="fn-clear">
+                 <ul id="nav" class="fn-right fn-clear">
+                     <li id="nav-home"><a href="/">Home/首页</a></li>
+                     <li id="nav-about"><a href="/about.html">About/关于</a></li>
+                     <li id="nav-tags"><a href="/tag/">Tags/标签</a></li>
+                 </ul>
+             </nav>
+         </header>
+         
+         <article class="hentry">
+             <header class="entry-header fn-clear">
+                 <h1 class="entry-title fn-left"><a href="/work/gmpc_modified.html">修改基于 glibc 的程序 - GMPC</a></h1>
+                 
+                 <form id="search-form" action="http://www.google.com/search">
+                     <input type="hidden" name="q" value="site:http://microjo.github.com" />
+                     <input id="search-input" class="ui-fm-text" type="text" placeholder="Search .." name="q" />
+                 </form>
+                 
+             </header>
+             
+<div class="entry">
+    <div class="entry-content">
+        <p>Ubuntu 下面喜欢使用 MPD (Music Player Daemon) 播放歌曲，由于这是一个 C/S 的音乐播放程序，一个好用的播放客户端必不可少。</p>
+<p>最初使用的是 Sonata（用 Python 语言编写）。这个播放客户端界面简洁，能够修改音乐的标签，功能满足要求，但是有一个缺点，对于需要代理访问因特网的用户无法更新专辑封面、歌词等信息。充分利用 Google 搜索发现 Python 支持使用系统环境变量 <code>http_proxy</code> 的代理设置访问因特网，于是自己修改了部分代码（使用 urllib2 访问因特网的部分），可是测试使用的时候总是不起作用。后来想通过在终端运行看看是否有出错的信息，出人意料竟然能访问因特网，这个现象也太奇怪了，实在搞不懂是怎么一回事？？</p>
+<p>接着找到了 gimmix，为了编译最新版本安装了一堆包（太惨了，网站上的编译说明和源码包中的还不一致，nxml 这个包其实是 libnxml，费了很长时间才搞定）。使用中也是无法使用代理，而且没法显示音乐目录下面的专辑封面图片（在 windows 下面已有不少 itunes/amazon/allcdcovers 的专辑封面），所以毫不犹豫删除了。</p>
+<p>最后看到一篇论坛帖子介绍 MPD 的客户端，其中推荐 Sonata 和 GMPC (Gnome Music Player Client)，于是在 launchpad 找了开发者自身编译的 GMPC 包安装到系统中。使用后感觉不错，尤其是支持代理访问因特网。优点如下：</p>
+<ul>
+<li>支持插件，通过插件实现如下功能：搜索本地专辑封面、歌词；获取 amazon 上的专辑封面；获取 last.fm 上面的艺术家信息、图片；获取 lyricwiki、leoslyrics 等网站上的歌词（纯歌词，不是 lrc 歌词）等等。</li>
+<li>Metadata Browser 功能强大，充分利用插件获取的 last.fm 的相关信息。</li>
+</ul>
+<p>确定使用 GMPC 作为播放客户端后，就想能否修改一下满足自身的要求。搜索本地专辑封面的插件 Music Dir Fetcher 虽然可以搜索到播放音乐文件所在目录下面的图片，但对于有多张图片（包括专辑封面、光盘封面、小册子扫图等）不能按照喜好定义选择哪一张，用下来感觉像随机选取。阅读这个插件的源代码（只有单个 C 文件）后，知道插件是用正则表达式匹配图片文件，选取匹配的第一个文件作为专辑图片，如果没有匹配的，使用目录下面的第一个图片文件。插件考虑兼容性，将匹配的表达式定义为：<code>(voorkant|front|cover|large|folder|booklet)</code>。因此，我想能不能给一个自定义项用于匹配，在插件处理专辑图片时先用用户自定义的进行匹配，这样即不破坏原插件的功能，又能让插件按照用户习惯选择正确的专辑图片。为插件增加这个功能，用 Google 搜索了不少关于 GTK+ 界面编程、glibc 函数等信息：</p>
+<ul>
+<li><a href="http://topic.csdn.net/t/20030103/09/1322361.html">regcomp()、regexec() 正则表达式函数的参数说明</a> regcomp() 是把用于匹配的规则编译，使后续匹配更有效；regexec() 用于正则表达式的匹配</li>
+<li><a href="http://docs.huihoo.com/gnu/linux2/gtk_tut-4.html">GTK 入门导引 ： 4. 封装物件</a> 界面各项数据</li>
+<li><a href="http://docs.huihoo.com/gnu/gtk2-tut/x1002.html">GTK+ 2.0 教程 - 杂项构件 - 文本输入构件 Text Entries</a> 学习标签的使用</li>
+<li><a href="http://blog.csdn.net/tresss/article/details/3731853">标签 (GTKLabel) -- GTK 开发资料</a> 学习标签中对文字格式的控制</li>
+<li><a href="http://developer.gnome.org/glib/stable/glib-String-Utility-Functions.html">GLib Reference Manual － String Utility Functions</a> Glib 中字符串的操作函数</li>
+<li><a href="http://developer.gnome.org/glib/stable/glib-regex-syntax.html">GLib Reference Manual － Regular expression syntax</a></li>
+</ul>
+<p>学习了半天，终于修改成功，已经编译到 GMPC 下正常使用。在 Music Dir Fetcher 界面增加 Cover Filename 这个自定义项，可以使用正则表达式，比如我自己设定成 <code>(itunes|amazon)</code>，因为我的专辑图片一般将来源放在图片文件名开头（[itunes] xxx.jpg、[amazon] xxx.jpg）。<br />
+<img alt="GMPC Music Dir Fetcher screenshot" src="/image/gmpc_mdcover.gif" /></p>
+    </div>
+    <div class="fn-clear">
+        <p class="entry-rel fn-right">
+        
+        <a id="prev-entry" href="/note/install_itunes8_clean.html" title="干干净净安装 iTunes 8" rel="prev">«Prev</a>
+        
+        
+        <a id="next-entry" href="/note/diff_xiang.html" title="“象”与“像”的 区别" rel="next">Next»</a>
+        
+        </p>
+    </div>
+</div>
+<div class="entry-meta fn-clear">
+    <p class="entry-time fn-left">
+    Created at: 
+    <a href="/2008/" rel="index"><time class="updated" datetime="2008-11-20T17:55:00Z" pubdate>Thu, Nov 20, 2008</time></a>
+    </p>
+    
+    <p class="entry-tags fn-left">
+    Tagged in:
+    
+    <a href="/tag/gmpc.html" class="tag" rel="tag">GMPC</a>
+    
+    <a href="/tag/gtk+.html" class="tag" rel="tag">GTK+</a>
+    
+    <a href="/tag/glibc.html" class="tag" rel="tag">glibc</a>
+    
+    <a href="/tag/mpd.html" class="tag" rel="tag">MPD</a>
+    
+    </p>
+    
+</div>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'microjo';
+    var disqus_title = '修改基于 glibc 的程序 - GMPC';
+    (function() {
+     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+     dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+     })();
+</script>
+
+
+         </article>
+         
+         <footer id="footer">
+             <div class="copyright">© <a href="http://microjo.github.com">Jonathan's Blog</a> | Powered by <a href="http://lepture.com/project/liquidluck">Felix Felicis</a></div>
+             <p class="love">Lovely designed by <a href="http://lepture.com">lepture</a> | Modified by MiCRoJo</p>
+         </footer>
+         <script type="text/javascript">
+             var currentNav = window.currentNav || "nav-home";
+             document.getElementById(currentNav).className = "current";
+         </script>
+     </body>
+ </html>

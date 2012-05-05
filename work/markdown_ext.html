@@ -1,0 +1,295 @@
+<!DOCTYPE HTML>
+<html lang="zh">
+    <head>
+        <meta charset="UTF-8">
+        <title>扩展 Markdown 语法 | Jonathan's Blog</title>
+        <script>if (top !== self) top.location = self.location;</script>
+        <!--[if lt IE 9]>
+        <script src="/static/html5.js?v=4443b"></script>
+        <![endif]-->
+        <meta name="HandheldFriendly" content="True" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0" />
+        
+<meta name="author" content="microjo" />
+
+        
+        <link rel="alternate" type="application/rss+xml" href="/feed.html" title="Jonathan's Blog Feed" />
+        <link rel="stylesheet" href="/static/style.css?v=47c21" />
+        
+<link rel="canonical" href="/work/markdown_ext.html" />
+<link rel="stylesheet" href="/static/syntax.css?v=dbf77" />
+
+        
+     </head>
+     <body>
+         <header id="header">
+             <nav class="fn-clear">
+                 <ul id="nav" class="fn-right fn-clear">
+                     <li id="nav-home"><a href="/">Home/首页</a></li>
+                     <li id="nav-about"><a href="/about.html">About/关于</a></li>
+                     <li id="nav-tags"><a href="/tag/">Tags/标签</a></li>
+                 </ul>
+             </nav>
+         </header>
+         
+         <article class="hentry">
+             <header class="entry-header fn-clear">
+                 <h1 class="entry-title fn-left"><a href="/work/markdown_ext.html">扩展 Markdown 语法</a></h1>
+                 
+                 <form id="search-form" action="http://www.google.com/search">
+                     <input type="hidden" name="q" value="site:http://microjo.github.com" />
+                     <input id="search-input" class="ui-fm-text" type="text" placeholder="Search .." name="q" />
+                 </form>
+                 
+             </header>
+             
+<div class="entry">
+    <div class="entry-content">
+        <p><strong>声明：</strong>本文采用<a href="http://creativecommons.org/licenses/by-nc-sa/2.5/cn/" title="署名-非商业性使用-相同方式共享 2.5">CC BY-NC-SA 2.5协议</a>授权，转载请注明本文链接。</p>
+<hr />
+<p>本文说明生成本博客内容的 Felix Felicis 程序支持的扩展 Markdown<sup id="fnref:markdown"><a href="#fn:markdown" rel="footnote">1</a></sup> 语法。</p>
+<div class="toc">
+<ul>
+<li><a href="#highlight_code">支持语法高亮的代码区块</a></li>
+<li><a href="#attribute-lists-2">Attribute Lists / 属性列表 2</a><ul>
+<li><a href="#the-list">The List</a></li>
+<li><a href="#block-level">Block Level</a></li>
+<li><a href="#inline">Inline</a></li>
+</ul>
+</li>
+<li><a href="#footnotes-3">Footnotes / 脚注 3</a></li>
+<li><a href="#table-of-contents-4">Table of Contents / 目录 4</a></li>
+<li><a href="#tables-5">Tables / 表格 5</a></li>
+<li><a href="#ckzl">参考资料</a></li>
+</ul>
+</div>
+<h2 id="highlight_code">支持语法高亮的代码区块</h2>
+<p>支持多种语言，比如 python, c, html 等。</p>
+<blockquote>
+<p>```python</p>
+<p>def hello():</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;return 'Hello World'</p>
+<p>```</p>
+</blockquote>
+<p>产生如下结果：</p>
+<div class="code"><div class="highlight"><pre><span class="k">def</span> <span class="nf">hello</span><span class="p">():</span>
+    <span class="k">return</span> <span class="s">&#39;Hello World&#39;</span>
+</pre></div>
+</div>
+
+<h2 id="attribute-lists-2">Attribute Lists / 属性列表 <sup id="fnref:attr_list"><a href="#fn:attr_list" rel="footnote">2</a></sup></h2>
+<p>定义 HTML 元素的属性。基本语法参照 <a href="http://maruku.rubyforge.org/proposal.html#attribute_lists">Maruku's Attribute List</a>。</p>
+<h3 id="the-list">The List</h3>
+<p>一个 attribute list 的例子如下所示：</p>
+<pre><code>{: #someid .someclass somekey='some values' }
+</code></pre>
+<ul>
+<li>A word which starts with a hash # will set the id of an element.
+以井号 <code>#</code> 开头的单词将设置元素的 id。</li>
+<li>A word which starts with a dot . will add to the list of classes assigned to an element.
+以点 <code>.</code> 开头的单词将添加到元素的类列表中。</li>
+<li>A key/value pair will assign that pair to the element.
+一个键/值对将赋予元素。</li>
+</ul>
+<p>Be aware that while the dot syntax will add to a class, using key/value pairs will always override the previously defined attribute.
+注意使用键/值对会覆盖前面的 <code>.</code> 定义类名。比如以下情况：</p>
+<pre><code>{: #id1 .class1 id=id2 class="class2 class3" .class4 }
+</code></pre>
+<p>上面的例子会生成如下结果：</p>
+<pre><code>id="id2" class="class2 class3 class4"
+</code></pre>
+<h3 id="block-level">Block Level</h3>
+<p>To define attributes for a block level element, the attribute list should be defined on the last line of the block by itself.
+块级元素定义属性，其属性列表必须在块的最后一行定义。</p>
+<pre><code>This is a paragraph.
+{: #an_id .a_class }
+</code></pre>
+<p>上面的例子生成如下结果：</p>
+<pre><code>&lt;p id="an_id" class="a_class"&gt;This is a paragraph.&lt;/p&gt;
+</code></pre>
+<p>The one exception is headers, as they are only ever allowed on one line.
+唯一例外的是标题，因为标题只允许一行。</p>
+<pre><code>A setext style header {: #setext}
+=================================
+
+### A hash style header ### {: #hash }
+</code></pre>
+<p>上面的例子生成如下结果：</p>
+<pre><code>&lt;h1 id="setext"&gt;A setext style header&lt;/h1&gt;
+&lt;h3 id="hash"&gt;A hash style header&lt;/h3&gt;
+</code></pre>
+<h3 id="inline">Inline</h3>
+<p>To define attributes on inline elements, the attribute list should be defined immediately after the inline element with no whitespace.
+内联元素定义属性，其属性列表必须紧接着内联元素定义，中间不能有空格。</p>
+<pre><code>[link](http://example.com){: class="foo bar" title="Some title!" }
+</code></pre>
+<p>上面的例子生成如下结果：</p>
+<pre><code>&lt;p&gt;&lt;a href="http://example.com" class="foo bar" title="Some title!"&gt;link&lt;/a&gt;&lt;/p&gt;
+</code></pre>
+<h2 id="footnotes-3">Footnotes / 脚注 <sup id="fnref:footnotes"><a href="#fn:footnotes" rel="footnote">3</a></sup></h2>
+<p>脚注是在需要标记脚注文字的后面增加一个方括号，方括号中的内容必须以 <code>^</code> 开头，再接着是数字、字符串标记：</p>
+<pre><code>Footnotes[^1] have a label[^label] and a definition[^!DEF].
+</code></pre>
+<p>接着，在文件的任意地方，你可以把这个脚注的内容定义出来：</p>
+<pre><code>[^1]: This is a footnote
+[^label]: A footnote on "label"
+[^!DEF]: The definition of a footnote.
+</code></pre>
+<p>脚注内容定义的形式就是前面引用脚注的内容，接着一个冒号，再接着一个以上的空格或制表符，最后是脚注定义的内容。</p>
+<p>A footnote definition may contain multiple lines, paragraphs, code blocks, blockquotes and most any other markdown syntax. The additional line simply must be indented at least an additional four spaces.
+脚注定义的内容可以包含多行、段落、代码区块、区块引用和大多数其他 markdown 格式的内容。对于多行的内容只需要简单缩进至少4个空格。</p>
+<pre><code>[^1]: The first paragraph of the definition.
+
+    Paragraph two of the definition.
+
+    &gt; A blockquote with
+    &gt; multiple lines.
+
+        a code block
+
+    A final paragraph.
+</code></pre>
+<p>By default, the footnote definitions are placed at the end of the resulting HTML document. However, you may want the footnotes in another location within the document. Simply place the following text at that location within your markdown document.
+默认情况下，脚注内容位于生成的 HTML 文档末尾。但是，你也许想将脚注内容放在文档的其他位置。只需要将如下内容放在需要的 markdown 文档位置即可。</p>
+<pre><code>///Footnotes Go Here///
+</code></pre>
+<h2 id="table-of-contents-4">Table of Contents / 目录 <sup id="fnref:toc"><a href="#fn:toc" rel="footnote">4</a></sup></h2>
+<p>Place a marker in the document where you would like the table of contents to appear. Then, a nested list of all the headers in the document will replace the marker. The marker defaults to [TOC].
+在需要目录出现的地方放置一个标记，这样会自动生成一个嵌套的包含所有标题的列表。默认的标记是 <code>[TOC]</code>。</p>
+<pre><code>[TOC]
+
+# Header 1
+
+## Header 2
+</code></pre>
+<p>上面 markdown 内容会生成如下 HTML 内容：</p>
+<pre><code>&lt;div class="toc"&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href="#header-1"&gt;Header 1&lt;/a&gt;&lt;/li&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;a href="#header-2"&gt;Header 2&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+&lt;h1 id="header-1"&gt;Header 1&lt;/h1&gt;
+&lt;h1 id="header-2"&gt;Header 2&lt;/h1&gt;
+</code></pre>
+<p>目录跳转的标题 id 是依据标题内容自动生成的，只包含英文、数字、下划线 <code>_</code> 等。对于全部是中文的标题，自动生成的标题 id 为空，导致无法跳转。可以使用前面的 Attribute Lists 方法，定义标题 id。</p>
+<h2 id="tables-5">Tables / 表格 <sup id="fnref:tables"><a href="#fn:tables" rel="footnote">5</a></sup></h2>
+<p>定义表格的语法参照 <a href="http://www.michelf.com/projects/php-markdown/extra/#table">PHP Markdown Extra</a>。下面 markdown 内容（摘自前面的 PHP 参考文档）：</p>
+<pre><code>First Header  | Second Header
+------------- | -------------
+Content Cell  | Content Cell
+Content Cell  | Content Cell
+</code></pre>
+<p>会生成如下 HTML 内容：</p>
+<pre><code>&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;First Header&lt;/th&gt;
+      &lt;th&gt;Second Header&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Content Cell&lt;/td&gt;
+      &lt;td&gt;Content Cell&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Content Cell&lt;/td&gt;
+      &lt;td&gt;Content Cell&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+</code></pre>
+<p>第一行包含列标题，第二行包含位于标题和内容之间的强制性分隔线，接下来的每一行就是表格的内容。列与列之间用竖线 <code>|</code> 分隔。</p>
+<p>如果愿意的话，可以在表格每一行的开头和结尾处添加竖线 <code>|</code>，如下所示得到的结果和上面一致：</p>
+<pre><code>| First Header  | Second Header |
+| ------------- | ------------- |
+| Content Cell  | Content Cell  |
+| Content Cell  | Content Cell  |
+</code></pre>
+<p>注：表格的每一行至少有一个竖线 <code>|</code>，否则无法正确处理表格。这也就意味着，创建只有一列的表格，必须在每一行的开头或者结尾处添加一个竖线 <code>|</code>，或者都添加。</p>
+<p>通过在对应列的分隔线添加冒号 <code>:</code> 可以指定列的对齐方式。冒号 <code>:</code> 在分隔线的左边说明此列左对齐，冒号 <code>:</code> 在分隔线的右边说明此列右对齐，冒号 <code>:</code> 在分隔线的左右两边说明此列居中。比如下面的 <code>Item</code> 列是居中的，<code>Value</code> 列是右对齐：</p>
+<pre><code>| Item      | Value |
+|:---------:| -----:|
+| Computer  | $1600 |
+| Phone     |   $12 |
+| Pipe      |    $1 |
+</code></pre>
+<h2 id="ckzl">参考资料</h2>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:markdown">
+<p><a href="http://wowubuntu.com/markdown/">Markdown 语法说明 (简体中文版)</a> 来源自 <img alt="wowubuntu" src="http://wowubuntu.com/wp-content/themes/evidens-white/logo.png" />&#160;<a href="#fnref:markdown" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:attr_list">
+<p>根据<a href="http://packages.python.org/Markdown/extensions/attr_list.html">http://packages.python.org/Markdown/extensions/attr_list.html</a>翻译&#160;<a href="#fnref:attr_list" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:footnotes">
+<p>根据<a href="http://packages.python.org/Markdown/extensions/footnotes.html">http://packages.python.org/Markdown/extensions/footnotes.html</a>翻译&#160;<a href="#fnref:footnotes" rev="footnote" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:toc">
+<p>根据<a href="http://packages.python.org/Markdown/extensions/toc.html">http://packages.python.org/Markdown/extensions/toc.html</a>翻译&#160;<a href="#fnref:toc" rev="footnote" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+<li id="fn:tables">
+<p>根据<a href="http://packages.python.org/Markdown/extensions/tables.html">http://packages.python.org/Markdown/extensions/tables.html</a>翻译&#160;<a href="#fnref:tables" rev="footnote" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+    </div>
+    <div class="fn-clear">
+        <p class="entry-rel fn-right">
+        
+        <a id="prev-entry" href="/note/html5_ie678.html" title="IE6-8 支持 HTML5 元素" rel="prev">«Prev</a>
+        
+        
+        <a id="next-entry" href="/work/helloworld.html" title="Hello, world!" rel="next">Next»</a>
+        
+        </p>
+    </div>
+</div>
+<div class="entry-meta fn-clear">
+    <p class="entry-time fn-left">
+    Created at: 
+    <a href="/2012/" rel="index"><time class="updated" datetime="2012-04-28T21:16:00Z" pubdate>Sat, Apr 28, 2012</time></a>
+    </p>
+    
+    <p class="entry-tags fn-left">
+    Tagged in:
+    
+    <a href="/tag/markdown.html" class="tag" rel="tag">Markdown</a>
+    
+    <a href="/tag/extension.html" class="tag" rel="tag">extension</a>
+    
+    <a href="/tag/扩展.html" class="tag" rel="tag">扩展</a>
+    
+    </p>
+    
+</div>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'microjo';
+    var disqus_title = '扩展 Markdown 语法';
+    (function() {
+     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+     dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+     })();
+</script>
+
+
+         </article>
+         
+         <footer id="footer">
+             <div class="copyright">© <a href="http://microjo.github.com">Jonathan's Blog</a> | Powered by <a href="http://lepture.com/project/liquidluck">Felix Felicis</a></div>
+             <p class="love">Lovely designed by <a href="http://lepture.com">lepture</a> | Modified by MiCRoJo</p>
+         </footer>
+         <script type="text/javascript">
+             var currentNav = window.currentNav || "nav-home";
+             document.getElementById(currentNav).className = "current";
+         </script>
+     </body>
+ </html>

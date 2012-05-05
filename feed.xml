@@ -1,0 +1,586 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <title>Jonathan's Blog</title>
+    <link href="http://microjo.github.com/feed.html" rel="self" />
+    
+    <link href="http://microjo.github.com" />
+    
+    <updated>2012-05-06T04:29:20Z</updated>
+    <id>http://microjo.github.com</id>
+    <entry>
+        <title type="html"><![CDATA[IE6-8 支持 HTML5 元素]]></title>
+        <author><name>microjo</name><uri>http://microjo.github.com</uri></author>
+        <link href="http://microjo.github.com/note/html5_ie678.html"/>
+        <updated>2012-05-01T19:45:00Z</updated>
+        <published>2012-05-01T19:45:00Z</published>
+        <id>http://microjo.github.com/note/html5_ie678.html</id>
+        <category scheme="http://microjo.github.com/tag/html5.html" term="HTML5" label="Html5" />
+        <category scheme="http://microjo.github.com/tag/ie.html" term="IE" label="Ie" />
+        <content type="html" xml:base="http://microjo.github.com" xml:lang="en">
+            <![CDATA[ <p>最近博客改用 github pages，并且使用这个静态博客生成工具 <a href="http://lepture.com/project/liquidluck/" title="Felix Felicis(aka liquidluck)">Felix Felicis</a>。
+奇怪的是，IE8 下页面显示不正常。在网上搜索原因和解决办法时，
+发现<em> IE8 以上通过 F12 能调出相关调试工具</em>，
+调试中得知默认主题使用了 IE6-8 不支持的 HTML5 元素，
+进而找到：<a href="http://cll.socss.cn/archives/382">让IE也支持html5标准</a>、<a href="http://code.google.com/p/html5shiv/" title="HTML5 IE enabling script">HTML5 Shiv</a>。</p>
+<p>解决方法是在模板文件 <code>_templates\layout.html</code> 中的 <code>&lt;head&gt;</code> 元素内添加</p>
+<pre><code>&lt;!--[if lt IE 9]&gt;
+&lt;script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"&gt;&lt;/script&gt;
+&lt;![endif]--&gt;
+</code></pre>
+<p>考虑到国内访问 googlecode 的抽风情况，可以将源文件下载放到 <code>static</code> 目录下，然后在相同地方添加</p>
+<pre><code>&lt;!--[if lt IE 9]&gt;
+&lt;script src="{{static_url('html5.js')}}"&gt;&lt;/script&gt;
+&lt;![endif]--&gt;
+</code></pre>
+<p><code>html5.js</code> 添加了 IE6-8 不支持的 HTML5 元素，并且包含了默认的样式。
+这个脚本必须放在 <code>&lt;body&gt;</code> 前，比如这里是在 <code>&lt;head&gt;</code> 范围内。
+放在加载 CSS 代码前面和后面都没有关系，但是从性能方面来说，最好放在 CSS 后面。</p> ]]>
+        </content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[扩展 Markdown 语法]]></title>
+        <author><name>microjo</name><uri>http://microjo.github.com</uri></author>
+        <link href="http://microjo.github.com/work/markdown_ext.html"/>
+        <updated>2012-04-28T21:16:00Z</updated>
+        <published>2012-04-28T21:16:00Z</published>
+        <id>http://microjo.github.com/work/markdown_ext.html</id>
+        <category scheme="http://microjo.github.com/tag/markdown.html" term="Markdown" label="Markdown" />
+        <category scheme="http://microjo.github.com/tag/extension.html" term="extension" label="Extension" />
+        <category scheme="http://microjo.github.com/tag/扩展.html" term="扩展" label="扩展" />
+        <content type="html" xml:base="http://microjo.github.com" xml:lang="en">
+            <![CDATA[ <p><strong>声明：</strong>本文采用<a href="http://creativecommons.org/licenses/by-nc-sa/2.5/cn/" title="署名-非商业性使用-相同方式共享 2.5">CC BY-NC-SA 2.5协议</a>授权，转载请注明本文链接。</p>
+<hr />
+<p>本文说明生成本博客内容的 Felix Felicis 程序支持的扩展 Markdown<sup id="fnref:markdown"><a href="#fn:markdown" rel="footnote">1</a></sup> 语法。</p>
+<div class="toc">
+<ul>
+<li><a href="#highlight_code">支持语法高亮的代码区块</a></li>
+<li><a href="#attribute-lists-2">Attribute Lists / 属性列表 2</a><ul>
+<li><a href="#the-list">The List</a></li>
+<li><a href="#block-level">Block Level</a></li>
+<li><a href="#inline">Inline</a></li>
+</ul>
+</li>
+<li><a href="#footnotes-3">Footnotes / 脚注 3</a></li>
+<li><a href="#table-of-contents-4">Table of Contents / 目录 4</a></li>
+<li><a href="#tables-5">Tables / 表格 5</a></li>
+<li><a href="#ckzl">参考资料</a></li>
+</ul>
+</div>
+<h2 id="highlight_code">支持语法高亮的代码区块</h2>
+<p>支持多种语言，比如 python, c, html 等。</p>
+<blockquote>
+<p>```python</p>
+<p>def hello():</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;return 'Hello World'</p>
+<p>```</p>
+</blockquote>
+<p>产生如下结果：</p>
+<div class="code"><div class="highlight"><pre><span class="k">def</span> <span class="nf">hello</span><span class="p">():</span>
+    <span class="k">return</span> <span class="s">&#39;Hello World&#39;</span>
+</pre></div>
+</div>
+
+<h2 id="attribute-lists-2">Attribute Lists / 属性列表 <sup id="fnref:attr_list"><a href="#fn:attr_list" rel="footnote">2</a></sup></h2>
+<p>定义 HTML 元素的属性。基本语法参照 <a href="http://maruku.rubyforge.org/proposal.html#attribute_lists">Maruku's Attribute List</a>。</p>
+<h3 id="the-list">The List</h3>
+<p>一个 attribute list 的例子如下所示：</p>
+<pre><code>{: #someid .someclass somekey='some values' }
+</code></pre>
+<ul>
+<li>A word which starts with a hash # will set the id of an element.
+以井号 <code>#</code> 开头的单词将设置元素的 id。</li>
+<li>A word which starts with a dot . will add to the list of classes assigned to an element.
+以点 <code>.</code> 开头的单词将添加到元素的类列表中。</li>
+<li>A key/value pair will assign that pair to the element.
+一个键/值对将赋予元素。</li>
+</ul>
+<p>Be aware that while the dot syntax will add to a class, using key/value pairs will always override the previously defined attribute.
+注意使用键/值对会覆盖前面的 <code>.</code> 定义类名。比如以下情况：</p>
+<pre><code>{: #id1 .class1 id=id2 class="class2 class3" .class4 }
+</code></pre>
+<p>上面的例子会生成如下结果：</p>
+<pre><code>id="id2" class="class2 class3 class4"
+</code></pre>
+<h3 id="block-level">Block Level</h3>
+<p>To define attributes for a block level element, the attribute list should be defined on the last line of the block by itself.
+块级元素定义属性，其属性列表必须在块的最后一行定义。</p>
+<pre><code>This is a paragraph.
+{: #an_id .a_class }
+</code></pre>
+<p>上面的例子生成如下结果：</p>
+<pre><code>&lt;p id="an_id" class="a_class"&gt;This is a paragraph.&lt;/p&gt;
+</code></pre>
+<p>The one exception is headers, as they are only ever allowed on one line.
+唯一例外的是标题，因为标题只允许一行。</p>
+<pre><code>A setext style header {: #setext}
+=================================
+
+### A hash style header ### {: #hash }
+</code></pre>
+<p>上面的例子生成如下结果：</p>
+<pre><code>&lt;h1 id="setext"&gt;A setext style header&lt;/h1&gt;
+&lt;h3 id="hash"&gt;A hash style header&lt;/h3&gt;
+</code></pre>
+<h3 id="inline">Inline</h3>
+<p>To define attributes on inline elements, the attribute list should be defined immediately after the inline element with no whitespace.
+内联元素定义属性，其属性列表必须紧接着内联元素定义，中间不能有空格。</p>
+<pre><code>[link](http://example.com){: class="foo bar" title="Some title!" }
+</code></pre>
+<p>上面的例子生成如下结果：</p>
+<pre><code>&lt;p&gt;&lt;a href="http://example.com" class="foo bar" title="Some title!"&gt;link&lt;/a&gt;&lt;/p&gt;
+</code></pre>
+<h2 id="footnotes-3">Footnotes / 脚注 <sup id="fnref:footnotes"><a href="#fn:footnotes" rel="footnote">3</a></sup></h2>
+<p>脚注是在需要标记脚注文字的后面增加一个方括号，方括号中的内容必须以 <code>^</code> 开头，再接着是数字、字符串标记：</p>
+<pre><code>Footnotes[^1] have a label[^label] and a definition[^!DEF].
+</code></pre>
+<p>接着，在文件的任意地方，你可以把这个脚注的内容定义出来：</p>
+<pre><code>[^1]: This is a footnote
+[^label]: A footnote on "label"
+[^!DEF]: The definition of a footnote.
+</code></pre>
+<p>脚注内容定义的形式就是前面引用脚注的内容，接着一个冒号，再接着一个以上的空格或制表符，最后是脚注定义的内容。</p>
+<p>A footnote definition may contain multiple lines, paragraphs, code blocks, blockquotes and most any other markdown syntax. The additional line simply must be indented at least an additional four spaces.
+脚注定义的内容可以包含多行、段落、代码区块、区块引用和大多数其他 markdown 格式的内容。对于多行的内容只需要简单缩进至少4个空格。</p>
+<pre><code>[^1]: The first paragraph of the definition.
+
+    Paragraph two of the definition.
+
+    &gt; A blockquote with
+    &gt; multiple lines.
+
+        a code block
+
+    A final paragraph.
+</code></pre>
+<p>By default, the footnote definitions are placed at the end of the resulting HTML document. However, you may want the footnotes in another location within the document. Simply place the following text at that location within your markdown document.
+默认情况下，脚注内容位于生成的 HTML 文档末尾。但是，你也许想将脚注内容放在文档的其他位置。只需要将如下内容放在需要的 markdown 文档位置即可。</p>
+<pre><code>///Footnotes Go Here///
+</code></pre>
+<h2 id="table-of-contents-4">Table of Contents / 目录 <sup id="fnref:toc"><a href="#fn:toc" rel="footnote">4</a></sup></h2>
+<p>Place a marker in the document where you would like the table of contents to appear. Then, a nested list of all the headers in the document will replace the marker. The marker defaults to [TOC].
+在需要目录出现的地方放置一个标记，这样会自动生成一个嵌套的包含所有标题的列表。默认的标记是 <code>[TOC]</code>。</p>
+<pre><code>[TOC]
+
+# Header 1
+
+## Header 2
+</code></pre>
+<p>上面 markdown 内容会生成如下 HTML 内容：</p>
+<pre><code>&lt;div class="toc"&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href="#header-1"&gt;Header 1&lt;/a&gt;&lt;/li&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;a href="#header-2"&gt;Header 2&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+&lt;h1 id="header-1"&gt;Header 1&lt;/h1&gt;
+&lt;h1 id="header-2"&gt;Header 2&lt;/h1&gt;
+</code></pre>
+<p>目录跳转的标题 id 是依据标题内容自动生成的，只包含英文、数字、下划线 <code>_</code> 等。对于全部是中文的标题，自动生成的标题 id 为空，导致无法跳转。可以使用前面的 Attribute Lists 方法，定义标题 id。</p>
+<h2 id="tables-5">Tables / 表格 <sup id="fnref:tables"><a href="#fn:tables" rel="footnote">5</a></sup></h2>
+<p>定义表格的语法参照 <a href="http://www.michelf.com/projects/php-markdown/extra/#table">PHP Markdown Extra</a>。下面 markdown 内容（摘自前面的 PHP 参考文档）：</p>
+<pre><code>First Header  | Second Header
+------------- | -------------
+Content Cell  | Content Cell
+Content Cell  | Content Cell
+</code></pre>
+<p>会生成如下 HTML 内容：</p>
+<pre><code>&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;First Header&lt;/th&gt;
+      &lt;th&gt;Second Header&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Content Cell&lt;/td&gt;
+      &lt;td&gt;Content Cell&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Content Cell&lt;/td&gt;
+      &lt;td&gt;Content Cell&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+</code></pre>
+<p>第一行包含列标题，第二行包含位于标题和内容之间的强制性分隔线，接下来的每一行就是表格的内容。列与列之间用竖线 <code>|</code> 分隔。</p>
+<p>如果愿意的话，可以在表格每一行的开头和结尾处添加竖线 <code>|</code>，如下所示得到的结果和上面一致：</p>
+<pre><code>| First Header  | Second Header |
+| ------------- | ------------- |
+| Content Cell  | Content Cell  |
+| Content Cell  | Content Cell  |
+</code></pre>
+<p>注：表格的每一行至少有一个竖线 <code>|</code>，否则无法正确处理表格。这也就意味着，创建只有一列的表格，必须在每一行的开头或者结尾处添加一个竖线 <code>|</code>，或者都添加。</p>
+<p>通过在对应列的分隔线添加冒号 <code>:</code> 可以指定列的对齐方式。冒号 <code>:</code> 在分隔线的左边说明此列左对齐，冒号 <code>:</code> 在分隔线的右边说明此列右对齐，冒号 <code>:</code> 在分隔线的左右两边说明此列居中。比如下面的 <code>Item</code> 列是居中的，<code>Value</code> 列是右对齐：</p>
+<pre><code>| Item      | Value |
+|:---------:| -----:|
+| Computer  | $1600 |
+| Phone     |   $12 |
+| Pipe      |    $1 |
+</code></pre>
+<h2 id="ckzl">参考资料</h2>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:markdown">
+<p><a href="http://wowubuntu.com/markdown/">Markdown 语法说明 (简体中文版)</a> 来源自 <img alt="wowubuntu" src="http://wowubuntu.com/wp-content/themes/evidens-white/logo.png" />&#160;<a href="#fnref:markdown" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:attr_list">
+<p>根据<a href="http://packages.python.org/Markdown/extensions/attr_list.html">http://packages.python.org/Markdown/extensions/attr_list.html</a>翻译&#160;<a href="#fnref:attr_list" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:footnotes">
+<p>根据<a href="http://packages.python.org/Markdown/extensions/footnotes.html">http://packages.python.org/Markdown/extensions/footnotes.html</a>翻译&#160;<a href="#fnref:footnotes" rev="footnote" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:toc">
+<p>根据<a href="http://packages.python.org/Markdown/extensions/toc.html">http://packages.python.org/Markdown/extensions/toc.html</a>翻译&#160;<a href="#fnref:toc" rev="footnote" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+<li id="fn:tables">
+<p>根据<a href="http://packages.python.org/Markdown/extensions/tables.html">http://packages.python.org/Markdown/extensions/tables.html</a>翻译&#160;<a href="#fnref:tables" rev="footnote" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div> ]]>
+        </content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Hello, world!]]></title>
+        <author><name>microjo</name><uri>http://microjo.github.com</uri></author>
+        <link href="http://microjo.github.com/work/helloworld.html"/>
+        <updated>2012-04-26T19:19:00Z</updated>
+        <published>2012-04-26T19:19:00Z</published>
+        <id>http://microjo.github.com/work/helloworld.html</id>
+        <content type="html" xml:base="http://microjo.github.com" xml:lang="en">
+            <![CDATA[ <p>欢迎光临，自从接触博客开始，大致经历过如下过程：</p>
+<blockquote>
+<ul>
+<li>
+<p><em>microjo.3322.org</em>
+      自己架设，使用 wordpress，但是内容不知能否找到</p>
+</li>
+<li>
+<p><em>micro1o.blogger.com</em></p>
+</li>
+<li>
+<p><em>micro4jo.appspot.com</em>
+      使用 gae+micolog，流量限制比较厉害</p>
+</li>
+<li>
+<p><em>microjo.github.com</em>
+      github pages+Felix Felicis(aka liquidluck)，符合自己的书写习惯，不用再费心博客的内容如何展现</p>
+</li>
+</ul>
+</blockquote> ]]>
+        </content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Qt Learning Notes]]></title>
+        <author><name>microjo</name><uri>http://microjo.github.com</uri></author>
+        <link href="http://microjo.github.com/note/qt_learning_notes.html"/>
+        <updated>2012-03-03T14:32:00Z</updated>
+        <published>2012-03-03T14:32:00Z</published>
+        <id>http://microjo.github.com/note/qt_learning_notes.html</id>
+        <category scheme="http://microjo.github.com/tag/qt.html" term="Qt" label="Qt" />
+        <category scheme="http://microjo.github.com/tag/harmattan.html" term="Harmattan" label="Harmattan" />
+        <category scheme="http://microjo.github.com/tag/qt mobility.html" term="Qt Mobility" label="Qt Mobility" />
+        <category scheme="http://microjo.github.com/tag/n950.html" term="N950" label="N950" />
+        <category scheme="http://microjo.github.com/tag/n9.html" term="N9" label="N9" />
+        <content type="html" xml:base="http://microjo.github.com" xml:lang="en">
+            <![CDATA[ <ol>
+<li>
+<p><a href="http://www.developer.nokia.com/Community/Wiki/MeeGo_1.2_Harmattan_Security_Tokens">MeeGo 1.2 Harmattan Security Tokens</a><br />
+使用 qt mobility 需要设置隐私标识</p>
+</li>
+<li>
+<p><a href="http://qt-project.org/forums/viewthread/8375/">Using the camera api on the n950</a></p>
+</li>
+</ol> ]]>
+        </content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[M9 固件相关信息和工具]]></title>
+        <author><name>microjo</name><uri>http://microjo.github.com</uri></author>
+        <link href="http://microjo.github.com/work/m9firmware.html"/>
+        <updated>2012-01-19T08:27:00Z</updated>
+        <published>2012-01-19T08:27:00Z</published>
+        <id>http://microjo.github.com/work/m9firmware.html</id>
+        <category scheme="http://microjo.github.com/tag/android.html" term="android" label="Android" />
+        <category scheme="http://microjo.github.com/tag/meizu.html" term="MEIZU" label="Meizu" />
+        <category scheme="http://microjo.github.com/tag/m9.html" term="M9" label="M9" />
+        <category scheme="http://microjo.github.com/tag/魅族.html" term="魅族" label="魅族" />
+        <category scheme="http://microjo.github.com/tag/固件.html" term="固件" label="固件" />
+        <content type="html" xml:base="http://microjo.github.com" xml:lang="en">
+            <![CDATA[ <div class="toc">
+<ul>
+<li><a href="#m9-updatebin">M9 固件 update.bin 校验码</a></li>
+<li><a href="#m9-meta-inf">M9 固件中 META-INF 数据</a></li>
+<li><a href="#">参考资料</a></li>
+</ul>
+</div>
+<h2 id="m9-updatebin">M9 固件 update.bin 校验码</h2>
+<ol>
+<li>
+<p>CN 2.0.6-12169</p>
+<pre><code>MD5: 8aaee7dea351a5187c61da3a32d01a89
+SHA1: 99996a8e516b1c827d1864a8f0438dcafd4eda79
+</code></pre>
+</li>
+<li>
+<p>CZ 2.0.5-11282</p>
+<pre><code> MD5: cbbf0daf59815a20783647eac6085dd6
+SHA1: f3d279cb500fef0d714811d77f03bf3460293107
+</code></pre>
+</li>
+<li>
+<p>CN 2.0.5-11241</p>
+<pre><code> MD5: c4f6ab9b82bb10f35d6e03325bd0645b
+SHA1: ea124d3b39af5ed50d0919bd50855815e6ec1a0f
+</code></pre>
+</li>
+<li>
+<p>CN 2.0.3-9345</p>
+<pre><code> MD5: 3d916d021a87d22b286405796b686270
+SHA1: 332f91c0706e05eeb18b0458b887a84ae543e017
+</code></pre>
+</li>
+<li>
+<p>CN 2.0.2-6883</p>
+<pre><code> MD5: b354cc8bada7f181d209674c57f174cd
+SHA1: b7445c3ef7c19a2c3ec84d5d2a07639ec47945b7
+</code></pre>
+</li>
+<li>
+<p>CN 2.0.1-5212</p>
+<pre><code> MD5: d8d6012955febd8bdc85a92ce890858c
+SHA1: 5eb990511d309374625d024db29c11d980eb8dec
+</code></pre>
+</li>
+</ol>
+<h2 id="m9-meta-inf">M9 固件中 META-INF 数据</h2>
+<p>CERT.RSA 中前1376字节都相同，说明公钥是同一组。</p>
+<ul>
+<li><em>CN</em> <a href="http://115.com/file/angnm7bo#M9-cn-FW-V2.0.6-12169-META-INF.zip">M9 固件(版本:V2.0.6-12169)</a></li>
+<li><em>CZ</em> <a href="http://115.com/file/be6g3w6s#M9-cz-FW-2.0.5-11282-META-INF.zip">M9 FW 2.0.5-11282</a></li>
+<li><em>CN</em> <a href="http://115.com/file/e73twf9i#M9-cn-FW-2.0.5-11241-META-INF.zip">M9 固件(版本:V2.0.5-11241)</a></li>
+<li><em>CN</em> <a href="http://115.com/file/c2u3mby7#M9-cn-FW-2.0.3-9345-META-INF.zip">M9 固件(版本:V2.0.3-9345)</a></li>
+<li><em>CN</em> <a href="http://115.com/file/e73twwk0#M9-cn-FW-2.0.2-6883-META-INF.zip">M9 固件(版本:V2.0.2-6883)</a></li>
+<li><em>CN</em> <a href="http://115.com/file/aniut4s4#M9-cn-FW-2.0.1-5212-META-INF.zip">M9 固件(版本:V2.0.1-5212)</a></li>
+</ul>
+<h2 id="">参考资料</h2>
+<ul>
+<li><a href="http://www.blogjava.net/zh-weir/archive/2011/07/19/354663.html">Android APK 签名比对</a></li>
+</ul> ]]>
+        </content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[android apktool 升级使用问题一则]]></title>
+        <author><name>microjo</name><uri>http://microjo.github.com</uri></author>
+        <link href="http://microjo.github.com/note/apktool_update_usenote.html"/>
+        <updated>2011-05-18T05:40:00Z</updated>
+        <published>2011-05-18T05:40:00Z</published>
+        <id>http://microjo.github.com/note/apktool_update_usenote.html</id>
+        <category scheme="http://microjo.github.com/tag/android.html" term="android" label="Android" />
+        <category scheme="http://microjo.github.com/tag/apktool.html" term="apktool" label="Apktool" />
+        <category scheme="http://microjo.github.com/tag/gui.html" term="gui" label="Gui" />
+        <content type="html" xml:base="http://microjo.github.com" xml:lang="en">
+            <![CDATA[ <p>最近使用 Dodo APKTools 修改 <code>Zinio.apk</code>，反编译提示成功，修改 xml 文档后，重新编译也提示成功，但是找不到 apk 文件，原因不明。后来使用机锋论上的 apktool GUI 反编译，出现错误信息，反编译失败。日志显示：</p>
+<pre><code>I: Loading resource table from file: C:\Users\用户名\apktool\framework\1.apk
+
+Exception in thread "main" brut.androlib.err.UndefinedResObject: resource spec: 0x01030118
+    at brut.androlib.res.data.ResPackage.getResSpec(Unknown Source)
+    at brut.androlib.res.data.ResTable.getResSpec(Unknown Source)
+    at brut.androlib.res.data.ResTable.getResSpec(Unknown Source)
+    at brut.androlib.res.data.value.ResReferenceValue.getReferent(Unknown Source)
+    at brut.androlib.res.data.value.ResReferenceValue.toResXmlFormat(Unknown Source)
+    at brut.androlib.res.data.value.ResStyleValue.serializeToXml(Unknown Source)
+    at brut.androlib.res.AndrolibResources.generateValuesFile(Unknown Source)
+    at brut.androlib.res.AndrolibResources.decode(Unknown Source)
+    at brut.androlib.Androlib.decodeResourcesFull(Unknown Source)
+    at brut.androlib.ApkDecoder.decode(Unknown Source)
+    at brut.apktool.Main.cmdDecode(Unknown Source)
+    at brut.apktool.Main.main(Unknown Source)
+</code></pre>
+<p>联系 apktool GUI 作者反映了问题，使用新版仍然有这个问题。索性到 <a href="http://code.google.com/p/android-apktool">apktool 官网</a>下载了最新的版本，用命令行反编译，还是出现同样的问题，提示也类似。既然提示使用了一个 resource table 文件，我删除掉让命令行重新生成，再次使用命令行反编译竟然成功。反过来，重新使用 Dodo APKTools 修改 apk 也成功了。说明 apktool 使用过程中释放了一些文件，这些文件不会随着 apktool 的升级而自动重新生成，必须先清除掉旧版本的文件，才能自动产生新版本文件。因此，建议<em>使用 apktool 包括以其为内核的软件，在升级 apktool 时，将系统用户目录 <code>\apktool\framework</code>（以 Win7 举例：<code>C:\Users\用户名\apktool\framework</code>）中的文件清除，保证使用新的文件</em>。</p> ]]>
+        </content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[跨平台无 DRM 独立游戏软件合集 Humble Frozenbyte Bundle]]></title>
+        <author><name>microjo</name><uri>http://microjo.github.com</uri></author>
+        <link href="http://microjo.github.com/entertainment/humble_frozenbyte_bundle.html"/>
+        <updated>2011-04-13T17:06:00Z</updated>
+        <published>2011-04-13T17:06:00Z</published>
+        <id>http://microjo.github.com/entertainment/humble_frozenbyte_bundle.html</id>
+        <category scheme="http://microjo.github.com/tag/humble.html" term="humble" label="Humble" />
+        <category scheme="http://microjo.github.com/tag/game.html" term="game" label="Game" />
+        <category scheme="http://microjo.github.com/tag/frozenbyte.html" term="Frozenbyte" label="Frozenbyte" />
+        <content type="html" xml:base="http://microjo.github.com" xml:lang="en">
+            <![CDATA[ <p>转载自 <strong><a href="http://linuxtoy.org/">LinuxTOY</a></strong>，增加了部分信息。</p>
+<h2 id="humble-frozenbyte-bundle"><a href="http://linuxtoy.org/archives/humble-frozenbyte-bundle.html">Humble Frozenbyte Bundle</a></h2>
+<p>2011-04-13 <a href="http://linuxtoy.org/archives/author/lovenemesis/">黑日白月</a></p>
+<hr />
+<p><img alt="Humble_Frozenbyte_Bundle.jpg" src="/image/Humble_Frozenbyte_Bundle.jpg" /></p>
+<p>跨平台无 DRM 独立游戏软件合集第三弹 Humble Frozenbyte Bundle 发布。该合集内所有游戏都是由独立游戏开发商 <a href="http://frozenbyte.com/">Frozenbyte</a> 开发的。</p>
+<p>本次软件合集包括：</p>
+<ul>
+<li>
+<p><a href="http://www.trine-thegame.com/">Trine 三位一体</a>
+    <img alt="Trine" src="http://frozenbyte.com/press/media/images/Trine_header.jpg" /></p>
+</li>
+<li>
+<p><a href="http://shadowgroundssurvivor.com/">Shadowgrounds: Survivor 阴影地带：幸存者</a>
+    <img alt="Shadowgrounds: Survivor" src="http://frozenbyte.com/press/media/images/SG_Survivor_header.jpg" /></p>
+</li>
+<li>
+<p><a href="http://www.shadowgroundsgame.com/">Shadowgrounds 阴影地带</a>
+    <img alt="Shadowgrounds" src="http://frozenbyte.com/press/media/images/SG_header.jpg" /></p>
+</li>
+<li>
+<p><a href="http://thesplot.com/site/home.php">Splot 大眼怪历险记</a>（预定游戏，预计夏天能够下载<del>，有可能包含 iOS 版本</del>）
+    <img alt="Splot" src="http://frozenbyte.com/press/media/images/Splot_header.jpg" /></p>
+</li>
+<li>
+<p><a href="http://frozenbyte.com/jackclaw/jack_minisite.php">Jack Claw 钢爪杰克</a>（曾经被开发商放弃的游戏，重新完善中，会有 Mac 和 Linux 的版本，并且支持鼠标和键盘，详细信息参见 <a href="http://frozenbyte.com/blog/?p=176">Jack Claw</a>）
+    <img alt="Jack Claw" src="http://frozenbyte.com/press/media/images/Jack_header_v2.jpg" /></p>
+</li>
+</ul>
+<p>这些游戏都<strong>不包含 DRM</strong>，可以<strong>在 Windows、OS X 和 Linux 上运行</strong>（除 Jack Claw 当下仅能在 Windows 平台下运行并且需要 XBox 360 手柄，也可参考用鼠标和键盘的<a href="http://frozenbyte.com/help_humble/jackclaw_keyboard.html">临时解决方法</a>），其中<strong> Jack Claw 还包括了源代码</strong>！</p>
+<p>最重要的是，购买如此超值产品组合的<strong>价格完全是由你决定</strong>！别忘记你的购买还将<strong>被捐献到 Electronic Frontier Foundation 基金会和 Child's Play Charity 慈善组织</strong>。</p>
+<p>作为参考，平均<strong>每个 Linux 用户订出的价格是 $11.97</strong>，OS X 用户是 $6.16，而 Windows 用户只愿意为本套装出 $4.21。这说明什么呢？自己想去吧～</p>
+<p><em>PS:</em> 本人做为独立制作游戏的粉丝，该系列套装无疑是当下最好的 Linux 平台娱乐选择了，强烈推荐～</p>
+<p><a href="http://www.humblebundle.com/">详细说明及购买地址(支持 Paypal 银联卡支付)</a> <strong>注：此地址国内已被墙。</strong></p> ]]>
+        </content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[自定义诺基亚 Ovi 套件的安装目录]]></title>
+        <author><name>microjo</name><uri>http://microjo.github.com</uri></author>
+        <link href="http://microjo.github.com/note/custom_ovi_installdir.html"/>
+        <updated>2011-03-22T07:20:00Z</updated>
+        <published>2011-03-22T07:20:00Z</published>
+        <id>http://microjo.github.com/note/custom_ovi_installdir.html</id>
+        <category scheme="http://microjo.github.com/tag/诺基亚 ovi 套件.html" term="诺基亚 Ovi 套件" label="诺基亚 Ovi 套件" />
+        <category scheme="http://microjo.github.com/tag/nokia ovi suite.html" term="Nokia Ovi Suite" label="Nokia Ovi Suite" />
+        <content type="html" xml:base="http://microjo.github.com" xml:lang="en">
+            <![CDATA[ <p>真不知是认为现在用户希望安装什么都不用管最好，还是认为现在硬盘大到不需要关心安装到哪里，诺基亚 Ovi 套件在安装的时候根本没有给用户选择的余地，一律安装到系统盘（C）。以下是从网络上搜索到的自定义安装套件路径的方法：</p>
+<blockquote>
+<h3 id="how-to-change-the-installation-directory-for-nokia-ovi">转载自 <a href="http://discussions.europe.nokia.com/t5/Nokia-Suite/How-to-Change-the-Installation-Directory-for-Nokia-OVI/td-p/583982">How to Change the Installation Directory for Nokia OVI?</a></h3>
+<p>if you want to install Nokia Ovi Suite to for example D: drive, to directory "D:\Program files", you could start installation application from command line following way:
+举例将诺基亚 Ovi 套件安装到 <code>D:\Program Files</code> 目录下面，在命令行下面输入下面命令进行安装：</p>
+<pre><code>Nokia_Ovi_Suite_webinstaller_ALL.exe /TARGET="D:\Program files"
+</code></pre>
+<p>This would create a new folder "Nokia Ovi Suite" under D:\Program files\ and install Nokia Ovi Suite there.
+诺基亚 Ovi 套件会在 <code>D:\Program files</code> 目录下面创建新目录 <code>Nokia Ovi Suite</code>，并安装到此目录下面。</p>
+</blockquote>
+<p>经实际使用，确实能达到目的。注意在 Windows Vista 和 Windows 7 下面安装时，必须有管理员权限才能安装。</p> ]]>
+        </content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[[kritCN][Jam Luey Gamathep 丘比特的被告][泰语中字]（完结/14集）]]></title>
+        <author><name>microjo</name><uri>http://microjo.github.com</uri></author>
+        <link href="http://microjo.github.com/entertainment/kritcn_jlg.html"/>
+        <updated>2010-05-28T12:06:00Z</updated>
+        <published>2010-05-28T12:06:00Z</published>
+        <id>http://microjo.github.com/entertainment/kritcn_jlg.html</id>
+        <category scheme="http://microjo.github.com/tag/kritcn.html" term="kritCN" label="Kritcn" />
+        <category scheme="http://microjo.github.com/tag/shahkrit.html" term="shahkrit" label="Shahkrit" />
+        <category scheme="http://microjo.github.com/tag/jam luey gamathep.html" term="Jam Luey Gamathep" label="Jam Luey Gamathep" />
+        <category scheme="http://microjo.github.com/tag/丘比特的被告.html" term="丘比特的被告" label="丘比特的被告" />
+        <category scheme="http://microjo.github.com/tag/泰剧.html" term="泰剧" label="泰剧" />
+        <category scheme="http://microjo.github.com/tag/tv.html" term="tv" label="Tv" />
+        <content type="html" xml:base="http://microjo.github.com" xml:lang="en">
+            <![CDATA[ <p><strong>转载请注明“转载自：<a href="http://shahkrityamnarm.5d6d.com/">Shahkrit中文网</a>”，并不可以改动中文剧名，否则谢绝转载！谢谢！</strong></p>
+<hr />
+<h4 id="">【中文剧名】：丘比特的被告</h4>
+<h4 id="jam-luey-gamathepcupids-defendent">【英文剧名】：Jam Luey Gamathep（译名：Cupid's Defendent）</h4>
+<h4 id="_1">【泰文剧名】：จำเลยกามเทพ</h4>
+<h4 id="200997">【开播时间】：2009年9月7日</h4>
+<h4 id="ch3">【开播电视台】：CH3</h4>
+<h4 id="shahkrit-yamnarmcherry-khemupsorn">【主演】：Shahkrit Yamnarm、Cherry Khemupsorn</h4>
+<h4 id="kritcn">【制作发布】：kritCN字幕组&amp;凤凰天使</h4>
+<h4 id="nik">【海报】：NIK</h4>
+<h4 id="_2">【人物介绍】：</h4>
+<pre><code>Shahkrit Yamnarm（krit）　饰演　Manmet (Mek)  
+Cherry Khemupsorn（cherry）　饰演　Nate-Upsorn (Nim)  
+Job Nithi　饰演　Thorani (Kapom)  
+Jane Janesuda（jane）　饰演　Chanetti (Pak-kard)
+</code></pre>
+<h4 id="_3">【剧情介绍】：</h4>
+<p>Nate-Upsorn (Nim)，著名女演员，一直以来都跟著名男演员 Thorani (Kapom) 搭档。现实生活中观众们都希望他们真的成为情侣，而同时 Nim 本人也希望他们能假戏真做，成为一对。可事实上，Kapom 在现实生活中已经有女朋友了，叫 Pak-kard。Nim 不断骚扰他们，并威胁要破坏他和女友的婚礼，他很苦恼。</p>
+<p>为了能够顺利结婚，他让自己刚从美国回来的弟弟Mek乔装成绑匪，将 Nim 绑架至某个小岛上直到自己完成婚礼。尽管 Mek 不愿意这样做，他还是不得不帮助自己的哥哥。这时候，电视剧《爱的被告》带给了 Mek 很多灵感。他模仿 Harit 把 Nim 绑架到一个私人小岛上，并像电视剧里那样假装自己被她深深的伤害了，不断的通过虐待她来释放心中的仇恨。</p>
+<p>然而，事情没有这么简单。因为 Nim 不是哭哭啼啼、逆来顺受的女孩子，她不断的反抗和反虐待，在两人一次又一次的交锋中，彼此的心渐渐靠近，可是真相 却也日渐揭露……明白了真相的 Nim 愤而离去，失去了爱人的 Mek 心痛得不能自已，愿付出一切来挽回这段原本就扭曲的情路。</p>
+<h4 id="_4">【下载地址】：</h4>
+<ol>
+<li>MEGAUPLOAD 下载（此网盘有效期比较长）<ul>
+<li><a href="http://www.megaupload.com/?d=IED3PPF4">【kritCN】【泰剧】【Jam Luey Gamathep 丘比特的被告】01 [DE979255]</a></li>
+<li><a href="http://www.megaupload.com/?d=TLM83IM7">【kritCN】【泰剧】【Jam Luey Gamathep 丘比特的被告】02 [9E1024FB]</a></li>
+<li><a href="http://www.megaupload.com/?d=GCLFVD6F">【kritCN】【泰剧】【Jam Luey Gamathep 丘比特的被告】03 [5477F6BF]</a></li>
+<li><a href="http://www.megaupload.com/?d=R8JJ8K8H">【kritCN】【泰剧】【Jam Luey Gamathep 丘比特的被告】04 [423D2D6E]</a></li>
+<li><a href="http://www.megaupload.com/?d=R2XGMU5A">【kritCN】【泰剧】【Jam Luey Gamathep 丘比特的被告】05 [C0398EB5]</a></li>
+<li><a href="http://www.megaupload.com/?d=JO7G2M8I">【kritCN】【泰剧】【Jam Luey Gamathep 丘比特的被告】06 [7C9EC5DF]</a></li>
+<li><a href="http://www.megaupload.com/?d=CBO3630M">【kritCN】【泰剧】【Jam Luey Gamathep 丘比特的被告】07 [8394F69B]</a></li>
+<li><a href="http://www.megaupload.com/?d=4VNQ51A8">【kritCN】【泰剧】【Jam Luey Gamathep 丘比特的被告】08 [826974ED]</a></li>
+<li><a href="http://www.megaupload.com/?d=S3IU3A3L">【kritCN】【泰剧】【Jam Luey Gamathep 丘比特的被告】09 [7D8642EA]</a></li>
+<li><a href="http://www.megaupload.com/?d=9YX3XN87">【kritCN】【泰剧】【Jam Luey Gamathep 丘比特的被告】10 [2CA6A564]</a></li>
+<li><a href="http://www.megaupload.com/?d=94UWGR87">【kritCN】【泰剧】【Jam Luey Gamathep 丘比特的被告】11 [9838390D]</a></li>
+<li><a href="http://www.megaupload.com/?d=ESDBH4QI">【kritCN】【泰剧】【Jam Luey Gamathep 丘比特的被告】12 [617EFDCB]</a></li>
+<li><a href="http://www.megaupload.com/?d=CBOUW3SH">【kritCN】【泰剧】【Jam Luey Gamathep 丘比特的被告】13 [B03042FB]</a></li>
+<li><a href="http://www.megaupload.com/?d=EGORKJ73">【kritCN】【泰剧】【Jam Luey Gamathep 丘比特的被告】14完结 [5D922D2F]</a></li>
+</ul>
+</li>
+<li>115 网盘下载<ul>
+<li><a href="http://u.115.com/file/t1d223454b">【kritCN】【泰剧】【Jam Luey Gamathep 丘比特的被告】01 [DE979255]</a></li>
+<li><a href="http://u.115.com/file/t16805170">【kritCN】【泰剧】【Jam Luey Gamathep 丘比特的被告】02 [9E1024FB]</a></li>
+<li><a href="http://u.115.com/file/t13fb0dfe3">【kritCN】【泰剧】【Jam Luey Gamathep 丘比特的被告】03 [5477F6BF]</a></li>
+<li><a href="http://u.115.com/file/t193d044c8">【kritCN】【泰剧】【Jam Luey Gamathep 丘比特的被告】04 [423D2D6E]</a></li>
+<li><a href="http://u.115.com/file/t128c5c8e3">【kritCN】【泰剧】【Jam Luey Gamathep 丘比特的被告】05 [C0398EB5]</a></li>
+<li><a href="http://u.115.com/file/t11a876976">【kritCN】【泰剧】【Jam Luey Gamathep 丘比特的被告】06 [7C9EC5DF]</a></li>
+<li><a href="http://u.115.com/file/t1e6884cde">【kritCN】【泰剧】【Jam Luey Gamathep 丘比特的被告】07 [8394F69B]</a></li>
+<li><a href="http://u.115.com/file/t1f4f9e95a">【kritCN】【泰剧】【Jam Luey Gamathep 丘比特的被告】08 [826974ED]</a></li>
+<li><a href="http://u.115.com/file/t14452bbeb">【kritCN】【泰剧】【Jam Luey Gamathep 丘比特的被告】09 [7D8642EA]</a></li>
+<li><a href="http://u.115.com/file/t18043ecac">【kritCN】【泰剧】【Jam Luey Gamathep 丘比特的被告】10 [2CA6A564]</a></li>
+<li><a href="http://u.115.com/file/t16a3d86f6">【kritCN】【泰剧】【Jam Luey Gamathep 丘比特的被告】11 [9838390D]</a></li>
+<li><a href="http://u.115.com/file/t18b0b59c3">【kritCN】【泰剧】【Jam Luey Gamathep 丘比特的被告】12 [617EFDCB]</a></li>
+<li><a href="http://u.115.com/file/t1c6092c8e">【kritCN】【泰剧】【Jam Luey Gamathep 丘比特的被告】13 [B03042FB]</a></li>
+<li><a href="http://u.115.com/file/t148b0a9f0">【kritCN】【泰剧】【Jam Luey Gamathep 丘比特的被告】14完结 [5D922D2F]</a></li>
+</ul>
+</li>
+<li><a href="http://www.youku.com/playlist_show/id_3939631.html">优酷在线观看</a></li>
+</ol> ]]>
+        </content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[iStuff 主题 - M8NewUI]]></title>
+        <author><name>microjo</name><uri>http://microjo.github.com</uri></author>
+        <link href="http://microjo.github.com/project/istuff_theme_m8newui.html"/>
+        <updated>2010-05-15T09:50:00Z</updated>
+        <published>2010-05-15T09:50:00Z</published>
+        <id>http://microjo.github.com/project/istuff_theme_m8newui.html</id>
+        <category scheme="http://microjo.github.com/tag/m8.html" term="M8" label="M8" />
+        <category scheme="http://microjo.github.com/tag/istuff.html" term="iStuff" label="Istuff" />
+        <category scheme="http://microjo.github.com/tag/theme.html" term="theme" label="Theme" />
+        <content type="html" xml:base="http://microjo.github.com" xml:lang="en">
+            <![CDATA[ <p>MEIZU New UI Style, made by microjo (follow me at <a href="https://twitter.com/micro4jo">@micro4jo</a>)</p>
+<ul>
+<li>version: 1.2</li>
+<li>requirement: iStuff ver &gt; 1.6.0</li>
+<li>info:<ol>
+<li>picture resource is from MEIZU M8 firmware, © MEIZU</li>
+<li>other is © microjo, you can use for free</li>
+</ol>
+</li>
+<li>
+<p>use:<br />
+extract files to data/themes/ folder, and change config.txt to use this style.
+将压缩包中解压缩（含原始目录），将其复制到 iStuff 安装目录 <code>/data/themes</code> 下面，然后修改设置 <code>config.txt</code> 中主题设置项：<code>theme=m8</code>。</p>
+</li>
+<li>
+<p>update:</p>
+<p>1.2  修改扩展页面以符合 M8 UI 界面 <a href="http://img.ly/199A">截图1</a> <a href="http://img.ly/199I">截图2</a></p>
+<p>1.1  修改快速主页和书签页面，尤其书签页面改动多些，应该比较像 M8 的 UI 界面 <a href="http://img.ly/17LV">截图</a></p>
+<p>1.0（使用 iStuff 1.5.0）  修改页面缩放的按钮，谢谢作者修改了界面以配合 <a href="http://img.ly/15rD">截图</a></p>
+<p>0.7  调整首页的样式 <a href="http://img.ly/14hL">截图</a></p>
+<p>0.6  初始版本 <a href="http://img.ly/13Tn">截图1</a> <a href="http://img.ly/13IT">截图2</a></p>
+</li>
+</ul> ]]>
+        </content>
+    </entry>
+    </feed>
