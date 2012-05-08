@@ -1,12 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>Jonathan's Blog</title>
-    <link href="http://microjo.github.com/feed.html" rel="self" />
+    <link href="http://microjo.github.com/feed.xml" rel="self" />
     
     <link href="http://microjo.github.com" />
     
-    <updated>2012-05-06T08:55:47Z</updated>
+    <updated>2012-05-09T01:19:57Z</updated>
     <id>http://microjo.github.com</id>
+    <entry>
+        <title type="html"><![CDATA[Git Learning Notes]]></title>
+        <author><name>microjo</name><uri>http://microjo.github.com</uri></author>
+        <link href="http://microjo.github.com/note/git_learning_notes.html"/>
+        <updated>2012-05-07T12:00:00Z</updated>
+        <published>2012-05-07T12:00:00Z</published>
+        <id>http://microjo.github.com/note/git_learning_notes.html</id>
+        <category scheme="http://microjo.github.com/tag/git/" term="Git" label="Git" />
+        <category scheme="http://microjo.github.com/tag/github/" term="GitHub" label="Github" />
+        <content type="html" xml:base="http://microjo.github.com" xml:lang="en">
+            <![CDATA[ <ul>
+<li><a href="http://www.worldhello.net/gotgithub/">GotGitHub</a><br />
+关于 GitHub 方方面面的书，很实用，尤其可以通过书内容的源码，学习 reStructuredText 的使用。其实找到这本书是因为搜索<a href="http://www.worldhello.net/gotgithub/appendix/markups.html">轻量级标记语言</a>发现的，里面常用轻量级标记语言对照非常实用。</li>
+</ul> ]]>
+        </content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[IE6-8 支持 HTML5 元素]]></title>
         <author><name>microjo</name><uri>http://microjo.github.com</uri></author>
@@ -14,8 +30,8 @@
         <updated>2012-05-01T19:45:00Z</updated>
         <published>2012-05-01T19:45:00Z</published>
         <id>http://microjo.github.com/note/html5_ie678.html</id>
-        <category scheme="http://microjo.github.com/tag/html5.html" term="HTML5" label="Html5" />
-        <category scheme="http://microjo.github.com/tag/ie.html" term="IE" label="Ie" />
+        <category scheme="http://microjo.github.com/tag/html5/" term="HTML5" label="Html5" />
+        <category scheme="http://microjo.github.com/tag/ie/" term="IE" label="Ie" />
         <content type="html" xml:base="http://microjo.github.com" xml:lang="en">
             <![CDATA[ <p>最近博客改用 github pages，并且使用这个静态博客生成工具 <a href="http://lepture.com/project/liquidluck/" title="Felix Felicis(aka liquidluck)">Felix Felicis</a>。
 奇怪的是，IE8 下页面显示不正常。在网上搜索原因和解决办法时，
@@ -44,9 +60,9 @@
         <updated>2012-04-28T21:16:00Z</updated>
         <published>2012-04-28T21:16:00Z</published>
         <id>http://microjo.github.com/work/markdown_ext.html</id>
-        <category scheme="http://microjo.github.com/tag/markdown.html" term="Markdown" label="Markdown" />
-        <category scheme="http://microjo.github.com/tag/extension.html" term="extension" label="Extension" />
-        <category scheme="http://microjo.github.com/tag/扩展.html" term="扩展" label="扩展" />
+        <category scheme="http://microjo.github.com/tag/markdown/" term="Markdown" label="Markdown" />
+        <category scheme="http://microjo.github.com/tag/extension/" term="extension" label="Extension" />
+        <category scheme="http://microjo.github.com/tag/扩展/" term="扩展" label="扩展" />
         <content type="html" xml:base="http://microjo.github.com" xml:lang="en">
             <![CDATA[ <p><strong>声明：</strong>本文采用<a href="http://creativecommons.org/licenses/by-nc-sa/2.5/cn/" title="署名-非商业性使用-相同方式共享 2.5">CC BY-NC-SA 2.5协议</a>授权，转载请注明本文链接。</p>
 <hr />
@@ -251,26 +267,51 @@ Content Cell  | Content Cell
         <published>2012-04-26T19:19:00Z</published>
         <id>http://microjo.github.com/work/helloworld.html</id>
         <content type="html" xml:base="http://microjo.github.com" xml:lang="en">
-            <![CDATA[ <p>欢迎光临，自从接触博客开始，大致经历过如下过程：</p>
+            <![CDATA[ <p>欢迎光临，自从接触博客开始，大致经历过如下过程，真是够杂乱的，都没有很好的坚持下来，自己反省去~~~</p>
 <blockquote>
 <ul>
 <li>
-<p><em>microjo.3322.org</em>
-      自己架设，使用 wordpress，但是内容不知能否找到</p>
+<p><em>bjgjj.3322.org</em><br />
+使用国人的博客程序 Bo-Blog 自己架设</p>
+</li>
+<li>
+<p><em>microjo.3322.org</em><br />
+自己架设，使用 wordpress，但是内容不知能否找到</p>
+</li>
+<li>
+<p><em>jonathanye.blogger.com</em></p>
+</li>
+<li>
+<p><em>jonathanye.wordpress.com</em>
+使用 wordpress 服务</p>
 </li>
 <li>
 <p><em>micro1o.blogger.com</em></p>
 </li>
 <li>
-<p><em>micro4jo.appspot.com</em>
-      使用 gae+micolog，流量限制比较厉害</p>
+<p><em>micro4jo.appspot.com</em><br />
+使用 gae+micolog，流量限制比较厉害</p>
 </li>
 <li>
 <p><em>microjo.github.com</em>
-      github pages+Felix Felicis(aka liquidluck)，符合自己的书写习惯，不用再费心博客的内容如何展现</p>
+github pages+Felix Felicis(aka liquidluck)，符合自己的书写习惯，不用再费心博客的内容如何展现</p>
 </li>
 </ul>
-</blockquote> ]]>
+</blockquote>
+<hr />
+<p>关于本博客中英文混排的处理，参考此讨论：<a href="http://www.butno.net/1941"><em>中英文混排时中文与英文之间是否要有空格？</em></a></p>
+<blockquote>
+<p>中文正文及标题中出现的英文及数字应该使用半角方式输入，并且在左右各留一个半角空格。如果这些这些半角英文及数字的左边或者右边紧接着任何的中文全角括号或者其他标点符号的话，则不需要加入半角空格。</p>
+</blockquote>
+<hr />
+<p>关于本博客使用的 Felix Felicis 所支持的轻量级标记语言 Markdown 和 reStructuredText 参考文档：</p>
+<ul>
+<li><a href="http://daringfireball.net/projects/markdown/syntax">Markdown: Syntax</a></li>
+<li><a href="http://wowubuntu.com/markdown/">Markdown 语法说明 (简体中文版)</a></li>
+<li><a href="http://docutils.sourceforge.net/docs/user/rst/quickref.html">Quick reStructuredText</a></li>
+<li><a href="http://docutils.sourceforge.net/docs/user/rst/quickstart.html">A ReStructuredText Primer</a></li>
+<li><a href="http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html">reStructuredText Markup Specification</a></li>
+</ul> ]]>
         </content>
     </entry>
     <entry>
@@ -280,11 +321,11 @@ Content Cell  | Content Cell
         <updated>2012-03-03T14:32:00Z</updated>
         <published>2012-03-03T14:32:00Z</published>
         <id>http://microjo.github.com/note/qt_learning_notes.html</id>
-        <category scheme="http://microjo.github.com/tag/qt.html" term="Qt" label="Qt" />
-        <category scheme="http://microjo.github.com/tag/harmattan.html" term="Harmattan" label="Harmattan" />
-        <category scheme="http://microjo.github.com/tag/qt mobility.html" term="Qt Mobility" label="Qt Mobility" />
-        <category scheme="http://microjo.github.com/tag/n950.html" term="N950" label="N950" />
-        <category scheme="http://microjo.github.com/tag/n9.html" term="N9" label="N9" />
+        <category scheme="http://microjo.github.com/tag/qt/" term="Qt" label="Qt" />
+        <category scheme="http://microjo.github.com/tag/harmattan/" term="Harmattan" label="Harmattan" />
+        <category scheme="http://microjo.github.com/tag/qt mobility/" term="Qt Mobility" label="Qt Mobility" />
+        <category scheme="http://microjo.github.com/tag/n950/" term="N950" label="N950" />
+        <category scheme="http://microjo.github.com/tag/n9/" term="N9" label="N9" />
         <content type="html" xml:base="http://microjo.github.com" xml:lang="en">
             <![CDATA[ <ol>
 <li>
@@ -304,11 +345,11 @@ Content Cell  | Content Cell
         <updated>2012-01-19T08:27:00Z</updated>
         <published>2012-01-19T08:27:00Z</published>
         <id>http://microjo.github.com/work/m9firmware.html</id>
-        <category scheme="http://microjo.github.com/tag/android.html" term="android" label="Android" />
-        <category scheme="http://microjo.github.com/tag/meizu.html" term="MEIZU" label="Meizu" />
-        <category scheme="http://microjo.github.com/tag/m9.html" term="M9" label="M9" />
-        <category scheme="http://microjo.github.com/tag/魅族.html" term="魅族" label="魅族" />
-        <category scheme="http://microjo.github.com/tag/固件.html" term="固件" label="固件" />
+        <category scheme="http://microjo.github.com/tag/android/" term="android" label="Android" />
+        <category scheme="http://microjo.github.com/tag/meizu/" term="MEIZU" label="Meizu" />
+        <category scheme="http://microjo.github.com/tag/m9/" term="M9" label="M9" />
+        <category scheme="http://microjo.github.com/tag/魅族/" term="魅族" label="魅族" />
+        <category scheme="http://microjo.github.com/tag/固件/" term="固件" label="固件" />
         <content type="html" xml:base="http://microjo.github.com" xml:lang="en">
             <![CDATA[ <div class="toc">
 <ul>
@@ -379,9 +420,9 @@ SHA1: 5eb990511d309374625d024db29c11d980eb8dec
         <updated>2011-05-18T05:40:00Z</updated>
         <published>2011-05-18T05:40:00Z</published>
         <id>http://microjo.github.com/note/apktool_update_usenote.html</id>
-        <category scheme="http://microjo.github.com/tag/android.html" term="android" label="Android" />
-        <category scheme="http://microjo.github.com/tag/apktool.html" term="apktool" label="Apktool" />
-        <category scheme="http://microjo.github.com/tag/gui.html" term="gui" label="Gui" />
+        <category scheme="http://microjo.github.com/tag/android/" term="android" label="Android" />
+        <category scheme="http://microjo.github.com/tag/apktool/" term="apktool" label="Apktool" />
+        <category scheme="http://microjo.github.com/tag/gui/" term="gui" label="Gui" />
         <content type="html" xml:base="http://microjo.github.com" xml:lang="en">
             <![CDATA[ <p>最近使用 Dodo APKTools 修改 <code>Zinio.apk</code>，反编译提示成功，修改 xml 文档后，重新编译也提示成功，但是找不到 apk 文件，原因不明。后来使用机锋论上的 apktool GUI 反编译，出现错误信息，反编译失败。日志显示：</p>
 <pre><code>I: Loading resource table from file: C:\Users\用户名\apktool\framework\1.apk
@@ -410,9 +451,9 @@ Exception in thread "main" brut.androlib.err.UndefinedResObject: resource spec: 
         <updated>2011-04-13T17:06:00Z</updated>
         <published>2011-04-13T17:06:00Z</published>
         <id>http://microjo.github.com/entertainment/humble_frozenbyte_bundle.html</id>
-        <category scheme="http://microjo.github.com/tag/humble.html" term="humble" label="Humble" />
-        <category scheme="http://microjo.github.com/tag/game.html" term="game" label="Game" />
-        <category scheme="http://microjo.github.com/tag/frozenbyte.html" term="Frozenbyte" label="Frozenbyte" />
+        <category scheme="http://microjo.github.com/tag/humble/" term="humble" label="Humble" />
+        <category scheme="http://microjo.github.com/tag/game/" term="game" label="Game" />
+        <category scheme="http://microjo.github.com/tag/frozenbyte/" term="Frozenbyte" label="Frozenbyte" />
         <content type="html" xml:base="http://microjo.github.com" xml:lang="en">
             <![CDATA[ <p>转载自 <strong><a href="http://linuxtoy.org/">LinuxTOY</a></strong>，增加了部分信息。</p>
 <h2 id="humble-frozenbyte-bundle"><a href="http://linuxtoy.org/archives/humble-frozenbyte-bundle.html">Humble Frozenbyte Bundle</a></h2>
@@ -457,8 +498,8 @@ Exception in thread "main" brut.androlib.err.UndefinedResObject: resource spec: 
         <updated>2011-03-22T07:20:00Z</updated>
         <published>2011-03-22T07:20:00Z</published>
         <id>http://microjo.github.com/note/custom_ovi_installdir.html</id>
-        <category scheme="http://microjo.github.com/tag/诺基亚 ovi 套件.html" term="诺基亚 Ovi 套件" label="诺基亚 Ovi 套件" />
-        <category scheme="http://microjo.github.com/tag/nokia ovi suite.html" term="Nokia Ovi Suite" label="Nokia Ovi Suite" />
+        <category scheme="http://microjo.github.com/tag/诺基亚 ovi 套件/" term="诺基亚 Ovi 套件" label="诺基亚 Ovi 套件" />
+        <category scheme="http://microjo.github.com/tag/nokia ovi suite/" term="Nokia Ovi Suite" label="Nokia Ovi Suite" />
         <content type="html" xml:base="http://microjo.github.com" xml:lang="en">
             <![CDATA[ <p>真不知是认为现在用户希望安装什么都不用管最好，还是认为现在硬盘大到不需要关心安装到哪里，诺基亚 Ovi 套件在安装的时候根本没有给用户选择的余地，一律安装到系统盘（C）。以下是从网络上搜索到的自定义安装套件路径的方法：</p>
 <blockquote>
@@ -480,12 +521,12 @@ Exception in thread "main" brut.androlib.err.UndefinedResObject: resource spec: 
         <updated>2010-05-28T12:06:00Z</updated>
         <published>2010-05-28T12:06:00Z</published>
         <id>http://microjo.github.com/entertainment/kritcn_jlg.html</id>
-        <category scheme="http://microjo.github.com/tag/kritcn.html" term="kritCN" label="Kritcn" />
-        <category scheme="http://microjo.github.com/tag/shahkrit.html" term="shahkrit" label="Shahkrit" />
-        <category scheme="http://microjo.github.com/tag/jam luey gamathep.html" term="Jam Luey Gamathep" label="Jam Luey Gamathep" />
-        <category scheme="http://microjo.github.com/tag/丘比特的被告.html" term="丘比特的被告" label="丘比特的被告" />
-        <category scheme="http://microjo.github.com/tag/泰剧.html" term="泰剧" label="泰剧" />
-        <category scheme="http://microjo.github.com/tag/tv.html" term="tv" label="Tv" />
+        <category scheme="http://microjo.github.com/tag/kritcn/" term="kritCN" label="Kritcn" />
+        <category scheme="http://microjo.github.com/tag/shahkrit/" term="shahkrit" label="Shahkrit" />
+        <category scheme="http://microjo.github.com/tag/jam luey gamathep/" term="Jam Luey Gamathep" label="Jam Luey Gamathep" />
+        <category scheme="http://microjo.github.com/tag/丘比特的被告/" term="丘比特的被告" label="丘比特的被告" />
+        <category scheme="http://microjo.github.com/tag/泰剧/" term="泰剧" label="泰剧" />
+        <category scheme="http://microjo.github.com/tag/tv/" term="tv" label="Tv" />
         <content type="html" xml:base="http://microjo.github.com" xml:lang="en">
             <![CDATA[ <p><strong>转载请注明“转载自：<a href="http://shahkrityamnarm.5d6d.com/">Shahkrit中文网</a>”，并不可以改动中文剧名，否则谢绝转载！谢谢！</strong></p>
 <hr />
@@ -545,42 +586,6 @@ Jane Janesuda（jane）　饰演　Chanetti (Pak-kard)
 </li>
 <li><a href="http://www.youku.com/playlist_show/id_3939631.html">优酷在线观看</a></li>
 </ol> ]]>
-        </content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[iStuff 主题 - M8NewUI]]></title>
-        <author><name>microjo</name><uri>http://microjo.github.com</uri></author>
-        <link href="http://microjo.github.com/project/istuff_theme_m8newui.html"/>
-        <updated>2010-05-15T09:50:00Z</updated>
-        <published>2010-05-15T09:50:00Z</published>
-        <id>http://microjo.github.com/project/istuff_theme_m8newui.html</id>
-        <category scheme="http://microjo.github.com/tag/m8.html" term="M8" label="M8" />
-        <category scheme="http://microjo.github.com/tag/istuff.html" term="iStuff" label="Istuff" />
-        <category scheme="http://microjo.github.com/tag/theme.html" term="theme" label="Theme" />
-        <content type="html" xml:base="http://microjo.github.com" xml:lang="en">
-            <![CDATA[ <p>MEIZU New UI Style, made by microjo (follow me at <a href="https://twitter.com/micro4jo">@micro4jo</a>)</p>
-<ul>
-<li>version: 1.2</li>
-<li>requirement: iStuff ver &gt; 1.6.0</li>
-<li>info:<ol>
-<li>picture resource is from MEIZU M8 firmware, © MEIZU</li>
-<li>other is © microjo, you can use for free</li>
-</ol>
-</li>
-<li>
-<p>use:<br />
-extract files to data/themes/ folder, and change config.txt to use this style.
-将压缩包中解压缩（含原始目录），将其复制到 iStuff 安装目录 <code>/data/themes</code> 下面，然后修改设置 <code>config.txt</code> 中主题设置项：<code>theme=m8</code>。</p>
-</li>
-<li>
-<p>update:</p>
-<p>1.2  修改扩展页面以符合 M8 UI 界面 <a href="http://img.ly/199A">截图1</a> <a href="http://img.ly/199I">截图2</a></p>
-<p>1.1  修改快速主页和书签页面，尤其书签页面改动多些，应该比较像 M8 的 UI 界面 <a href="http://img.ly/17LV">截图</a></p>
-<p>1.0（使用 iStuff 1.5.0）  修改页面缩放的按钮，谢谢作者修改了界面以配合 <a href="http://img.ly/15rD">截图</a></p>
-<p>0.7  调整首页的样式 <a href="http://img.ly/14hL">截图</a></p>
-<p>0.6  初始版本 <a href="http://img.ly/13Tn">截图1</a> <a href="http://img.ly/13IT">截图2</a></p>
-</li>
-</ul> ]]>
         </content>
     </entry>
     </feed>

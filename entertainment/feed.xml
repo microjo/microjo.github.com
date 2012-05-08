@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>Jonathan's Blog</title>
-    <link href="http://microjo.github.com/entertainment/feed.html" rel="self" />
+    <link href="http://microjo.github.com/entertainment/feed.xml" rel="self" />
     
-    <link href="http://microjo.github.com/entertainment.html" />
+    <link href="http://microjo.github.com/entertainment/" />
     
-    <updated>2012-05-06T08:55:44Z</updated>
+    <updated>2012-05-09T01:19:54Z</updated>
     <id>http://microjo.github.com</id>
     <entry>
         <title type="html"><![CDATA[跨平台无 DRM 独立游戏软件合集 Humble Frozenbyte Bundle]]></title>
@@ -14,9 +14,9 @@
         <updated>2011-04-13T17:06:00Z</updated>
         <published>2011-04-13T17:06:00Z</published>
         <id>http://microjo.github.com/entertainment/humble_frozenbyte_bundle.html</id>
-        <category scheme="http://microjo.github.com/tag/humble.html" term="humble" label="Humble" />
-        <category scheme="http://microjo.github.com/tag/game.html" term="game" label="Game" />
-        <category scheme="http://microjo.github.com/tag/frozenbyte.html" term="Frozenbyte" label="Frozenbyte" />
+        <category scheme="http://microjo.github.com/tag/humble/" term="humble" label="Humble" />
+        <category scheme="http://microjo.github.com/tag/game/" term="game" label="Game" />
+        <category scheme="http://microjo.github.com/tag/frozenbyte/" term="Frozenbyte" label="Frozenbyte" />
         <content type="html" xml:base="http://microjo.github.com" xml:lang="en">
             <![CDATA[ <p>转载自 <strong><a href="http://linuxtoy.org/">LinuxTOY</a></strong>，增加了部分信息。</p>
 <h2 id="humble-frozenbyte-bundle"><a href="http://linuxtoy.org/archives/humble-frozenbyte-bundle.html">Humble Frozenbyte Bundle</a></h2>
@@ -61,12 +61,12 @@
         <updated>2010-05-28T12:06:00Z</updated>
         <published>2010-05-28T12:06:00Z</published>
         <id>http://microjo.github.com/entertainment/kritcn_jlg.html</id>
-        <category scheme="http://microjo.github.com/tag/kritcn.html" term="kritCN" label="Kritcn" />
-        <category scheme="http://microjo.github.com/tag/shahkrit.html" term="shahkrit" label="Shahkrit" />
-        <category scheme="http://microjo.github.com/tag/jam luey gamathep.html" term="Jam Luey Gamathep" label="Jam Luey Gamathep" />
-        <category scheme="http://microjo.github.com/tag/丘比特的被告.html" term="丘比特的被告" label="丘比特的被告" />
-        <category scheme="http://microjo.github.com/tag/泰剧.html" term="泰剧" label="泰剧" />
-        <category scheme="http://microjo.github.com/tag/tv.html" term="tv" label="Tv" />
+        <category scheme="http://microjo.github.com/tag/kritcn/" term="kritCN" label="Kritcn" />
+        <category scheme="http://microjo.github.com/tag/shahkrit/" term="shahkrit" label="Shahkrit" />
+        <category scheme="http://microjo.github.com/tag/jam luey gamathep/" term="Jam Luey Gamathep" label="Jam Luey Gamathep" />
+        <category scheme="http://microjo.github.com/tag/丘比特的被告/" term="丘比特的被告" label="丘比特的被告" />
+        <category scheme="http://microjo.github.com/tag/泰剧/" term="泰剧" label="泰剧" />
+        <category scheme="http://microjo.github.com/tag/tv/" term="tv" label="Tv" />
         <content type="html" xml:base="http://microjo.github.com" xml:lang="en">
             <![CDATA[ <p><strong>转载请注明“转载自：<a href="http://shahkrityamnarm.5d6d.com/">Shahkrit中文网</a>”，并不可以改动中文剧名，否则谢绝转载！谢谢！</strong></p>
 <hr />

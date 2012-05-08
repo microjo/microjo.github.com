@@ -1,12 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>Jonathan's Blog</title>
-    <link href="http://microjo.github.com/note/feed.html" rel="self" />
+    <link href="http://microjo.github.com/note/feed.xml" rel="self" />
     
-    <link href="http://microjo.github.com/note.html" />
+    <link href="http://microjo.github.com/note/" />
     
-    <updated>2012-05-06T08:55:44Z</updated>
+    <updated>2012-05-09T01:19:54Z</updated>
     <id>http://microjo.github.com</id>
+    <entry>
+        <title type="html"><![CDATA[Git Learning Notes]]></title>
+        <author><name>microjo</name><uri>http://microjo.github.com</uri></author>
+        <link href="http://microjo.github.com/note/git_learning_notes.html"/>
+        <updated>2012-05-07T12:00:00Z</updated>
+        <published>2012-05-07T12:00:00Z</published>
+        <id>http://microjo.github.com/note/git_learning_notes.html</id>
+        <category scheme="http://microjo.github.com/tag/git/" term="Git" label="Git" />
+        <category scheme="http://microjo.github.com/tag/github/" term="GitHub" label="Github" />
+        <content type="html" xml:base="http://microjo.github.com" xml:lang="en">
+            <![CDATA[ <ul>
+<li><a href="http://www.worldhello.net/gotgithub/">GotGitHub</a><br />
+关于 GitHub 方方面面的书，很实用，尤其可以通过书内容的源码，学习 reStructuredText 的使用。其实找到这本书是因为搜索<a href="http://www.worldhello.net/gotgithub/appendix/markups.html">轻量级标记语言</a>发现的，里面常用轻量级标记语言对照非常实用。</li>
+</ul> ]]>
+        </content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[IE6-8 支持 HTML5 元素]]></title>
         <author><name>microjo</name><uri>http://microjo.github.com</uri></author>
@@ -14,8 +30,8 @@
         <updated>2012-05-01T19:45:00Z</updated>
         <published>2012-05-01T19:45:00Z</published>
         <id>http://microjo.github.com/note/html5_ie678.html</id>
-        <category scheme="http://microjo.github.com/tag/html5.html" term="HTML5" label="Html5" />
-        <category scheme="http://microjo.github.com/tag/ie.html" term="IE" label="Ie" />
+        <category scheme="http://microjo.github.com/tag/html5/" term="HTML5" label="Html5" />
+        <category scheme="http://microjo.github.com/tag/ie/" term="IE" label="Ie" />
         <content type="html" xml:base="http://microjo.github.com" xml:lang="en">
             <![CDATA[ <p>最近博客改用 github pages，并且使用这个静态博客生成工具 <a href="http://lepture.com/project/liquidluck/" title="Felix Felicis(aka liquidluck)">Felix Felicis</a>。
 奇怪的是，IE8 下页面显示不正常。在网上搜索原因和解决办法时，
@@ -44,11 +60,11 @@
         <updated>2012-03-03T14:32:00Z</updated>
         <published>2012-03-03T14:32:00Z</published>
         <id>http://microjo.github.com/note/qt_learning_notes.html</id>
-        <category scheme="http://microjo.github.com/tag/qt.html" term="Qt" label="Qt" />
-        <category scheme="http://microjo.github.com/tag/harmattan.html" term="Harmattan" label="Harmattan" />
-        <category scheme="http://microjo.github.com/tag/qt mobility.html" term="Qt Mobility" label="Qt Mobility" />
-        <category scheme="http://microjo.github.com/tag/n950.html" term="N950" label="N950" />
-        <category scheme="http://microjo.github.com/tag/n9.html" term="N9" label="N9" />
+        <category scheme="http://microjo.github.com/tag/qt/" term="Qt" label="Qt" />
+        <category scheme="http://microjo.github.com/tag/harmattan/" term="Harmattan" label="Harmattan" />
+        <category scheme="http://microjo.github.com/tag/qt mobility/" term="Qt Mobility" label="Qt Mobility" />
+        <category scheme="http://microjo.github.com/tag/n950/" term="N950" label="N950" />
+        <category scheme="http://microjo.github.com/tag/n9/" term="N9" label="N9" />
         <content type="html" xml:base="http://microjo.github.com" xml:lang="en">
             <![CDATA[ <ol>
 <li>
@@ -68,9 +84,9 @@
         <updated>2011-05-18T05:40:00Z</updated>
         <published>2011-05-18T05:40:00Z</published>
         <id>http://microjo.github.com/note/apktool_update_usenote.html</id>
-        <category scheme="http://microjo.github.com/tag/android.html" term="android" label="Android" />
-        <category scheme="http://microjo.github.com/tag/apktool.html" term="apktool" label="Apktool" />
-        <category scheme="http://microjo.github.com/tag/gui.html" term="gui" label="Gui" />
+        <category scheme="http://microjo.github.com/tag/android/" term="android" label="Android" />
+        <category scheme="http://microjo.github.com/tag/apktool/" term="apktool" label="Apktool" />
+        <category scheme="http://microjo.github.com/tag/gui/" term="gui" label="Gui" />
         <content type="html" xml:base="http://microjo.github.com" xml:lang="en">
             <![CDATA[ <p>最近使用 Dodo APKTools 修改 <code>Zinio.apk</code>，反编译提示成功，修改 xml 文档后，重新编译也提示成功，但是找不到 apk 文件，原因不明。后来使用机锋论上的 apktool GUI 反编译，出现错误信息，反编译失败。日志显示：</p>
 <pre><code>I: Loading resource table from file: C:\Users\用户名\apktool\framework\1.apk
@@ -99,8 +115,8 @@ Exception in thread "main" brut.androlib.err.UndefinedResObject: resource spec: 
         <updated>2011-03-22T07:20:00Z</updated>
         <published>2011-03-22T07:20:00Z</published>
         <id>http://microjo.github.com/note/custom_ovi_installdir.html</id>
-        <category scheme="http://microjo.github.com/tag/诺基亚 ovi 套件.html" term="诺基亚 Ovi 套件" label="诺基亚 Ovi 套件" />
-        <category scheme="http://microjo.github.com/tag/nokia ovi suite.html" term="Nokia Ovi Suite" label="Nokia Ovi Suite" />
+        <category scheme="http://microjo.github.com/tag/诺基亚 ovi 套件/" term="诺基亚 Ovi 套件" label="诺基亚 Ovi 套件" />
+        <category scheme="http://microjo.github.com/tag/nokia ovi suite/" term="Nokia Ovi Suite" label="Nokia Ovi Suite" />
         <content type="html" xml:base="http://microjo.github.com" xml:lang="en">
             <![CDATA[ <p>真不知是认为现在用户希望安装什么都不用管最好，还是认为现在硬盘大到不需要关心安装到哪里，诺基亚 Ovi 套件在安装的时候根本没有给用户选择的余地，一律安装到系统盘（C）。以下是从网络上搜索到的自定义安装套件路径的方法：</p>
 <blockquote>
@@ -122,10 +138,10 @@ Exception in thread "main" brut.androlib.err.UndefinedResObject: resource spec: 
         <updated>2009-03-16T11:50:00Z</updated>
         <published>2009-03-16T11:50:00Z</published>
         <id>http://microjo.github.com/note/vc++_charset_convert.html</id>
-        <category scheme="http://microjo.github.com/tag/vc++.html" term="VC++" label="Vc++" />
-        <category scheme="http://microjo.github.com/tag/unicode.html" term="Unicode" label="Unicode" />
-        <category scheme="http://microjo.github.com/tag/utf-8.html" term="UTF-8" label="Utf-8" />
-        <category scheme="http://microjo.github.com/tag/转换.html" term="转换" label="转换" />
+        <category scheme="http://microjo.github.com/tag/vc++/" term="VC++" label="Vc++" />
+        <category scheme="http://microjo.github.com/tag/unicode/" term="Unicode" label="Unicode" />
+        <category scheme="http://microjo.github.com/tag/utf-8/" term="UTF-8" label="Utf-8" />
+        <category scheme="http://microjo.github.com/tag/转换/" term="转换" label="转换" />
         <content type="html" xml:base="http://microjo.github.com" xml:lang="en">
             <![CDATA[ <p>使用 VC++2005 编写 WINCE 的程序需要考虑字符集的问题，尤其使用一些开源库，经常需要字符集的转换。在网上搜索了一些字符集相关的文章或帖子：</p>
 <ul>
@@ -153,8 +169,8 @@ Exception in thread "main" brut.androlib.err.UndefinedResObject: resource spec: 
         <updated>2009-02-22T12:14:00Z</updated>
         <published>2009-02-22T12:14:00Z</published>
         <id>http://microjo.github.com/note/subtitle_notes.html</id>
-        <category scheme="http://microjo.github.com/tag/字幕.html" term="字幕" label="字幕" />
-        <category scheme="http://microjo.github.com/tag/压制.html" term="压制" label="压制" />
+        <category scheme="http://microjo.github.com/tag/字幕/" term="字幕" label="字幕" />
+        <category scheme="http://microjo.github.com/tag/压制/" term="压制" label="压制" />
         <content type="html" xml:base="http://microjo.github.com" xml:lang="en">
             <![CDATA[ <ul>
 <li>
@@ -163,7 +179,7 @@ MKV 内嵌字体如果能像 PDF 只嵌入需要的字体子集该多好～ 这�
 </li>
 <li>
 <p><a href="http://shooter.cn/wiki/%E5%9C%A8Linux%E4%B8%8A%E7%94%A8subtitleeditor%E5%88%B6%E4%BD%9C%E5%AD%97%E5%B9%95">在 Linux 上用 subtitleeditor 制作字幕</a><br />
-很不错的字幕工具，可以在 getdeb.net 下载0.25版的64位 deb 包，什么时候能够有最新版的64位 deb 包呢？</p>
+很不错的字幕工具，可以在 getdeb.net 下载 0.25 版的 64 位 deb 包，什么时候能够有最新版的 64 位 deb 包呢？</p>
 </li>
 </ul> ]]>
         </content>
@@ -175,9 +191,9 @@ MKV 内嵌字体如果能像 PDF 只嵌入需要的字体子集该多好～ 这�
         <updated>2008-12-25T10:28:00Z</updated>
         <published>2008-12-25T10:28:00Z</published>
         <id>http://microjo.github.com/note/ubuntu_flash_zh.html</id>
-        <category scheme="http://microjo.github.com/tag/flash.html" term="Flash" label="Flash" />
-        <category scheme="http://microjo.github.com/tag/ubuntu.html" term="Ubuntu" label="Ubuntu" />
-        <category scheme="http://microjo.github.com/tag/中文显示.html" term="中文显示" label="中文显示" />
+        <category scheme="http://microjo.github.com/tag/flash/" term="Flash" label="Flash" />
+        <category scheme="http://microjo.github.com/tag/ubuntu/" term="Ubuntu" label="Ubuntu" />
+        <category scheme="http://microjo.github.com/tag/中文显示/" term="中文显示" label="中文显示" />
         <content type="html" xml:base="http://microjo.github.com" xml:lang="en">
             <![CDATA[ <p>修改 <code>/etc/fonts/conf.d/49-sansserif.conf</code>，如下所示文件内容中 <code>WenQuanYi Zen Hei</code> 改为需要的中文字体。</p>
 <div class="code"><div class="highlight"><pre><span class="cp">&lt;?xml version=&quot;1.0&quot;?&gt;</span>
@@ -214,9 +230,9 @@ MKV 内嵌字体如果能像 PDF 只嵌入需要的字体子集该多好～ 这�
         <updated>2008-12-12T09:48:00Z</updated>
         <published>2008-12-12T09:48:00Z</published>
         <id>http://microjo.github.com/note/execl_money_conversion.html</id>
-        <category scheme="http://microjo.github.com/tag/excel.html" term="excel" label="Excel" />
-        <category scheme="http://microjo.github.com/tag/text.html" term="TEXT" label="Text" />
-        <category scheme="http://microjo.github.com/tag/金额大小写转换.html" term="金额大小写转换" label="金额大小写转换" />
+        <category scheme="http://microjo.github.com/tag/excel/" term="excel" label="Excel" />
+        <category scheme="http://microjo.github.com/tag/text/" term="TEXT" label="Text" />
+        <category scheme="http://microjo.github.com/tag/金额大小写转换/" term="金额大小写转换" label="金额大小写转换" />
         <content type="html" xml:base="http://microjo.github.com" xml:lang="en">
             <![CDATA[ <blockquote>
 <ol>
@@ -252,9 +268,9 @@ MKV 内嵌字体如果能像 PDF 只嵌入需要的字体子集该多好～ 这�
         <updated>2008-12-04T17:33:00Z</updated>
         <published>2008-12-04T17:33:00Z</published>
         <id>http://microjo.github.com/note/kvm_compile_audio.html</id>
-        <category scheme="http://microjo.github.com/tag/kvm.html" term="kvm" label="Kvm" />
-        <category scheme="http://microjo.github.com/tag/pulseaudio.html" term="PulseAudio" label="Pulseaudio" />
-        <category scheme="http://microjo.github.com/tag/音频.html" term="音频" label="音频" />
+        <category scheme="http://microjo.github.com/tag/kvm/" term="kvm" label="Kvm" />
+        <category scheme="http://microjo.github.com/tag/pulseaudio/" term="PulseAudio" label="Pulseaudio" />
+        <category scheme="http://microjo.github.com/tag/音频/" term="音频" label="音频" />
         <content type="html" xml:base="http://microjo.github.com" xml:lang="en">
             <![CDATA[ <p>使用 kvm 作为虚拟机安装 windows 系统，速度感觉很快，但是音频老是有问题：在进入虚拟机使用声卡后，外面的 ubuntu 不能够播放音乐。使用参数 <code>-audio-help</code> 查询支持的音频输出有哪些，发现有 alsa、oss、wav 等。依次 alsa、oss 作为输出使用都是类似的问题，差点就放弃使用声卡。由于 ubuntu 8.10 使用 PulseAudio 作为系统的声音服务，能够支持多个应用程序播放音频，就想 kvm 是否支持 PulseAudio 输出呢？Google 之后发现从 kvm 71 开始支持，参考官方 wiki 中的编译方法：</p>
 <div class="code"><div class="highlight"><pre>tar xzf kvm-release.tar.gz
@@ -272,41 +288,6 @@ sudo /sbin/modprobe kvm-intel
 Available drivers: oss alsa sdl esd pa fmod
 </code></pre>
 <p>编译使用参数 <code>--audio-drv-list="alsa oss pa"</code>，其中 pa 表示 PulseAudio。编译安装后，配置参数 <code>export QEMU_AUDIO_DRV=pa</code> 使用 PulseAudio 输出成功解决问题，但是好像稳定性有问题，在虚拟机下面播放音频关闭后，会莫名奇妙的跳出。</p> ]]>
-        </content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[收集压制 DVD 相关的文章]]></title>
-        <author><name>microjo</name><uri>http://microjo.github.com</uri></author>
-        <link href="http://microjo.github.com/note/dvdrip_notes.html"/>
-        <updated>2008-11-24T23:05:00Z</updated>
-        <published>2008-11-24T23:05:00Z</published>
-        <id>http://microjo.github.com/note/dvdrip_notes.html</id>
-        <category scheme="http://microjo.github.com/tag/megui.html" term="megui" label="Megui" />
-        <category scheme="http://microjo.github.com/tag/tivtc.html" term="TIVTC" label="Tivtc" />
-        <category scheme="http://microjo.github.com/tag/压制.html" term="压制" label="压制" />
-        <content type="html" xml:base="http://microjo.github.com" xml:lang="en">
-            <![CDATA[ <p>最近下载了一张电影 DVD，正在学习用 megui 压制，在网上找到的相关有用文章：</p>
-<ul>
-<li>
-<p><a href="http://wenku.baidu.com/view/4b482cd380eb6294dd886c5f.html">使用 MeGUI 制作可变形 DVDRip 的具体方法（作者：羊@CGTOP）</a>
-正在按照这种方式压制中...</p>
-</li>
-<li>
-<p><a href="http://www.nmm-hd.org/bbs/thread-119-1-1.html">【新手问题分类 FAQ 系列】第二讲 影片类型 修订版 Ver.1（作者：dgwxx@NMM）</a><br />
-了解片源的状况才好处理</p>
-</li>
-<li>
-<p><a href="http://zanetu.ycool.com/post.1970147.html">TIVTC 杂谈（作者：Zane）</a></p>
-</li>
-<li>
-<p><a href="http://www.nmm-hd.org/bbs/thread-663-1-1.html">TIVTC 的自动交错帧记录与手动 OVR 脚本（作者：dgwxx@NMM）</a><br />
-学习到了一种使用 TIVTC 的方法，肯定在以后手动 IVTC 使非常有帮助</p>
-</li>
-<li>
-<p><a href="http://www.av110.net/shipinruanjian/200902/1917.html">高品质 X264 视频制作工具 meGUI 使用教程（四）实战篇（作者：shadowchen@CGTOP）</a><br />
-实战压制流程，从使用 DVD Decrypter 到 megui 压制、封装</p>
-</li>
-</ul> ]]>
         </content>
     </entry>
     </feed>

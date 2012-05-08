@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>Jonathan's Blog</title>
-    <link href="http://microjo.github.com/work/feed.html" rel="self" />
+    <link href="http://microjo.github.com/work/feed.xml" rel="self" />
     
-    <link href="http://microjo.github.com/work.html" />
+    <link href="http://microjo.github.com/work/" />
     
-    <updated>2012-05-06T08:55:44Z</updated>
+    <updated>2012-05-09T01:19:54Z</updated>
     <id>http://microjo.github.com</id>
     <entry>
         <title type="html"><![CDATA[扩展 Markdown 语法]]></title>
@@ -14,9 +14,9 @@
         <updated>2012-04-28T21:16:00Z</updated>
         <published>2012-04-28T21:16:00Z</published>
         <id>http://microjo.github.com/work/markdown_ext.html</id>
-        <category scheme="http://microjo.github.com/tag/markdown.html" term="Markdown" label="Markdown" />
-        <category scheme="http://microjo.github.com/tag/extension.html" term="extension" label="Extension" />
-        <category scheme="http://microjo.github.com/tag/扩展.html" term="扩展" label="扩展" />
+        <category scheme="http://microjo.github.com/tag/markdown/" term="Markdown" label="Markdown" />
+        <category scheme="http://microjo.github.com/tag/extension/" term="extension" label="Extension" />
+        <category scheme="http://microjo.github.com/tag/扩展/" term="扩展" label="扩展" />
         <content type="html" xml:base="http://microjo.github.com" xml:lang="en">
             <![CDATA[ <p><strong>声明：</strong>本文采用<a href="http://creativecommons.org/licenses/by-nc-sa/2.5/cn/" title="署名-非商业性使用-相同方式共享 2.5">CC BY-NC-SA 2.5协议</a>授权，转载请注明本文链接。</p>
 <hr />
@@ -221,26 +221,51 @@ Content Cell  | Content Cell
         <published>2012-04-26T19:19:00Z</published>
         <id>http://microjo.github.com/work/helloworld.html</id>
         <content type="html" xml:base="http://microjo.github.com" xml:lang="en">
-            <![CDATA[ <p>欢迎光临，自从接触博客开始，大致经历过如下过程：</p>
+            <![CDATA[ <p>欢迎光临，自从接触博客开始，大致经历过如下过程，真是够杂乱的，都没有很好的坚持下来，自己反省去~~~</p>
 <blockquote>
 <ul>
 <li>
-<p><em>microjo.3322.org</em>
-      自己架设，使用 wordpress，但是内容不知能否找到</p>
+<p><em>bjgjj.3322.org</em><br />
+使用国人的博客程序 Bo-Blog 自己架设</p>
+</li>
+<li>
+<p><em>microjo.3322.org</em><br />
+自己架设，使用 wordpress，但是内容不知能否找到</p>
+</li>
+<li>
+<p><em>jonathanye.blogger.com</em></p>
+</li>
+<li>
+<p><em>jonathanye.wordpress.com</em>
+使用 wordpress 服务</p>
 </li>
 <li>
 <p><em>micro1o.blogger.com</em></p>
 </li>
 <li>
-<p><em>micro4jo.appspot.com</em>
-      使用 gae+micolog，流量限制比较厉害</p>
+<p><em>micro4jo.appspot.com</em><br />
+使用 gae+micolog，流量限制比较厉害</p>
 </li>
 <li>
 <p><em>microjo.github.com</em>
-      github pages+Felix Felicis(aka liquidluck)，符合自己的书写习惯，不用再费心博客的内容如何展现</p>
+github pages+Felix Felicis(aka liquidluck)，符合自己的书写习惯，不用再费心博客的内容如何展现</p>
 </li>
 </ul>
-</blockquote> ]]>
+</blockquote>
+<hr />
+<p>关于本博客中英文混排的处理，参考此讨论：<a href="http://www.butno.net/1941"><em>中英文混排时中文与英文之间是否要有空格？</em></a></p>
+<blockquote>
+<p>中文正文及标题中出现的英文及数字应该使用半角方式输入，并且在左右各留一个半角空格。如果这些这些半角英文及数字的左边或者右边紧接着任何的中文全角括号或者其他标点符号的话，则不需要加入半角空格。</p>
+</blockquote>
+<hr />
+<p>关于本博客使用的 Felix Felicis 所支持的轻量级标记语言 Markdown 和 reStructuredText 参考文档：</p>
+<ul>
+<li><a href="http://daringfireball.net/projects/markdown/syntax">Markdown: Syntax</a></li>
+<li><a href="http://wowubuntu.com/markdown/">Markdown 语法说明 (简体中文版)</a></li>
+<li><a href="http://docutils.sourceforge.net/docs/user/rst/quickref.html">Quick reStructuredText</a></li>
+<li><a href="http://docutils.sourceforge.net/docs/user/rst/quickstart.html">A ReStructuredText Primer</a></li>
+<li><a href="http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html">reStructuredText Markup Specification</a></li>
+</ul> ]]>
         </content>
     </entry>
     <entry>
@@ -250,11 +275,11 @@ Content Cell  | Content Cell
         <updated>2012-01-19T08:27:00Z</updated>
         <published>2012-01-19T08:27:00Z</published>
         <id>http://microjo.github.com/work/m9firmware.html</id>
-        <category scheme="http://microjo.github.com/tag/android.html" term="android" label="Android" />
-        <category scheme="http://microjo.github.com/tag/meizu.html" term="MEIZU" label="Meizu" />
-        <category scheme="http://microjo.github.com/tag/m9.html" term="M9" label="M9" />
-        <category scheme="http://microjo.github.com/tag/魅族.html" term="魅族" label="魅族" />
-        <category scheme="http://microjo.github.com/tag/固件.html" term="固件" label="固件" />
+        <category scheme="http://microjo.github.com/tag/android/" term="android" label="Android" />
+        <category scheme="http://microjo.github.com/tag/meizu/" term="MEIZU" label="Meizu" />
+        <category scheme="http://microjo.github.com/tag/m9/" term="M9" label="M9" />
+        <category scheme="http://microjo.github.com/tag/魅族/" term="魅族" label="魅族" />
+        <category scheme="http://microjo.github.com/tag/固件/" term="固件" label="固件" />
         <content type="html" xml:base="http://microjo.github.com" xml:lang="en">
             <![CDATA[ <div class="toc">
 <ul>
@@ -325,10 +350,10 @@ SHA1: 5eb990511d309374625d024db29c11d980eb8dec
         <updated>2008-12-01T11:25:00Z</updated>
         <published>2008-12-01T11:25:00Z</published>
         <id>http://microjo.github.com/work/ffsj.html</id>
-        <category scheme="http://microjo.github.com/tag/ffsj.html" term="ffsj" label="Ffsj" />
-        <category scheme="http://microjo.github.com/tag/hj-split.html" term="HJ-Split" label="Hj-Split" />
-        <category scheme="http://microjo.github.com/tag/分割.html" term="分割" label="分割" />
-        <category scheme="http://microjo.github.com/tag/合并.html" term="合并" label="合并" />
+        <category scheme="http://microjo.github.com/tag/ffsj/" term="ffsj" label="Ffsj" />
+        <category scheme="http://microjo.github.com/tag/hj-split/" term="HJ-Split" label="Hj-Split" />
+        <category scheme="http://microjo.github.com/tag/分割/" term="分割" label="分割" />
+        <category scheme="http://microjo.github.com/tag/合并/" term="合并" label="合并" />
         <content type="html" xml:base="http://microjo.github.com" xml:lang="en">
             <![CDATA[ <p>首发原帖：<a href="http://nico2c.com/acq/viewthread.php?tid=3459">FFSJ: The Fastest File Splitter and Joiner v3.3 号称最快的文件分割、合并工具 @ ACQBBS</a></p>
 <hr />
@@ -365,10 +390,10 @@ FFSJ 支持命令行模式，可以使用在批处理文件中。</p>
         <updated>2008-11-20T17:55:00Z</updated>
         <published>2008-11-20T17:55:00Z</published>
         <id>http://microjo.github.com/work/gmpc_modified.html</id>
-        <category scheme="http://microjo.github.com/tag/gmpc.html" term="GMPC" label="Gmpc" />
-        <category scheme="http://microjo.github.com/tag/gtk+.html" term="GTK+" label="Gtk+" />
-        <category scheme="http://microjo.github.com/tag/glibc.html" term="glibc" label="Glibc" />
-        <category scheme="http://microjo.github.com/tag/mpd.html" term="MPD" label="Mpd" />
+        <category scheme="http://microjo.github.com/tag/gmpc/" term="GMPC" label="Gmpc" />
+        <category scheme="http://microjo.github.com/tag/gtk+/" term="GTK+" label="Gtk+" />
+        <category scheme="http://microjo.github.com/tag/glibc/" term="glibc" label="Glibc" />
+        <category scheme="http://microjo.github.com/tag/mpd/" term="MPD" label="Mpd" />
         <content type="html" xml:base="http://microjo.github.com" xml:lang="en">
             <![CDATA[ <p>Ubuntu 下面喜欢使用 MPD (Music Player Daemon) 播放歌曲，由于这是一个 C/S 的音乐播放程序，一个好用的播放客户端必不可少。</p>
 <p>最初使用的是 Sonata（用 Python 语言编写）。这个播放客户端界面简洁，能够修改音乐的标签，功能满足要求，但是有一个缺点，对于需要代理访问因特网的用户无法更新专辑封面、歌词等信息。充分利用 Google 搜索发现 Python 支持使用系统环境变量 <code>http_proxy</code> 的代理设置访问因特网，于是自己修改了部分代码（使用 urllib2 访问因特网的部分），可是测试使用的时候总是不起作用。后来想通过在终端运行看看是否有出错的信息，出人意料竟然能访问因特网，这个现象也太奇怪了，实在搞不懂是怎么一回事？？</p>

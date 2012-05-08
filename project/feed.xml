@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>Jonathan's Blog</title>
-    <link href="http://microjo.github.com/project/feed.html" rel="self" />
+    <link href="http://microjo.github.com/project/feed.xml" rel="self" />
     
-    <link href="http://microjo.github.com/project.html" />
+    <link href="http://microjo.github.com/project/" />
     
-    <updated>2012-05-06T08:55:44Z</updated>
+    <updated>2012-05-09T01:19:54Z</updated>
     <id>http://microjo.github.com</id>
     <entry>
         <title type="html"><![CDATA[iStuff 主题 - M8NewUI]]></title>
@@ -14,9 +14,9 @@
         <updated>2010-05-15T09:50:00Z</updated>
         <published>2010-05-15T09:50:00Z</published>
         <id>http://microjo.github.com/project/istuff_theme_m8newui.html</id>
-        <category scheme="http://microjo.github.com/tag/m8.html" term="M8" label="M8" />
-        <category scheme="http://microjo.github.com/tag/istuff.html" term="iStuff" label="Istuff" />
-        <category scheme="http://microjo.github.com/tag/theme.html" term="theme" label="Theme" />
+        <category scheme="http://microjo.github.com/tag/m8/" term="M8" label="M8" />
+        <category scheme="http://microjo.github.com/tag/istuff/" term="iStuff" label="Istuff" />
+        <category scheme="http://microjo.github.com/tag/theme/" term="theme" label="Theme" />
         <content type="html" xml:base="http://microjo.github.com" xml:lang="en">
             <![CDATA[ <p>MEIZU New UI Style, made by microjo (follow me at <a href="https://twitter.com/micro4jo">@micro4jo</a>)</p>
 <ul>
