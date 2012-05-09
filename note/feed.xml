@@ -5,7 +5,7 @@
     
     <link href="http://microjo.github.com/note/" />
     
-    <updated>2012-05-09T16:54:08Z</updated>
+    <updated>2012-05-10T04:36:36Z</updated>
     <id>http://microjo.github.com</id>
     <entry>
         <title type="html"><![CDATA[Git Learning Notes]]></title>
@@ -17,9 +17,35 @@
         <category scheme="http://microjo.github.com/tag/git/" term="Git" label="Git" />
         <category scheme="http://microjo.github.com/tag/github/" term="GitHub" label="Github" />
         <content type="html" xml:base="http://microjo.github.com" xml:lang="en">
-            <![CDATA[ <ul>
-<li><a href="http://www.worldhello.net/gotgithub/">GotGitHub</a><br />
-关于 GitHub 方方面面的书，很实用，尤其可以通过书内容的源码，学习 reStructuredText 的使用。其实找到这本书是因为搜索<a href="http://www.worldhello.net/gotgithub/appendix/markups.html">轻量级标记语言</a>发现的，里面常用轻量级标记语言对照非常实用。</li>
+            <![CDATA[ <h2 id="">参考资料</h2>
+<ul>
+<li>
+<p><a href="http://git-scm.com/book">Pro Git</a><br />
+提供在线阅读，PDF/mobi/ePub 三种电子书格式下载。同时还有<a href="http://git-scm.com/2010/06/09/pro-git-zh.html">简体中文版</a>。<br />
+<img alt="progit cover" src="https://github.com/github/gitscm-next/raw/master/public/images/pro-git-298x398.jpg" /></p>
+</li>
+<li>
+<p>Quick reference guides（从上面网站发现的，使用起来很方便）</p>
+<ul>
+<li><a href="https://na1.salesforce.com/help/doc/en/salesforce_git_developer_cheatsheet.pdf">Heroku Cheat Sheet (PDF)</a></li>
+<li><a href="http://ndpsoftware.com/git-cheatsheet.html">Visual Git Cheat Sheet (SVG|PNG)</a></li>
+</ul>
+</li>
+<li>
+<p><a href="http://www.worldhello.net/gotgithub/">GotGitHub</a><br />
+关于 GitHub 方方面面的书，很实用，尤其可以通过书内容的源码，学习 reStructuredText 的使用。其实找到这本书是因为搜索<a href="http://www.worldhello.net/gotgithub/appendix/markups.html">轻量级标记语言</a>发现的，里面常用轻量级标记语言对照非常实用。</p>
+</li>
+<li>
+<p><a href="http://www.worldhello.net/gotgit/">Git权威指南</a><br />
+中文 Git 书籍，大块头，500 多页。</p>
+</li>
+<li>
+<p><a href="http://gitref.org/">Git Reference</a> 和中文版 <a href="http://gitref.cyj.me/zh/">Git 参考手册</a></p>
+<blockquote>
+<p>This is meant to be a quick reference for learning and remembering the most important and commonly used Git commands. The commands are organized into sections of the type of operation you may be trying to do, and will present the common options and commands needed to accomplish these common tasks. <br />
+目的是为学习与记忆 Git 使用中最重要、最普遍的命令提供快速翻阅。这些命令以您可能需要的操作类型划分，并且将提供日常使用中需要的一些常用的命令以及参数。</p>
+</blockquote>
+</li>
 </ul> ]]>
         </content>
     </entry>
