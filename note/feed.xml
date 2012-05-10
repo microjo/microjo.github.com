@@ -5,8 +5,66 @@
     
     <link href="http://microjo.github.com/note/" />
     
-    <updated>2012-05-10T04:36:36Z</updated>
+    <updated>2012-05-11T03:20:42Z</updated>
     <id>http://microjo.github.com</id>
+    <entry>
+        <title type="html"><![CDATA[代理环境下使用 add-apt-repository 添加 PPA 软件源]]></title>
+        <author><name>microjo</name><uri>http://microjo.github.com</uri></author>
+        <link href="http://microjo.github.com/note/add-apt-repository.html"/>
+        <updated>2012-05-10T17:43:00Z</updated>
+        <published>2012-05-10T17:43:00Z</published>
+        <id>http://microjo.github.com/note/add-apt-repository.html</id>
+        <category scheme="http://microjo.github.com/tag/ubuntu/" term="Ubuntu" label="Ubuntu" />
+        <category scheme="http://microjo.github.com/tag/apt/" term="apt" label="Apt" />
+        <category scheme="http://microjo.github.com/tag/proxy/" term="proxy" label="Proxy" />
+        <category scheme="http://microjo.github.com/tag/软件源/" term="软件源" label="软件源" />
+        <category scheme="http://microjo.github.com/tag/代理/" term="代理" label="代理" />
+        <content type="html" xml:base="http://microjo.github.com" xml:lang="en">
+            <![CDATA[ <p>Ubuntu 下使用 <code>add-apt-repository</code> 添加 PPA 软件源非常方便，此命令自动在 <code>/etc/apt/sources.list.d/</code> 目录下增加相应软件源文件，并导入用于身份验证的密钥文件。以添加 <a href="http://sourceforge.net/p/retext/home/ReText/">ReText</a> 软件源 <a href="https://launchpad.net/~mitya57/+archive/ppa">ppa:mitya57</a> 举例：</p>
+<pre><code>jonathan@n:~$ sudo add-apt-repository ppa:mitya57/ppa
+You are about to add the following PPA to your system:
+ This ppa contains ReText and Unity Mail packages.
+
+ReText homepage: https://launchpad.net/retext
+Unity Mail homepage: https://launchpad.net/unity-mail
+ More info: https://launchpad.net/~mitya57/+archive/ppa
+Press [ENTER] to continue or ctrl-c to cancel adding it
+
+Executing: gpg --ignore-time-conflict --no-options --no-default-keyring --secret-keyring /tmp/tmp.7j0kponOuB --trustdb-name /etc/apt/trustdb.gpg --keyring /etc/apt/trusted.gpg --primary-keyring /etc/apt/trusted.gpg --keyserver hkp://keyserver.ubuntu.com:80/ --recv 0335F87ABAAAB3E5614B31470BB6536FEB999287
+gpg: 下载密钥‘EB999287’，从 hkp 服务器 keyserver.ubuntu.com
+gpg: 密钥 EB999287：公钥“Launchpad PPA for Dmitry Shachnev”已导入
+gpg: 合计被处理的数量：1
+gpg:               已导入：1  (RSA: 1)
+jonathan@n:~$ sudo apt-get update
+jonathan@n:~$ sudo apt-get install retext
+</code></pre>
+<p>但是在需要通过代理访问互联网的情况下，使用此命令会出现如下错误：</p>
+<pre><code>jonathan@n:~$ sudo add-apt-repository ppa:mitya57/ppa
+Traceback (most recent call last):
+  File "/usr/bin/add-apt-repository", line 125, in &lt;module&gt;
+    ppa_info = get_ppa_info_from_lp(user, ppa_name)
+  File "/usr/lib/python2.7/dist-packages/softwareproperties/ppa.py", line 80, in get_ppa_info_from_lp
+    curl.perform()
+pycurl.error: (6, "Couldn't resolve host 'launchpad.net'")
+</code></pre>
+<p>从错误内容来看，无法访问互联网。检查 Ubuntu 系统，代理设置正确，终端中 <code>export</code> 命令能够查询到涉及代理的环境变量。通过搜索找到 <a href="http://askubuntu.com/questions/53146/how-do-i-get-add-apt-repository-to-work-through-a-proxy">[1]</a> <a href="https://bugs.launchpad.net/ubuntu/+source/software-properties/+bug/516032">[2]</a> 两篇内容，据此整理出如下两种解决方法：</p>
+<ol>
+<li>
+<p>使用 <code>sudo</code> 参数 <code>-E</code> 使得 root 用户可以使用普通用户下的环境变量，包括代理设置。</p>
+<pre><code>jonathan@n:~$ sudo -E add-apt-repository ppa:mitya57/ppa
+</code></pre>
+</li>
+<li>
+<p>直接在 root 用户下设置代理。</p>
+<pre><code>jonathan@n:~$ sudo bash
+root@n:~# export http_proxy=http://192.168.1.8:80
+root@n:~# export https_proxy=http://192.168.1.8:80
+root@n:~# add-apt-repository ppa:mitya57/ppa
+</code></pre>
+</li>
+</ol> ]]>
+        </content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Git Learning Notes]]></title>
         <author><name>microjo</name><uri>http://microjo.github.com</uri></author>
@@ -285,35 +343,6 @@ MKV 内嵌字体如果能像 PDF 只嵌入需要的字体子集该多好～ 这�
 <li><a href="http://zhidao.baidu.com/question/59085606.html">Excel：关于格式输出[$-409]、[DBNum2]的帮助怎么查找</a></li>
 <li><a href="http://huangweidongmei.blog.sohu.com/82608212.html">excel 学习笔记之三（单元格自定义）</a></li>
 </ul> ]]>
-        </content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[编译 kvm 时选择需要编译的音频驱动]]></title>
-        <author><name>microjo</name><uri>http://microjo.github.com</uri></author>
-        <link href="http://microjo.github.com/note/kvm_compile_audio.html"/>
-        <updated>2008-12-04T17:33:00Z</updated>
-        <published>2008-12-04T17:33:00Z</published>
-        <id>http://microjo.github.com/note/kvm_compile_audio.html</id>
-        <category scheme="http://microjo.github.com/tag/kvm/" term="kvm" label="Kvm" />
-        <category scheme="http://microjo.github.com/tag/pulseaudio/" term="PulseAudio" label="Pulseaudio" />
-        <category scheme="http://microjo.github.com/tag/音频/" term="音频" label="音频" />
-        <content type="html" xml:base="http://microjo.github.com" xml:lang="en">
-            <![CDATA[ <p>使用 kvm 作为虚拟机安装 windows 系统，速度感觉很快，但是音频老是有问题：在进入虚拟机使用声卡后，外面的 ubuntu 不能够播放音乐。使用参数 <code>-audio-help</code> 查询支持的音频输出有哪些，发现有 alsa、oss、wav 等。依次 alsa、oss 作为输出使用都是类似的问题，差点就放弃使用声卡。由于 ubuntu 8.10 使用 PulseAudio 作为系统的声音服务，能够支持多个应用程序播放音频，就想 kvm 是否支持 PulseAudio 输出呢？Google 之后发现从 kvm 71 开始支持，参考官方 wiki 中的编译方法：</p>
-<div class="code"><div class="highlight"><pre>tar xzf kvm-release.tar.gz
-<span class="nb">cd </span>kvm-release
-./configure --prefix<span class="o">=</span>/usr/local/kvm
-make
-sudo make install
-sudo /sbin/modprobe kvm-intel
-<span class="c"># or: sudo /sbin/modprobe kvm-amd</span>
-</pre></div>
-</div>
-
-<p>编译安装之后，查询还是没有支持 PulseAudio 输出。于是，用 <code>./configure --help</code> 查询编译参数，里面没有提及声音驱动的设置。进一步查看 configure 的源代码，发现里面还设置了 qemu 目录下文件编译的参数，所以在 qemu 目录下面，执行 <code>./configure --help</code> 发现有了声音驱动的参数设置：</p>
-<pre><code>--audio-drv-list=LIST set audio drivers list:
-Available drivers: oss alsa sdl esd pa fmod
-</code></pre>
-<p>编译使用参数 <code>--audio-drv-list="alsa oss pa"</code>，其中 pa 表示 PulseAudio。编译安装后，配置参数 <code>export QEMU_AUDIO_DRV=pa</code> 使用 PulseAudio 输出成功解决问题，但是好像稳定性有问题，在虚拟机下面播放音频关闭后，会莫名奇妙的跳出。</p> ]]>
         </content>
     </entry>
     </feed>

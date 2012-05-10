@@ -5,8 +5,66 @@
     
     <link href="http://microjo.github.com" />
     
-    <updated>2012-05-10T04:36:40Z</updated>
+    <updated>2012-05-11T03:20:47Z</updated>
     <id>http://microjo.github.com</id>
+    <entry>
+        <title type="html"><![CDATA[代理环境下使用 add-apt-repository 添加 PPA 软件源]]></title>
+        <author><name>microjo</name><uri>http://microjo.github.com</uri></author>
+        <link href="http://microjo.github.com/note/add-apt-repository.html"/>
+        <updated>2012-05-10T17:43:00Z</updated>
+        <published>2012-05-10T17:43:00Z</published>
+        <id>http://microjo.github.com/note/add-apt-repository.html</id>
+        <category scheme="http://microjo.github.com/tag/ubuntu/" term="Ubuntu" label="Ubuntu" />
+        <category scheme="http://microjo.github.com/tag/apt/" term="apt" label="Apt" />
+        <category scheme="http://microjo.github.com/tag/proxy/" term="proxy" label="Proxy" />
+        <category scheme="http://microjo.github.com/tag/软件源/" term="软件源" label="软件源" />
+        <category scheme="http://microjo.github.com/tag/代理/" term="代理" label="代理" />
+        <content type="html" xml:base="http://microjo.github.com" xml:lang="en">
+            <![CDATA[ <p>Ubuntu 下使用 <code>add-apt-repository</code> 添加 PPA 软件源非常方便，此命令自动在 <code>/etc/apt/sources.list.d/</code> 目录下增加相应软件源文件，并导入用于身份验证的密钥文件。以添加 <a href="http://sourceforge.net/p/retext/home/ReText/">ReText</a> 软件源 <a href="https://launchpad.net/~mitya57/+archive/ppa">ppa:mitya57</a> 举例：</p>
+<pre><code>jonathan@n:~$ sudo add-apt-repository ppa:mitya57/ppa
+You are about to add the following PPA to your system:
+ This ppa contains ReText and Unity Mail packages.
+
+ReText homepage: https://launchpad.net/retext
+Unity Mail homepage: https://launchpad.net/unity-mail
+ More info: https://launchpad.net/~mitya57/+archive/ppa
+Press [ENTER] to continue or ctrl-c to cancel adding it
+
+Executing: gpg --ignore-time-conflict --no-options --no-default-keyring --secret-keyring /tmp/tmp.7j0kponOuB --trustdb-name /etc/apt/trustdb.gpg --keyring /etc/apt/trusted.gpg --primary-keyring /etc/apt/trusted.gpg --keyserver hkp://keyserver.ubuntu.com:80/ --recv 0335F87ABAAAB3E5614B31470BB6536FEB999287
+gpg: 下载密钥‘EB999287’，从 hkp 服务器 keyserver.ubuntu.com
+gpg: 密钥 EB999287：公钥“Launchpad PPA for Dmitry Shachnev”已导入
+gpg: 合计被处理的数量：1
+gpg:               已导入：1  (RSA: 1)
+jonathan@n:~$ sudo apt-get update
+jonathan@n:~$ sudo apt-get install retext
+</code></pre>
+<p>但是在需要通过代理访问互联网的情况下，使用此命令会出现如下错误：</p>
+<pre><code>jonathan@n:~$ sudo add-apt-repository ppa:mitya57/ppa
+Traceback (most recent call last):
+  File "/usr/bin/add-apt-repository", line 125, in &lt;module&gt;
+    ppa_info = get_ppa_info_from_lp(user, ppa_name)
+  File "/usr/lib/python2.7/dist-packages/softwareproperties/ppa.py", line 80, in get_ppa_info_from_lp
+    curl.perform()
+pycurl.error: (6, "Couldn't resolve host 'launchpad.net'")
+</code></pre>
+<p>从错误内容来看，无法访问互联网。检查 Ubuntu 系统，代理设置正确，终端中 <code>export</code> 命令能够查询到涉及代理的环境变量。通过搜索找到 <a href="http://askubuntu.com/questions/53146/how-do-i-get-add-apt-repository-to-work-through-a-proxy">[1]</a> <a href="https://bugs.launchpad.net/ubuntu/+source/software-properties/+bug/516032">[2]</a> 两篇内容，据此整理出如下两种解决方法：</p>
+<ol>
+<li>
+<p>使用 <code>sudo</code> 参数 <code>-E</code> 使得 root 用户可以使用普通用户下的环境变量，包括代理设置。</p>
+<pre><code>jonathan@n:~$ sudo -E add-apt-repository ppa:mitya57/ppa
+</code></pre>
+</li>
+<li>
+<p>直接在 root 用户下设置代理。</p>
+<pre><code>jonathan@n:~$ sudo bash
+root@n:~# export http_proxy=http://192.168.1.8:80
+root@n:~# export https_proxy=http://192.168.1.8:80
+root@n:~# add-apt-repository ppa:mitya57/ppa
+</code></pre>
+</li>
+</ol> ]]>
+        </content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Git Learning Notes]]></title>
         <author><name>microjo</name><uri>http://microjo.github.com</uri></author>
@@ -538,80 +596,6 @@ Exception in thread "main" brut.androlib.err.UndefinedResObject: resource spec: 
 诺基亚 Ovi 套件会在 <code>D:\Program files</code> 目录下面创建新目录 <code>Nokia Ovi Suite</code>，并安装到此目录下面。</p>
 </blockquote>
 <p>经实际使用，确实能达到目的。注意在 Windows Vista 和 Windows 7 下面安装时，必须有管理员权限才能安装。</p> ]]>
-        </content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[[kritCN][Jam Luey Gamathep 丘比特的被告][泰语中字]（完结/14集）]]></title>
-        <author><name>microjo</name><uri>http://microjo.github.com</uri></author>
-        <link href="http://microjo.github.com/entertainment/kritcn_jlg.html"/>
-        <updated>2010-05-28T12:06:00Z</updated>
-        <published>2010-05-28T12:06:00Z</published>
-        <id>http://microjo.github.com/entertainment/kritcn_jlg.html</id>
-        <category scheme="http://microjo.github.com/tag/kritcn/" term="kritCN" label="Kritcn" />
-        <category scheme="http://microjo.github.com/tag/shahkrit/" term="shahkrit" label="Shahkrit" />
-        <category scheme="http://microjo.github.com/tag/jam luey gamathep/" term="Jam Luey Gamathep" label="Jam Luey Gamathep" />
-        <category scheme="http://microjo.github.com/tag/丘比特的被告/" term="丘比特的被告" label="丘比特的被告" />
-        <category scheme="http://microjo.github.com/tag/泰剧/" term="泰剧" label="泰剧" />
-        <category scheme="http://microjo.github.com/tag/tv/" term="tv" label="Tv" />
-        <content type="html" xml:base="http://microjo.github.com" xml:lang="en">
-            <![CDATA[ <p><strong>转载请注明“转载自：<a href="http://shahkrityamnarm.5d6d.com/">Shahkrit中文网</a>”，并不可以改动中文剧名，否则谢绝转载！谢谢！</strong></p>
-<hr />
-<h4 id="">【中文剧名】：丘比特的被告</h4>
-<h4 id="jam-luey-gamathepcupids-defendent">【英文剧名】：Jam Luey Gamathep（译名：Cupid's Defendent）</h4>
-<h4 id="_1">【泰文剧名】：จำเลยกามเทพ</h4>
-<h4 id="200997">【开播时间】：2009年9月7日</h4>
-<h4 id="ch3">【开播电视台】：CH3</h4>
-<h4 id="shahkrit-yamnarmcherry-khemupsorn">【主演】：Shahkrit Yamnarm、Cherry Khemupsorn</h4>
-<h4 id="kritcn">【制作发布】：kritCN字幕组&amp;凤凰天使</h4>
-<h4 id="nik">【海报】：NIK</h4>
-<h4 id="_2">【人物介绍】：</h4>
-<pre><code>Shahkrit Yamnarm（krit）　饰演　Manmet (Mek)  
-Cherry Khemupsorn（cherry）　饰演　Nate-Upsorn (Nim)  
-Job Nithi　饰演　Thorani (Kapom)  
-Jane Janesuda（jane）　饰演　Chanetti (Pak-kard)
-</code></pre>
-<h4 id="_3">【剧情介绍】：</h4>
-<p>Nate-Upsorn (Nim)，著名女演员，一直以来都跟著名男演员 Thorani (Kapom) 搭档。现实生活中观众们都希望他们真的成为情侣，而同时 Nim 本人也希望他们能假戏真做，成为一对。可事实上，Kapom 在现实生活中已经有女朋友了，叫 Pak-kard。Nim 不断骚扰他们，并威胁要破坏他和女友的婚礼，他很苦恼。</p>
-<p>为了能够顺利结婚，他让自己刚从美国回来的弟弟Mek乔装成绑匪，将 Nim 绑架至某个小岛上直到自己完成婚礼。尽管 Mek 不愿意这样做，他还是不得不帮助自己的哥哥。这时候，电视剧《爱的被告》带给了 Mek 很多灵感。他模仿 Harit 把 Nim 绑架到一个私人小岛上，并像电视剧里那样假装自己被她深深的伤害了，不断的通过虐待她来释放心中的仇恨。</p>
-<p>然而，事情没有这么简单。因为 Nim 不是哭哭啼啼、逆来顺受的女孩子，她不断的反抗和反虐待，在两人一次又一次的交锋中，彼此的心渐渐靠近，可是真相 却也日渐揭露……明白了真相的 Nim 愤而离去，失去了爱人的 Mek 心痛得不能自已，愿付出一切来挽回这段原本就扭曲的情路。</p>
-<h4 id="_4">【下载地址】：</h4>
-<ol>
-<li>MEGAUPLOAD 下载（此网盘有效期比较长）<ul>
-<li><a href="http://www.megaupload.com/?d=IED3PPF4">【kritCN】【泰剧】【Jam Luey Gamathep 丘比特的被告】01 [DE979255]</a></li>
-<li><a href="http://www.megaupload.com/?d=TLM83IM7">【kritCN】【泰剧】【Jam Luey Gamathep 丘比特的被告】02 [9E1024FB]</a></li>
-<li><a href="http://www.megaupload.com/?d=GCLFVD6F">【kritCN】【泰剧】【Jam Luey Gamathep 丘比特的被告】03 [5477F6BF]</a></li>
-<li><a href="http://www.megaupload.com/?d=R8JJ8K8H">【kritCN】【泰剧】【Jam Luey Gamathep 丘比特的被告】04 [423D2D6E]</a></li>
-<li><a href="http://www.megaupload.com/?d=R2XGMU5A">【kritCN】【泰剧】【Jam Luey Gamathep 丘比特的被告】05 [C0398EB5]</a></li>
-<li><a href="http://www.megaupload.com/?d=JO7G2M8I">【kritCN】【泰剧】【Jam Luey Gamathep 丘比特的被告】06 [7C9EC5DF]</a></li>
-<li><a href="http://www.megaupload.com/?d=CBO3630M">【kritCN】【泰剧】【Jam Luey Gamathep 丘比特的被告】07 [8394F69B]</a></li>
-<li><a href="http://www.megaupload.com/?d=4VNQ51A8">【kritCN】【泰剧】【Jam Luey Gamathep 丘比特的被告】08 [826974ED]</a></li>
-<li><a href="http://www.megaupload.com/?d=S3IU3A3L">【kritCN】【泰剧】【Jam Luey Gamathep 丘比特的被告】09 [7D8642EA]</a></li>
-<li><a href="http://www.megaupload.com/?d=9YX3XN87">【kritCN】【泰剧】【Jam Luey Gamathep 丘比特的被告】10 [2CA6A564]</a></li>
-<li><a href="http://www.megaupload.com/?d=94UWGR87">【kritCN】【泰剧】【Jam Luey Gamathep 丘比特的被告】11 [9838390D]</a></li>
-<li><a href="http://www.megaupload.com/?d=ESDBH4QI">【kritCN】【泰剧】【Jam Luey Gamathep 丘比特的被告】12 [617EFDCB]</a></li>
-<li><a href="http://www.megaupload.com/?d=CBOUW3SH">【kritCN】【泰剧】【Jam Luey Gamathep 丘比特的被告】13 [B03042FB]</a></li>
-<li><a href="http://www.megaupload.com/?d=EGORKJ73">【kritCN】【泰剧】【Jam Luey Gamathep 丘比特的被告】14完结 [5D922D2F]</a></li>
-</ul>
-</li>
-<li>115 网盘下载<ul>
-<li><a href="http://u.115.com/file/t1d223454b">【kritCN】【泰剧】【Jam Luey Gamathep 丘比特的被告】01 [DE979255]</a></li>
-<li><a href="http://u.115.com/file/t16805170">【kritCN】【泰剧】【Jam Luey Gamathep 丘比特的被告】02 [9E1024FB]</a></li>
-<li><a href="http://u.115.com/file/t13fb0dfe3">【kritCN】【泰剧】【Jam Luey Gamathep 丘比特的被告】03 [5477F6BF]</a></li>
-<li><a href="http://u.115.com/file/t193d044c8">【kritCN】【泰剧】【Jam Luey Gamathep 丘比特的被告】04 [423D2D6E]</a></li>
-<li><a href="http://u.115.com/file/t128c5c8e3">【kritCN】【泰剧】【Jam Luey Gamathep 丘比特的被告】05 [C0398EB5]</a></li>
-<li><a href="http://u.115.com/file/t11a876976">【kritCN】【泰剧】【Jam Luey Gamathep 丘比特的被告】06 [7C9EC5DF]</a></li>
-<li><a href="http://u.115.com/file/t1e6884cde">【kritCN】【泰剧】【Jam Luey Gamathep 丘比特的被告】07 [8394F69B]</a></li>
-<li><a href="http://u.115.com/file/t1f4f9e95a">【kritCN】【泰剧】【Jam Luey Gamathep 丘比特的被告】08 [826974ED]</a></li>
-<li><a href="http://u.115.com/file/t14452bbeb">【kritCN】【泰剧】【Jam Luey Gamathep 丘比特的被告】09 [7D8642EA]</a></li>
-<li><a href="http://u.115.com/file/t18043ecac">【kritCN】【泰剧】【Jam Luey Gamathep 丘比特的被告】10 [2CA6A564]</a></li>
-<li><a href="http://u.115.com/file/t16a3d86f6">【kritCN】【泰剧】【Jam Luey Gamathep 丘比特的被告】11 [9838390D]</a></li>
-<li><a href="http://u.115.com/file/t18b0b59c3">【kritCN】【泰剧】【Jam Luey Gamathep 丘比特的被告】12 [617EFDCB]</a></li>
-<li><a href="http://u.115.com/file/t1c6092c8e">【kritCN】【泰剧】【Jam Luey Gamathep 丘比特的被告】13 [B03042FB]</a></li>
-<li><a href="http://u.115.com/file/t148b0a9f0">【kritCN】【泰剧】【Jam Luey Gamathep 丘比特的被告】14完结 [5D922D2F]</a></li>
-</ul>
-</li>
-<li><a href="http://www.youku.com/playlist_show/id_3939631.html">优酷在线观看</a></li>
-</ol> ]]>
         </content>
     </entry>
     </feed>
