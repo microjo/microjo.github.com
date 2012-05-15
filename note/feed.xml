@@ -5,8 +5,40 @@
     
     <link href="http://microjo.github.com/note/" />
     
-    <updated>2012-05-11T03:20:42Z</updated>
+    <updated>2012-05-16T00:22:08Z</updated>
     <id>http://microjo.github.com</id>
+    <entry>
+        <title type="html"><![CDATA[自用 User Scripts 分享]]></title>
+        <author><name>microjo</name><uri>http://microjo.github.com</uri></author>
+        <link href="http://microjo.github.com/note/userscripts.html"/>
+        <updated>2012-05-15T23:28:00Z</updated>
+        <published>2012-05-15T23:28:00Z</published>
+        <id>http://microjo.github.com/note/userscripts.html</id>
+        <category scheme="http://microjo.github.com/tag/script/" term="script" label="Script" />
+        <category scheme="http://microjo.github.com/tag/firefox/" term="Firefox" label="Firefox" />
+        <category scheme="http://microjo.github.com/tag/chrome/" term="Chrome" label="Chrome" />
+        <content type="html" xml:base="http://microjo.github.com" xml:lang="en">
+            <![CDATA[ <p>用户脚本 (User Script) 能够增强浏览体验，有时能提供意想不到的功能。Chrome 原生支持用户脚本，Firefox 需要安装 <a href="http://www.greasespot.net/">Greasemonkey</a> 或 <a href="http://scriptish.org/" title="号称功能比 Greasemonkey 更好，确实不错">Scriptish</a> 扩展。很多不错的脚本可以在 <a href="http://userscripts.org/">http://userscripts.org/</a> 搜索到，以下列出本人自用的：</p>
+<ol>
+<li>
+<p><a href="http://userscripts.org/scripts/show/39167">YouTube HD Suite</a><br />
+最早接触到的脚本，在 YouTube 页面上显示视频各种格式的下载，用各种颜色标识，直观、方便。</p>
+</li>
+<li>
+<p><a href="http://www.fishlee.net/soft/44/index.html">12306.cn 购票助手</a><br />
+春节网上购票帮了大忙，自动登陆功能非常有用，还有自动刷新查询票额功能，方便及时发现余票。</p>
+</li>
+<li>
+<p><a href="http://userscripts.org/scripts/show/84013">get images_BBcode from SkyDrive</a><br />
+方便提取 SkyDrive 共享图片的外链链接。</p>
+</li>
+<li>
+<p><a href="http://userscripts.org/scripts/show/116879">DBank Linker</a><br />
+终于可以不需要注册登录下载华为网盘上的资源了，真是方便 ：）</p>
+</li>
+</ol> ]]>
+        </content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[代理环境下使用 add-apt-repository 添加 PPA 软件源]]></title>
         <author><name>microjo</name><uri>http://microjo.github.com</uri></author>
@@ -305,44 +337,6 @@ MKV 内嵌字体如果能像 PDF 只嵌入需要的字体子集该多好～ 这�
 </div>
 
 <p>该文件是对没有基本的字体名称（sans-serif/serif/monospace）的字体添加一个字体。由于 Flash 没有指定显示的字体，因此此文件起作用。</p> ]]>
-        </content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Excel 金额大小写转换公式]]></title>
-        <author><name>microjo</name><uri>http://microjo.github.com</uri></author>
-        <link href="http://microjo.github.com/note/execl_money_conversion.html"/>
-        <updated>2008-12-12T09:48:00Z</updated>
-        <published>2008-12-12T09:48:00Z</published>
-        <id>http://microjo.github.com/note/execl_money_conversion.html</id>
-        <category scheme="http://microjo.github.com/tag/excel/" term="excel" label="Excel" />
-        <category scheme="http://microjo.github.com/tag/text/" term="TEXT" label="Text" />
-        <category scheme="http://microjo.github.com/tag/金额大小写转换/" term="金额大小写转换" label="金额大小写转换" />
-        <content type="html" xml:base="http://microjo.github.com" xml:lang="en">
-            <![CDATA[ <blockquote>
-<ol>
-<li>
-<p>转自<em>财务经理人 Henry </em>网友，充分利用 Execl 的中文大写转换功能</p>
-<pre><code>=IF(ROUND(G8,2)&lt;0,"无效数值",IF(ROUND(G8,2)=0,"零",IF(ROUND(G8,2)&lt;1,"",TEXT(INT(ROUND(G8,2)),"[dbnum2]")&amp;"元")&amp;IF(INT(ROUND(G8,2)*10)-INT(ROUND(G8,2))*10=0,IF(INT(ROUND(G8,2))* (INT(ROUND(G8,2)*100)-INT(ROUND(G8,2)*10)*10)=0,"","零"),TEXT(INT(ROUND(G8,2)*10)-INT(ROUND(G8,2))*10,"[dbnum2]")&amp;"角")&amp;IF((INT(ROUND(G8,2)*100)-INT(ROUND(G8,2)*10)*10)=0,"整",TEXT((INT(ROUND(G8,2)*100)-INT(ROUND(G8,2)*10)*10),"[dbnum2]")&amp;"分")))
-</code></pre>
-<p>注：“G8”是 Excel 表格中金额小写所在的单元格，各人使用时只需修改下小写所在单元格位置即可。<br />
-例1、56137.16 → 伍万陆仟壹佰叁拾柒元壹角陆分<br />
-例2、760090.40 → 柒拾陆万零玖拾元肆角整</p>
-</li>
-<li>
-<p><em>shenboo@ExcelHOME</em></p>
-<p>附一个我做的人民币大写公式吧，在我的机器上是没有问题的，可是有些机器上就不行。</p>
-<pre><code>SUBSTITUTE(IF(TRUNC(单元格)=0,IF(MID(单元格,LEN(TEXT(单元格,"0.00"))-1,1)="0","",TEXT(MID(单元格,LEN(TEXT(单元格,"0.00"))-1,1),"[DBNUM2]") &amp; "角") &amp; IF(RIGHT(TEXT(单元格,"0.00"),1)="0","",TEXT(RIGHT(TEXT(ROUND(单元格,2),"0.00"),1),"[DBNUM2]")&amp;"分"), IF(TRUNC(单元格)=单元格,TEXT(TRUNC(单元格),"[DBNUM2]")&amp;"元",TEXT(TRUNC(单元格)," [DBNUM2]")&amp;"元" &amp; IF(MID(单元格,LEN(TEXT(单元格,"0.00"))-1,1)="0","零",TEXT(MID(单元格,LEN(TEXT(单元格,"0.00"))-1,1),"[DBNUM2]") &amp; "角") &amp; IF(RIGHT(TEXT(单元格,"0.00"),1)="0","",TEXT(RIGHT(TEXT(ROUND(单元格,2),"0.00"),1),"[DBNUM2]")&amp;"分"))),"-","负")
-</code></pre>
-</li>
-</ol>
-</blockquote>
-<p>上面两个主要使用的 TEXT 函数，这个函数里面重要的就是第二个参数 format_text。“[DBNum2]”的可以把数字转换为中文大写形式。</p>
-<h2 id="">相关文章</h2>
-<ul>
-<li><a href="http://www.ozgrid.com/Excel/CustomFormats.htm">Excel Custom Formats: Numbers/Text Formats in Excel Spreadsheets</a></li>
-<li><a href="http://zhidao.baidu.com/question/59085606.html">Excel：关于格式输出[$-409]、[DBNum2]的帮助怎么查找</a></li>
-<li><a href="http://huangweidongmei.blog.sohu.com/82608212.html">excel 学习笔记之三（单元格自定义）</a></li>
-</ul> ]]>
         </content>
     </entry>
     </feed>

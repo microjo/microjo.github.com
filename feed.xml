@@ -5,8 +5,40 @@
     
     <link href="http://microjo.github.com" />
     
-    <updated>2012-05-11T03:20:47Z</updated>
+    <updated>2012-05-16T00:22:13Z</updated>
     <id>http://microjo.github.com</id>
+    <entry>
+        <title type="html"><![CDATA[自用 User Scripts 分享]]></title>
+        <author><name>microjo</name><uri>http://microjo.github.com</uri></author>
+        <link href="http://microjo.github.com/note/userscripts.html"/>
+        <updated>2012-05-15T23:28:00Z</updated>
+        <published>2012-05-15T23:28:00Z</published>
+        <id>http://microjo.github.com/note/userscripts.html</id>
+        <category scheme="http://microjo.github.com/tag/script/" term="script" label="Script" />
+        <category scheme="http://microjo.github.com/tag/firefox/" term="Firefox" label="Firefox" />
+        <category scheme="http://microjo.github.com/tag/chrome/" term="Chrome" label="Chrome" />
+        <content type="html" xml:base="http://microjo.github.com" xml:lang="en">
+            <![CDATA[ <p>用户脚本 (User Script) 能够增强浏览体验，有时能提供意想不到的功能。Chrome 原生支持用户脚本，Firefox 需要安装 <a href="http://www.greasespot.net/">Greasemonkey</a> 或 <a href="http://scriptish.org/" title="号称功能比 Greasemonkey 更好，确实不错">Scriptish</a> 扩展。很多不错的脚本可以在 <a href="http://userscripts.org/">http://userscripts.org/</a> 搜索到，以下列出本人自用的：</p>
+<ol>
+<li>
+<p><a href="http://userscripts.org/scripts/show/39167">YouTube HD Suite</a><br />
+最早接触到的脚本，在 YouTube 页面上显示视频各种格式的下载，用各种颜色标识，直观、方便。</p>
+</li>
+<li>
+<p><a href="http://www.fishlee.net/soft/44/index.html">12306.cn 购票助手</a><br />
+春节网上购票帮了大忙，自动登陆功能非常有用，还有自动刷新查询票额功能，方便及时发现余票。</p>
+</li>
+<li>
+<p><a href="http://userscripts.org/scripts/show/84013">get images_BBcode from SkyDrive</a><br />
+方便提取 SkyDrive 共享图片的外链链接。</p>
+</li>
+<li>
+<p><a href="http://userscripts.org/scripts/show/116879">DBank Linker</a><br />
+终于可以不需要注册登录下载华为网盘上的资源了，真是方便 ：）</p>
+</li>
+</ol> ]]>
+        </content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[代理环境下使用 add-apt-repository 添加 PPA 软件源]]></title>
         <author><name>microjo</name><uri>http://microjo.github.com</uri></author>
@@ -148,21 +180,21 @@ root@n:~# add-apt-repository ppa:mitya57/ppa
         <category scheme="http://microjo.github.com/tag/extension/" term="extension" label="Extension" />
         <category scheme="http://microjo.github.com/tag/扩展/" term="扩展" label="扩展" />
         <content type="html" xml:base="http://microjo.github.com" xml:lang="en">
-            <![CDATA[ <p><strong>声明：</strong>本文采用<a href="http://creativecommons.org/licenses/by-nc-sa/2.5/cn/" title="署名-非商业性使用-相同方式共享 2.5">CC BY-NC-SA 2.5协议</a>授权，转载请注明本文链接。</p>
+            <![CDATA[ <p><strong>声明：</strong>本文采用 <a href="http://creativecommons.org/licenses/by-nc-sa/2.5/cn/" title="署名-非商业性使用-相同方式共享 2.5">CC BY-NC-SA 2.5 协议</a>授权，转载请注明本文链接。</p>
 <hr />
-<p>本文说明生成本博客内容的 Felix Felicis 程序支持的扩展 Markdown<sup id="fnref:markdown"><a href="#fn:markdown" rel="footnote">1</a></sup> 语法。</p>
+<p>本文说明 Python-Markdown<sup id="fnref:python_markdown"><a href="#fn:python_markdown" rel="footnote">1</a></sup> 支持的扩展 Markdown<sup id="fnref:markdown"><a href="#fn:markdown" rel="footnote">2</a></sup> 语法。</p>
 <div class="toc">
 <ul>
 <li><a href="#highlight_code">支持语法高亮的代码区块</a></li>
-<li><a href="#attribute-lists-2">Attribute Lists / 属性列表 2</a><ul>
+<li><a href="#attribute-lists-3">Attribute Lists / 属性列表 3</a><ul>
 <li><a href="#the-list">The List</a></li>
 <li><a href="#block-level">Block Level</a></li>
 <li><a href="#inline">Inline</a></li>
 </ul>
 </li>
-<li><a href="#footnotes-3">Footnotes / 脚注 3</a></li>
-<li><a href="#table-of-contents-4">Table of Contents / 目录 4</a></li>
-<li><a href="#tables-5">Tables / 表格 5</a></li>
+<li><a href="#footnotes-4">Footnotes / 脚注 4</a></li>
+<li><a href="#table-of-contents-5">Table of Contents / 目录 5</a></li>
+<li><a href="#tables-6">Tables / 表格 6</a></li>
 <li><a href="#ckzl">参考资料</a></li>
 </ul>
 </div>
@@ -180,7 +212,7 @@ root@n:~# add-apt-repository ppa:mitya57/ppa
 </pre></div>
 </div>
 
-<h2 id="attribute-lists-2">Attribute Lists / 属性列表 <sup id="fnref:attr_list"><a href="#fn:attr_list" rel="footnote">2</a></sup></h2>
+<h2 id="attribute-lists-3">Attribute Lists / 属性列表 <sup id="fnref:attr_list"><a href="#fn:attr_list" rel="footnote">3</a></sup></h2>
 <p>定义 HTML 元素的属性。基本语法参照 <a href="http://maruku.rubyforge.org/proposal.html#attribute_lists">Maruku's Attribute List</a>。</p>
 <h3 id="the-list">The List</h3>
 <p>一个 attribute list 的例子如下所示：</p>
@@ -229,7 +261,7 @@ root@n:~# add-apt-repository ppa:mitya57/ppa
 <p>上面的例子生成如下结果：</p>
 <pre><code>&lt;p&gt;&lt;a href="http://example.com" class="foo bar" title="Some title!"&gt;link&lt;/a&gt;&lt;/p&gt;
 </code></pre>
-<h2 id="footnotes-3">Footnotes / 脚注 <sup id="fnref:footnotes"><a href="#fn:footnotes" rel="footnote">3</a></sup></h2>
+<h2 id="footnotes-4">Footnotes / 脚注 <sup id="fnref:footnotes"><a href="#fn:footnotes" rel="footnote">4</a></sup></h2>
 <p>脚注是在需要标记脚注文字的后面增加一个方括号，方括号中的内容必须以 <code>^</code> 开头，再接着是数字、字符串标记：</p>
 <pre><code>Footnotes[^1] have a label[^label] and a definition[^!DEF].
 </code></pre>
@@ -256,7 +288,7 @@ root@n:~# add-apt-repository ppa:mitya57/ppa
 默认情况下，脚注内容位于生成的 HTML 文档末尾。但是，你也许想将脚注内容放在文档的其他位置。只需要将如下内容放在需要的 markdown 文档位置即可。</p>
 <pre><code>///Footnotes Go Here///
 </code></pre>
-<h2 id="table-of-contents-4">Table of Contents / 目录 <sup id="fnref:toc"><a href="#fn:toc" rel="footnote">4</a></sup></h2>
+<h2 id="table-of-contents-5">Table of Contents / 目录 <sup id="fnref:toc"><a href="#fn:toc" rel="footnote">5</a></sup></h2>
 <p>Place a marker in the document where you would like the table of contents to appear. Then, a nested list of all the headers in the document will replace the marker. The marker defaults to [TOC].
 在需要目录出现的地方放置一个标记，这样会自动生成一个嵌套的包含所有标题的列表。默认的标记是 <code>[TOC]</code>。</p>
 <pre><code>[TOC]
@@ -278,7 +310,7 @@ root@n:~# add-apt-repository ppa:mitya57/ppa
 &lt;h1 id="header-2"&gt;Header 2&lt;/h1&gt;
 </code></pre>
 <p>目录跳转的标题 id 是依据标题内容自动生成的，只包含英文、数字、下划线 <code>_</code> 等。对于全部是中文的标题，自动生成的标题 id 为空，导致无法跳转。可以使用前面的 Attribute Lists 方法，定义标题 id。</p>
-<h2 id="tables-5">Tables / 表格 <sup id="fnref:tables"><a href="#fn:tables" rel="footnote">5</a></sup></h2>
+<h2 id="tables-6">Tables / 表格 <sup id="fnref:tables"><a href="#fn:tables" rel="footnote">6</a></sup></h2>
 <p>定义表格的语法参照 <a href="http://www.michelf.com/projects/php-markdown/extra/#table">PHP Markdown Extra</a>。下面 markdown 内容（摘自前面的 PHP 参考文档）：</p>
 <pre><code>First Header  | Second Header
 ------------- | -------------
@@ -324,20 +356,23 @@ Content Cell  | Content Cell
 <div class="footnote">
 <hr />
 <ol>
+<li id="fn:python_markdown">
+<p>生成本博客内容的 Felix Felicis 程序使用的 Markdown 解析包&#160;<a href="#fnref:python_markdown" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
 <li id="fn:markdown">
-<p><a href="http://wowubuntu.com/markdown/">Markdown 语法说明 (简体中文版)</a> 来源自 <img alt="wowubuntu" src="http://wowubuntu.com/wp-content/themes/evidens-white/logo.png" />&#160;<a href="#fnref:markdown" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<p><a href="http://wowubuntu.com/markdown/">Markdown 语法说明 (简体中文版)</a> 来源自 <img alt="wowubuntu" src="http://wowubuntu.com/wp-content/themes/evidens-white/logo.png" />&#160;<a href="#fnref:markdown" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
 <li id="fn:attr_list">
-<p>根据<a href="http://packages.python.org/Markdown/extensions/attr_list.html">http://packages.python.org/Markdown/extensions/attr_list.html</a>翻译&#160;<a href="#fnref:attr_list" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+<p>根据<a href="http://packages.python.org/Markdown/extensions/attr_list.html">http://packages.python.org/Markdown/extensions/attr_list.html</a>翻译&#160;<a href="#fnref:attr_list" rev="footnote" title="Jump back to footnote 3 in the text">&#8617;</a></p>
 </li>
 <li id="fn:footnotes">
-<p>根据<a href="http://packages.python.org/Markdown/extensions/footnotes.html">http://packages.python.org/Markdown/extensions/footnotes.html</a>翻译&#160;<a href="#fnref:footnotes" rev="footnote" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+<p>根据<a href="http://packages.python.org/Markdown/extensions/footnotes.html">http://packages.python.org/Markdown/extensions/footnotes.html</a>翻译&#160;<a href="#fnref:footnotes" rev="footnote" title="Jump back to footnote 4 in the text">&#8617;</a></p>
 </li>
 <li id="fn:toc">
-<p>根据<a href="http://packages.python.org/Markdown/extensions/toc.html">http://packages.python.org/Markdown/extensions/toc.html</a>翻译&#160;<a href="#fnref:toc" rev="footnote" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+<p>根据<a href="http://packages.python.org/Markdown/extensions/toc.html">http://packages.python.org/Markdown/extensions/toc.html</a>翻译&#160;<a href="#fnref:toc" rev="footnote" title="Jump back to footnote 5 in the text">&#8617;</a></p>
 </li>
 <li id="fn:tables">
-<p>根据<a href="http://packages.python.org/Markdown/extensions/tables.html">http://packages.python.org/Markdown/extensions/tables.html</a>翻译&#160;<a href="#fnref:tables" rev="footnote" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+<p>根据<a href="http://packages.python.org/Markdown/extensions/tables.html">http://packages.python.org/Markdown/extensions/tables.html</a>翻译&#160;<a href="#fnref:tables" rev="footnote" title="Jump back to footnote 6 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div> ]]>
@@ -573,29 +608,6 @@ Exception in thread "main" brut.androlib.err.UndefinedResObject: resource spec: 
 <p>作为参考，平均<strong>每个 Linux 用户订出的价格是 $11.97</strong>，OS X 用户是 $6.16，而 Windows 用户只愿意为本套装出 $4.21。这说明什么呢？自己想去吧～</p>
 <p><em>PS:</em> 本人做为独立制作游戏的粉丝，该系列套装无疑是当下最好的 Linux 平台娱乐选择了，强烈推荐～</p>
 <p><a href="http://www.humblebundle.com/">详细说明及购买地址(支持 Paypal 银联卡支付)</a> <strong>注：此地址国内已被墙。</strong></p> ]]>
-        </content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[自定义诺基亚 Ovi 套件的安装目录]]></title>
-        <author><name>microjo</name><uri>http://microjo.github.com</uri></author>
-        <link href="http://microjo.github.com/note/custom_ovi_installdir.html"/>
-        <updated>2011-03-22T07:20:00Z</updated>
-        <published>2011-03-22T07:20:00Z</published>
-        <id>http://microjo.github.com/note/custom_ovi_installdir.html</id>
-        <category scheme="http://microjo.github.com/tag/诺基亚 ovi 套件/" term="诺基亚 Ovi 套件" label="诺基亚 Ovi 套件" />
-        <category scheme="http://microjo.github.com/tag/nokia ovi suite/" term="Nokia Ovi Suite" label="Nokia Ovi Suite" />
-        <content type="html" xml:base="http://microjo.github.com" xml:lang="en">
-            <![CDATA[ <p>真不知是认为现在用户希望安装什么都不用管最好，还是认为现在硬盘大到不需要关心安装到哪里，诺基亚 Ovi 套件在安装的时候根本没有给用户选择的余地，一律安装到系统盘（C）。以下是从网络上搜索到的自定义安装套件路径的方法：</p>
-<blockquote>
-<h3 id="how-to-change-the-installation-directory-for-nokia-ovi">转载自 <a href="http://discussions.europe.nokia.com/t5/Nokia-Suite/How-to-Change-the-Installation-Directory-for-Nokia-OVI/td-p/583982">How to Change the Installation Directory for Nokia OVI?</a></h3>
-<p>if you want to install Nokia Ovi Suite to for example D: drive, to directory "D:\Program files", you could start installation application from command line following way:
-举例将诺基亚 Ovi 套件安装到 <code>D:\Program Files</code> 目录下面，在命令行下面输入下面命令进行安装：</p>
-<pre><code>Nokia_Ovi_Suite_webinstaller_ALL.exe /TARGET="D:\Program files"
-</code></pre>
-<p>This would create a new folder "Nokia Ovi Suite" under D:\Program files\ and install Nokia Ovi Suite there.
-诺基亚 Ovi 套件会在 <code>D:\Program files</code> 目录下面创建新目录 <code>Nokia Ovi Suite</code>，并安装到此目录下面。</p>
-</blockquote>
-<p>经实际使用，确实能达到目的。注意在 Windows Vista 和 Windows 7 下面安装时，必须有管理员权限才能安装。</p> ]]>
         </content>
     </entry>
     </feed>
