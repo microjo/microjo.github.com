@@ -5,7 +5,7 @@
     
     <link href="http://microjo.github.com/work/" />
     
-    <updated>2012-05-16T00:22:08Z</updated>
+    <updated>2012-05-18T23:42:54Z</updated>
     <id>http://microjo.github.com</id>
     <entry>
         <title type="html"><![CDATA[扩展 Markdown 语法]]></title>
@@ -195,7 +195,7 @@ Content Cell  | Content Cell
 <hr />
 <ol>
 <li id="fn:python_markdown">
-<p>生成本博客内容的 Felix Felicis 程序使用的 Markdown 解析包&#160;<a href="#fnref:python_markdown" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<p>生成本博客内容的 Felix Felicis 程序使用的 <a href="http://packages.python.org/Markdown/">Markdown 解析包</a>&#160;<a href="#fnref:python_markdown" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 <li id="fn:markdown">
 <p><a href="http://wowubuntu.com/markdown/">Markdown 语法说明 (简体中文版)</a> 来源自 <img alt="wowubuntu" src="http://wowubuntu.com/wp-content/themes/evidens-white/logo.png" />&#160;<a href="#fnref:markdown" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a></p>

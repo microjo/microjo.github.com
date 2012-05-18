@@ -1,4 +1,4 @@
-/* @begin scrollbar */
+p/* @begin scrollbar */
 pre::-webkit-scrollbar {
     width: 8px;
     height: 8px;
@@ -325,13 +325,8 @@ a:hover {
 .entry-meta p {
     margin: 6px 0;
 }
-.entry-time {
-    padding-right: 6px;
-    border-right: 1px dashed #d0d0d0;
-}
-.entry-tags {
-    padding-left: 6px;
-    border-left: 1px dashed #fff;
+.entry-time,.entry-tags {
+    padding: 0 6px;
 }
 .entry-tags a {
     margin-right: 0.4em;

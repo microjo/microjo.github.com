@@ -5,8 +5,166 @@
     
     <link href="http://microjo.github.com" />
     
-    <updated>2012-05-16T00:22:13Z</updated>
+    <updated>2012-05-18T23:42:58Z</updated>
     <id>http://microjo.github.com</id>
+    <entry>
+        <title type="html"><![CDATA[Felix Felicis (liquidluck) 功能扩充]]></title>
+        <author><name>microjo</name><uri>http://microjo.github.com</uri></author>
+        <link href="http://microjo.github.com/project/felix_felicis_extend.html"/>
+        <updated>2012-05-18T10:39:00Z</updated>
+        <published>2012-05-18T10:39:00Z</published>
+        <id>http://microjo.github.com/project/felix_felicis_extend.html</id>
+        <category scheme="http://microjo.github.com/tag/felix felicis/" term="Felix Felicis" label="Felix Felicis" />
+        <category scheme="http://microjo.github.com/tag/liquidluck/" term="liquidluck" label="Liquidluck" />
+        <category scheme="http://microjo.github.com/tag/markdown/" term="markdown" label="Markdown" />
+        <category scheme="http://microjo.github.com/tag/gravatar/" term="gravatar" label="Gravatar" />
+        <category scheme="http://microjo.github.com/tag/favicon/" term="favicon" label="Favicon" />
+        <content type="html" xml:base="http://microjo.github.com" xml:lang="en">
+            <![CDATA[ <p>自从用 Felix Felicis (liquidluck) 生成博客内容，根据自身需要对其做了部分功能扩充，本文记录修改的情况。</p>
+<div class="toc">
+<ul>
+<li><a href="#python-markdown-1-markdown">打开 Python-Markdown 1 部分扩展 Markdown 语法支持</a></li>
+<li><a href="#gravatar-favicon-3">增加 Gravatar 作为博客 favicon 3</a></li>
+<li><a href="#post">post 增加修改时间参数</a></li>
+<li><a href="#related">相关内容</a></li>
+</ul>
+</div>
+<h2 id="python-markdown-1-markdown">打开 Python-Markdown <sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup> 部分扩展 Markdown 语法支持</h2>
+<p>Python-Markdown<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup> 支持的扩展 Markdown 语法很丰富，可以参考 <a href="http://packages.python.org/Markdown/extensions/index.html">http://packages.python.org/Markdown/extensions/index.html</a>，部分扩展语法的中文说明可参考<a href="/work/markdown_ext.html">扩展 Markdown 语法</a>。</p>
+<p>只需要修改一个文件 <code>liquidluck/readers/mkd.py</code>，打开 Extra 和 Table of Contents 的扩展支持，修改内容<sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup>如下：</p>
+<div class="code"><div class="highlight"><pre><span class="gd">-------------------------- liquidluck/readers/mkd.py --------------------------</span>
+
+<span class="gu">@@ -81,7 +81,7 @@ def markdown(text):</span>
+     for module in markdown_prefork.values():
+         if module:
+             text = import_module(module)(text)
+<span class="gd">-    md = Markdown()</span>
+<span class="gi">+    md = Markdown(extensions=[&#39;extra&#39;,&#39;toc&#39;])</span>
+     return md.convert(text)
+</pre></div>
+
+</div>
+
+<h2 id="gravatar-favicon-3">增加 Gravatar 作为博客 favicon <sup id="fnref:3"><a href="#fn:3" rel="footnote">3</a></sup></h2>
+<p>参考 <a href="http://fairyfish.net/m/gravatar-as-favicon/">WordPress 技巧：使用 Gravatar 作为博客的 Favicon</a> 和 <a href="http://en.gravatar.com/site/implement/">Gravatar 官方开发资源</a>进行修改，内容<sup id="fnref:4"><a href="#fn:4" rel="footnote">4</a></sup>如下：</p>
+<div class="code"><div class="highlight"><pre><span class="gd">---------------------- liquidluck/_templates/layout.html ----------------------</span>
+
+<span class="gu">@@ -3,6 +3,7 @@</span>
+     &lt;head&gt;
+         &lt;meta charset=&quot;UTF-8&quot;&gt;
+         &lt;title&gt;{% block title %}{{context.sitename}}{% endblock %}&lt;/title&gt;
+<span class="gi">+        {% if context.gravatar %}&lt;link rel=&quot;shortcut icon&quot; href=&quot;{{gravatar_url(16)}}&quot; /&gt;{% endif %}</span>
+         &lt;script&gt;if (top !== self) top.location = self.location;&lt;/script&gt;
+         &lt;meta name=&quot;HandheldFriendly&quot; content=&quot;True&quot; /&gt;
+         &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1, user-scalable=0&quot; /&gt;
+
+<span class="gd">------------------------ liquidluck/writers/default.py ------------------------</span>
+
+<span class="gu">@@ -4,6 +4,7 @@</span>
+ import os
+ import sys
+ import hashlib
+<span class="gi">+import urllib</span>
+ from math import log
+
+ from liquidluck.writers import Writer, FeedMixin, PagerMixin
+<span class="gu">@@ -15,6 +16,17 @@ from liquidluck import logger</span>
+ _hash_cache = {}
+
+<span class="gi">+def gravatar_url(size):</span>
+<span class="gi">+    &quot;&quot;&quot;</span>
+<span class="gi">+    generate URL requiered to request a Gravatar Image</span>
+<span class="gi">+    using varialbe in config.ini context section:</span>
+<span class="gi">+        gravatar: your gravatar email address</span>
+<span class="gi">+    &quot;&quot;&quot;</span>
+<span class="gi">+</span>
+<span class="gi">+    gravatar_url = &quot;http://www.gravatar.com/avatar/&quot; + hashlib.md5(ns.context.gravatar.lower()).hexdigest() + &quot;?&quot;</span>
+<span class="gi">+    return gravatar_url + urllib.urlencode({&#39;s&#39;:str(size)})</span>
+<span class="gi">+</span>
+<span class="gi">+</span>
+ def static_url(name):
+     global _hash_cache
+     url = ns.site.static_prefix
+<span class="gu">@@ -40,6 +52,7 @@ class StaticWriter(Writer):</span>
+
+     def start(self):
+         ns.storage.functions.update({&#39;static_url&#39;: static_url})
+<span class="gi">+        ns.storage.functions.update({&#39;gravatar_url&#39;: gravatar_url})</span>
+         return
+
+     def run(self):
+</pre></div>
+
+</div>
+
+<p>配置文件 config.ini 中 <code>[context]</code> 添加 gravatar 配置项，填写 Gravatar 的邮箱地址。新增的 gravatar_url 函数，用于生成获取 Gravatar 图片的链接，参数是获取图片的大小。如果使用其他模板，只需要在模板的 <code>&lt;head&gt;</code> 元素中添加 <code>{% if context.gravatar %}&lt;link rel="shortcut icon" href="{{gravatar_url(16)}}" /&gt;{% endif %}</code> 就能将 Gravatar 作为博客 favicon<sup id="fnref:3"><a href="#fn:3" rel="footnote">3</a></sup>。</p>
+<h2 id="post">post 增加修改时间参数</h2>
+<p>帖子增加新的元数据参数 <code>modified</code>，用于表示帖子最近一次修改的时间。依据 <a href="https://github.com/lepture/liquidluck/wiki/Write#wiki-meta-info">Felix Felicis wiki</a>，帖子可以增加任意多的元数据。但由于自定义的元数据以字符串处理，因此增加时间参数就需要修改源码，将其转换成 datatime 类型。此处修改内容<sup id="fnref:5"><a href="#fn:5" rel="footnote">5</a></sup>如下，模板的修改主要是为了显示需要：</p>
+<div class="code"><div class="highlight"><pre><span class="gd">----------------------- liquidluck/_templates/post.html -----------------------</span>
+
+<span class="gu">@@ -31,9 +31,15 @@</span>
+ &lt;/div&gt;
+ &lt;div class=&quot;entry-meta fn-clear&quot;&gt;
+     &lt;p class=&quot;entry-time fn-left&quot;&gt;
+<span class="gd">-    Created at: </span>
+<span class="gd">-    &lt;a href=&quot;/{{post.date.year}}/&quot; rel=&quot;index&quot;&gt;&lt;time class=&quot;updated&quot; datetime=&quot;{{post.date|xmldatetime}}&quot; pubdate&gt;{{post.date.strftime(&quot;%a, %b %d, %Y&quot;)}}&lt;/time&gt;&lt;/a&gt;</span>
+<span class="gi">+    Created at:</span>
+<span class="gi">+    &lt;a href=&quot;/{{post.date.year}}/&quot; rel=&quot;index&quot;&gt;&lt;time class=&quot;created&quot; datetime=&quot;{{post.date|xmldatetime}}&quot; pubdate=&quot;pubdate&quot;&gt;{{post.date.strftime(&quot;%a, %b %d, %Y&quot;)}}&lt;/time&gt;&lt;/a&gt;</span>
+     &lt;/p&gt;
+<span class="gi">+    {% if post.modified %}</span>
+<span class="gi">+    &lt;p class=&quot;entry-time fn-left&quot;&gt;</span>
+<span class="gi">+    Modified at:</span>
+<span class="gi">+    &lt;time class=&quot;modified&quot; datetime=&quot;{{post.modified|xmldatetime}}&quot;&gt;{{post.modified.strftime(&quot;%a, %b %d, %Y&quot;)}}&lt;/time&gt;</span>
+<span class="gi">+    &lt;/p&gt;</span>
+<span class="gi">+    {% endif %}</span>
+     {% if post.tags %}
+     &lt;p class=&quot;entry-tags fn-left&quot;&gt;
+     Tagged in:
+
+<span class="gd">------------------------ liquidluck/readers/__init__.py ------------------------</span>
+
+<span class="gu">@@ -135,6 +135,14 @@ class Reader(object):</span>
+             ns.storage.errors.append(self.filepath)
+             return None
+
+<span class="gi">+        if post.get(&#39;modified&#39;, None):</span>
+<span class="gi">+            &quot;&quot;&quot; add a new parameter &#39;modified&#39; in post, it indicates the last post modification date &quot;&quot;&quot;</span>
+<span class="gi">+            try:</span>
+<span class="gi">+                post.modified = self._parse_datetime(post.get(&#39;modified&#39;))</span>
+<span class="gi">+            except ValueError as e:</span>
+<span class="gi">+                ns.storage.errors.append(self.filepath)</span>
+<span class="gi">+                return None</span>
+<span class="gi">+</span>
+         for key in post.keys():
+             if &#39;_date&#39; in key or &#39;_time&#39; in key:
+                 try:
+</pre></div>
+
+</div>
+
+<h2 id="related">相关内容</h2>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>生成本博客内容的 Felix Felicis 程序使用的 <a href="http://packages.python.org/Markdown/">Markdown 解析包</a>&#160;<a href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p><a href="https://github.com/microjo/liquidluck/commit/71c844bde082f0e8b76ee14f83f35519a09f9eb7">https://github.com/microjo/liquidluck/commit/71c844bde082f0e8b76ee14f83f35519a09f9eb7</a>&#160;<a href="#fnref:2" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:3">
+<p><a href="http://zh.wikipedia.org/wiki/Favicon">Favicon @ 维基百科</a>&#160;<a href="#fnref:3" rev="footnote" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:4">
+<p><a href="https://github.com/microjo/liquidluck/commit/5536022f94dec05bc1f47bb034faf0e8b4ba2d4c">https://github.com/microjo/liquidluck/commit/5536022f94dec05bc1f47bb034faf0e8b4ba2d4c</a>&#160;<a href="#fnref:4" rev="footnote" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+<li id="fn:5">
+<p><a href="https://github.com/microjo/liquidluck/commit/920571c8bea99fb3efe3a5fdd798f7b170682b87">https://github.com/microjo/liquidluck/commit/920571c8bea99fb3efe3a5fdd798f7b170682b87</a>&#160;<a href="#fnref:5" rev="footnote" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div> ]]>
+        </content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[自用 User Scripts 分享]]></title>
         <author><name>microjo</name><uri>http://microjo.github.com</uri></author>
@@ -357,7 +515,7 @@ Content Cell  | Content Cell
 <hr />
 <ol>
 <li id="fn:python_markdown">
-<p>生成本博客内容的 Felix Felicis 程序使用的 Markdown 解析包&#160;<a href="#fnref:python_markdown" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<p>生成本博客内容的 Felix Felicis 程序使用的 <a href="http://packages.python.org/Markdown/">Markdown 解析包</a>&#160;<a href="#fnref:python_markdown" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 <li id="fn:markdown">
 <p><a href="http://wowubuntu.com/markdown/">Markdown 语法说明 (简体中文版)</a> 来源自 <img alt="wowubuntu" src="http://wowubuntu.com/wp-content/themes/evidens-white/logo.png" />&#160;<a href="#fnref:markdown" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a></p>
@@ -561,53 +719,6 @@ Exception in thread "main" brut.androlib.err.UndefinedResObject: resource spec: 
     at brut.apktool.Main.main(Unknown Source)
 </code></pre>
 <p>联系 apktool GUI 作者反映了问题，使用新版仍然有这个问题。索性到 <a href="http://code.google.com/p/android-apktool">apktool 官网</a>下载了最新的版本，用命令行反编译，还是出现同样的问题，提示也类似。既然提示使用了一个 resource table 文件，我删除掉让命令行重新生成，再次使用命令行反编译竟然成功。反过来，重新使用 Dodo APKTools 修改 apk 也成功了。说明 apktool 使用过程中释放了一些文件，这些文件不会随着 apktool 的升级而自动重新生成，必须先清除掉旧版本的文件，才能自动产生新版本文件。因此，建议<em>使用 apktool 包括以其为内核的软件，在升级 apktool 时，将系统用户目录 <code>\apktool\framework</code>（以 Win7 举例：<code>C:\Users\用户名\apktool\framework</code>）中的文件清除，保证使用新的文件</em>。</p> ]]>
-        </content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[跨平台无 DRM 独立游戏软件合集 Humble Frozenbyte Bundle]]></title>
-        <author><name>microjo</name><uri>http://microjo.github.com</uri></author>
-        <link href="http://microjo.github.com/entertainment/humble_frozenbyte_bundle.html"/>
-        <updated>2011-04-13T17:06:00Z</updated>
-        <published>2011-04-13T17:06:00Z</published>
-        <id>http://microjo.github.com/entertainment/humble_frozenbyte_bundle.html</id>
-        <category scheme="http://microjo.github.com/tag/humble/" term="humble" label="Humble" />
-        <category scheme="http://microjo.github.com/tag/game/" term="game" label="Game" />
-        <category scheme="http://microjo.github.com/tag/frozenbyte/" term="Frozenbyte" label="Frozenbyte" />
-        <content type="html" xml:base="http://microjo.github.com" xml:lang="en">
-            <![CDATA[ <p>转载自 <strong><a href="http://linuxtoy.org/">LinuxTOY</a></strong>，增加了部分信息。</p>
-<h2 id="humble-frozenbyte-bundle"><a href="http://linuxtoy.org/archives/humble-frozenbyte-bundle.html">Humble Frozenbyte Bundle</a></h2>
-<p>2011-04-13 <a href="http://linuxtoy.org/archives/author/lovenemesis/">黑日白月</a></p>
-<hr />
-<p><img alt="Humble_Frozenbyte_Bundle.jpg" src="/image/Humble_Frozenbyte_Bundle.jpg" /></p>
-<p>跨平台无 DRM 独立游戏软件合集第三弹 Humble Frozenbyte Bundle 发布。该合集内所有游戏都是由独立游戏开发商 <a href="http://frozenbyte.com/">Frozenbyte</a> 开发的。</p>
-<p>本次软件合集包括：</p>
-<ul>
-<li>
-<p><a href="http://www.trine-thegame.com/">Trine 三位一体</a>
-    <img alt="Trine" src="http://frozenbyte.com/press/media/images/Trine_header.jpg" /></p>
-</li>
-<li>
-<p><a href="http://shadowgroundssurvivor.com/">Shadowgrounds: Survivor 阴影地带：幸存者</a>
-    <img alt="Shadowgrounds: Survivor" src="http://frozenbyte.com/press/media/images/SG_Survivor_header.jpg" /></p>
-</li>
-<li>
-<p><a href="http://www.shadowgroundsgame.com/">Shadowgrounds 阴影地带</a>
-    <img alt="Shadowgrounds" src="http://frozenbyte.com/press/media/images/SG_header.jpg" /></p>
-</li>
-<li>
-<p><a href="http://thesplot.com/site/home.php">Splot 大眼怪历险记</a>（预定游戏，预计夏天能够下载<del>，有可能包含 iOS 版本</del>）
-    <img alt="Splot" src="http://frozenbyte.com/press/media/images/Splot_header.jpg" /></p>
-</li>
-<li>
-<p><a href="http://frozenbyte.com/jackclaw/jack_minisite.php">Jack Claw 钢爪杰克</a>（曾经被开发商放弃的游戏，重新完善中，会有 Mac 和 Linux 的版本，并且支持鼠标和键盘，详细信息参见 <a href="http://frozenbyte.com/blog/?p=176">Jack Claw</a>）
-    <img alt="Jack Claw" src="http://frozenbyte.com/press/media/images/Jack_header_v2.jpg" /></p>
-</li>
-</ul>
-<p>这些游戏都<strong>不包含 DRM</strong>，可以<strong>在 Windows、OS X 和 Linux 上运行</strong>（除 Jack Claw 当下仅能在 Windows 平台下运行并且需要 XBox 360 手柄，也可参考用鼠标和键盘的<a href="http://frozenbyte.com/help_humble/jackclaw_keyboard.html">临时解决方法</a>），其中<strong> Jack Claw 还包括了源代码</strong>！</p>
-<p>最重要的是，购买如此超值产品组合的<strong>价格完全是由你决定</strong>！别忘记你的购买还将<strong>被捐献到 Electronic Frontier Foundation 基金会和 Child's Play Charity 慈善组织</strong>。</p>
-<p>作为参考，平均<strong>每个 Linux 用户订出的价格是 $11.97</strong>，OS X 用户是 $6.16，而 Windows 用户只愿意为本套装出 $4.21。这说明什么呢？自己想去吧～</p>
-<p><em>PS:</em> 本人做为独立制作游戏的粉丝，该系列套装无疑是当下最好的 Linux 平台娱乐选择了，强烈推荐～</p>
-<p><a href="http://www.humblebundle.com/">详细说明及购买地址(支持 Paypal 银联卡支付)</a> <strong>注：此地址国内已被墙。</strong></p> ]]>
         </content>
     </entry>
     </feed>
