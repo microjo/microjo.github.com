@@ -1,0 +1,178 @@
+<!DOCTYPE HTML>
+<html lang="zh">
+    <head>
+        <meta charset="UTF-8">
+        <title>Felix Felicis 默认主题修改 | Jonathan's Blog</title><link rel="shortcut icon" href="http://www.gravatar.com/avatar/60633c507a57f09b238c710e743f8a61?s=16" />
+        <script>if (top !== self) top.location = self.location;</script>
+        <!--[if lt IE 9]>
+        <script src="/static/html5.js?v=4443b"></script>
+        <![endif]-->
+        <meta name="HandheldFriendly" content="True" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0" />
+        
+<meta name="author" content="microjo" />
+
+        
+        <link rel="alternate" type="application/rss+xml" href="/feed.xml" title="Jonathan's Blog Feed" />
+        <link rel="stylesheet" href="/static/style.css?v=4c764" />
+        
+<link rel="canonical" href="/project/felix_felicis_theme_mod.html" />
+<link rel="stylesheet" href="/static/syntax.css?v=dbf77" />
+<link rel="stylesheet" href="/static/shadowbox/shadowbox.css?v=f5b13" type="text/css" />
+
+        
+        <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-31550182-1']);
+            _gaq.push(['_trackPageview']);
+            (function() {
+             var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+             ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+             var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+             })();
+         </script>
+         
+     </head>
+     <body>
+         <header id="header">
+             <nav class="fn-clear">
+                 <ul id="nav" class="fn-right fn-clear">
+                     <li id="nav-home"><a href="/">首页</a></li>
+                     <li id="nav-about"><a href="/about.html">关于</a></li>
+                     <li id="nav-tags"><a href="/tag/">标签</a></li>
+                 </ul>
+             </nav>
+         </header>
+         
+         <article class="hentry">
+             <header class="entry-header fn-clear">
+                 <h1 class="entry-title fn-left"><a href="/project/felix_felicis_theme_mod.html">Felix Felicis 默认主题修改</a></h1>
+                 
+                 <form id="search-form" action="http://www.google.com/search">
+                     <input type="hidden" name="q" value="site:http://microjo.github.com" />
+                     <input id="search-input" class="ui-fm-text" type="text" placeholder="Search..." name="q" />
+                 </form>
+                 
+             </header>
+             
+<div class="entry">
+    <div class="entry-content">
+        <h2 id="">大部分汉化</h2>
+<p>将主题中大部分英文译成中文，并添加一些配合中文显示的 CSS 样式，包括中文文章 article 中段落开头缩进两个汉字、脚注的上标加上中括号等：</p>
+<div class="code"><div class="highlight"><pre><span class="nt">article</span><span class="nd">:lang</span><span class="o">(</span><span class="nt">zh</span><span class="o">)</span> <span class="nc">.entry-content</span> <span class="nt">p</span><span class="nd">:before</span> <span class="p">{</span> <span class="k">content</span><span class="o">:</span> <span class="s2">&quot;　　&quot;</span><span class="p">;</span> <span class="p">}</span>
+<span class="nt">sup</span><span class="nd">:lang</span><span class="o">(</span><span class="nt">zh</span><span class="o">)</span><span class="nd">:before</span> <span class="p">{</span> <span class="k">content</span><span class="o">:</span> <span class="s2">&quot;[&quot;</span><span class="p">;</span> <span class="p">}</span>
+<span class="nt">sup</span><span class="nd">:lang</span><span class="o">(</span><span class="nt">zh</span><span class="o">)</span><span class="nd">:after</span> <span class="p">{</span> <span class="k">content</span><span class="o">:</span> <span class="s2">&quot;]&quot;</span><span class="p">;</span> <span class="p">}</span>
+<span class="nt">em</span> <span class="p">{</span> <span class="k">border-bottom</span><span class="o">:</span> <span class="m">2px</span> <span class="k">dotted</span><span class="p">;</span> <span class="k">font-style</span><span class="o">:</span> <span class="k">normal</span><span class="p">;}</span>
+</pre></div>
+</div>
+
+<h2 id="stylecss">修改样式表 style.css</h2>
+<p>主要是添加/修改代码和表格显示的 CSS 样式：</p>
+<div class="code"><div class="highlight"><pre><span class="c">/* 代码块 */</span>
+<span class="nt">pre</span> <span class="p">{</span> <span class="k">overflow</span><span class="o">:</span><span class="k">auto</span><span class="p">;</span> <span class="k">padding</span><span class="o">:</span> <span class="m">8px</span><span class="p">;</span> <span class="p">}</span>
+<span class="nt">code</span> <span class="p">{</span> <span class="k">padding</span><span class="o">:</span> <span class="m">1px</span> <span class="m">2px</span><span class="p">;</span> <span class="p">}</span>
+<span class="nt">pre</span> <span class="nt">code</span> <span class="p">{</span> <span class="k">padding</span><span class="o">:</span><span class="m">0</span><span class="cp">!important</span><span class="p">;</span> <span class="k">border</span><span class="o">:</span> <span class="m">0px</span> <span class="cp">!important</span><span class="p">;</span> <span class="p">}</span>
+
+<span class="c">/* 表格 */</span>
+<span class="nt">table</span><span class="p">{</span>
+    <span class="k">margin</span><span class="o">:</span> <span class="m">1em</span> <span class="m">0</span><span class="p">;</span>
+    <span class="k">border</span><span class="o">:</span> <span class="m">1px</span> <span class="k">solid</span> <span class="m">#dadada</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nt">thead</span><span class="p">{</span>
+    <span class="k">background</span><span class="o">:</span> <span class="m">#ccc</span><span class="p">;</span>
+    <span class="k">color</span><span class="o">:</span> <span class="m">#fff</span><span class="p">;</span>
+    <span class="k">border</span><span class="o">:</span> <span class="m">1px</span> <span class="k">solid</span> <span class="m">#bbb</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nt">th</span><span class="o">,</span> <span class="nt">td</span><span class="p">{</span>
+    <span class="k">border</span><span class="o">:</span> <span class="m">1px</span> <span class="k">solid</span> <span class="m">#dadada</span><span class="p">;</span>
+    <span class="k">padding</span><span class="o">:</span> <span class="m">0.2em</span> <span class="m">0.4em</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nt">tbody</span> <span class="nt">tr</span><span class="nd">:nth-child</span><span class="o">(</span><span class="nt">2n</span><span class="o">)</span> <span class="p">{</span>
+    <span class="k">background</span><span class="o">:</span> <span class="m">#eee</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+</div>
+
+<h2 id="lightbox">实现 lightbox 效果</h2>
+<p>添加 <a href="http://www.shadowbox-js.com/">Shadowbox.js</a>，对其进行了修改和设置，对帖子中所有的图片，实现 lightbox 效果，超出显示范围的图片可以拖动。目前有个不完美的地方，就是对于带链接的图片，链接会自动失效。</p>
+<h3 id="_1">使用说明</h3>
+<p><a class="download" href="shadowbox.modified.zip">Shadowbox.js 修改版</a></p>
+<p>将下载的修改版 Shadowbox.js 解压缩到 static 目录，同时主题模板文件 post.html 增加如下内容：</p>
+<div class="code"><div class="highlight"><pre><span class="o">&lt;</span><span class="nx">script</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;text/javascript&quot;</span> <span class="nx">src</span><span class="o">=</span><span class="s2">&quot;{{ static_url(&#39;shadowbox/shadowbox.js&#39;) }}&quot;</span><span class="o">&gt;&lt;</span><span class="err">/script&gt;</span>
+<span class="o">&lt;</span><span class="nx">script</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;text/javascript&quot;</span><span class="o">&gt;</span>
+<span class="nx">Shadowbox</span><span class="p">.</span><span class="nx">init</span><span class="p">({</span> <span class="nx">handleOversize</span><span class="o">:</span> <span class="s2">&quot;drag&quot;</span> <span class="p">});</span>
+<span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">Shadowbox</span><span class="p">.</span><span class="nx">setup</span><span class="p">(</span><span class="s2">&quot;.entry-content img&quot;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">gallery</span><span class="o">:</span> <span class="s2">&quot;{{post.title}}&quot;</span><span class="p">,</span> <span class="nx">counterType</span><span class="o">:</span> <span class="s2">&quot;skip&quot;</span> <span class="p">});</span>
+<span class="p">};</span>
+<span class="o">&lt;</span><span class="err">/script&gt;</span>
+</pre></div>
+</div>
+
+<h2 id="_2">增加图标美化</h2>
+<p>参考 <a href="http://www.qianduan.net/css3-icon-font-guide.html">CSS3 icon font 完全指南</a>，利用网上漂亮的、免费图标字体 <a href="http://fortawesome.github.com/Font-Awesome/">Font Awesome</a>，简单美化了一下主题，就差搜索框没有增加图标。另外从这篇 <a href="http://tympanus.net/codrops/2012/01/11/css-buttons-with-pseudo-elements/">CSS Buttons with Pseudo-elements</a> 学习添加一个漂亮的下载按钮。</p>
+<p>实现主要是 CSS 的编写，这样可以避免改动图标时修改主题模板文件，拿其中一个举例，这是首页前增加图标的 CSS 内容：</p>
+<div class="code"><div class="highlight"><pre><span class="nf">#nav-home</span> <span class="nt">a</span><span class="nd">:before</span> <span class="p">{</span>
+    <span class="k">font-family</span><span class="o">:</span> <span class="n">FontAwesome</span><span class="p">;</span>
+    <span class="k">font-weight</span><span class="o">:</span> <span class="k">normal</span><span class="p">;</span>
+    <span class="k">font-style</span><span class="o">:</span> <span class="k">normal</span><span class="p">;</span>
+    <span class="k">display</span><span class="o">:</span> <span class="k">inline</span><span class="o">-</span><span class="k">block</span><span class="p">;</span>
+    <span class="k">text-decoration</span><span class="o">:</span> <span class="k">inherit</span><span class="p">;</span>
+    <span class="k">content</span><span class="o">:</span> <span class="s2">&quot;\f015&quot;</span><span class="p">;</span>
+    <span class="k">padding-right</span><span class="o">:</span> <span class="m">0.3em</span><span class="p">;</span>
+    <span class="k">font-size</span><span class="o">:</span> <span class="m">1.1em</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+    </div>
+    <div class="fn-clear">
+        <p class="entry-rel">
+        <a id="next-entry" class="fn-right" href="/project/felix_felicis_extend.html" title="Felix Felicis 功能扩充" rel="next">后一篇</a>
+        </p>
+    </div>
+</div>
+<div class="entry-meta fn-clear">
+    <p class="entry-time fn-left">发布：
+    <a href="/2012/" rel="index"><time class="created" datetime="2012-05-20T13:23:00Z" pubdate="pubdate">Sun, May 20, 2012</time></a>
+    </p>
+    <p class="entry-modified fn-left">修改：
+    <time class="modified" datetime="2012-05-20T15:20:00Z">Sun, May 20, 2012, 15:20:00</time>
+    </p>
+    <p class="entry-tags fn-left">标签：
+    <a href="/tag/felix felicis/" class="tag" rel="tag">Felix Felicis</a>
+    <a href="/tag/theme/" class="tag" rel="tag">theme</a>
+    <a href="/tag/主题/" class="tag" rel="tag">主题</a>
+    </p>
+</div>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'microjo';
+    var disqus_title = 'Felix Felicis 默认主题修改';
+    (function() {
+     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+     dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+     })();
+</script>
+
+<script type="text/javascript" src="/static/shadowbox/shadowbox.js?v=0577e"></script>
+<script type="text/javascript">
+Shadowbox.init({ handleOversize: "drag" });
+window.onload = function() {
+    Shadowbox.setup(".entry-content img", { gallery: "Felix Felicis 默认主题修改", counterType: "skip" });
+};
+</script>
+
+         </article>
+         
+         <footer id="footer">
+             <div class="copyright">© <a href="http://microjo.github.com">Jonathan's Blog</a> | Powered by <a href="http://lepture.com/project/liquidluck">Felix Felicis</a></div>
+             <p class="love">Lovely designed by <a href="http://lepture.com">lepture</a> | Modified by MiCRoJo</p>
+         </footer>
+         <script type="text/javascript">
+             var currentNav = window.currentNav || "nav-home";
+             document.getElementById(currentNav).className = "current";
+         </script>
+     </body>
+ </html>

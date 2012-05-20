@@ -5,17 +5,96 @@
     
     <link href="http://microjo.github.com/project/" />
     
-    <updated>2012-05-18T23:42:53Z</updated>
+    <updated>2012-05-20T20:14:15Z</updated>
     <id>http://microjo.github.com</id>
     <entry>
-        <title type="html"><![CDATA[Felix Felicis (liquidluck) 功能扩充]]></title>
+        <title type="html"><![CDATA[Felix Felicis 默认主题修改]]></title>
+        <author><name>microjo</name><uri>http://microjo.github.com</uri></author>
+        <link href="http://microjo.github.com/project/felix_felicis_theme_mod.html"/>
+        <updated>2012-05-20T13:23:00Z</updated>
+        <published>2012-05-20T13:23:00Z</published>
+        <id>http://microjo.github.com/project/felix_felicis_theme_mod.html</id>
+        <category scheme="http://microjo.github.com/tag/felix felicis/" term="Felix Felicis" label="Felix Felicis" />
+        <category scheme="http://microjo.github.com/tag/theme/" term="theme" label="Theme" />
+        <category scheme="http://microjo.github.com/tag/主题/" term="主题" label="主题" />
+        <content type="html" xml:base="http://microjo.github.com" xml:lang="en">
+            <![CDATA[ <h2 id="">大部分汉化</h2>
+<p>将主题中大部分英文译成中文，并添加一些配合中文显示的 CSS 样式，包括中文文章 article 中段落开头缩进两个汉字、脚注的上标加上中括号等：</p>
+<div class="code"><div class="highlight"><pre><span class="nt">article</span><span class="nd">:lang</span><span class="o">(</span><span class="nt">zh</span><span class="o">)</span> <span class="nc">.entry-content</span> <span class="nt">p</span><span class="nd">:before</span> <span class="p">{</span> <span class="k">content</span><span class="o">:</span> <span class="s2">&quot;　　&quot;</span><span class="p">;</span> <span class="p">}</span>
+<span class="nt">sup</span><span class="nd">:lang</span><span class="o">(</span><span class="nt">zh</span><span class="o">)</span><span class="nd">:before</span> <span class="p">{</span> <span class="k">content</span><span class="o">:</span> <span class="s2">&quot;[&quot;</span><span class="p">;</span> <span class="p">}</span>
+<span class="nt">sup</span><span class="nd">:lang</span><span class="o">(</span><span class="nt">zh</span><span class="o">)</span><span class="nd">:after</span> <span class="p">{</span> <span class="k">content</span><span class="o">:</span> <span class="s2">&quot;]&quot;</span><span class="p">;</span> <span class="p">}</span>
+<span class="nt">em</span> <span class="p">{</span> <span class="k">border-bottom</span><span class="o">:</span> <span class="m">2px</span> <span class="k">dotted</span><span class="p">;</span> <span class="k">font-style</span><span class="o">:</span> <span class="k">normal</span><span class="p">;}</span>
+</pre></div>
+</div>
+
+<h2 id="stylecss">修改样式表 style.css</h2>
+<p>主要是添加/修改代码和表格显示的 CSS 样式：</p>
+<div class="code"><div class="highlight"><pre><span class="c">/* 代码块 */</span>
+<span class="nt">pre</span> <span class="p">{</span> <span class="k">overflow</span><span class="o">:</span><span class="k">auto</span><span class="p">;</span> <span class="k">padding</span><span class="o">:</span> <span class="m">8px</span><span class="p">;</span> <span class="p">}</span>
+<span class="nt">code</span> <span class="p">{</span> <span class="k">padding</span><span class="o">:</span> <span class="m">1px</span> <span class="m">2px</span><span class="p">;</span> <span class="p">}</span>
+<span class="nt">pre</span> <span class="nt">code</span> <span class="p">{</span> <span class="k">padding</span><span class="o">:</span><span class="m">0</span><span class="cp">!important</span><span class="p">;</span> <span class="k">border</span><span class="o">:</span> <span class="m">0px</span> <span class="cp">!important</span><span class="p">;</span> <span class="p">}</span>
+
+<span class="c">/* 表格 */</span>
+<span class="nt">table</span><span class="p">{</span>
+    <span class="k">margin</span><span class="o">:</span> <span class="m">1em</span> <span class="m">0</span><span class="p">;</span>
+    <span class="k">border</span><span class="o">:</span> <span class="m">1px</span> <span class="k">solid</span> <span class="m">#dadada</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nt">thead</span><span class="p">{</span>
+    <span class="k">background</span><span class="o">:</span> <span class="m">#ccc</span><span class="p">;</span>
+    <span class="k">color</span><span class="o">:</span> <span class="m">#fff</span><span class="p">;</span>
+    <span class="k">border</span><span class="o">:</span> <span class="m">1px</span> <span class="k">solid</span> <span class="m">#bbb</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nt">th</span><span class="o">,</span> <span class="nt">td</span><span class="p">{</span>
+    <span class="k">border</span><span class="o">:</span> <span class="m">1px</span> <span class="k">solid</span> <span class="m">#dadada</span><span class="p">;</span>
+    <span class="k">padding</span><span class="o">:</span> <span class="m">0.2em</span> <span class="m">0.4em</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nt">tbody</span> <span class="nt">tr</span><span class="nd">:nth-child</span><span class="o">(</span><span class="nt">2n</span><span class="o">)</span> <span class="p">{</span>
+    <span class="k">background</span><span class="o">:</span> <span class="m">#eee</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+</div>
+
+<h2 id="lightbox">实现 lightbox 效果</h2>
+<p>添加 <a href="http://www.shadowbox-js.com/">Shadowbox.js</a>，对其进行了修改和设置，对帖子中所有的图片，实现 lightbox 效果，超出显示范围的图片可以拖动。目前有个不完美的地方，就是对于带链接的图片，链接会自动失效。</p>
+<h3 id="_1">使用说明</h3>
+<p><a class="download" href="shadowbox.modified.zip">Shadowbox.js 修改版</a></p>
+<p>将下载的修改版 Shadowbox.js 解压缩到 static 目录，同时主题模板文件 post.html 增加如下内容：</p>
+<div class="code"><div class="highlight"><pre><span class="o">&lt;</span><span class="nx">script</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;text/javascript&quot;</span> <span class="nx">src</span><span class="o">=</span><span class="s2">&quot;{{ static_url(&#39;shadowbox/shadowbox.js&#39;) }}&quot;</span><span class="o">&gt;&lt;</span><span class="err">/script&gt;</span>
+<span class="o">&lt;</span><span class="nx">script</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;text/javascript&quot;</span><span class="o">&gt;</span>
+<span class="nx">Shadowbox</span><span class="p">.</span><span class="nx">init</span><span class="p">({</span> <span class="nx">handleOversize</span><span class="o">:</span> <span class="s2">&quot;drag&quot;</span> <span class="p">});</span>
+<span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">Shadowbox</span><span class="p">.</span><span class="nx">setup</span><span class="p">(</span><span class="s2">&quot;.entry-content img&quot;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">gallery</span><span class="o">:</span> <span class="s2">&quot;{{post.title}}&quot;</span><span class="p">,</span> <span class="nx">counterType</span><span class="o">:</span> <span class="s2">&quot;skip&quot;</span> <span class="p">});</span>
+<span class="p">};</span>
+<span class="o">&lt;</span><span class="err">/script&gt;</span>
+</pre></div>
+</div>
+
+<h2 id="_2">增加图标美化</h2>
+<p>参考 <a href="http://www.qianduan.net/css3-icon-font-guide.html">CSS3 icon font 完全指南</a>，利用网上漂亮的、免费图标字体 <a href="http://fortawesome.github.com/Font-Awesome/">Font Awesome</a>，简单美化了一下主题，就差搜索框没有增加图标。另外从这篇 <a href="http://tympanus.net/codrops/2012/01/11/css-buttons-with-pseudo-elements/">CSS Buttons with Pseudo-elements</a> 学习添加一个漂亮的下载按钮。</p>
+<p>实现主要是 CSS 的编写，这样可以避免改动图标时修改主题模板文件，拿其中一个举例，这是首页前增加图标的 CSS 内容：</p>
+<div class="code"><div class="highlight"><pre><span class="nf">#nav-home</span> <span class="nt">a</span><span class="nd">:before</span> <span class="p">{</span>
+    <span class="k">font-family</span><span class="o">:</span> <span class="n">FontAwesome</span><span class="p">;</span>
+    <span class="k">font-weight</span><span class="o">:</span> <span class="k">normal</span><span class="p">;</span>
+    <span class="k">font-style</span><span class="o">:</span> <span class="k">normal</span><span class="p">;</span>
+    <span class="k">display</span><span class="o">:</span> <span class="k">inline</span><span class="o">-</span><span class="k">block</span><span class="p">;</span>
+    <span class="k">text-decoration</span><span class="o">:</span> <span class="k">inherit</span><span class="p">;</span>
+    <span class="k">content</span><span class="o">:</span> <span class="s2">&quot;\f015&quot;</span><span class="p">;</span>
+    <span class="k">padding-right</span><span class="o">:</span> <span class="m">0.3em</span><span class="p">;</span>
+    <span class="k">font-size</span><span class="o">:</span> <span class="m">1.1em</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div> ]]>
+        </content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Felix Felicis 功能扩充]]></title>
         <author><name>microjo</name><uri>http://microjo.github.com</uri></author>
         <link href="http://microjo.github.com/project/felix_felicis_extend.html"/>
         <updated>2012-05-18T10:39:00Z</updated>
         <published>2012-05-18T10:39:00Z</published>
         <id>http://microjo.github.com/project/felix_felicis_extend.html</id>
         <category scheme="http://microjo.github.com/tag/felix felicis/" term="Felix Felicis" label="Felix Felicis" />
-        <category scheme="http://microjo.github.com/tag/liquidluck/" term="liquidluck" label="Liquidluck" />
         <category scheme="http://microjo.github.com/tag/markdown/" term="markdown" label="Markdown" />
         <category scheme="http://microjo.github.com/tag/gravatar/" term="gravatar" label="Gravatar" />
         <category scheme="http://microjo.github.com/tag/favicon/" term="favicon" label="Favicon" />

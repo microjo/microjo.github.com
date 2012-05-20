@@ -1,4 +1,8 @@
-p/* @begin scrollbar */
+@import url(normalize.css);
+/* icon font */
+@import url(font/font-awesome.css);
+
+/* @begin scrollbar */
 pre::-webkit-scrollbar {
     width: 8px;
     height: 8px;
@@ -20,8 +24,6 @@ pre::-webkit-scrollbar-thumb {
 /* @end scrollbar */
 
 /* @begin reset */
-@import url(normalize.css);
-
 html,button,input,select,textarea {
     font-family: Georgia, "Times New Roman", serif;
 }
@@ -31,8 +33,7 @@ body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input
 }
 
 /* @中文文章article中段落开头缩进两个汉字，参考http://ethantw.net/projects/han/ */
-article:lang(zh) p:before { content: "　　"; }
-article:lang(zh) li p:before { content: "    "; }
+article:lang(zh) .entry-content p:before { content: "　　"; }
 sup:lang(zh):before { content: "["; }
 sup:lang(zh):after { content: "]"; }
 .footnote hr { margin: 2px 0 0 0; }
@@ -325,7 +326,7 @@ a:hover {
 .entry-meta p {
     margin: 6px 0;
 }
-.entry-time,.entry-tags {
+.entry-time,.entry-modified,.entry-tags {
     padding: 0 6px;
 }
 .entry-tags a {
@@ -337,7 +338,7 @@ a:hover {
 .entry-rel a {
     color: #999;
     font-size: 0.9em;
-    margin-left: 0.6em;
+    margin: 0 0.6em;
 }
 .entry-rel a:hover {
     color: #565656;

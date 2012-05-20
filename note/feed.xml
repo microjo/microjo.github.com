@@ -5,7 +5,7 @@
     
     <link href="http://microjo.github.com/note/" />
     
-    <updated>2012-05-18T23:42:54Z</updated>
+    <updated>2012-05-20T20:14:15Z</updated>
     <id>http://microjo.github.com</id>
     <entry>
         <title type="html"><![CDATA[自用 User Scripts 分享]]></title>
@@ -35,6 +35,18 @@
 <li>
 <p><a href="http://userscripts.org/scripts/show/116879">DBank Linker</a><br />
 终于可以不需要注册登录下载华为网盘上的资源了，真是方便 ：）</p>
+</li>
+<li>
+<p><a href="http://opengg.me/780/youku-api-parser/">Youku.API.Parser</a><br />
+用于解析优酷视频下载地址的脚本，支持标准、高清和超清这三种清晰度。</p>
+</li>
+<li>
+<p><a href="http://userscripts.org/scripts/show/66985">专用链破解 Special Links Converter</a><br />
+可以把迅雷、旋风、快车的专用下载链接破解为真实地址，方便Firefox下载。终于不用安装那些特定的软件了~~</p>
+</li>
+<li>
+<p><a href="http://www.cnblogs.com/kuber/archive/2009/11/13/1602321.html">Kuber's Video Downloader</a><br />
+利用 FLVCD.com 下载国内视频网站的视频，免去复制/粘贴的过程，部分网站，比如搜狐，必须安装专用下载工具硕鼠才能下载。</p>
 </li>
 </ol> ]]>
         </content>

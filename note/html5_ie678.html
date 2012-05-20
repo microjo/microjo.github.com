@@ -14,7 +14,7 @@
 
         
         <link rel="alternate" type="application/rss+xml" href="/feed.xml" title="Jonathan's Blog Feed" />
-        <link rel="stylesheet" href="/static/style.css?v=e3d4f" />
+        <link rel="stylesheet" href="/static/style.css?v=4c764" />
         
 <link rel="canonical" href="/note/html5_ie678.html" />
 <link rel="stylesheet" href="/static/syntax.css?v=dbf77" />
@@ -37,9 +37,9 @@
          <header id="header">
              <nav class="fn-clear">
                  <ul id="nav" class="fn-right fn-clear">
-                     <li id="nav-home"><a href="/">Home/首页</a></li>
-                     <li id="nav-about"><a href="/about.html">About/关于</a></li>
-                     <li id="nav-tags"><a href="/tag/">Tags/标签</a></li>
+                     <li id="nav-home"><a href="/">首页</a></li>
+                     <li id="nav-about"><a href="/about.html">关于</a></li>
+                     <li id="nav-tags"><a href="/tag/">标签</a></li>
                  </ul>
              </nav>
          </header>
@@ -77,13 +77,9 @@
 放在加载 CSS 代码前面和后面都没有关系，但是从性能方面来说，最好放在 CSS 后面。</p>
     </div>
     <div class="fn-clear">
-        <p class="entry-rel fn-right">
-        
-        <a id="prev-entry" href="/note/git_learning_notes.html" title="Git Learning Notes" rel="prev">«前一篇</a>
-        
-        
-        <a id="next-entry" href="/work/markdown_ext.html" title="扩展 Markdown 语法" rel="next">后一篇»</a>
-        
+        <p class="entry-rel">
+        <a id="prev-entry" class="fn-left" href="/note/git_learning_notes.html" title="Git Learning Notes" rel="prev">前一篇</a>
+        <a id="next-entry" class="fn-right" href="/work/markdown_ext.html" title="扩展 Markdown 语法" rel="next">后一篇</a>
         </p>
     </div>
 </div>
@@ -112,7 +108,6 @@
 <script type="text/javascript">
 Shadowbox.init({ handleOversize: "drag" });
 window.onload = function() {
-    // set up all anchor elements with a "movie" class to work with Shadowbox
     Shadowbox.setup(".entry-content img", { gallery: "IE6-8 支持 HTML5 元素", counterType: "skip" });
 };
 </script>
