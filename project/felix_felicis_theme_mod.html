@@ -14,7 +14,10 @@
 
         
         <link rel="alternate" type="application/rss+xml" href="/feed.xml" title="Jonathan's Blog Feed" />
-        <link rel="stylesheet" href="/static/style.css?v=4c764" />
+        <link rel="stylesheet" href="/static/style.css?v=338d1" />
+        <!--[if lt IE 8]>
+        <link rel="stylesheet" href="static/font/font-awesome-ie7.css" />
+        <![endif]-->
         
 <link rel="canonical" href="/project/felix_felicis_theme_mod.html" />
 <link rel="stylesheet" href="/static/syntax.css?v=dbf77" />
@@ -60,6 +63,7 @@
         <h2 id="">大部分汉化</h2>
 <p>将主题中大部分英文译成中文，并添加一些配合中文显示的 CSS 样式，包括中文文章 article 中段落开头缩进两个汉字、脚注的上标加上中括号等：</p>
 <div class="code"><div class="highlight"><pre><span class="nt">article</span><span class="nd">:lang</span><span class="o">(</span><span class="nt">zh</span><span class="o">)</span> <span class="nc">.entry-content</span> <span class="nt">p</span><span class="nd">:before</span> <span class="p">{</span> <span class="k">content</span><span class="o">:</span> <span class="s2">&quot;　　&quot;</span><span class="p">;</span> <span class="p">}</span>
+<span class="nt">article</span><span class="nd">:lang</span><span class="o">(</span><span class="nt">zh</span><span class="o">)</span> <span class="nc">.entry-content</span> <span class="nt">li</span> <span class="nt">p</span><span class="nd">:before</span> <span class="p">{</span> <span class="k">content</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">;</span> <span class="p">}</span>
 <span class="nt">sup</span><span class="nd">:lang</span><span class="o">(</span><span class="nt">zh</span><span class="o">)</span><span class="nd">:before</span> <span class="p">{</span> <span class="k">content</span><span class="o">:</span> <span class="s2">&quot;[&quot;</span><span class="p">;</span> <span class="p">}</span>
 <span class="nt">sup</span><span class="nd">:lang</span><span class="o">(</span><span class="nt">zh</span><span class="o">)</span><span class="nd">:after</span> <span class="p">{</span> <span class="k">content</span><span class="o">:</span> <span class="s2">&quot;]&quot;</span><span class="p">;</span> <span class="p">}</span>
 <span class="nt">em</span> <span class="p">{</span> <span class="k">border-bottom</span><span class="o">:</span> <span class="m">2px</span> <span class="k">dotted</span><span class="p">;</span> <span class="k">font-style</span><span class="o">:</span> <span class="k">normal</span><span class="p">;}</span>
@@ -95,9 +99,9 @@
 </div>
 
 <h2 id="lightbox">实现 lightbox 效果</h2>
-<p>添加 <a href="http://www.shadowbox-js.com/">Shadowbox.js</a>，对其进行了修改和设置，对帖子中所有的图片，实现 lightbox 效果，超出显示范围的图片可以拖动。目前有个不完美的地方，就是对于带链接的图片，链接会自动失效。</p>
+<p>从 <a href="http://planetozh.com/projects/lightbox-clones/">The Lightbox Clones Matrix</a> 页面挑选一个满足需求的 <a href="http://www.shadowbox-js.com/">Shadowbox.js</a>，对其进行了修改和设置，对帖子中所有的图片，实现 lightbox 效果，超出显示范围的图片可以拖动。目前有个不完美的地方，就是对于带链接的图片，链接会自动失效。</p>
 <h3 id="_1">使用说明</h3>
-<p><a class="download" href="shadowbox.modified.zip">Shadowbox.js 修改版</a></p>
+<p><a class="cssbtn-download" href="shadowbox.modified.zip">Shadowbox.js 修改版</a></p>
 <p>将下载的修改版 Shadowbox.js 解压缩到 static 目录，同时主题模板文件 post.html 增加如下内容：</p>
 <div class="code"><div class="highlight"><pre><span class="o">&lt;</span><span class="nx">script</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;text/javascript&quot;</span> <span class="nx">src</span><span class="o">=</span><span class="s2">&quot;{{ static_url(&#39;shadowbox/shadowbox.js&#39;) }}&quot;</span><span class="o">&gt;&lt;</span><span class="err">/script&gt;</span>
 <span class="o">&lt;</span><span class="nx">script</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;text/javascript&quot;</span><span class="o">&gt;</span>
@@ -112,18 +116,30 @@
 <h2 id="_2">增加图标美化</h2>
 <p>参考 <a href="http://www.qianduan.net/css3-icon-font-guide.html">CSS3 icon font 完全指南</a>，利用网上漂亮的、免费图标字体 <a href="http://fortawesome.github.com/Font-Awesome/">Font Awesome</a>，简单美化了一下主题，就差搜索框没有增加图标。另外从这篇 <a href="http://tympanus.net/codrops/2012/01/11/css-buttons-with-pseudo-elements/">CSS Buttons with Pseudo-elements</a> 学习添加一个漂亮的下载按钮。</p>
 <p>实现主要是 CSS 的编写，这样可以避免改动图标时修改主题模板文件，拿其中一个举例，这是首页前增加图标的 CSS 内容：</p>
-<div class="code"><div class="highlight"><pre><span class="nf">#nav-home</span> <span class="nt">a</span><span class="nd">:before</span> <span class="p">{</span>
+<div class="code"><div class="highlight"><pre><span class="o">[</span><span class="nt">id</span><span class="o">^=</span><span class="s2">&quot;nav-&quot;</span><span class="o">]</span> <span class="nt">a</span><span class="nd">:before</span><span class="o">,</span> <span class="o">[</span><span class="nt">id</span><span class="o">*=</span><span class="s2">&quot; nav-&quot;</span><span class="o">]</span> <span class="nt">a</span><span class="nd">:before</span> <span class="p">{</span>
     <span class="k">font-family</span><span class="o">:</span> <span class="n">FontAwesome</span><span class="p">;</span>
     <span class="k">font-weight</span><span class="o">:</span> <span class="k">normal</span><span class="p">;</span>
     <span class="k">font-style</span><span class="o">:</span> <span class="k">normal</span><span class="p">;</span>
     <span class="k">display</span><span class="o">:</span> <span class="k">inline</span><span class="o">-</span><span class="k">block</span><span class="p">;</span>
     <span class="k">text-decoration</span><span class="o">:</span> <span class="k">inherit</span><span class="p">;</span>
-    <span class="k">content</span><span class="o">:</span> <span class="s2">&quot;\f015&quot;</span><span class="p">;</span>
-    <span class="k">padding-right</span><span class="o">:</span> <span class="m">0.3em</span><span class="p">;</span>
     <span class="k">font-size</span><span class="o">:</span> <span class="m">1.1em</span><span class="p">;</span>
+    <span class="k">width</span><span class="o">:</span> <span class="m">1.5em</span><span class="p">;</span>
+    <span class="k">text-align</span><span class="o">:</span> <span class="k">center</span><span class="p">;</span>
 <span class="p">}</span>
+<span class="nf">#nav-home</span> <span class="nt">a</span><span class="nd">:before</span> <span class="p">{</span> <span class="k">content</span><span class="o">:</span> <span class="s2">&quot;\f015&quot;</span><span class="p">;</span> <span class="p">}</span>
 </pre></div>
 </div>
+
+<p>在学习修改 CSS 的过程中，搜罗到不少有用的站点或帖子：</p>
+<ul>
+<li><a href="http://css.doyoe.com/">中文版 CSS 参考手册</a><br />
+</li>
+<li><a href="http://css3please.com/" title="The Cross-Browser CSS3 Rule Generator">CSS3, Please!</a><br />
+包含常用 CSS3 hack，可以实时禁用/启用某一属性来查看其效果。</li>
+<li><a href="http://webdesignerwall.com/tutorials/css-specific-for-internet-explorer">CSS Specific for Internet Explorer</a></li>
+<li><a href="http://css-tricks.com/">CSS-Tricks</a><br />
+不少 CSS 教程和例子，非常详细。</li>
+</ul>
     </div>
     <div class="fn-clear">
         <p class="entry-rel">
@@ -136,7 +152,7 @@
     <a href="/2012/" rel="index"><time class="created" datetime="2012-05-20T13:23:00Z" pubdate="pubdate">Sun, May 20, 2012</time></a>
     </p>
     <p class="entry-modified fn-left">修改：
-    <time class="modified" datetime="2012-05-20T15:20:00Z">Sun, May 20, 2012, 15:20:00</time>
+    <time class="modified" datetime="2012-05-29T00:28:00Z">Tue, May 29, 2012, 00:28:00</time>
     </p>
     <p class="entry-tags fn-left">标签：
     <a href="/tag/felix felicis/" class="tag" rel="tag">Felix Felicis</a>

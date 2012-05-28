@@ -33,189 +33,158 @@
     font-style: normal;
 }
 
-#nav-home a:before {
+[id^="nav-"] a:before, [id*=" nav-"] a:before {
     font-family: FontAwesome;
     font-weight: normal;
     font-style: normal;
     display: inline-block;
     text-decoration: inherit;
-    content: "\f015";
-    padding-right: 0.3em;
     font-size: 1.1em;
+    width: 1.5em;
+    text-align: center;
 }
+#nav-home a:before { content: "\f015"; }
+#nav-about a:before { content: "\f05a"; }
+#nav-tags a:before { content: "\f02c"; }
 
-#nav-about a:before {
+.prev:before, #prev-entry:before, .next:after, #next-entry:after,
+.entry-time:before, .entry-modified:before, .entry-tags:before {
     font-family: FontAwesome;
     font-weight: normal;
     font-style: normal;
     display: inline-block;
     text-decoration: inherit;
-    content: "\f05a";
-    padding-right: 0.3em;
-    font-size: 1.1em;
-}
-
-#nav-tags a:before {
-    font-family: FontAwesome;
-    font-weight: normal;
-    font-style: normal;
-    display: inline-block;
-    text-decoration: inherit;
-    content: "\f02c";
-    padding-right: 0.3em;
-    font-size: 1.1em;
-}
-
-.prev:before, #prev-entry:before {
-    font-family: FontAwesome;
-    font-weight: normal;
-    font-style: normal;
-    display: inline-block;
-    text-decoration: inherit;
-    content: "\f060";
-    padding-right: 0.2em;
-}
-
-.next:after, #next-entry:after {
-    font-family: FontAwesome;
-    font-weight: normal;
-    font-style: normal;
-    display: inline-block;
-    text-decoration: inherit;
-    content: "\f061";
     padding-left: 0.2em;
-}
-
-.entry-time:before {
-    font-family: FontAwesome;
-    font-weight: normal;
-    font-style: normal;
-    display: inline-block;
-    text-decoration: inherit;
-    content: "　　\f017";
     padding-right: 0.2em;
 }
+.prev:before, #prev-entry:before { content: "\f060"; }
+.next:after, #next-entry:after { content: "\f061"; }
+.entry-time:before { content: "　　\f017"; }
+.entry-modified:before { content: "　　\f040"; }
+.entry-tags:before { content: "　　\f02b"; }
 
-.entry-modified:before {
-    font-family: FontAwesome;
-    font-weight: normal;
-    font-style: normal;
-    display: inline-block;
-    text-decoration: inherit;
-    content: "　　\f040";
-    padding-right: 0.2em;
-}
 
-.entry-tags:before {
-    font-family: FontAwesome;
-    font-weight: normal;
-    font-style: normal;
-    display: inline-block;
-    text-decoration: inherit;
-    content: "　　\f02b";
-    padding-right: 0.2em;
-}
+
+
+
+
+
 
 /* http://tympanus.net/codrops/2012/01/11/css-buttons-with-pseudo-elements/ */
-.download {
-    background-color:#3bb3e0;
-    text-align:center;
-    text-decoration:none;
-    color:#fff;
-    position:relative;
-    padding:10px 20px;
-    border-left:solid 1px #2ab7ec;
-    margin-left:35px;
-    background-image: linear-gradient(bottom, rgb(44,160,202) 0%, rgb(62,184,229) 100%);
-    background-image: -o-linear-gradient(bottom, rgb(44,160,202) 0%, rgb(62,184,229) 100%);
-    background-image: -moz-linear-gradient(bottom, rgb(44,160,202) 0%, rgb(62,184,229) 100%);
-    background-image: -webkit-linear-gradient(bottom, rgb(44,160,202) 0%, rgb(62,184,229) 100%);
-    background-image: -ms-linear-gradient(bottom, rgb(44,160,202) 0%, rgb(62,184,229) 100%);
-    background-image: -webkit-gradient(
-    linear,
-    left bottom,
-    left top,
-    color-stop(0, rgb(44,160,202)),
-    color-stop(1, rgb(62,184,229))
-    );
-    -webkit-border-top-right-radius: 5px;
-    -webkit-border-bottom-right-radius: 5px;
-    -moz-border-radius-topright: 5px;
-    -moz-border-radius-bottomright: 5px;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
-    -webkit-box-shadow: inset 0px 1px 0px #2ab7ec, 0px 5px 0px 0px #156785, 0px 10px 5px #999;
-    -moz-box-shadow: inset 0px 1px 0px #2ab7ec, 0px 5px 0px 0px #156785, 0px 10px 5px #999;
-    -o-box-shadow: inset 0px 1px 0px #2ab7ec, 0px 5px 0px 0px #156785, 0px 10px 5px #999;
-    box-shadow: inset 0px 1px 0px #2ab7ec, 0px 5px 0px 0px #156785, 0px 10px 5px #999;
+[class^="cssbtn-"], [class*=" cssbtn-"] {
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    position: relative;
+    padding: 8px 20px;
+    margin-left: 35px;
+    border-left: solid 1px #2ab7ec;
+
+    background-color: #3bb3e0;
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #2ca0ca), color-stop(1, #3eb8e5)); /* Saf4+, Chrome */
+    background-image: -webkit-linear-gradient(bottom, #2ca0ca 0%, #3eb8e5 100%); /* Chrome 10+, Saf5.1+, iOS 5+ */
+    background-image: -moz-linear-gradient(bottom, #2ca0ca 0%, #3eb8e5 100%); /* FF3.6+ */
+    background-image: -ms-linear-gradient(bottom, #2ca0ca 0%, #3eb8e5 100%); /* IE10 */
+    background-image: -o-linear-gradient(bottom, #2ca0ca 0%, #3eb8e5 100%); /* Opera 11.10+ */
+    background-image: linear-gradient(bottom, #2ca0ca 0%, #3eb8e5 100%);
+
+    -webkit-border-radius: 0 5px 5px 0; /* Saf3-4, iOS 1-3.2, Android ≤1.6 */
+    border-radius: 0 5px 5px 0; /* Opera 10.5, IE9, Saf5, Chrome, FF4+, iOS 4, Android 2.1+ */
+
+    /* useful if you don't want a bg color from leaking outside the border: */
+    -moz-background-clip: padding; -webkit-background-clip: padding-box; background-clip: padding-box;
+
+    -webkit-box-shadow: inset 0px 1px 0px #2ab7ec, 0px 5px 0px 0px #156785, 0px 10px 5px #999; /* Saf3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+    box-shadow: inset 0px 1px 0px #2ab7ec, 0px 5px 0px 0px #156785, 0px 10px 5px #999; /* Opera 10.5, IE9, FF4+, Chrome 6+, iOS 5 */
 }
-.download:active {
-    top:3px;
-    background-image: linear-gradient(bottom, rgb(62,184,229) 0%, rgb(44,160,202) 100%);
-    background-image: -o-linear-gradient(bottom, rgb(62,184,229) 0%, rgb(44,160,202) 100%);
-    background-image: -moz-linear-gradient(bottom, rgb(62,184,229) 0%, rgb(44,160,202) 100%);
-    background-image: -webkit-linear-gradient(bottom, rgb(62,184,229) 0%, rgb(44,160,202) 100%);
-    background-image: -ms-linear-gradient(bottom, rgb(62,184,229) 0%, rgb(44,160,202) 100%);
-    background-image: -webkit-gradient(
-    linear,
-    left bottom,
-    left top,
-    color-stop(0, rgb(62,184,229)),
-    color-stop(1, rgb(44,160,202))
-    );
+[class^="cssbtn-"]:active, [class*=" cssbtn-"]:active {
+    top: 3px;
+
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #3eb8e5), color-stop(1, #2ca0ca));
+    background-image: -webkit-linear-gradient(bottom, #3eb8e5 0%, #2ca0ca 100%);
+    background-image: -moz-linear-gradient(bottom, #3eb8e5 0%, #2ca0ca 100%);
+    background-image: -ms-linear-gradient(bottom, #3eb8e5 0%, #2ca0ca 100%);
+    background-image: -o-linear-gradient(bottom, #3eb8e5 0%, #2ca0ca 100%);
+    background-image: linear-gradient(bottom, #3eb8e5 0%, #2ca0ca 100%);
+
     -webkit-box-shadow: inset 0px 1px 0px #2ab7ec, 0px 2px 0px 0px #156785, 0px 5px 3px #999;
-    -moz-box-shadow: inset 0px 1px 0px #2ab7ec, 0px 2px 0px 0px #156785, 0px 5px 3px #999;
-    -o-box-shadow: inset 0px 1px 0px #2ab7ec, 0px 2px 0px 0px #156785, 0px 5px 3px #999;
     box-shadow: inset 0px 1px 0px #2ab7ec, 0px 2px 0px 0px #156785, 0px 5px 3px #999;
 }
-.download::before {
+[class^="cssbtn-"]:before, [class*=" cssbtn-"]:before {
     font-family: FontAwesome;
     font-weight: normal;
     font-style: normal;
-    content: "\f01a";
-    font-size: 1.6em;
-    background-color:#2561b4;
-    width:35px;
-    max-height:29px;
-    height:100%;
-    position:absolute;
-    display:block;
-    padding-top:10px;
-    top:0px;
-    left:-36px;
-    color:#8fd1ea;
-    text-shadow:1px 1px 0px #07526e;
-    border-right:solid 1px #07526e;
-    background-image: linear-gradient(bottom, rgb(10,94,125) 0%, rgb(14,139,184) 100%);
-    background-image: -o-linear-gradient(bottom, rgb(10,94,125) 0%, rgb(14,139,184) 100%);
-    background-image: -moz-linear-gradient(bottom, rgb(10,94,125) 0%, rgb(14,139,184) 100%);
-    background-image: -webkit-linear-gradient(bottom, rgb(10,94,125) 0%, rgb(14,139,184) 100%);
-    background-image: -ms-linear-gradient(bottom, rgb(10,94,125) 0%, rgb(14,139,184) 100%);
-    background-image: -webkit-gradient(
-    linear,
-    left bottom,
-    left top,
-    color-stop(0, rgb(10,94,125)),
-    color-stop(1, rgb(14,139,184))
-    );
-    -webkit-border-top-left-radius: 5px;
-    -webkit-border-bottom-left-radius: 5px;
-    -moz-border-radius-topleft: 5px;
-    -moz-border-radius-bottomleft: 5px;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-    -webkit-box-shadow:inset 0px 1px 0px #2ab7ec, 0px 5px 0px 0px #032b3a, 0px 10px 5px #999 ;
-    -moz-box-shadow:inset 0px 1px 0px #2ab7ec, 0px 5px 0px 0px #032b3a, 0px 10px 5px #999 ;
-    -o-box-shadow:inset 0px 1px 0px #2ab7ec, 0px 5px 0px 0px #032b3a, 0px 10px 5px #999 ;
-    box-shadow:inset 0px 1px 0px #2ab7ec, 0px 5px 0px 0px #032b3a, 0px 10px 5px #999 ;
+    font-size: 22px;
+    position: absolute;
+    top: 0px;
+    left: -36px;
+    width: 35px;
+    padding-top: 8px;
+    padding-bottom: 2px;
+    color: #8fd1ea;
+    text-shadow: 1px 1px 0px #07526e;
+    border-right: solid 1px #07526e; 
+
+    background-color: #2561b4;
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #0a5e7d), color-stop(1, #0e8bb8));
+    background-image: -webkit-linear-gradient(bottom, #0a5e7d 0%, #0e8bb8 100%);
+    background-image: -moz-linear-gradient(bottom, #0a5e7d 0%, #0e8bb8 100%);
+    background-image: -ms-linear-gradient(bottom, #0a5e7d 0%, #0e8bb8 100%);
+    background-image: -o-linear-gradient(bottom, #0a5e7d 0%, #0e8bb8 100%);
+    background-image: linear-gradient(bottom, #0a5e7d 0%, #0e8bb8 100%);
+
+    -webkit-border-radius: 5px 0 0 5px;
+    border-radius: 5px 0 0 5px;
+
+    -moz-background-clip: padding; -webkit-background-clip: padding-box; background-clip: padding-box;
+
+    -webkit-box-shadow: inset 0px 1px 0px #2ab7ec, 0px 5px 0px 0px #032b3a, 0px 10px 5px #999;
+    box-shadow: inset 0px 1px 0px #2ab7ec, 0px 5px 0px 0px #032b3a, 0px 10px 5px #999;
 }
-.download:active::before{
-    top:-3px;
+[class^="cssbtn-"]:active:before, [class*=" cssbtn-"]:active:before {
+    top: -3px;
+
     -webkit-box-shadow:inset 0px 1px 0px #2ab7ec, 0px 5px 0px 0px #032b3a, 1px 1px 0px 0px #044a64, 2px 2px 0px 0px #044a64, 2px 5px 0px 0px #044a64, 6px 4px 2px #0b698b, 0px 10px 5px #999 ;
-    -moz-box-shadow:inset 0px 1px 0px #2ab7ec, 0px 5px 0px 0px #032b3a, 1px 1px 0px 0px #044a64, 2px 2px 0px 0px #044a64, 2px 5px 0px 0px #044a64, 6px 4px 2px #0b698b, 0px 10px 5px #999 ;
-    -o-box-shadow:inset 0px 1px 0px #2ab7ec, 0px 5px 0px 0px #032b3a, 1px 1px 0px 0px #044a64, 2px 2px 0px 0px #044a64, 2px 5px 0px 0px #044a64, 6px 4px 2px #0b698b, 0px 10px 5px #999 ;
     box-shadow:inset 0px 1px 0px #2ab7ec, 0px 5px 0px 0px #032b3a, 1px 1px 0px 0px #044a64, 2px 2px 0px 0px #044a64, 2px 5px 0px 0px #044a64, 6px 4px 2px #0b698b, 0px 10px 5px #999 ;
 }
-.download:hover{
-    color:rgba(255,255,255,0.9);
+[class^="cssbtn-"]:hover, [class*=" cssbtn-"]:hover {
+    color: rgba(255,255,255,0.9);
+}
+.cssbtn-download:before { content: "\f01a"; }
+.cssbtn-github:before { content: "\f092"; }
+
+[class^="cssbtn2-"], [class*=" cssbtn2-"] {
+    white-space: nowrap;
+    border: 1px solid #ccc;
+    padding: 0.4em 6px 0.4em 0.207em;
+
+    -webkit-border-radius: 12px;
+    border-radius: 1.1em;
+    -moz-background-clip: padding; -webkit-background-clip: padding-box; background-clip: padding-box;
+}
+[class^="cssbtn2-"]:before, [class*=" cssbtn2-"]:before {
+    font-family: FontAwesome;
+    font-weight: normal;
+    font-style: normal;
+    color: white;
+    font-size: 1.4em;
+    margin: 0 6px;
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+}
+[class^="cssbtn2-"]:hover, [class*=" cssbtn2-"]:hover {
+  color: white;
+}
+[class^="cssbtn2-"]:hover:before, [class*=" cssbtn2-"]:hover:before {
+  color: black;
+}
+.cssbtn2-github:before {
+  content: "\f092";
+  color: #2ca0ca;
+
+}
+.cssbtn2-github:hover {
+  background: #2ca0ca;
 }

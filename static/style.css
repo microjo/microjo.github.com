@@ -25,7 +25,7 @@ pre::-webkit-scrollbar-thumb {
 
 /* @begin reset */
 html,button,input,select,textarea {
-    font-family: Georgia, "Times New Roman", serif;
+    font-family: Georgia, "Times New Roman", Simsun, serif;
 }
 
 body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,hr,button,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
@@ -34,6 +34,7 @@ body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input
 
 /* @中文文章article中段落开头缩进两个汉字，参考http://ethantw.net/projects/han/ */
 article:lang(zh) .entry-content p:before { content: "　　"; }
+article:lang(zh) .entry-content li p:before { content: ""; }
 sup:lang(zh):before { content: "["; }
 sup:lang(zh):after { content: "]"; }
 .footnote hr { margin: 2px 0 0 0; }
@@ -49,7 +50,7 @@ pre, code {
 }
 pre { overflow:auto; padding: 8px; }
 code { padding: 1px 2px; }
-pre code { padding:0!important; border: 0px !important; }
+pre code { padding: 0!important; border: 0!important; }
 
 em { border-bottom: 2px dotted; font-style: normal;}
 
@@ -370,7 +371,7 @@ a:hover {
 }
 .highlight pre {
     border: 1px dashed #ddd;
-    padding: 1px 5px 3px 1px;
+    padding: 1px 5px 3px;
 }
 .page-content ul {
     list-style-type: none;

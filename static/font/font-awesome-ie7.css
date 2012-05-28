@@ -1,0 +1,28 @@
+[id^="nav-"] a, [id*=" nav-"] a,
+.prev, #prev-entry, .next, #next-entry,
+.entry-time, .entry-modified, .entry-tags,
+[class^="cssbtn-"], [class*=" cssbtn-"],
+[class^="cssbtn2-"], [class*=" cssbtn2-"] {
+	font-family: FontAwesome, Georgia, "Times New Roman", Simsun, serif;
+}
+
+#nav-home a { *zoom: expression( this.runtimeStyle['zoom'] = "1", this.innerHTML = '&#xf015;&nbsp;' + this.innerHTML ); }
+#nav-about a { *zoom: expression( this.runtimeStyle['zoom'] = "1", this.innerHTML = '&#xf05a;&nbsp;' + this.innerHTML ); }
+#nav-tags a { *zoom: expression( this.runtimeStyle['zoom'] = "1", this.innerHTML = '&#xf02c;&nbsp;' + this.innerHTML ); }
+
+.prev, #prev-entry { *zoom: expression( this.runtimeStyle['zoom'] = "1", this.innerHTML = '&#xf060;&nbsp;' + this.innerHTML ); }
+.next, #next-entry { *zoom: expression( this.runtimeStyle['zoom'] = "1", this.innerHTML = this.innerHTML + '&nbsp;&#xf061;' ); }
+.entry-time { *zoom: expression( this.runtimeStyle['zoom'] = "1", this.innerHTML = '　　&#xf017;&nbsp;' + this.innerHTML ); }
+.entry-modified { *zoom: expression( this.runtimeStyle['zoom'] = "1", this.innerHTML = '　　&#xf040;&nbsp;' + this.innerHTML ); }
+.entry-tags { *zoom: expression( this.runtimeStyle['zoom'] = "1", this.innerHTML = '　　&#xf02b;&nbsp;' + this.innerHTML ); }
+
+[class^="cssbtn-"], [class*=" cssbtn-"] {
+	margin-left: 0;
+	border: solid 1px #07526e;
+}
+.cssbtn-download {
+	*zoom: expression( this.runtimeStyle['zoom'] = "1", this.innerHTML = '&#xf01a;&nbsp;' + this.innerHTML );
+}
+.cssbtn2-github {
+	*zoom: expression( this.runtimeStyle['zoom'] = "1", this.innerHTML = '&#xf092;&nbsp;' + this.innerHTML );
+}
