@@ -1,5 +1,6 @@
 <!DOCTYPE HTML>
-<html lang="zh">
+<!--[if lt IE 8]> <html class="iehack" lang="zh"> <![endif]-->
+<!--[if (gte IE 8)|!(IE)]><!--> <html lang="zh"> <!--<![endif]-->
     <head>
         <meta charset="UTF-8">
         <title>Felix Felicis 默认主题修改 | Jonathan's Blog</title><link rel="shortcut icon" href="http://www.gravatar.com/avatar/60633c507a57f09b238c710e743f8a61?s=16" />
@@ -14,10 +15,7 @@
 
         
         <link rel="alternate" type="application/rss+xml" href="/feed.xml" title="Jonathan's Blog Feed" />
-        <link rel="stylesheet" href="/static/style.css?v=338d1" />
-        <!--[if lt IE 8]>
-        <link rel="stylesheet" href="static/font/font-awesome-ie7.css" />
-        <![endif]-->
+        <link rel="stylesheet" href="/static/style.css?v=b9321" />
         
 <link rel="canonical" href="/project/felix_felicis_theme_mod.html" />
 <link rel="stylesheet" href="/static/syntax.css?v=dbf77" />
@@ -63,10 +61,13 @@
         <h2 id="">大部分汉化</h2>
 <p>将主题中大部分英文译成中文，并添加一些配合中文显示的 CSS 样式，包括中文文章 article 中段落开头缩进两个汉字、脚注的上标加上中括号等：</p>
 <div class="code"><div class="highlight"><pre><span class="nt">article</span><span class="nd">:lang</span><span class="o">(</span><span class="nt">zh</span><span class="o">)</span> <span class="nc">.entry-content</span> <span class="nt">p</span><span class="nd">:before</span> <span class="p">{</span> <span class="k">content</span><span class="o">:</span> <span class="s2">&quot;　　&quot;</span><span class="p">;</span> <span class="p">}</span>
-<span class="nt">article</span><span class="nd">:lang</span><span class="o">(</span><span class="nt">zh</span><span class="o">)</span> <span class="nc">.entry-content</span> <span class="nt">li</span> <span class="nt">p</span><span class="nd">:before</span> <span class="p">{</span> <span class="k">content</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">;</span> <span class="p">}</span>
+<span class="nt">article</span><span class="nd">:lang</span><span class="o">(</span><span class="nt">zh</span><span class="o">)</span> <span class="nc">.entry-content</span> <span class="nt">li</span> <span class="nt">p</span><span class="nd">:first-child:before</span> <span class="p">{</span> <span class="k">content</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">;</span> <span class="p">}</span>
+<span class="nt">sup</span><span class="nd">:lang</span><span class="o">(</span><span class="nt">zh</span><span class="o">)</span> <span class="p">{</span>
+    <span class="k">font-family</span><span class="o">:</span> <span class="n">Verdana</span><span class="p">;</span>
+    <span class="k">margin</span><span class="o">:</span> <span class="m">0</span> <span class="m">2px</span><span class="p">;</span>
+<span class="p">}</span>
 <span class="nt">sup</span><span class="nd">:lang</span><span class="o">(</span><span class="nt">zh</span><span class="o">)</span><span class="nd">:before</span> <span class="p">{</span> <span class="k">content</span><span class="o">:</span> <span class="s2">&quot;[&quot;</span><span class="p">;</span> <span class="p">}</span>
 <span class="nt">sup</span><span class="nd">:lang</span><span class="o">(</span><span class="nt">zh</span><span class="o">)</span><span class="nd">:after</span> <span class="p">{</span> <span class="k">content</span><span class="o">:</span> <span class="s2">&quot;]&quot;</span><span class="p">;</span> <span class="p">}</span>
-<span class="nt">em</span> <span class="p">{</span> <span class="k">border-bottom</span><span class="o">:</span> <span class="m">2px</span> <span class="k">dotted</span><span class="p">;</span> <span class="k">font-style</span><span class="o">:</span> <span class="k">normal</span><span class="p">;}</span>
 </pre></div>
 </div>
 
@@ -132,8 +133,9 @@
 
 <p>在学习修改 CSS 的过程中，搜罗到不少有用的站点或帖子：</p>
 <ul>
-<li><a href="http://css.doyoe.com/">中文版 CSS 参考手册</a><br />
-</li>
+<li><a href="http://css.doyoe.com/">中文版 CSS 参考手册</a></li>
+<li><a href="http://www.w3help.org">W3help.org</a><br />
+网站中兼容性相关文章非常实用。</li>
 <li><a href="http://css3please.com/" title="The Cross-Browser CSS3 Rule Generator">CSS3, Please!</a><br />
 包含常用 CSS3 hack，可以实时禁用/启用某一属性来查看其效果。</li>
 <li><a href="http://webdesignerwall.com/tutorials/css-specific-for-internet-explorer">CSS Specific for Internet Explorer</a></li>
@@ -143,6 +145,7 @@
     </div>
     <div class="fn-clear">
         <p class="entry-rel">
+        <a id="prev-entry" class="fn-left" href="/entertainment/humble_indie_bundle_v.html" title="跨平台无 DRM 独立游戏合集 Humble Indie Bundle V" rel="prev">前一篇</a>
         <a id="next-entry" class="fn-right" href="/project/felix_felicis_extend.html" title="Felix Felicis 功能扩充" rel="next">后一篇</a>
         </p>
     </div>

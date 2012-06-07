@@ -1,6 +1,7 @@
 @import url(normalize.css);
 /* icon font */
 @import url(font/font-awesome.css);
+@import url(font/font-awesome-iehack.css);
 
 /* @begin scrollbar */
 pre::-webkit-scrollbar {
@@ -34,7 +35,11 @@ body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input
 
 /* @中文文章article中段落开头缩进两个汉字，参考http://ethantw.net/projects/han/ */
 article:lang(zh) .entry-content p:before { content: "　　"; }
-article:lang(zh) .entry-content li p:before { content: ""; }
+article:lang(zh) .entry-content li p:first-child:before { content: ""; }
+sup:lang(zh) {
+    font-family: Verdana;
+    margin: 0 2px;
+}
 sup:lang(zh):before { content: "["; }
 sup:lang(zh):after { content: "]"; }
 .footnote hr { margin: 2px 0 0 0; }
@@ -101,7 +106,7 @@ caption,th {
 h2,h3,h4,h5,h6 {
     font-size: 100%;
     font-weight: bold;
-    font-family: "Helvetica Neue", Helvetica, Arial, "Microsoft YaHei", "WenQuanYi Micro Hei", "Hiragino Sans GB", sans-serif;
+    font-family: "RTWS YueRoundedGothic G0v1", "Helvetica Neue", Helvetica, Arial, RTWSYueRoudGoG0v1-Regular, "Microsoft YaHei", "WenQuanYi Micro Hei", "Hiragino Sans GB", sans-serif;
 }
 h1 {
     font-size: 1.6em;

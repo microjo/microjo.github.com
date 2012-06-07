@@ -1,5 +1,6 @@
 <!DOCTYPE HTML>
-<html lang="zh">
+<!--[if lt IE 8]> <html class="iehack" lang="zh"> <![endif]-->
+<!--[if (gte IE 8)|!(IE)]><!--> <html lang="zh"> <!--<![endif]-->
     <head>
         <meta charset="UTF-8">
         <title>Felix Felicis 功能扩充 | Jonathan's Blog</title><link rel="shortcut icon" href="http://www.gravatar.com/avatar/60633c507a57f09b238c710e743f8a61?s=16" />
@@ -14,10 +15,7 @@
 
         
         <link rel="alternate" type="application/rss+xml" href="/feed.xml" title="Jonathan's Blog Feed" />
-        <link rel="stylesheet" href="/static/style.css?v=338d1" />
-        <!--[if lt IE 8]>
-        <link rel="stylesheet" href="static/font/font-awesome-ie7.css" />
-        <![endif]-->
+        <link rel="stylesheet" href="/static/style.css?v=b9321" />
         
 <link rel="canonical" href="/project/felix_felicis_extend.html" />
 <link rel="stylesheet" href="/static/syntax.css?v=dbf77" />
@@ -63,13 +61,13 @@
         <p>自从用 Felix Felicis (liquidluck) 生成博客内容，根据自身需要对其做了部分功能扩充，本文记录修改的情况。</p>
 <div class="toc">
 <ul>
-<li><a href="#python-markdown-1-markdown">打开 Python-Markdown 1 部分扩展 Markdown 语法支持</a></li>
-<li><a href="#gravatar-favicon-3">增加 Gravatar 作为博客 favicon 3</a></li>
+<li><a href="#python-markdown1-markdown">打开 Python-Markdown1 部分扩展 Markdown 语法支持</a></li>
+<li><a href="#gravatar-favicon3">增加 Gravatar 作为博客 favicon3</a></li>
 <li><a href="#post">post 增加修改时间参数</a></li>
 <li><a href="#related">相关内容</a></li>
 </ul>
 </div>
-<h2 id="python-markdown-1-markdown">打开 Python-Markdown <sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup> 部分扩展 Markdown 语法支持</h2>
+<h2 id="python-markdown1-markdown">打开 Python-Markdown<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup> 部分扩展 Markdown 语法支持</h2>
 <p>Python-Markdown<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup> 支持的扩展 Markdown 语法很丰富，可以参考 <a href="http://packages.python.org/Markdown/extensions/index.html">http://packages.python.org/Markdown/extensions/index.html</a>，部分扩展语法的中文说明可参考<a href="/work/markdown_ext.html">扩展 Markdown 语法</a>。</p>
 <p>只需要修改一个文件 <code>liquidluck/readers/mkd.py</code>，打开 Extra 和 Table of Contents 的扩展支持，修改内容<sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup>如下：</p>
 <div class="code"><div class="highlight"><pre><span class="gd">-------------------------- liquidluck/readers/mkd.py --------------------------</span>
@@ -85,7 +83,7 @@
 
 </div>
 
-<h2 id="gravatar-favicon-3">增加 Gravatar 作为博客 favicon <sup id="fnref:3"><a href="#fn:3" rel="footnote">3</a></sup></h2>
+<h2 id="gravatar-favicon3">增加 Gravatar 作为博客 favicon<sup id="fnref:3"><a href="#fn:3" rel="footnote">3</a></sup></h2>
 <p>参考 <a href="http://fairyfish.net/m/gravatar-as-favicon/">WordPress 技巧：使用 Gravatar 作为博客的 Favicon</a> 和 <a href="http://en.gravatar.com/site/implement/">Gravatar 官方开发资源</a>进行修改，内容<sup id="fnref:4"><a href="#fn:4" rel="footnote">4</a></sup>如下：</p>
 <div class="code"><div class="highlight"><pre><span class="gd">---------------------- liquidluck/_templates/layout.html ----------------------</span>
 

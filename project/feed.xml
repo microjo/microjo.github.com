@@ -5,7 +5,7 @@
     
     <link href="http://microjo.github.com/project/" />
     
-    <updated>2012-05-29T00:34:05Z</updated>
+    <updated>2012-06-08T00:06:38Z</updated>
     <id>http://microjo.github.com</id>
     <entry>
         <title type="html"><![CDATA[Felix Felicis 默认主题修改]]></title>
@@ -21,10 +21,13 @@
             <![CDATA[ <h2 id="">大部分汉化</h2>
 <p>将主题中大部分英文译成中文，并添加一些配合中文显示的 CSS 样式，包括中文文章 article 中段落开头缩进两个汉字、脚注的上标加上中括号等：</p>
 <div class="code"><div class="highlight"><pre><span class="nt">article</span><span class="nd">:lang</span><span class="o">(</span><span class="nt">zh</span><span class="o">)</span> <span class="nc">.entry-content</span> <span class="nt">p</span><span class="nd">:before</span> <span class="p">{</span> <span class="k">content</span><span class="o">:</span> <span class="s2">&quot;　　&quot;</span><span class="p">;</span> <span class="p">}</span>
-<span class="nt">article</span><span class="nd">:lang</span><span class="o">(</span><span class="nt">zh</span><span class="o">)</span> <span class="nc">.entry-content</span> <span class="nt">li</span> <span class="nt">p</span><span class="nd">:before</span> <span class="p">{</span> <span class="k">content</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">;</span> <span class="p">}</span>
+<span class="nt">article</span><span class="nd">:lang</span><span class="o">(</span><span class="nt">zh</span><span class="o">)</span> <span class="nc">.entry-content</span> <span class="nt">li</span> <span class="nt">p</span><span class="nd">:first-child:before</span> <span class="p">{</span> <span class="k">content</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">;</span> <span class="p">}</span>
+<span class="nt">sup</span><span class="nd">:lang</span><span class="o">(</span><span class="nt">zh</span><span class="o">)</span> <span class="p">{</span>
+    <span class="k">font-family</span><span class="o">:</span> <span class="n">Verdana</span><span class="p">;</span>
+    <span class="k">margin</span><span class="o">:</span> <span class="m">0</span> <span class="m">2px</span><span class="p">;</span>
+<span class="p">}</span>
 <span class="nt">sup</span><span class="nd">:lang</span><span class="o">(</span><span class="nt">zh</span><span class="o">)</span><span class="nd">:before</span> <span class="p">{</span> <span class="k">content</span><span class="o">:</span> <span class="s2">&quot;[&quot;</span><span class="p">;</span> <span class="p">}</span>
 <span class="nt">sup</span><span class="nd">:lang</span><span class="o">(</span><span class="nt">zh</span><span class="o">)</span><span class="nd">:after</span> <span class="p">{</span> <span class="k">content</span><span class="o">:</span> <span class="s2">&quot;]&quot;</span><span class="p">;</span> <span class="p">}</span>
-<span class="nt">em</span> <span class="p">{</span> <span class="k">border-bottom</span><span class="o">:</span> <span class="m">2px</span> <span class="k">dotted</span><span class="p">;</span> <span class="k">font-style</span><span class="o">:</span> <span class="k">normal</span><span class="p">;}</span>
 </pre></div>
 </div>
 
@@ -90,8 +93,9 @@
 
 <p>在学习修改 CSS 的过程中，搜罗到不少有用的站点或帖子：</p>
 <ul>
-<li><a href="http://css.doyoe.com/">中文版 CSS 参考手册</a><br />
-</li>
+<li><a href="http://css.doyoe.com/">中文版 CSS 参考手册</a></li>
+<li><a href="http://www.w3help.org">W3help.org</a><br />
+网站中兼容性相关文章非常实用。</li>
 <li><a href="http://css3please.com/" title="The Cross-Browser CSS3 Rule Generator">CSS3, Please!</a><br />
 包含常用 CSS3 hack，可以实时禁用/启用某一属性来查看其效果。</li>
 <li><a href="http://webdesignerwall.com/tutorials/css-specific-for-internet-explorer">CSS Specific for Internet Explorer</a></li>
@@ -115,13 +119,13 @@
             <![CDATA[ <p>自从用 Felix Felicis (liquidluck) 生成博客内容，根据自身需要对其做了部分功能扩充，本文记录修改的情况。</p>
 <div class="toc">
 <ul>
-<li><a href="#python-markdown-1-markdown">打开 Python-Markdown 1 部分扩展 Markdown 语法支持</a></li>
-<li><a href="#gravatar-favicon-3">增加 Gravatar 作为博客 favicon 3</a></li>
+<li><a href="#python-markdown1-markdown">打开 Python-Markdown1 部分扩展 Markdown 语法支持</a></li>
+<li><a href="#gravatar-favicon3">增加 Gravatar 作为博客 favicon3</a></li>
 <li><a href="#post">post 增加修改时间参数</a></li>
 <li><a href="#related">相关内容</a></li>
 </ul>
 </div>
-<h2 id="python-markdown-1-markdown">打开 Python-Markdown <sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup> 部分扩展 Markdown 语法支持</h2>
+<h2 id="python-markdown1-markdown">打开 Python-Markdown<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup> 部分扩展 Markdown 语法支持</h2>
 <p>Python-Markdown<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup> 支持的扩展 Markdown 语法很丰富，可以参考 <a href="http://packages.python.org/Markdown/extensions/index.html">http://packages.python.org/Markdown/extensions/index.html</a>，部分扩展语法的中文说明可参考<a href="/work/markdown_ext.html">扩展 Markdown 语法</a>。</p>
 <p>只需要修改一个文件 <code>liquidluck/readers/mkd.py</code>，打开 Extra 和 Table of Contents 的扩展支持，修改内容<sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup>如下：</p>
 <div class="code"><div class="highlight"><pre><span class="gd">-------------------------- liquidluck/readers/mkd.py --------------------------</span>
@@ -137,7 +141,7 @@
 
 </div>
 
-<h2 id="gravatar-favicon-3">增加 Gravatar 作为博客 favicon <sup id="fnref:3"><a href="#fn:3" rel="footnote">3</a></sup></h2>
+<h2 id="gravatar-favicon3">增加 Gravatar 作为博客 favicon<sup id="fnref:3"><a href="#fn:3" rel="footnote">3</a></sup></h2>
 <p>参考 <a href="http://fairyfish.net/m/gravatar-as-favicon/">WordPress 技巧：使用 Gravatar 作为博客的 Favicon</a> 和 <a href="http://en.gravatar.com/site/implement/">Gravatar 官方开发资源</a>进行修改，内容<sup id="fnref:4"><a href="#fn:4" rel="footnote">4</a></sup>如下：</p>
 <div class="code"><div class="highlight"><pre><span class="gd">---------------------- liquidluck/_templates/layout.html ----------------------</span>
 
