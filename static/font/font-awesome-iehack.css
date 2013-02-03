@@ -1,28 +1,59 @@
-.iehack [id^="nav-"] a, .iehack [id*=" nav-"] a,
 .iehack .prev, .iehack #prev-entry, .iehack .next, .iehack #next-entry,
-.iehack .entry-time, .iehack .entry-modified, .iehack .entry-tags,
-.iehack [class^="cssbtn-"], .iehack [class*=" cssbtn-"],
-.iehack [class^="cssbtn2-"], .iehack [class*=" cssbtn2-"] {
-	font-family: FontAwesome, Georgia, "Times New Roman", Simsun, serif;
+.iehack .entry blockquote,
+.iehack [class^="icon-"], .iehack [class*=" icon-"] {
+	font-family: FontAwesome, "PT Sans", "Xin Gothic", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", Arial, sans-serif;
+	font-style: normal;
 }
 
-.iehack #nav-home a { *zoom: expression( this.runtimeStyle['zoom'] = "1", this.innerHTML = '&#xf015;&nbsp;' + this.innerHTML ); }
-.iehack #nav-about a { *zoom: expression( this.runtimeStyle['zoom'] = "1", this.innerHTML = '&#xf05a;&nbsp;' + this.innerHTML ); }
-.iehack #nav-tags a { *zoom: expression( this.runtimeStyle['zoom'] = "1", this.innerHTML = '&#xf02c;&nbsp;' + this.innerHTML ); }
-
-.iehack .prev, .iehack #prev-entry { *zoom: expression( this.runtimeStyle['zoom'] = "1", this.innerHTML = '&#xf060;&nbsp;' + this.innerHTML ); }
-.iehack .next, .iehack #next-entry { *zoom: expression( this.runtimeStyle['zoom'] = "1", this.innerHTML = this.innerHTML + '&nbsp;&#xf061;' ); }
-.iehack .entry-time { *zoom: expression( this.runtimeStyle['zoom'] = "1", this.innerHTML = '　　&#xf017;&nbsp;' + this.innerHTML ); }
-.iehack .entry-modified { *zoom: expression( this.runtimeStyle['zoom'] = "1", this.innerHTML = '　　&#xf040;&nbsp;' + this.innerHTML ); }
-.iehack .entry-tags { *zoom: expression( this.runtimeStyle['zoom'] = "1", this.innerHTML = '　　&#xf02b;&nbsp;' + this.innerHTML ); }
-
-.iehack [class^="cssbtn-"], .iehack [class*=" cssbtn-"] {
-	margin-left: 0;
-	border: solid 1px #07526e;
+.iehack .prev, .iehack #prev-entry {
+	*zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf060;&nbsp;' + this.innerHTML );
 }
-.iehack .cssbtn-download {
-	*zoom: expression( this.runtimeStyle['zoom'] = "1", this.innerHTML = '&#xf01a;&nbsp;' + this.innerHTML );
+.iehack .next, .iehack #next-entry {
+	*zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = this.innerHTML + '&nbsp;&#xf061;' );
 }
-.iehack .cssbtn2-github {
-	*zoom: expression( this.runtimeStyle['zoom'] = "1", this.innerHTML = '&#xf092;&nbsp;' + this.innerHTML );
+
+.iehack .entry-meta [class^="icon-"],
+.iehack .entry-meta [class*=" icon-"] {
+   margin-left: 2em;
+}
+
+.iehack .entry blockquote {
+	*zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf10d;&nbsp;' + this.innerHTML + '&nbsp;&#xf10e;' );
+}
+
+.iehack .icon-home {
+	*zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf015;&nbsp;' + this.innerHTML );
+}
+.iehack .icon-globe {
+	*zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf0ac;&nbsp;' + this.innerHTML );
+}
+.iehack .icon-coffee {
+	*zoom: expression(this.runtimeStyle['zoom'] = '1',this.innerHTML = '&#xf0f4;&nbsp;' + this.innerHTML );
+}
+.iehack .icon-info-sign {
+	*zoom: expression(this.runtimeStyle['zoom'] = '1',this.innerHTML = '&#xf05a;&nbsp;' + this.innerHTML );
+}
+.iehack .icon-tag {
+	*zoom: expression(this.runtimeStyle['zoom'] = '1',this.innerHTML = '&#xf02b;&nbsp;' + this.innerHTML );
+}
+.iehack .icon-user {
+	*zoom: expression(this.runtimeStyle['zoom'] = '1',this.innerHTML = '&#xf007;&nbsp;' + this.innerHTML );
+}
+.iehack .icon-time {
+	*zoom: expression(this.runtimeStyle['zoom'] = '1',this.innerHTML = '&#xf017;&nbsp;' + this.innerHTML );
+}
+.iehack .icon-edit {
+	*zoom: expression(this.runtimeStyle['zoom'] = '1',this.innerHTML = '&#xf044;&nbsp;' + this.innerHTML );
+}
+.icon-github-sign {
+	*zoom: expression(this.runtimeStyle['zoom'] = '1',this.innerHTML = '&#xf092;&nbsp;' + this.innerHTML );
+}
+.icon-twitter-sign {
+	*zoom: expression(this.runtimeStyle['zoom'] = '1',this.innerHTML = '&#xf081;&nbsp;' + this.innerHTML );
+}
+.icon-sign-blank {
+	*zoom: expression(this.runtimeStyle['zoom'] = '1',this.innerHTML = '&#xf0c8;&nbsp;' + this.innerHTML );
+}
+.icon-github {
+	*zoom: expression(this.runtimeStyle['zoom'] = '1',this.innerHTML = '&#xf09b;&nbsp;' + this.innerHTML );
 }

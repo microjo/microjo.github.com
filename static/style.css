@@ -1,4 +1,7 @@
 @import url(normalize.css);
+/* web font */
+@import url(http://fonts.googleapis.com/css?family=PT+Sans);
+@import url(http://fonts.googleapis.com/css?family=PT+Serif);
 /* icon font */
 @import url(font/font-awesome.css);
 @import url(font/font-awesome-iehack.css);
@@ -26,7 +29,9 @@ pre::-webkit-scrollbar-thumb {
 
 /* @begin reset */
 html,button,input,select,textarea {
-    font-family: Georgia, "Times New Roman", Simsun, serif;
+    font-family: "PT Sans", "Xin Gothic", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", Arial, sans-serif;
+    font-size: 16px;
+    text-shadow:0 0 1px transparent;
 }
 
 body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,hr,button,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
@@ -36,24 +41,24 @@ body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input
 /* @中文文章article中段落开头缩进两个汉字，参考http://ethantw.net/projects/han/ */
 article:lang(zh) .entry-content p:before { content: "　　"; }
 article:lang(zh) .entry-content li p:first-child:before { content: ""; }
-sup:lang(zh) {
-    font-family: Verdana;
+sup {
+    font-family: "PT Sans", Verdana;
     margin: 0 2px;
 }
 sup:lang(zh):before { content: "["; }
 sup:lang(zh):after { content: "]"; }
 .footnote hr { margin: 2px 0 0 0; }
-.entry-title { text-transform: uppercase; }
 
 pre, code { 
-  color: #000; 
+  color: #111; 
   font: normal normal 12px/1.3;
+  font-family: consolas, monospace, serif;
   border-radius: 3px;
   background-color: #F8F8F8;
   border: 1px solid #CCC; 
   max-height: 45em;
 }
-pre { overflow:auto; padding: 8px; }
+pre { overflow: auto; padding: 8px; }
 code { padding: 1px 2px; }
 pre code { padding: 0!important; border: 0!important; }
 
@@ -103,37 +108,9 @@ ol,ul {
 caption,th {
     text-align:left;
 }
-h2,h3,h4,h5,h6 {
-    font-size: 100%;
+h1,h2,h3,h4,h5,h6 {
     font-weight: bold;
-    font-family: "RTWS YueRoundedGothic G0v1", "Helvetica Neue", Helvetica, Arial, RTWSYueRoudGoG0v1-Regular, "Microsoft YaHei", "WenQuanYi Micro Hei", "Hiragino Sans GB", sans-serif;
-}
-h1 {
-    font-size: 1.6em;
-    margin-top: 1.5em;
-    padding-top: .5em;
-    border-top: 4px solid #aaa;
-}
-h1:first-child {
-    margin-top: 0;
-    padding-top: .25em;
-    border-top: none;
-}
-h2 {
-    font-size: 1.4em;
-    margin-top: 1em;
-    padding-top: .5em;
-    border-top: 4px solid #e0e0e0;
-}
-h3 {
-    font-size: 1.2em;
-    margin-top: 1em;
-}
-q:before, q:after {
-    content:'';
-}
-p {
-    margin-bottom: 0.4em;
+    font-family: "PT Serif", Georgia, STZhongsong, serif;
 }
 a {
     overflow: hidden;
@@ -219,11 +196,11 @@ blockquote::after {
 
 /* @begin layout */
 html, body {
-    color: #080000;
+    color: #333;
     background: #fdfdfa;
 }
 h1, h2, h3, h4, strong {
-    color: #000;
+    color: #222;
 }
 a {
     color: #9c0001;
@@ -241,9 +218,6 @@ a:hover {
     box-shadow: 0 1px 0 #f0f0f0;
     text-transform: uppercase;
     margin-bottom: 1em;
-}
-#nav {
-
 }
 #nav li {
     float: left;
@@ -318,7 +292,13 @@ a:hover {
 
 /* @begin entry */
 .entry-header {
-    padding: .3em 0 1.2em;
+    padding: 0.3em 0;
+}
+.entry-title {
+    text-transform: uppercase;
+}
+.entry-title {
+    text-transform: uppercase;
 }
 .entry-meta {
     font-style: italic;
@@ -350,7 +330,7 @@ a:hover {
     color: #565656;
 }
 .entry-content {
-    line-height: 1.55em;
+    line-height: 1.7em;
 }
 .entry-content .section {
     padding: 9px 0;
@@ -359,7 +339,26 @@ a:hover {
     padding: 0 0 9px;
 }
 .entry-content p {
-    margin: 1em 0;
+    margin: 1.7em 0;
+}
+.entry-content h2 {
+    font-size: 1.5em;
+    line-height: 1.133em;
+    margin-bottom: 0.733em;
+    padding-top: 1.533em;
+    border-top: 2px solid #e0e0e0;
+}
+.entry-content h3 {
+    font-size: 1.3125em;
+    line-height: 1.3em;
+    margin-top: 1.6em;
+    margin-bottom: 1em;
+}
+.entry-content h4 {
+    font-size: 1.125em;
+    line-height: 1.511em;
+    margin-top: 1.711em;
+    margin-bottom: 1.311em;
 }
 .entry-content ul {
     list-style-type: square;
@@ -368,6 +367,9 @@ a:hover {
 .entry-content ol {
     list-style-type: decimal;
     margin: 6px 0 6px 18px;
+}
+.entry-content li {
+    margin: 1.7em 0;
 }
 .entry-content img {
     max-width: 100%;
@@ -385,21 +387,22 @@ a:hover {
 /* @end entry */
 
 /* @begin entry-list */
-#entry-list {
+ul#entry-list {
+    padding-top: 1em;
 }
-#entry-list li{
+#entry-list li {
     position: relative;
-    padding: 6px 0;
+    padding: 0 12px;
     border-bottom: 1px solid #dadada;
-    border-top: 1px solid #ffffff;
-    box-shadow: 0 1px 0 #ffffff;
-}
-#entry-list li:first-child {
-    border-top: 0 none;
 }
 #entry-list h3 {
-    margin-top: 0.8em;
-    padding-bottom: 0.5em;
+    font-size: 1.3125em;
+    line-height: 1.3em;
+    margin-top: 0.9em;
+    margin-bottom: 0.5em;
+}
+#entry-list p {
+    margin-bottom: 0.65625em;
 }
 #entry-list li:hover time {
     display: block;
@@ -407,20 +410,24 @@ a:hover {
 #entry-list time {
     display: none;
     position: absolute;
-    top: 0.6em;
-    left: -6.1em;
+    top: -1.2em;
+    left: -5.5em;
     background: #969696;
     background: rgba(0,0,0,0.24);
     color: #fff;
     border-radius: 0.3em;
     font-size: 0.8em;
-    padding: 0.6em 0.8em;
+    text-align: center;
 }
 #entry-list time .year {
     display: block;
     font-size: 1.5em;
-    padding-bottom: 0.1em;
+    padding: 0.4em 0.8em 0.1em;
     color: #fff;
+}
+#entry-list time .day {
+    display: block;
+    padding: 0 0.8em 0.6em;
 }
 #disqus_thread {
     text-shadow: 0 0 0 #fff;
@@ -433,7 +440,15 @@ a:hover {
 #pagination span, #pagination a {
     padding: 3px 9px;
 }
+ul.tagcloud {
+    line-height: 1.7em;
+    margin: 1.7em 0;
+}
 .tagcloud li {
     display: inline;
     padding: 3px 5px;
+}
+.author {
+    text-align: right;
+    padding-right: 3em;
 }

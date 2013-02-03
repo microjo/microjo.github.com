@@ -1,0 +1,172 @@
+<!DOCTYPE HTML>
+<!--[if lt IE 8]> <html class="iehack" lang="zh"> <![endif]-->
+<!--[if (gte IE 8)|!(IE)]><!--> <html lang="zh"> <!--<![endif]-->
+    <head>
+        <meta charset="UTF-8">
+        <title>Git Learning Notes | Jonathan's Blog</title>
+        <link rel="shortcut icon" href="http://www.gravatar.com/avatar/60633c507a57f09b238c710e743f8a61?s=16" />
+        <script>if (top !== self) top.location = self.location;</script>
+        <!--[if lt IE 9]>
+        <script type="text/javascript" src="/static/html5shiv.js?v=bdce9"></script>
+        <![endif]-->
+        <meta name="HandheldFriendly" content="True" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0" />
+        <link rel="alternate" type="application/rss+xml" href="/feed.xml" title="Jonathan's Blog" />
+        <link rel="stylesheet" href="/static/style.css?v=633e6" />
+        <link rel="stylesheet" href="/static/syntax.css?v=dbf77" />
+        <link rel="stylesheet" href="/static/shadowbox/shadowbox.css?v=f5b13" type="text/css" />
+        <link rel="canonical" href="/2012/git_learning_notes.html" />
+        <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-31550182-1']);
+            _gaq.push(['_trackPageview']);
+            _gaq.push(['_trackPageLoadTime']);
+            (function() {
+              var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+              ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+              var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+             })();
+         </script>
+    </head>
+    <body>
+        <header id="header">
+            <nav class="fn-clear">
+                <ul id="nav" class="fn-right fn-clear">
+                    <li id="nav-home"><a href="/"><i class="icon-home"></i>首页</a></li>
+                    <li id="nav-cat-project"><a href="/project/"><i class="icon-globe"></i>项目</a></li>
+                    <li id="nav-cat-ent"><a href="/entertainment/"><i class="icon-coffee"></i>休闲</a></li>
+                    <li id="nav-about"><a href="/about.html"><i class="icon-info-sign"></i>关于</a></li>
+                    <li id="nav-tags"><a href="/tag/"><i class="icon-tag"></i>标签</a></li>
+                </ul>
+            </nav>
+        </header>
+        <article class="hentry">
+            <header class="entry-header fn-clear">
+                <h1 class="entry-title fn-left">Git Learning Notes</h1>
+            </header>
+            <div class="entry">
+                <div class="author icon-user">
+                    microjo
+                </div>
+                <div class="entry-content">
+                    <h2 id="h1-tips">Tips</h2>
+
+<h3 id="h1.1-windows-git">windows 下通过代理使用 git</h3>
+
+<blockquote>
+  <p>参考<a href="http://blog.chinaunix.net/space.php?uid=21091200&amp;do=blog&amp;id=1830692"><strong>代理设置终结篇</strong> by nbupt@chinaunix.net</a></p>
+</blockquote>
+
+<ol>
+<li>安装 git for windows，自带 connect.exe</li>
+<li><p>在安装目录（git bash 下的根目录）下新建两个文件 socks-gw.sh 和 socks-ssh.sh，假定使用的代理是 192.168.19.240:80</p>
+
+<div class="codehilite"><pre><code><span class="c">#!/bin/sh</span>
+<span class="c"># Filename: /path/to/socks-gw.sh</span>
+<span class="c"># This script connects to a SOCKS proxy using connect.c</span>
+<span class="c"># connect -S 192.168.19.240:1080 $@</span>
+connect -H 192.168.19.240:80 <span class="nv">$@</span>
+
+<span class="c">#!/bin/sh</span>
+<span class="c"># Filename: /path/to/socks-ssh.sh</span>
+<span class="c"># This script opens an SSH connection through a SOCKS server</span>
+ssh -o <span class="nv">ProxyCommand</span><span class="o">=</span><span class="s2">&quot;/socks-gw.sh %h %p&quot;</span> <span class="nv">$@</span>
+</code></pre></div></li>
+<li><p>在安装目录下新建 proxy.sh，目的是设置所有代理相关的环境变量</p>
+
+<div class="codehilite"><pre><code><span class="c">#!/bin/sh</span>
+<span class="c"># Filename: /path/to/proxy.sh</span>
+
+<span class="c"># http proxy setting</span>
+<span class="nb">export </span><span class="nv">HTTP_PROXY</span><span class="o">=</span>http://192.168.19.240
+<span class="nb">export </span><span class="nv">http_proxy</span><span class="o">=</span><span class="nv">$HTTP_PROXY</span>
+
+<span class="c"># set git to use ssh over http proxy</span>
+<span class="nb">export </span><span class="nv">GIT_SSH</span><span class="o">=</span><span class="s2">&quot;/socks-ssh.sh&quot;</span>
+<span class="nb">export </span><span class="nv">GIT_PROXY_COMMAND</span><span class="o">=</span><span class="s2">&quot;/socks-gw.sh&quot;</span>
+</code></pre></div></li>
+<li><p>使用的时候，只需要执行命令<code>source /proxy.sh</code></p></li>
+</ol>
+
+<h2 id="h2">参考资料</h2>
+
+<ul>
+<li><p><a href="http://gitbook.liuhui998.com/index.html">Git Community Book 中文版</a> <br />
+汇集 Git 社区很多精华的一本书，有各种中、高级技巧。</p></li>
+<li><p><a href="http://www-cs-students.stanford.edu/~blynn/gitmagic/intl/zh_cn/index.html">Git Magic（简体中文版）</a> <br />
+和普通的学习教程所处的角度不同，“为了不陷入细节，我们对特定功能提供大面上的讲解。在反复应用之后，慢慢地你会理 解每个小技巧如何工作，以及如何组合这些技巧以满足你的需求。”</p></li>
+<li><p><a href="http://fsjoy.blog.51cto.com/318484/d-3">Git学习教程（翻译）</a> <br />
+参考了<em>Git学习教程（五）：Git标签</em>，学起来很方便，排版和例子都清晰明了。</p></li>
+<li><p><a href="http://git-scm.com/book">Pro Git</a> <br />
+提供在线阅读，PDF/mobi/ePub 三种电子书格式下载。同时还有<a href="http://git-scm.com/2010/06/09/pro-git-zh.html">简体中文版</a>。 <br />
+<img src="https://github.com/github/gitscm-next/raw/master/public/images/pro-git-298x398.jpg" alt="progit cover" /></p></li>
+<li><p>Quick reference guides（从上面网站发现的，使用起来很方便）</p>
+
+<ul>
+<li><a href="https://na1.salesforce.com/help/doc/en/salesforce_git_developer_cheatsheet.pdf">Heroku Cheat Sheet (PDF)</a></li>
+<li><a href="http://ndpsoftware.com/git-cheatsheet.html">Visual Git Cheat Sheet (SVG|PNG)</a></li>
+</ul></li>
+<li><p><a href="http://www.worldhello.net/gotgithub/">GotGitHub</a> <br />
+关于 GitHub 方方面面的书，很实用，尤其可以通过书内容的源码，学习 reStructuredText 的使用。其实找到这本书是因为搜索<a href="http://www.worldhello.net/gotgithub/appendix/markups.html">轻量级标记语言</a>发现的，里面常用轻量级标记语言对照非常实用。</p></li>
+<li><p><a href="http://www.worldhello.net/gotgit/">Git权威指南</a> <br />
+中文 Git 书籍，大块头，500 多页。</p></li>
+<li><p><a href="http://gitref.org/">Git Reference</a> 和中文版 <a href="http://gitref.cyj.me/zh/">Git 参考手册</a></p>
+
+<blockquote>
+  <p>This is meant to be a quick reference for learning and remembering the most important and commonly used Git commands. The commands are organized into sections of the type of operation you may be trying to do, and will present the common options and commands needed to accomplish these common tasks. <br />
+  目的是为学习与记忆 Git 使用中最重要、最普遍的命令提供快速翻阅。这些命令以您可能需要的操作类型划分，并且将提供日常使用中需要的一些常用的命令以及参数。</p>
+</blockquote></li>
+</ul>
+
+                </div>
+                <div class="fn-clear">
+                    <p class="entry-rel">
+                    <a id="prev-entry" class="fn-left" href="/2012/add-apt-repository.html" title="代理环境下使用 add-apt-repository 添加 PPA 软件源" rel="prev">前一篇</a>
+                    <a id="next-entry" class="fn-right" href="/2012/html5_ie678.html" title="IE6-8 支持 HTML5 元素" rel="next">后一篇</a>
+                    </p>
+                </div>
+            </div>
+            <div class="entry-meta fn-clear">
+                <p class="entry-time icon-time fn-left">发布：
+                <a href="/2012/" rel="index"><time class="created" datetime="2012-05-07T12:00:00+08:00" pubdate="pubdate">2012/05/07</time></a>
+                </p>
+                <p class="entry-modified icon-edit fn-left">修改：
+                <time class="modified" datetime="2013-01-21T15:44:00+08:00">2013/01/21 15:44</time>
+                </p>
+                <p class="entry-tags icon-tag fn-left">标签：
+                <a href="/tag/git/" class="tag" rel="tag">Git</a>
+                <a href="/tag/github/" class="tag" rel="tag">GitHub</a>
+                </p>
+            </div>
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+                var disqus_shortname = 'microjo';
+                var disqus_title = 'Git Learning Notes';
+                (function() {
+                 var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                 dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                 (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                 })();
+            </script>
+            <script type="text/javascript" src="/static/shadowbox/shadowbox.js?v=0577e"></script>
+            <script type="text/javascript">
+            Shadowbox.init({ handleOversize: "drag" });
+            window.onload = function() {
+                Shadowbox.setup(".entry-content img", { gallery: "Git Learning Notes", counterType: "skip" });
+            };
+            </script>
+        </article>
+
+        <footer id="footer">
+            <p class="copyright">© <a href="http://microjo.github.com/">Jonathan's Blog</a> | 
+                <span class="software">Powered by <a href="http://lab.lepture.com/liquidluck/">Felix Felicis</a> 3.8</span>
+            </p>
+            <p class="theme">Theme <a href="https://github.com/microjo/liquidluck-theme-lovelymod" rel="nofollow">Lovely</a> 1.0 original designed by <a href="http://lepture.com">Hsiaoming Yang</a> | Modified by <a href="http://microjo.github.com">MiCRoJo</a></p>
+        </footer>
+
+        <script type="text/javascript">
+            var currentNav = window.currentNav || "nav-home";
+            document.getElementById(currentNav).className = "current";
+        </script>
+    </body>
+</html>

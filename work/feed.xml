@@ -2,60 +2,55 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>Jonathan's Blog</title>
     <link href="http://microjo.github.com/work/feed.xml" rel="self" />
-    
     <link href="http://microjo.github.com/work/" />
-    
-    <updated>2012-06-08T23:12:11Z</updated>
-    <id>http://microjo.github.com</id>
+    <updated>2013-02-03T17:16:52+08:00</updated>
+    <id>http://microjo.github.com/work/</id>
     <entry>
         <title type="html"><![CDATA[扩展 Markdown 语法]]></title>
-        <author><name>microjo</name><uri>http://microjo.github.com</uri></author>
-        <link href="http://microjo.github.com/work/markdown_ext.html"/>
-        <updated>2012-04-28T21:16:00Z</updated>
-        <published>2012-04-28T21:16:00Z</published>
-        <id>http://microjo.github.com/work/markdown_ext.html</id>
-        <category scheme="http://microjo.github.com/tag/markdown/" term="Markdown" label="Markdown" />
-        <category scheme="http://microjo.github.com/tag/extension/" term="extension" label="Extension" />
-        <category scheme="http://microjo.github.com/tag/扩展/" term="扩展" label="扩展" />
-        <content type="html" xml:base="http://microjo.github.com" xml:lang="en">
+        <author><name>microjo</name></author>
+        <link href="http://microjo.github.com/2012/markdown_ext.html"/>
+        <published>2012-04-28T21:16:00+08:00</published>
+        <updated>2013-01-31T18:21:36+08:00</updated>
+        <id>http://microjo.github.com/2012/markdown_ext.html</id>
+        <category scheme="http://microjo.github.com/tag/#Markdown" term="Markdown" label="Markdown" />
+        <category scheme="http://microjo.github.com/tag/#extension" term="extension" label="extension" />
+        <category scheme="http://microjo.github.com/tag/#扩展" term="扩展" label="扩展" />
+        <content type="html" xml:base="http://microjo.github.com/" xml:lang="en">
             <![CDATA[ <p><strong>声明：</strong>本文采用 <a href="http://creativecommons.org/licenses/by-nc-sa/2.5/cn/" title="署名-非商业性使用-相同方式共享 2.5">CC BY-NC-SA 2.5 协议</a>授权，转载请注明本文链接。</p>
-<hr />
-<p>本文说明 Python-Markdown<sup id="fnref:python_markdown"><a href="#fn:python_markdown" rel="footnote">1</a></sup> 支持的扩展 Markdown<sup id="fnref:markdown"><a href="#fn:markdown" rel="footnote">2</a></sup> 语法。</p>
-<div class="toc">
-<ul>
-<li><a href="#highlight_code">支持语法高亮的代码区块</a></li>
-<li><a href="#attribute-lists-3">Attribute Lists / 属性列表3</a><ul>
-<li><a href="#the-list">The List</a></li>
-<li><a href="#block-level">Block Level</a></li>
-<li><a href="#inline">Inline</a></li>
-</ul>
-</li>
-<li><a href="#footnotes-4">Footnotes / 脚注4</a></li>
-<li><a href="#table-of-contents-5">Table of Contents / 目录5</a></li>
-<li><a href="#tables-6">Tables / 表格6</a></li>
-<li><a href="#ckzl">参考资料</a></li>
-</ul>
-</div>
-<h2 id="highlight_code">支持语法高亮的代码区块</h2>
-<p>支持多种语言，比如 python, c, html 等。</p>
-<blockquote>
-<p>```python</p>
-<p>def hello():</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;return 'Hello World'</p>
-<p>```</p>
-</blockquote>
-<p>产生如下结果：</p>
-<div class="code"><div class="highlight"><pre><span class="k">def</span> <span class="nf">hello</span><span class="p">():</span>
-    <span class="k">return</span> <span class="s">&#39;Hello World&#39;</span>
-</pre></div>
-</div>
 
-<h2 id="attribute-lists-3">Attribute Lists / 属性列表<sup id="fnref:attr_list"><a href="#fn:attr_list" rel="footnote">3</a></sup></h2>
+<hr />
+
+<p>本文说明 Python-Markdown<sup class="footnote-ref" id="fnref-python_markdown"><a href="#fn-python_markdown">1</a></sup> 支持的扩展 Markdown<sup class="footnote-ref" id="fnref-markdown"><a href="#fn-markdown">2</a></sup> 语法。</p>
+
+<p>[TOC]</p>
+
+<h2 id="h1">支持语法高亮的代码区块</h2>
+
+<p>支持多种语言，比如 python, c, html 等。</p>
+
+<pre><code>```python
+def hello():
+    return 'Hello World'
+```
+</code></pre>
+
+<p>产生如下结果：</p>
+
+<div class="codehilite"><pre><code><span class="k">def</span> <span class="nf">hello</span><span class="p">():</span>
+    <span class="k">return</span> <span class="s">&#39;Hello World&#39;</span>
+</code></pre></div>
+
+<h2 id="h2-attribute-lists-attr_list">Attribute Lists / 属性列表<sup class="footnote-ref" id="fnref-attr_list"><a href="#fn-attr_list">3</a></sup></h2>
+
 <p>定义 HTML 元素的属性。基本语法参照 <a href="http://maruku.rubyforge.org/proposal.html#attribute_lists">Maruku's Attribute List</a>。</p>
-<h3 id="the-list">The List</h3>
+
+<h3 id="h2.1-the-list">The List</h3>
+
 <p>一个 attribute list 的例子如下所示：</p>
+
 <pre><code>{: #someid .someclass somekey='some values' }
 </code></pre>
+
 <ul>
 <li>A word which starts with a hash # will set the id of an element.
 以井号 <code>#</code> 开头的单词将设置元素的 id。</li>
@@ -64,275 +59,331 @@
 <li>A key/value pair will assign that pair to the element.
 一个键/值对将赋予元素。</li>
 </ul>
+
 <p>Be aware that while the dot syntax will add to a class, using key/value pairs will always override the previously defined attribute.
 注意使用键/值对会覆盖前面的 <code>.</code> 定义类名。比如以下情况：</p>
+
 <pre><code>{: #id1 .class1 id=id2 class="class2 class3" .class4 }
 </code></pre>
+
 <p>上面的例子会生成如下结果：</p>
+
 <pre><code>id="id2" class="class2 class3 class4"
 </code></pre>
-<h3 id="block-level">Block Level</h3>
+
+<h3 id="h2.2-block-level">Block Level</h3>
+
 <p>To define attributes for a block level element, the attribute list should be defined on the last line of the block by itself.
 块级元素定义属性，其属性列表必须在块的最后一行定义。</p>
+
 <pre><code>This is a paragraph.
 {: #an_id .a_class }
 </code></pre>
+
 <p>上面的例子生成如下结果：</p>
+
 <pre><code>&lt;p id="an_id" class="a_class"&gt;This is a paragraph.&lt;/p&gt;
 </code></pre>
+
 <p>The one exception is headers, as they are only ever allowed on one line.
 唯一例外的是标题，因为标题只允许一行。</p>
+
 <pre><code>A setext style header {: #setext}
 =================================
 
 ### A hash style header ### {: #hash }
 </code></pre>
+
 <p>上面的例子生成如下结果：</p>
+
 <pre><code>&lt;h1 id="setext"&gt;A setext style header&lt;/h1&gt;
 &lt;h3 id="hash"&gt;A hash style header&lt;/h3&gt;
 </code></pre>
-<h3 id="inline">Inline</h3>
+
+<h3 id="h2.3-inline">Inline</h3>
+
 <p>To define attributes on inline elements, the attribute list should be defined immediately after the inline element with no whitespace.
 内联元素定义属性，其属性列表必须紧接着内联元素定义，中间不能有空格。</p>
+
 <pre><code>[link](http://example.com){: class="foo bar" title="Some title!" }
 </code></pre>
+
 <p>上面的例子生成如下结果：</p>
+
 <pre><code>&lt;p&gt;&lt;a href="http://example.com" class="foo bar" title="Some title!"&gt;link&lt;/a&gt;&lt;/p&gt;
 </code></pre>
-<h2 id="footnotes-4">Footnotes / 脚注<sup id="fnref:footnotes"><a href="#fn:footnotes" rel="footnote">4</a></sup></h2>
+
+<h2 id="h3-footnotes-footnotes">Footnotes / 脚注<sup class="footnote-ref" id="fnref-footnotes"><a href="#fn-footnotes">4</a></sup></h2>
+
 <p>脚注是在需要标记脚注文字的后面增加一个方括号，方括号中的内容必须以 <code>^</code> 开头，再接着是数字、字符串标记：</p>
+
 <pre><code>Footnotes[^1] have a label[^label] and a definition[^!DEF].
 </code></pre>
+
 <p>接着，在文件的任意地方，你可以把这个脚注的内容定义出来：</p>
+
 <pre><code>[^1]: This is a footnote
 [^label]: A footnote on "label"
 [^!DEF]: The definition of a footnote.
 </code></pre>
+
 <p>脚注内容定义的形式就是前面引用脚注的内容，接着一个冒号，再接着一个以上的空格或制表符，最后是脚注定义的内容。</p>
+
 <p>A footnote definition may contain multiple lines, paragraphs, code blocks, blockquotes and most any other markdown syntax. The additional line simply must be indented at least an additional four spaces.
 脚注定义的内容可以包含多行、段落、代码区块、区块引用和大多数其他 markdown 格式的内容。对于多行的内容只需要简单缩进至少4个空格。</p>
+
 <pre><code>[^1]: The first paragraph of the definition.
 
-    Paragraph two of the definition.
+        Paragraph two of the definition.
 
-    &gt; A blockquote with
-    &gt; multiple lines.
+        &gt; A blockquote with
+        &gt; multiple lines.
 
-        a code block
+                a code block
 
-    A final paragraph.
+        A final paragraph.
 </code></pre>
+
 <p>By default, the footnote definitions are placed at the end of the resulting HTML document. However, you may want the footnotes in another location within the document. Simply place the following text at that location within your markdown document.
 默认情况下，脚注内容位于生成的 HTML 文档末尾。但是，你也许想将脚注内容放在文档的其他位置。只需要将如下内容放在需要的 markdown 文档位置即可。</p>
+
 <pre><code>///Footnotes Go Here///
 </code></pre>
-<h2 id="table-of-contents-5">Table of Contents / 目录<sup id="fnref:toc"><a href="#fn:toc" rel="footnote">5</a></sup></h2>
+
+<h2 id="h4-table-of-contents-toc">Table of Contents / 目录<sup class="footnote-ref" id="fnref-toc"><a href="#fn-toc">5</a></sup></h2>
+
 <p>Place a marker in the document where you would like the table of contents to appear. Then, a nested list of all the headers in the document will replace the marker. The marker defaults to [TOC].
 在需要目录出现的地方放置一个标记，这样会自动生成一个嵌套的包含所有标题的列表。默认的标记是 <code>[TOC]</code>。</p>
+
 <pre><code>[TOC]
 
 # Header 1
 
 ## Header 2
 </code></pre>
+
 <p>上面 markdown 内容会生成如下 HTML 内容：</p>
+
 <pre><code>&lt;div class="toc"&gt;
-  &lt;ul&gt;
-    &lt;li&gt;&lt;a href="#header-1"&gt;Header 1&lt;/a&gt;&lt;/li&gt;
-      &lt;ul&gt;
-        &lt;li&gt;&lt;a href="#header-2"&gt;Header 2&lt;/a&gt;&lt;/li&gt;
-      &lt;/ul&gt;
-  &lt;/ul&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;a href="#header-1"&gt;Header 1&lt;/a&gt;&lt;/li&gt;
+            &lt;ul&gt;
+                &lt;li&gt;&lt;a href="#header-2"&gt;Header 2&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+    &lt;/ul&gt;
 &lt;/div&gt;
 &lt;h1 id="header-1"&gt;Header 1&lt;/h1&gt;
 &lt;h1 id="header-2"&gt;Header 2&lt;/h1&gt;
 </code></pre>
+
 <p>目录跳转的标题 id 是依据标题内容自动生成的，只包含英文、数字、下划线 <code>_</code> 等。对于全部是中文的标题，自动生成的标题 id 为空，导致无法跳转。可以使用前面的 Attribute Lists 方法，定义标题 id。</p>
-<h2 id="tables-6">Tables / 表格<sup id="fnref:tables"><a href="#fn:tables" rel="footnote">6</a></sup></h2>
+
+<h2 id="h5-tables-tables">Tables / 表格<sup class="footnote-ref" id="fnref-tables"><a href="#fn-tables">6</a></sup></h2>
+
 <p>定义表格的语法参照 <a href="http://www.michelf.com/projects/php-markdown/extra/#table">PHP Markdown Extra</a>。下面 markdown 内容（摘自前面的 PHP 参考文档）：</p>
+
 <pre><code>First Header  | Second Header
 ------------- | -------------
 Content Cell  | Content Cell
 Content Cell  | Content Cell
 </code></pre>
+
 <p>会生成如下 HTML 内容：</p>
+
 <pre><code>&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;First Header&lt;/th&gt;
-      &lt;th&gt;Second Header&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Content Cell&lt;/td&gt;
-      &lt;td&gt;Content Cell&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Content Cell&lt;/td&gt;
-      &lt;td&gt;Content Cell&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;First Header&lt;/th&gt;
+            &lt;th&gt;Second Header&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Content Cell&lt;/td&gt;
+            &lt;td&gt;Content Cell&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Content Cell&lt;/td&gt;
+            &lt;td&gt;Content Cell&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
 &lt;/table&gt;
 </code></pre>
+
 <p>第一行包含列标题，第二行包含位于标题和内容之间的强制性分隔线，接下来的每一行就是表格的内容。列与列之间用竖线 <code>|</code> 分隔。</p>
+
 <p>如果愿意的话，可以在表格每一行的开头和结尾处添加竖线 <code>|</code>，如下所示得到的结果和上面一致：</p>
+
 <pre><code>| First Header  | Second Header |
 | ------------- | ------------- |
 | Content Cell  | Content Cell  |
 | Content Cell  | Content Cell  |
 </code></pre>
+
 <p>注：表格的每一行至少有一个竖线 <code>|</code>，否则无法正确处理表格。这也就意味着，创建只有一列的表格，必须在每一行的开头或者结尾处添加一个竖线 <code>|</code>，或者都添加。</p>
+
 <p>通过在对应列的分隔线添加冒号 <code>:</code> 可以指定列的对齐方式。冒号 <code>:</code> 在分隔线的左边说明此列左对齐，冒号 <code>:</code> 在分隔线的右边说明此列右对齐，冒号 <code>:</code> 在分隔线的左右两边说明此列居中。比如下面的 <code>Item</code> 列是居中的，<code>Value</code> 列是右对齐：</p>
+
 <pre><code>| Item      | Value |
 |:---------:| -----:|
 | Computer  | $1600 |
 | Phone     |   $12 |
 | Pipe      |    $1 |
 </code></pre>
-<h2 id="ckzl">参考资料</h2>
-<div class="footnote">
+
+<h2 id="h6">工具</h2>
+
+<ul>
+<li><a href="http://johnmacfarlane.net/babelmark2/">Babelmark 2</a> <br />
+用于比较不同 Markdown 实现的输出差别的在线工具。This is a tool for comparing the output of various implementations of John Gruber’s markdown syntax for plain text documents.</li>
+</ul>
+
+<div class="footnotes">
 <hr />
 <ol>
-<li id="fn:python_markdown">
-<p>生成本博客内容的 Felix Felicis 程序使用的 <a href="http://packages.python.org/Markdown/">Markdown 解析包</a>&#160;<a href="#fnref:python_markdown" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<li id="fn-python_markdown">
+<p>生成本博客内容的 Felix Felicis 程序使用的 <a href="http://packages.python.org/Markdown/">Markdown 解析包</a>&nbsp;<a href="#fnref-python_markdown" class="footnoteBackLink" title="Jump back to footnote 1 in the text.">&#8617;</a></p>
 </li>
-<li id="fn:markdown">
-<p><a href="http://wowubuntu.com/markdown/">Markdown 语法说明 (简体中文版)</a> 来源自 <img alt="wowubuntu" src="http://wowubuntu.com/wp-content/themes/evidens-white/logo.png" />&#160;<a href="#fnref:markdown" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+
+<li id="fn-markdown">
+<p><a href="http://wowubuntu.com/markdown/">Markdown 语法说明 (简体中文版)</a> 来源自 <img src="http://wowubuntu.com/wp-content/themes/evidens-white/logo.png" alt="wowubuntu" />&nbsp;<a href="#fnref-markdown" class="footnoteBackLink" title="Jump back to footnote 2 in the text.">&#8617;</a></p>
 </li>
-<li id="fn:attr_list">
-<p>根据<a href="http://packages.python.org/Markdown/extensions/attr_list.html">http://packages.python.org/Markdown/extensions/attr_list.html</a>翻译&#160;<a href="#fnref:attr_list" rev="footnote" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+
+<li id="fn-attr_list">
+<p>根据<a href="http://packages.python.org/Markdown/extensions/attr_list.html">http://packages.python.org/Markdown/extensions/attr_list.html</a>翻译&nbsp;<a href="#fnref-attr_list" class="footnoteBackLink" title="Jump back to footnote 3 in the text.">&#8617;</a></p>
 </li>
-<li id="fn:footnotes">
-<p>根据<a href="http://packages.python.org/Markdown/extensions/footnotes.html">http://packages.python.org/Markdown/extensions/footnotes.html</a>翻译&#160;<a href="#fnref:footnotes" rev="footnote" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+
+<li id="fn-footnotes">
+<p>根据<a href="http://packages.python.org/Markdown/extensions/footnotes.html">http://packages.python.org/Markdown/extensions/footnotes.html</a>翻译&nbsp;<a href="#fnref-footnotes" class="footnoteBackLink" title="Jump back to footnote 4 in the text.">&#8617;</a></p>
 </li>
-<li id="fn:toc">
-<p>根据<a href="http://packages.python.org/Markdown/extensions/toc.html">http://packages.python.org/Markdown/extensions/toc.html</a>翻译&#160;<a href="#fnref:toc" rev="footnote" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+
+<li id="fn-toc">
+<p>根据<a href="http://packages.python.org/Markdown/extensions/toc.html">http://packages.python.org/Markdown/extensions/toc.html</a>翻译&nbsp;<a href="#fnref-toc" class="footnoteBackLink" title="Jump back to footnote 5 in the text.">&#8617;</a></p>
 </li>
-<li id="fn:tables">
-<p>根据<a href="http://packages.python.org/Markdown/extensions/tables.html">http://packages.python.org/Markdown/extensions/tables.html</a>翻译&#160;<a href="#fnref:tables" rev="footnote" title="Jump back to footnote 6 in the text">&#8617;</a></p>
+
+<li id="fn-tables">
+<p>根据<a href="http://packages.python.org/Markdown/extensions/tables.html">http://packages.python.org/Markdown/extensions/tables.html</a>翻译&nbsp;<a href="#fnref-tables" class="footnoteBackLink" title="Jump back to footnote 6 in the text.">&#8617;</a></p>
 </li>
 </ol>
-</div> ]]>
+</div>
+]]>
         </content>
-    </entry>
-    <entry>
+    </entry><entry>
         <title type="html"><![CDATA[Hello, world!]]></title>
-        <author><name>microjo</name><uri>http://microjo.github.com</uri></author>
-        <link href="http://microjo.github.com/work/helloworld.html"/>
-        <updated>2012-04-26T19:19:00Z</updated>
-        <published>2012-04-26T19:19:00Z</published>
-        <id>http://microjo.github.com/work/helloworld.html</id>
-        <content type="html" xml:base="http://microjo.github.com" xml:lang="en">
+        <author><name>microjo</name></author>
+        <link href="http://microjo.github.com/2012/helloworld.html"/>
+        <published>2012-04-26T19:19:00+08:00</published>
+        <updated>2013-02-03T17:16:04+08:00</updated>
+        <id>http://microjo.github.com/2012/helloworld.html</id>
+        <category scheme="http://microjo.github.com/tag/#hello" term="hello" label="hello" />
+        <content type="html" xml:base="http://microjo.github.com/" xml:lang="en">
             <![CDATA[ <p>欢迎光临，自从接触博客开始，大致经历过如下过程，真是够杂乱的，都没有很好的坚持下来，自己反省去~~~</p>
+
 <blockquote>
-<ul>
-<li>
-<p><em>bjgjj.3322.org</em><br />
-使用国人的博客程序 Bo-Blog 自己架设</p>
-</li>
-<li>
-<p><em>microjo.3322.org</em><br />
-自己架设，使用 wordpress，但是内容不知能否找到</p>
-</li>
-<li>
-<p><em>jonathanye.blogger.com</em></p>
-</li>
-<li>
-<p><em>jonathanye.wordpress.com</em>
-使用 wordpress 服务</p>
-</li>
-<li>
-<p><em>micro1o.blogger.com</em></p>
-</li>
-<li>
-<p><em>micro4jo.appspot.com</em><br />
-使用 gae+micolog，流量限制比较厉害</p>
-</li>
-<li>
-<p><em>microjo.github.com</em>
-github pages+Felix Felicis(aka liquidluck)，符合自己的书写习惯，不用再费心博客的内容如何展现</p>
-</li>
-</ul>
+  <ul>
+  <li><p><em>bjgjj.3322.org</em> <br />
+  使用国人的博客程序 Bo-Blog 自己架设</p></li>
+  <li><p><em>microjo.3322.org</em> <br />
+  自己架设，使用 wordpress，但是内容不知能否找到</p></li>
+  <li><p><em>jonathanye.blogger.com</em></p></li>
+  <li><p><em>jonathanye.wordpress.com</em>
+  使用 wordpress 服务</p></li>
+  <li><p><em>micro1o.blogger.com</em></p></li>
+  <li><p><em>micro4jo.appspot.com</em> <br />
+  使用 gae+micolog，流量限制比较厉害</p></li>
+  <li><p><em>microjo.github.com</em>
+  github pages+Felix Felicis(aka liquidluck)，符合自己的书写习惯，不用再费心博客的内容如何展现</p></li>
+  </ul>
 </blockquote>
+
 <hr />
+
 <p>关于本博客中英文混排的处理，参考此讨论：<a href="http://www.butno.net/1941"><em>中英文混排时中文与英文之间是否要有空格？</em></a></p>
+
 <blockquote>
-<p>中文正文及标题中出现的英文及数字应该使用半角方式输入，并且在左右各留一个半角空格。如果这些这些半角英文及数字的左边或者右边紧接着任何的中文全角括号或者其他标点符号的话，则不需要加入半角空格。</p>
+  <p>中文正文及标题中出现的英文及数字应该使用半角方式输入，并且在左右各留一个半角空格。如果这些这些半角英文及数字的左边或者右边紧接着任何的中文全角括号或者其他标点符号的话，则不需要加入半角空格。</p>
 </blockquote>
+
 <hr />
+
 <p>关于本博客使用的 Felix Felicis 所支持的轻量级标记语言 Markdown 和 reStructuredText 参考文档：</p>
+
 <ul>
 <li><a href="http://daringfireball.net/projects/markdown/syntax">Markdown: Syntax</a></li>
 <li><a href="http://wowubuntu.com/markdown/">Markdown 语法说明 (简体中文版)</a></li>
 <li><a href="http://docutils.sourceforge.net/docs/user/rst/quickref.html">Quick reStructuredText</a></li>
 <li><a href="http://docutils.sourceforge.net/docs/user/rst/quickstart.html">A ReStructuredText Primer</a></li>
 <li><a href="http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html">reStructuredText Markup Specification</a></li>
-</ul> ]]>
-        </content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[M9 固件相关信息和工具]]></title>
-        <author><name>microjo</name><uri>http://microjo.github.com</uri></author>
-        <link href="http://microjo.github.com/work/m9firmware.html"/>
-        <updated>2012-01-19T08:27:00Z</updated>
-        <published>2012-01-19T08:27:00Z</published>
-        <id>http://microjo.github.com/work/m9firmware.html</id>
-        <category scheme="http://microjo.github.com/tag/android/" term="android" label="Android" />
-        <category scheme="http://microjo.github.com/tag/meizu/" term="MEIZU" label="Meizu" />
-        <category scheme="http://microjo.github.com/tag/m9/" term="M9" label="M9" />
-        <category scheme="http://microjo.github.com/tag/魅族/" term="魅族" label="魅族" />
-        <category scheme="http://microjo.github.com/tag/固件/" term="固件" label="固件" />
-        <content type="html" xml:base="http://microjo.github.com" xml:lang="en">
-            <![CDATA[ <div class="toc">
-<ul>
-<li><a href="#m9-updatebin">M9 固件 update.bin 校验码</a></li>
-<li><a href="#m9-meta-inf">M9 固件中 META-INF 数据</a></li>
-<li><a href="#">参考资料</a></li>
 </ul>
-</div>
-<h2 id="m9-updatebin">M9 固件 update.bin 校验码</h2>
+]]>
+        </content>
+    </entry><entry>
+        <title type="html"><![CDATA[M9 固件相关信息和工具]]></title>
+        <author><name>microjo</name></author>
+        <link href="http://microjo.github.com/2012/m9firmware.html"/>
+        <published>2012-01-19T08:27:00+08:00</published>
+        <updated>2013-02-03T17:16:52+08:00</updated>
+        <id>http://microjo.github.com/2012/m9firmware.html</id>
+        <category scheme="http://microjo.github.com/tag/#android" term="android" label="android" />
+        <category scheme="http://microjo.github.com/tag/#MEIZU" term="MEIZU" label="MEIZU" />
+        <category scheme="http://microjo.github.com/tag/#M9" term="M9" label="M9" />
+        <category scheme="http://microjo.github.com/tag/#魅族" term="魅族" label="魅族" />
+        <category scheme="http://microjo.github.com/tag/#固件" term="固件" label="固件" />
+        <content type="html" xml:base="http://microjo.github.com/" xml:lang="en">
+            <![CDATA[ <p>[TOC]</p>
+
+<h2 id="h1-m9-updatebin">M9 固件 update.bin 校验码</h2>
+
 <ol>
-<li>
-<p>CN 2.0.6-12169</p>
+<li><p>CN Flyme 1.1.3</p>
+
+<pre><code>MD5: 7991384b6d312337e282e08e72c740ae
+SHA1: b5e6b51be5e484aad6e2ceba01c0377fd671ad3b
+</code></pre></li>
+<li><p>CN Flyme 1.1</p>
+
+<pre><code>MD5: 7f8c70177705da38d5a50097c001d216
+SHA1: c640251daf6ed64b02efdf0a6c9352f56280ff42
+</code></pre></li>
+<li><p>CN 2.0.6-12169</p>
+
 <pre><code>MD5: 8aaee7dea351a5187c61da3a32d01a89
 SHA1: 99996a8e516b1c827d1864a8f0438dcafd4eda79
-</code></pre>
-</li>
-<li>
-<p>CZ 2.0.5-11282</p>
+</code></pre></li>
+<li><p>CZ 2.0.5-11282</p>
+
 <pre><code> MD5: cbbf0daf59815a20783647eac6085dd6
 SHA1: f3d279cb500fef0d714811d77f03bf3460293107
-</code></pre>
-</li>
-<li>
-<p>CN 2.0.5-11241</p>
+</code></pre></li>
+<li><p>CN 2.0.5-11241</p>
+
 <pre><code> MD5: c4f6ab9b82bb10f35d6e03325bd0645b
 SHA1: ea124d3b39af5ed50d0919bd50855815e6ec1a0f
-</code></pre>
-</li>
-<li>
-<p>CN 2.0.3-9345</p>
+</code></pre></li>
+<li><p>CN 2.0.3-9345</p>
+
 <pre><code> MD5: 3d916d021a87d22b286405796b686270
 SHA1: 332f91c0706e05eeb18b0458b887a84ae543e017
-</code></pre>
-</li>
-<li>
-<p>CN 2.0.2-6883</p>
+</code></pre></li>
+<li><p>CN 2.0.2-6883</p>
+
 <pre><code> MD5: b354cc8bada7f181d209674c57f174cd
 SHA1: b7445c3ef7c19a2c3ec84d5d2a07639ec47945b7
-</code></pre>
-</li>
-<li>
-<p>CN 2.0.1-5212</p>
+</code></pre></li>
+<li><p>CN 2.0.1-5212</p>
+
 <pre><code> MD5: d8d6012955febd8bdc85a92ce890858c
 SHA1: 5eb990511d309374625d024db29c11d980eb8dec
-</code></pre>
-</li>
+</code></pre></li>
 </ol>
-<h2 id="m9-meta-inf">M9 固件中 META-INF 数据</h2>
-<p>CERT.RSA 中前1376字节都相同，说明公钥是同一组。</p>
+
+<h2 id="h2-m9-meta-inf">M9 固件中 META-INF 数据</h2>
+
+<p>CERT.RSA 中前 1376 字节都相同，说明公钥是同一组。</p>
+
 <ul>
+<li><em>CN</em> <a href="http://115.com/file/dwizg2id">M9 固件(Flyme 1.1.3)</a></li>
+<li><em>CN</em> <a href="http://115.com/file/eisndh79">M9 固件(Flyme 1.1)</a></li>
 <li><em>CN</em> <a href="http://115.com/file/angnm7bo#M9-cn-FW-V2.0.6-12169-META-INF.zip">M9 固件(版本:V2.0.6-12169)</a></li>
 <li><em>CZ</em> <a href="http://115.com/file/be6g3w6s#M9-cz-FW-2.0.5-11282-META-INF.zip">M9 FW 2.0.5-11282</a></li>
 <li><em>CN</em> <a href="http://115.com/file/e73twf9i#M9-cn-FW-2.0.5-11241-META-INF.zip">M9 固件(版本:V2.0.5-11241)</a></li>
@@ -340,73 +391,94 @@ SHA1: 5eb990511d309374625d024db29c11d980eb8dec
 <li><em>CN</em> <a href="http://115.com/file/e73twwk0#M9-cn-FW-2.0.2-6883-META-INF.zip">M9 固件(版本:V2.0.2-6883)</a></li>
 <li><em>CN</em> <a href="http://115.com/file/aniut4s4#M9-cn-FW-2.0.1-5212-META-INF.zip">M9 固件(版本:V2.0.1-5212)</a></li>
 </ul>
-<h2 id="">参考资料</h2>
+
+<h2 id="h3">参考资料</h2>
+
 <ul>
 <li><a href="http://www.blogjava.net/zh-weir/archive/2011/07/19/354663.html">Android APK 签名比对</a></li>
-</ul> ]]>
+</ul>
+]]>
         </content>
-    </entry>
-    <entry>
+    </entry><entry>
         <title type="html"><![CDATA[FFSJ: The Fastest File Splitter and Joiner v3.3 号称最快的文件分割、合并工具]]></title>
-        <author><name>microjo</name><uri>http://microjo.github.com</uri></author>
-        <link href="http://microjo.github.com/work/ffsj.html"/>
-        <updated>2008-12-01T11:25:00Z</updated>
-        <published>2008-12-01T11:25:00Z</published>
-        <id>http://microjo.github.com/work/ffsj.html</id>
-        <category scheme="http://microjo.github.com/tag/ffsj/" term="ffsj" label="Ffsj" />
-        <category scheme="http://microjo.github.com/tag/hj-split/" term="HJ-Split" label="Hj-Split" />
-        <category scheme="http://microjo.github.com/tag/分割/" term="分割" label="分割" />
-        <category scheme="http://microjo.github.com/tag/合并/" term="合并" label="合并" />
-        <content type="html" xml:base="http://microjo.github.com" xml:lang="en">
+        <author><name>microjo</name></author>
+        <link href="http://microjo.github.com/2008/ffsj.html"/>
+        <published>2008-12-01T11:25:00+08:00</published>
+        <updated>2013-02-03T17:15:42+08:00</updated>
+        <id>http://microjo.github.com/2008/ffsj.html</id>
+        <category scheme="http://microjo.github.com/tag/#ffsj" term="ffsj" label="ffsj" />
+        <category scheme="http://microjo.github.com/tag/#HJ-Split" term="HJ-Split" label="HJ-Split" />
+        <category scheme="http://microjo.github.com/tag/#分割" term="分割" label="分割" />
+        <category scheme="http://microjo.github.com/tag/#合并" term="合并" label="合并" />
+        <content type="html" xml:base="http://microjo.github.com/" xml:lang="en">
             <![CDATA[ <p>首发原帖：<a href="http://nico2c.com/acq/viewthread.php?tid=3459">FFSJ: The Fastest File Splitter and Joiner v3.3 号称最快的文件分割、合并工具 @ ACQBBS</a></p>
+
 <hr />
+
 <p>现在文件越来越大的，尤其是音、视频文件，常常需要将文件分成多个比较小的文件通过网盘等进行分享。使用压缩软件，速度比较慢；最简单高效的方法就是将文件分割。<a href="http://www.jaist.ac.jp/~hoangle/filesj/" title="FFSJ: The Fastest File Splitter and Joiner Version 3.3">FFSJ</a> 这个软件就是实现这个功能，号称比其他相同功能的软件 HJ-Split, WinSplit, MasterSplitter 快3到5倍。</p>
+
 <ul>
 <li>分割：可以指定分割的块数（即指定分割成几部分），也可以指定分割后每部分文件大小</li>
 <li>合并：支持在不同路径下的分割后文件合并成一个文件</li>
 </ul>
-<p><img alt="join" src="http://www.jaist.ac.jp/~hoangle/filesj/join.jpg" /></p>
+
+<p><img src="http://www.jaist.ac.jp/~hoangle/filesj/join.jpg" alt="join" /></p>
+
 <blockquote>
-<p><a href="http://www.jaist.ac.jp/~hoangle/filesj/" title="FFSJ: The Fastest File Splitter and Joiner Version 3.3">FFSJ</a> is...</p>
-<p><strong>Very fast:</strong> FFSJ can optimize disk-cache and memory usage, this makes FFSJ 3-5 times faster than HJ-Split, WinSplit, MasterSplitter in both splitting and joining tasks. Of course, it is much faster than any compression program.</p>
-<p><strong>Simple:</strong> FFSJ works well on all Windows platforms. FFSJ-Lite doesn't need any requirement of installations or complicated DLLs. FFSJ-Standard has only one simple installation package for integrating FFSJ into shell context menu.<br />
-FFSJ 能在所有 windows 平台下使用，分为两个版本：FFSJ-Lite 是单个文件，直接运行就可以使用；FFSJ-Standard 是个安装包，除了包含 FFSJ-Lite 外，还在资源管理器增加了右键菜单，方便使用。<br />
-<img alt="shellctx" src="http://www.jaist.ac.jp/~hoangle/filesj/shellctx.jpg" /></p>
-<p><strong>Small:</strong> Both FFSJ-Lite and FFSJ-Standard editions are small enough to fit on a floppy disk.</p>
-<p><strong>Easy to use:</strong> FFSJ has a friendly user-interface, it can be used to split any file. FFSJ-standard can also create its shell context menus in order to perform splitting and joining tasks directly from Windows Explorer.</p>
-<p><strong>Easy to be integrated:</strong> Since v3.0, FFSJ published its command-line interface. End-users can split/join multiple files using a .BAT file. Developers can write their own interface (in any language) to perform splitting/joining tasks from their applications.<br />
-FFSJ 支持命令行模式，可以使用在批处理文件中。</p>
-<p><strong>Secure:</strong> FFSJ uses an advanced encryption algorithm to make your data much more secure from unauthorized access. Since v2.9, MD5 checksum algorithm has also been integrated to verify data integrity.<br />
-支持加密。包含 MD5 校验功能，方便检查合并后文件是否正确、完整。<br />
-<img alt="checksum" src="http://www.jaist.ac.jp/~hoangle/filesj/checksum.jpg" /></p>
-<p><strong>Compatible:</strong> FFSJ can join parts produced by HJ-Split.<br />
-兼容 HJ-Split ，可以合并 HJ-Split 分割的文件。</p>
-<p><strong>Free and Safe:</strong> FFSJ-Lite and FFSJ-Standard are free and clean, both editions do not contain any form of adwares, spywares, viruses, trojans and backdoors.<br />
-关键是软件免费，不包含任何广告、后门、病毒、木马等等 ：）</p>
-</blockquote> ]]>
+  <p><a href="http://www.jaist.ac.jp/~hoangle/filesj/" title="FFSJ: The Fastest File Splitter and Joiner Version 3.3">FFSJ</a> is...</p>
+  
+  <p><strong>Very fast:</strong> FFSJ can optimize disk-cache and memory usage, this makes FFSJ 3-5 times faster than HJ-Split, WinSplit, MasterSplitter in both splitting and joining tasks. Of course, it is much faster than any compression program.</p>
+  
+  <p><strong>Simple:</strong> FFSJ works well on all Windows platforms. FFSJ-Lite doesn't need any requirement of installations or complicated DLLs. FFSJ-Standard has only one simple installation package for integrating FFSJ into shell context menu. <br />
+  FFSJ 能在所有 windows 平台下使用，分为两个版本：FFSJ-Lite 是单个文件，直接运行就可以使用；FFSJ-Standard 是个安装包，除了包含 FFSJ-Lite 外，还在资源管理器增加了右键菜单，方便使用。 <br />
+  <img src="http://www.jaist.ac.jp/~hoangle/filesj/shellctx.jpg" alt="shellctx" /></p>
+  
+  <p><strong>Small:</strong> Both FFSJ-Lite and FFSJ-Standard editions are small enough to fit on a floppy disk.</p>
+  
+  <p><strong>Easy to use:</strong> FFSJ has a friendly user-interface, it can be used to split any file. FFSJ-standard can also create its shell context menus in order to perform splitting and joining tasks directly from Windows Explorer.</p>
+  
+  <p><strong>Easy to be integrated:</strong> Since v3.0, FFSJ published its command-line interface. End-users can split/join multiple files using a .BAT file. Developers can write their own interface (in any language) to perform splitting/joining tasks from their applications. <br />
+  FFSJ 支持命令行模式，可以使用在批处理文件中。</p>
+  
+  <p><strong>Secure:</strong> FFSJ uses an advanced encryption algorithm to make your data much more secure from unauthorized access. Since v2.9, MD5 checksum algorithm has also been integrated to verify data integrity. <br />
+  支持加密。包含 MD5 校验功能，方便检查合并后文件是否正确、完整。 <br />
+  <img src="http://www.jaist.ac.jp/~hoangle/filesj/checksum.jpg" alt="checksum" /></p>
+  
+  <p><strong>Compatible:</strong> FFSJ can join parts produced by HJ-Split. <br />
+  兼容 HJ-Split ，可以合并 HJ-Split 分割的文件。</p>
+  
+  <p><strong>Free and Safe:</strong> FFSJ-Lite and FFSJ-Standard are free and clean, both editions do not contain any form of adwares, spywares, viruses, trojans and backdoors. <br />
+  关键是软件免费，不包含任何广告、后门、病毒、木马等等 ：）</p>
+</blockquote>
+]]>
         </content>
-    </entry>
-    <entry>
+    </entry><entry>
         <title type="html"><![CDATA[修改基于 glibc 的程序 - GMPC]]></title>
-        <author><name>microjo</name><uri>http://microjo.github.com</uri></author>
-        <link href="http://microjo.github.com/work/gmpc_modified.html"/>
-        <updated>2008-11-20T17:55:00Z</updated>
-        <published>2008-11-20T17:55:00Z</published>
-        <id>http://microjo.github.com/work/gmpc_modified.html</id>
-        <category scheme="http://microjo.github.com/tag/gmpc/" term="GMPC" label="Gmpc" />
-        <category scheme="http://microjo.github.com/tag/gtk+/" term="GTK+" label="Gtk+" />
-        <category scheme="http://microjo.github.com/tag/glibc/" term="glibc" label="Glibc" />
-        <category scheme="http://microjo.github.com/tag/mpd/" term="MPD" label="Mpd" />
-        <content type="html" xml:base="http://microjo.github.com" xml:lang="en">
+        <author><name>microjo</name></author>
+        <link href="http://microjo.github.com/2008/gmpc_modified.html"/>
+        <published>2008-11-20T17:55:00+08:00</published>
+        <updated>2013-02-03T17:15:50+08:00</updated>
+        <id>http://microjo.github.com/2008/gmpc_modified.html</id>
+        <category scheme="http://microjo.github.com/tag/#GMPC" term="GMPC" label="GMPC" />
+        <category scheme="http://microjo.github.com/tag/#GTK+" term="GTK+" label="GTK+" />
+        <category scheme="http://microjo.github.com/tag/#glibc" term="glibc" label="glibc" />
+        <category scheme="http://microjo.github.com/tag/#MPD" term="MPD" label="MPD" />
+        <content type="html" xml:base="http://microjo.github.com/" xml:lang="en">
             <![CDATA[ <p>Ubuntu 下面喜欢使用 MPD (Music Player Daemon) 播放歌曲，由于这是一个 C/S 的音乐播放程序，一个好用的播放客户端必不可少。</p>
+
 <p>最初使用的是 Sonata（用 Python 语言编写）。这个播放客户端界面简洁，能够修改音乐的标签，功能满足要求，但是有一个缺点，对于需要代理访问因特网的用户无法更新专辑封面、歌词等信息。充分利用 Google 搜索发现 Python 支持使用系统环境变量 <code>http_proxy</code> 的代理设置访问因特网，于是自己修改了部分代码（使用 urllib2 访问因特网的部分），可是测试使用的时候总是不起作用。后来想通过在终端运行看看是否有出错的信息，出人意料竟然能访问因特网，这个现象也太奇怪了，实在搞不懂是怎么一回事？？</p>
+
 <p>接着找到了 gimmix，为了编译最新版本安装了一堆包（太惨了，网站上的编译说明和源码包中的还不一致，nxml 这个包其实是 libnxml，费了很长时间才搞定）。使用中也是无法使用代理，而且没法显示音乐目录下面的专辑封面图片（在 windows 下面已有不少 itunes/amazon/allcdcovers 的专辑封面），所以毫不犹豫删除了。</p>
+
 <p>最后看到一篇论坛帖子介绍 MPD 的客户端，其中推荐 Sonata 和 GMPC (Gnome Music Player Client)，于是在 launchpad 找了开发者自身编译的 GMPC 包安装到系统中。使用后感觉不错，尤其是支持代理访问因特网。优点如下：</p>
+
 <ul>
 <li>支持插件，通过插件实现如下功能：搜索本地专辑封面、歌词；获取 amazon 上的专辑封面；获取 last.fm 上面的艺术家信息、图片；获取 lyricwiki、leoslyrics 等网站上的歌词（纯歌词，不是 lrc 歌词）等等。</li>
 <li>Metadata Browser 功能强大，充分利用插件获取的 last.fm 的相关信息。</li>
 </ul>
+
 <p>确定使用 GMPC 作为播放客户端后，就想能否修改一下满足自身的要求。搜索本地专辑封面的插件 Music Dir Fetcher 虽然可以搜索到播放音乐文件所在目录下面的图片，但对于有多张图片（包括专辑封面、光盘封面、小册子扫图等）不能按照喜好定义选择哪一张，用下来感觉像随机选取。阅读这个插件的源代码（只有单个 C 文件）后，知道插件是用正则表达式匹配图片文件，选取匹配的第一个文件作为专辑图片，如果没有匹配的，使用目录下面的第一个图片文件。插件考虑兼容性，将匹配的表达式定义为：<code>(voorkant|front|cover|large|folder|booklet)</code>。因此，我想能不能给一个自定义项用于匹配，在插件处理专辑图片时先用用户自定义的进行匹配，这样即不破坏原插件的功能，又能让插件按照用户习惯选择正确的专辑图片。为插件增加这个功能，用 Google 搜索了不少关于 GTK+ 界面编程、glibc 函数等信息：</p>
+
 <ul>
 <li><a href="http://topic.csdn.net/t/20030103/09/1322361.html">regcomp()、regexec() 正则表达式函数的参数说明</a> regcomp() 是把用于匹配的规则编译，使后续匹配更有效；regexec() 用于正则表达式的匹配</li>
 <li><a href="http://docs.huihoo.com/gnu/linux2/gtk_tut-4.html">GTK 入门导引 ： 4. 封装物件</a> 界面各项数据</li>
@@ -415,8 +487,10 @@ FFSJ 支持命令行模式，可以使用在批处理文件中。</p>
 <li><a href="http://developer.gnome.org/glib/stable/glib-String-Utility-Functions.html">GLib Reference Manual － String Utility Functions</a> Glib 中字符串的操作函数</li>
 <li><a href="http://developer.gnome.org/glib/stable/glib-regex-syntax.html">GLib Reference Manual － Regular expression syntax</a></li>
 </ul>
-<p>学习了半天，终于修改成功，已经编译到 GMPC 下正常使用。在 Music Dir Fetcher 界面增加 Cover Filename 这个自定义项，可以使用正则表达式，比如我自己设定成 <code>(itunes|amazon)</code>，因为我的专辑图片一般将来源放在图片文件名开头（[itunes] xxx.jpg、[amazon] xxx.jpg）。<br />
-<img alt="GMPC Music Dir Fetcher screenshot" src="/image/gmpc_mdcover.gif" /></p> ]]>
+
+<p>学习了半天，终于修改成功，已经编译到 GMPC 下正常使用。在 Music Dir Fetcher 界面增加 Cover Filename 这个自定义项，可以使用正则表达式，比如我自己设定成 <code>(itunes|amazon)</code>，因为我的专辑图片一般将来源放在图片文件名开头（[itunes] xxx.jpg、[amazon] xxx.jpg）。 <br />
+<img src="/image/gmpc_mdcover.gif" alt="GMPC Music Dir Fetcher screenshot" /></p>
+]]>
         </content>
     </entry>
-    </feed>
+</feed>

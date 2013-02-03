@@ -2,25 +2,25 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>Jonathan's Blog</title>
     <link href="http://microjo.github.com/project/feed.xml" rel="self" />
-    
     <link href="http://microjo.github.com/project/" />
-    
-    <updated>2012-06-08T23:12:10Z</updated>
-    <id>http://microjo.github.com</id>
+    <updated>2013-02-03T19:49:54+08:00</updated>
+    <id>http://microjo.github.com/project/</id>
     <entry>
         <title type="html"><![CDATA[Felix Felicis 默认主题修改]]></title>
-        <author><name>microjo</name><uri>http://microjo.github.com</uri></author>
-        <link href="http://microjo.github.com/project/felix_felicis_theme_mod.html"/>
-        <updated>2012-05-20T13:23:00Z</updated>
-        <published>2012-05-20T13:23:00Z</published>
-        <id>http://microjo.github.com/project/felix_felicis_theme_mod.html</id>
-        <category scheme="http://microjo.github.com/tag/felix felicis/" term="Felix Felicis" label="Felix Felicis" />
-        <category scheme="http://microjo.github.com/tag/theme/" term="theme" label="Theme" />
-        <category scheme="http://microjo.github.com/tag/主题/" term="主题" label="主题" />
-        <content type="html" xml:base="http://microjo.github.com" xml:lang="en">
-            <![CDATA[ <h2 id="">大部分汉化</h2>
+        <author><name>microjo</name></author>
+        <link href="http://microjo.github.com/2012/felix_felicis_theme_mod.html"/>
+        <published>2012-05-20T13:23:00+08:00</published>
+        <updated>2013-02-03T19:49:54+08:00</updated>
+        <id>http://microjo.github.com/2012/felix_felicis_theme_mod.html</id>
+        <category scheme="http://microjo.github.com/tag/#Felix Felicis" term="Felix Felicis" label="Felix Felicis" />
+        <category scheme="http://microjo.github.com/tag/#theme" term="theme" label="theme" />
+        <category scheme="http://microjo.github.com/tag/#主题" term="主题" label="主题" />
+        <content type="html" xml:base="http://microjo.github.com/" xml:lang="en">
+            <![CDATA[ <h2 id="h1">大部分汉化</h2>
+
 <p>将主题中大部分英文译成中文，并添加一些配合中文显示的 CSS 样式，包括中文文章 article 中段落开头缩进两个汉字、脚注的上标加上中括号等：</p>
-<div class="code"><div class="highlight"><pre><span class="nt">article</span><span class="nd">:lang</span><span class="o">(</span><span class="nt">zh</span><span class="o">)</span> <span class="nc">.entry-content</span> <span class="nt">p</span><span class="nd">:before</span> <span class="p">{</span> <span class="k">content</span><span class="o">:</span> <span class="s2">&quot;　　&quot;</span><span class="p">;</span> <span class="p">}</span>
+
+<div class="codehilite"><pre><code><span class="nt">article</span><span class="nd">:lang</span><span class="o">(</span><span class="nt">zh</span><span class="o">)</span> <span class="nc">.entry-content</span> <span class="nt">p</span><span class="nd">:before</span> <span class="p">{</span> <span class="k">content</span><span class="o">:</span> <span class="s2">&quot;　　&quot;</span><span class="p">;</span> <span class="p">}</span>
 <span class="nt">article</span><span class="nd">:lang</span><span class="o">(</span><span class="nt">zh</span><span class="o">)</span> <span class="nc">.entry-content</span> <span class="nt">li</span> <span class="nt">p</span><span class="nd">:first-child:before</span> <span class="p">{</span> <span class="k">content</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">;</span> <span class="p">}</span>
 <span class="nt">sup</span><span class="nd">:lang</span><span class="o">(</span><span class="nt">zh</span><span class="o">)</span> <span class="p">{</span>
     <span class="k">font-family</span><span class="o">:</span> <span class="n">Verdana</span><span class="p">;</span>
@@ -28,12 +28,13 @@
 <span class="p">}</span>
 <span class="nt">sup</span><span class="nd">:lang</span><span class="o">(</span><span class="nt">zh</span><span class="o">)</span><span class="nd">:before</span> <span class="p">{</span> <span class="k">content</span><span class="o">:</span> <span class="s2">&quot;[&quot;</span><span class="p">;</span> <span class="p">}</span>
 <span class="nt">sup</span><span class="nd">:lang</span><span class="o">(</span><span class="nt">zh</span><span class="o">)</span><span class="nd">:after</span> <span class="p">{</span> <span class="k">content</span><span class="o">:</span> <span class="s2">&quot;]&quot;</span><span class="p">;</span> <span class="p">}</span>
-</pre></div>
-</div>
+</code></pre></div>
 
-<h2 id="stylecss">修改样式表 style.css</h2>
+<h2 id="h2-stylecss">修改样式表 style.css</h2>
+
 <p>主要是添加/修改代码和表格显示的 CSS 样式：</p>
-<div class="code"><div class="highlight"><pre><span class="c">/* 代码块 */</span>
+
+<div class="codehilite"><pre><code><span class="c">/* 代码块 */</span>
 <span class="nt">pre</span> <span class="p">{</span> <span class="k">overflow</span><span class="o">:</span><span class="k">auto</span><span class="p">;</span> <span class="k">padding</span><span class="o">:</span> <span class="m">8px</span><span class="p">;</span> <span class="p">}</span>
 <span class="nt">code</span> <span class="p">{</span> <span class="k">padding</span><span class="o">:</span> <span class="m">1px</span> <span class="m">2px</span><span class="p">;</span> <span class="p">}</span>
 <span class="nt">pre</span> <span class="nt">code</span> <span class="p">{</span> <span class="k">padding</span><span class="o">:</span><span class="m">0</span><span class="cp">!important</span><span class="p">;</span> <span class="k">border</span><span class="o">:</span> <span class="m">0px</span> <span class="cp">!important</span><span class="p">;</span> <span class="p">}</span>
@@ -55,29 +56,35 @@
 <span class="nt">tbody</span> <span class="nt">tr</span><span class="nd">:nth-child</span><span class="o">(</span><span class="nt">2n</span><span class="o">)</span> <span class="p">{</span>
     <span class="k">background</span><span class="o">:</span> <span class="m">#eee</span><span class="p">;</span>
 <span class="p">}</span>
-</pre></div>
+</code></pre></div>
 
-</div>
+<h2 id="h3-lightbox">实现 lightbox 效果</h2>
 
-<h2 id="lightbox">实现 lightbox 效果</h2>
 <p>从 <a href="http://planetozh.com/projects/lightbox-clones/">The Lightbox Clones Matrix</a> 页面挑选一个满足需求的 <a href="http://www.shadowbox-js.com/">Shadowbox.js</a>，对其进行了修改和设置，对帖子中所有的图片，实现 lightbox 效果，超出显示范围的图片可以拖动。目前有个不完美的地方，就是对于带链接的图片，链接会自动失效。</p>
-<h3 id="_1">使用说明</h3>
-<p><a class="cssbtn-download" href="shadowbox.modified.zip">Shadowbox.js 修改版</a></p>
+
+<h3 id="h3.1">使用说明</h3>
+
+<p><a href="/project/shadowbox.modified.zip"><span class="btn btn-info btn-large icon-download icon-large"> Shadowbox.js 修改版</span></a></p>
+
 <p>将下载的修改版 Shadowbox.js 解压缩到 static 目录，同时主题模板文件 post.html 增加如下内容：</p>
-<div class="code"><div class="highlight"><pre><span class="o">&lt;</span><span class="nx">script</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;text/javascript&quot;</span> <span class="nx">src</span><span class="o">=</span><span class="s2">&quot;{{ static_url(&#39;shadowbox/shadowbox.js&#39;) }}&quot;</span><span class="o">&gt;&lt;</span><span class="err">/script&gt;</span>
-<span class="o">&lt;</span><span class="nx">script</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;text/javascript&quot;</span><span class="o">&gt;</span>
+
+<div class="codehilite"><pre><code><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;{{ static_url(&#39;shadowbox/shadowbox.js&#39;) }}&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;</span>
 <span class="nx">Shadowbox</span><span class="p">.</span><span class="nx">init</span><span class="p">({</span> <span class="nx">handleOversize</span><span class="o">:</span> <span class="s2">&quot;drag&quot;</span> <span class="p">});</span>
 <span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
     <span class="nx">Shadowbox</span><span class="p">.</span><span class="nx">setup</span><span class="p">(</span><span class="s2">&quot;.entry-content img&quot;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">gallery</span><span class="o">:</span> <span class="s2">&quot;{{post.title}}&quot;</span><span class="p">,</span> <span class="nx">counterType</span><span class="o">:</span> <span class="s2">&quot;skip&quot;</span> <span class="p">});</span>
 <span class="p">};</span>
-<span class="o">&lt;</span><span class="err">/script&gt;</span>
-</pre></div>
-</div>
+<span class="nt">&lt;/script&gt;</span>
+</code></pre></div>
 
-<h2 id="_2">增加图标美化</h2>
+<h2 id="h4">增加图标美化</h2>
+
 <p>参考 <a href="http://www.qianduan.net/css3-icon-font-guide.html">CSS3 icon font 完全指南</a>，利用网上漂亮的、免费图标字体 <a href="http://fortawesome.github.com/Font-Awesome/">Font Awesome</a>，简单美化了一下主题，就差搜索框没有增加图标。另外从这篇 <a href="http://tympanus.net/codrops/2012/01/11/css-buttons-with-pseudo-elements/">CSS Buttons with Pseudo-elements</a> 学习添加一个漂亮的下载按钮。</p>
+
 <p>实现主要是 CSS 的编写，这样可以避免改动图标时修改主题模板文件，拿其中一个举例，这是首页前增加图标的 CSS 内容：</p>
-<div class="code"><div class="highlight"><pre><span class="o">[</span><span class="nt">id</span><span class="o">^=</span><span class="s2">&quot;nav-&quot;</span><span class="o">]</span> <span class="nt">a</span><span class="nd">:before</span><span class="o">,</span> <span class="o">[</span><span class="nt">id</span><span class="o">*=</span><span class="s2">&quot; nav-&quot;</span><span class="o">]</span> <span class="nt">a</span><span class="nd">:before</span> <span class="p">{</span>
+
+<div class="codehilite"><pre><code><span class="o">[</span><span class="nt">id</span><span class="o">^=</span><span class="s2">&quot;nav-&quot;</span><span class="o">]</span> <span class="nt">a</span><span class="nd">:before</span><span class="o">,</span> <span class="o">[</span><span class="nt">id</span><span class="o">*=</span><span class="s2">&quot; nav-&quot;</span><span class="o">]</span> <span class="nt">a</span><span class="nd">:before</span> <span class="p">{</span>
     <span class="k">font-family</span><span class="o">:</span> <span class="n">FontAwesome</span><span class="p">;</span>
     <span class="k">font-weight</span><span class="o">:</span> <span class="k">normal</span><span class="p">;</span>
     <span class="k">font-style</span><span class="o">:</span> <span class="k">normal</span><span class="p">;</span>
@@ -88,47 +95,45 @@
     <span class="k">text-align</span><span class="o">:</span> <span class="k">center</span><span class="p">;</span>
 <span class="p">}</span>
 <span class="nf">#nav-home</span> <span class="nt">a</span><span class="nd">:before</span> <span class="p">{</span> <span class="k">content</span><span class="o">:</span> <span class="s2">&quot;\f015&quot;</span><span class="p">;</span> <span class="p">}</span>
-</pre></div>
-</div>
+</code></pre></div>
 
 <p>在学习修改 CSS 的过程中，搜罗到不少有用的站点或帖子：</p>
+
 <ul>
 <li><a href="http://css.doyoe.com/">中文版 CSS 参考手册</a></li>
-<li><a href="http://www.w3help.org">W3help.org</a><br />
+<li><a href="http://www.w3help.org">W3help.org</a> <br />
 网站中兼容性相关文章非常实用。</li>
-<li><a href="http://css3please.com/" title="The Cross-Browser CSS3 Rule Generator">CSS3, Please!</a><br />
+<li><a href="http://css3please.com/" title="The Cross-Browser CSS3 Rule Generator">CSS3, Please!</a> <br />
 包含常用 CSS3 hack，可以实时禁用/启用某一属性来查看其效果。</li>
 <li><a href="http://webdesignerwall.com/tutorials/css-specific-for-internet-explorer">CSS Specific for Internet Explorer</a></li>
-<li><a href="http://css-tricks.com/">CSS-Tricks</a><br />
+<li><a href="http://css-tricks.com/">CSS-Tricks</a> <br />
 不少 CSS 教程和例子，非常详细。</li>
-</ul> ]]>
-        </content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Felix Felicis 功能扩充]]></title>
-        <author><name>microjo</name><uri>http://microjo.github.com</uri></author>
-        <link href="http://microjo.github.com/project/felix_felicis_extend.html"/>
-        <updated>2012-05-18T10:39:00Z</updated>
-        <published>2012-05-18T10:39:00Z</published>
-        <id>http://microjo.github.com/project/felix_felicis_extend.html</id>
-        <category scheme="http://microjo.github.com/tag/felix felicis/" term="Felix Felicis" label="Felix Felicis" />
-        <category scheme="http://microjo.github.com/tag/markdown/" term="markdown" label="Markdown" />
-        <category scheme="http://microjo.github.com/tag/gravatar/" term="gravatar" label="Gravatar" />
-        <category scheme="http://microjo.github.com/tag/favicon/" term="favicon" label="Favicon" />
-        <content type="html" xml:base="http://microjo.github.com" xml:lang="en">
-            <![CDATA[ <p>自从用 Felix Felicis (liquidluck) 生成博客内容，根据自身需要对其做了部分功能扩充，本文记录修改的情况。</p>
-<div class="toc">
-<ul>
-<li><a href="#python-markdown1-markdown">打开 Python-Markdown1 部分扩展 Markdown 语法支持</a></li>
-<li><a href="#gravatar-favicon3">增加 Gravatar 作为博客 favicon3</a></li>
-<li><a href="#post">post 增加修改时间参数</a></li>
-<li><a href="#related">相关内容</a></li>
 </ul>
-</div>
-<h2 id="python-markdown1-markdown">打开 Python-Markdown<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup> 部分扩展 Markdown 语法支持</h2>
-<p>Python-Markdown<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup> 支持的扩展 Markdown 语法很丰富，可以参考 <a href="http://packages.python.org/Markdown/extensions/index.html">http://packages.python.org/Markdown/extensions/index.html</a>，部分扩展语法的中文说明可参考<a href="/work/markdown_ext.html">扩展 Markdown 语法</a>。</p>
-<p>只需要修改一个文件 <code>liquidluck/readers/mkd.py</code>，打开 Extra 和 Table of Contents 的扩展支持，修改内容<sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup>如下：</p>
-<div class="code"><div class="highlight"><pre><span class="gd">-------------------------- liquidluck/readers/mkd.py --------------------------</span>
+]]>
+        </content>
+    </entry><entry>
+        <title type="html"><![CDATA[Felix Felicis 功能扩充]]></title>
+        <author><name>microjo</name></author>
+        <link href="http://microjo.github.com/2012/felix_felicis_extend.html"/>
+        <published>2012-05-18T10:39:00+08:00</published>
+        <updated>2013-01-31T18:21:36+08:00</updated>
+        <id>http://microjo.github.com/2012/felix_felicis_extend.html</id>
+        <category scheme="http://microjo.github.com/tag/#Felix Felicis" term="Felix Felicis" label="Felix Felicis" />
+        <category scheme="http://microjo.github.com/tag/#markdown" term="markdown" label="markdown" />
+        <category scheme="http://microjo.github.com/tag/#gravatar" term="gravatar" label="gravatar" />
+        <category scheme="http://microjo.github.com/tag/#favicon" term="favicon" label="favicon" />
+        <content type="html" xml:base="http://microjo.github.com/" xml:lang="en">
+            <![CDATA[ <p>自从用 Felix Felicis (liquidluck) 生成博客内容，根据自身需要对其做了部分功能扩充，本文记录修改的情况。</p>
+
+<p>[TOC]</p>
+
+<h2 id="h1-python-markdown1-markdown">打开 Python-Markdown<sup class="footnote-ref" id="fnref-1"><a href="#fn-1">1</a></sup> 部分扩展 Markdown 语法支持</h2>
+
+<p>Python-Markdown 支持的扩展 Markdown 语法很丰富，可以参考 <a href="http://packages.python.org/Markdown/extensions/index.html">http://packages.python.org/Markdown/extensions/index.html</a>，部分扩展语法的中文说明可参考<a href="/work/markdown_ext.html">扩展 Markdown 语法</a>。</p>
+
+<p>只需要修改一个文件 <code>liquidluck/readers/mkd.py</code>，打开 Extra 和 Table of Contents 的扩展支持，修改内容<sup class="footnote-ref" id="fnref-2"><a href="#fn-2">2</a></sup>如下：</p>
+
+<div class="codehilite"><pre><code><span class="gd">-------------------------- liquidluck/readers/mkd.py --------------------------</span>
 
 <span class="gu">@@ -81,7 +81,7 @@ def markdown(text):</span>
      for module in markdown_prefork.values():
@@ -137,13 +142,13 @@
 <span class="gd">-    md = Markdown()</span>
 <span class="gi">+    md = Markdown(extensions=[&#39;extra&#39;,&#39;toc&#39;])</span>
      return md.convert(text)
-</pre></div>
+</code></pre></div>
 
-</div>
+<h2 id="h2-gravatar-favicon3">增加 Gravatar 作为博客 favicon<sup class="footnote-ref" id="fnref-3"><a href="#fn-3">3</a></sup></h2>
 
-<h2 id="gravatar-favicon3">增加 Gravatar 作为博客 favicon<sup id="fnref:3"><a href="#fn:3" rel="footnote">3</a></sup></h2>
-<p>参考 <a href="http://fairyfish.net/m/gravatar-as-favicon/">WordPress 技巧：使用 Gravatar 作为博客的 Favicon</a> 和 <a href="http://en.gravatar.com/site/implement/">Gravatar 官方开发资源</a>进行修改，内容<sup id="fnref:4"><a href="#fn:4" rel="footnote">4</a></sup>如下：</p>
-<div class="code"><div class="highlight"><pre><span class="gd">---------------------- liquidluck/_templates/layout.html ----------------------</span>
+<p>参考 <a href="http://fairyfish.net/m/gravatar-as-favicon/">WordPress 技巧：使用 Gravatar 作为博客的 Favicon</a> 和 <a href="http://en.gravatar.com/site/implement/">Gravatar 官方开发资源</a>进行修改，内容<sup class="footnote-ref" id="fnref-4"><a href="#fn-4">4</a></sup>如下：</p>
+
+<div class="codehilite"><pre><code><span class="gd">---------------------- liquidluck/_templates/layout.html ----------------------</span>
 
 <span class="gu">@@ -3,6 +3,7 @@</span>
      &lt;head&gt;
@@ -167,6 +172,7 @@
 <span class="gu">@@ -15,6 +16,17 @@ from liquidluck import logger</span>
  _hash_cache = {}
 
+
 <span class="gi">+def gravatar_url(size):</span>
 <span class="gi">+    &quot;&quot;&quot;</span>
 <span class="gi">+    generate URL requiered to request a Gravatar Image</span>
@@ -189,14 +195,15 @@
          return
 
      def run(self):
-</pre></div>
+</code></pre></div>
 
-</div>
+<p>配置文件 config.ini 中 <code>[context]</code> 添加 gravatar 配置项，填写 Gravatar 的邮箱地址。新增的 gravatar_url 函数，用于生成获取 Gravatar 图片的链接，参数是获取图片的大小。如果使用其他模板，只需要在模板的 <code>&lt;head&gt;</code> 元素中添加 <code>{% if context.gravatar %}&lt;link rel="shortcut icon" href="{{gravatar_url(16)}}" /&gt;{% endif %}</code> 就能将 Gravatar 作为博客 favicon<sup class="footnote-ref" id="fnref-3"><a href="#fn-3">3</a></sup>。</p>
 
-<p>配置文件 config.ini 中 <code>[context]</code> 添加 gravatar 配置项，填写 Gravatar 的邮箱地址。新增的 gravatar_url 函数，用于生成获取 Gravatar 图片的链接，参数是获取图片的大小。如果使用其他模板，只需要在模板的 <code>&lt;head&gt;</code> 元素中添加 <code>{% if context.gravatar %}&lt;link rel="shortcut icon" href="{{gravatar_url(16)}}" /&gt;{% endif %}</code> 就能将 Gravatar 作为博客 favicon<sup id="fnref:3"><a href="#fn:3" rel="footnote">3</a></sup>。</p>
-<h2 id="post">post 增加修改时间参数</h2>
-<p>帖子增加新的元数据参数 <code>modified</code>，用于表示帖子最近一次修改的时间。依据 <a href="https://github.com/lepture/liquidluck/wiki/Write#wiki-meta-info">Felix Felicis wiki</a>，帖子可以增加任意多的元数据。但由于自定义的元数据以字符串处理，因此增加时间参数就需要修改源码，将其转换成 datatime 类型。此处修改内容<sup id="fnref:5"><a href="#fn:5" rel="footnote">5</a></sup>如下，模板的修改主要是为了显示需要：</p>
-<div class="code"><div class="highlight"><pre><span class="gd">----------------------- liquidluck/_templates/post.html -----------------------</span>
+<h2 id="h3-post">post 增加修改时间参数</h2>
+
+<p>帖子增加新的元数据参数 <code>modified</code>，用于表示帖子最近一次修改的时间。依据 <a href="https://github.com/lepture/liquidluck/wiki/Write#wiki-meta-info">Felix Felicis wiki</a>，帖子可以增加任意多的元数据。但由于自定义的元数据以字符串处理，因此增加时间参数就需要修改源码，将其转换成 datatime 类型。此处修改内容<sup class="footnote-ref" id="fnref-5"><a href="#fn-5">5</a></sup>如下，模板的修改主要是为了显示需要：</p>
+
+<div class="codehilite"><pre><code><span class="gd">----------------------- liquidluck/_templates/post.html -----------------------</span>
 
 <span class="gu">@@ -31,9 +31,15 @@</span>
  &lt;/div&gt;
@@ -234,67 +241,73 @@
          for key in post.keys():
              if &#39;_date&#39; in key or &#39;_time&#39; in key:
                  try:
-</pre></div>
+</code></pre></div>
 
-</div>
+<h2 id="h4">相关内容</h2>
 
-<h2 id="related">相关内容</h2>
-<div class="footnote">
+<div class="footnotes">
 <hr />
 <ol>
-<li id="fn:1">
-<p>生成本博客内容的 Felix Felicis 程序使用的 <a href="http://packages.python.org/Markdown/">Markdown 解析包</a>&#160;<a href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<li id="fn-1">
+<p>生成本博客内容的 Felix Felicis 程序使用的 <a href="http://packages.python.org/Markdown/">Markdown 解析包</a>&nbsp;<a href="#fnref-1" class="footnoteBackLink" title="Jump back to footnote 1 in the text.">&#8617;</a></p>
 </li>
-<li id="fn:2">
-<p><a class="cssbtn2-github" href="https://github.com/microjo/liquidluck/commit/71c844bde082f0e8b76ee14f83f35519a09f9eb7">microjo/liquidluck@71c844b</a>&#160;<a href="#fnref:2" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+
+<li id="fn-2">
+<p><a rel="nofollow" href="https://github.com/microjo/liquidluck/commit/71c844bde082f0e8b76ee14f83f35519a09f9eb7">microjo/liquidluck@71c844b</a>&nbsp;<a href="#fnref-2" class="footnoteBackLink" title="Jump back to footnote 2 in the text.">&#8617;</a></p>
 </li>
-<li id="fn:3">
-<p><a href="http://zh.wikipedia.org/wiki/Favicon">Favicon @ 维基百科</a>&#160;<a href="#fnref:3" rev="footnote" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+
+<li id="fn-3">
+<p><a href="http://zh.wikipedia.org/wiki/Favicon">Favicon @ 维基百科</a>&nbsp;<a href="#fnref-3" class="footnoteBackLink" title="Jump back to footnote 3 in the text.">&#8617;</a></p>
 </li>
-<li id="fn:4">
-<p><a class="cssbtn2-github" href="https://github.com/microjo/liquidluck/commit/5536022f94dec05bc1f47bb034faf0e8b4ba2d4c">microjo/liquidluck@5536022</a>&#160;<a href="#fnref:4" rev="footnote" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+
+<li id="fn-4">
+<p><a rel="nofollow" href="https://github.com/microjo/liquidluck/commit/5536022f94dec05bc1f47bb034faf0e8b4ba2d4c">microjo/liquidluck@5536022</a>&nbsp;<a href="#fnref-4" class="footnoteBackLink" title="Jump back to footnote 4 in the text.">&#8617;</a></p>
 </li>
-<li id="fn:5">
-<p><a class="cssbtn2-github" href="https://github.com/microjo/liquidluck/commit/920571c8bea99fb3efe3a5fdd798f7b170682b87">microjo/liquidluck@920571c</a>&#160;<a href="#fnref:5" rev="footnote" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+
+<li id="fn-5">
+<p><a rel="nofollow" href="https://github.com/microjo/liquidluck/commit/920571c8bea99fb3efe3a5fdd798f7b170682b87">microjo/liquidluck@920571c</a>&nbsp;<a href="#fnref-5" class="footnoteBackLink" title="Jump back to footnote 5 in the text.">&#8617;</a></p>
 </li>
 </ol>
-</div> ]]>
+</div>
+]]>
         </content>
-    </entry>
-    <entry>
+    </entry><entry>
         <title type="html"><![CDATA[iStuff 主题 - M8NewUI]]></title>
-        <author><name>microjo</name><uri>http://microjo.github.com</uri></author>
-        <link href="http://microjo.github.com/project/istuff_theme_m8newui.html"/>
-        <updated>2010-05-15T09:50:00Z</updated>
-        <published>2010-05-15T09:50:00Z</published>
-        <id>http://microjo.github.com/project/istuff_theme_m8newui.html</id>
-        <category scheme="http://microjo.github.com/tag/m8/" term="M8" label="M8" />
-        <category scheme="http://microjo.github.com/tag/istuff/" term="iStuff" label="Istuff" />
-        <category scheme="http://microjo.github.com/tag/theme/" term="theme" label="Theme" />
-        <content type="html" xml:base="http://microjo.github.com" xml:lang="en">
+        <author><name>microjo</name></author>
+        <link href="http://microjo.github.com/2010/istuff_theme_m8newui.html"/>
+        <published>2010-05-15T09:50:00+08:00</published>
+        <updated>2013-01-31T18:21:36+08:00</updated>
+        <id>http://microjo.github.com/2010/istuff_theme_m8newui.html</id>
+        <category scheme="http://microjo.github.com/tag/#M8" term="M8" label="M8" />
+        <category scheme="http://microjo.github.com/tag/#iStuff" term="iStuff" label="iStuff" />
+        <category scheme="http://microjo.github.com/tag/#theme" term="theme" label="theme" />
+        <content type="html" xml:base="http://microjo.github.com/" xml:lang="en">
             <![CDATA[ <p>MEIZU New UI Style, made by microjo (follow me at <a href="https://twitter.com/micro4jo">@micro4jo</a>)</p>
+
 <ul>
 <li>version: 1.2</li>
 <li>requirement: iStuff ver &gt; 1.6.0</li>
-<li>info:<ol>
+<li>info:
+<ol>
 <li>picture resource is from MEIZU M8 firmware, © MEIZU</li>
 <li>other is © microjo, you can use for free</li>
-</ol>
-</li>
-<li>
-<p>use:<br />
+</ol></li>
+<li><p>use: <br />
 extract files to data/themes/ folder, and change config.txt to use this style.
-将压缩包中解压缩（含原始目录），将其复制到 iStuff 安装目录 <code>/data/themes</code> 下面，然后修改设置 <code>config.txt</code> 中主题设置项：<code>theme=m8</code>。</p>
-</li>
-<li>
-<p>update:</p>
+将压缩包中解压缩（含原始目录），将其复制到 iStuff 安装目录 <code>/data/themes</code> 下面，然后修改设置 <code>config.txt</code> 中主题设置项：<code>theme=m8</code>。</p></li>
+<li><p>update:</p>
+
 <p>1.2  修改扩展页面以符合 M8 UI 界面 <a href="http://img.ly/199A">截图1</a> <a href="http://img.ly/199I">截图2</a></p>
+
 <p>1.1  修改快速主页和书签页面，尤其书签页面改动多些，应该比较像 M8 的 UI 界面 <a href="http://img.ly/17LV">截图</a></p>
+
 <p>1.0（使用 iStuff 1.5.0）  修改页面缩放的按钮，谢谢作者修改了界面以配合 <a href="http://img.ly/15rD">截图</a></p>
+
 <p>0.7  调整首页的样式 <a href="http://img.ly/14hL">截图</a></p>
-<p>0.6  初始版本 <a href="http://img.ly/13Tn">截图1</a> <a href="http://img.ly/13IT">截图2</a></p>
-</li>
-</ul> ]]>
+
+<p>0.6  初始版本 <a href="http://img.ly/13Tn">截图1</a> <a href="http://img.ly/13IT">截图2</a></p></li>
+</ul>
+]]>
         </content>
     </entry>
-    </feed>
+</feed>

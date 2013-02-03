@@ -1,0 +1,120 @@
+<!DOCTYPE HTML>
+<!--[if lt IE 8]> <html class="iehack" lang="zh"> <![endif]-->
+<!--[if (gte IE 8)|!(IE)]><!--> <html lang="zh"> <!--<![endif]-->
+    <head>
+        <meta charset="UTF-8">
+        <title>编译 kvm 时选择需要编译的音频驱动 | Jonathan's Blog</title>
+        <link rel="shortcut icon" href="http://www.gravatar.com/avatar/60633c507a57f09b238c710e743f8a61?s=16" />
+        <script>if (top !== self) top.location = self.location;</script>
+        <!--[if lt IE 9]>
+        <script type="text/javascript" src="/static/html5shiv.js?v=bdce9"></script>
+        <![endif]-->
+        <meta name="HandheldFriendly" content="True" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0" />
+        <link rel="alternate" type="application/rss+xml" href="/feed.xml" title="Jonathan's Blog" />
+        <link rel="stylesheet" href="/static/style.css?v=633e6" />
+        <link rel="stylesheet" href="/static/syntax.css?v=dbf77" />
+        <link rel="stylesheet" href="/static/shadowbox/shadowbox.css?v=f5b13" type="text/css" />
+        <link rel="canonical" href="/2008/kvm_compile_audio.html" />
+        <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-31550182-1']);
+            _gaq.push(['_trackPageview']);
+            _gaq.push(['_trackPageLoadTime']);
+            (function() {
+              var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+              ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+              var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+             })();
+         </script>
+    </head>
+    <body>
+        <header id="header">
+            <nav class="fn-clear">
+                <ul id="nav" class="fn-right fn-clear">
+                    <li id="nav-home"><a href="/"><i class="icon-home"></i>首页</a></li>
+                    <li id="nav-cat-project"><a href="/project/"><i class="icon-globe"></i>项目</a></li>
+                    <li id="nav-cat-ent"><a href="/entertainment/"><i class="icon-coffee"></i>休闲</a></li>
+                    <li id="nav-about"><a href="/about.html"><i class="icon-info-sign"></i>关于</a></li>
+                    <li id="nav-tags"><a href="/tag/"><i class="icon-tag"></i>标签</a></li>
+                </ul>
+            </nav>
+        </header>
+        <article class="hentry">
+            <header class="entry-header fn-clear">
+                <h1 class="entry-title fn-left">编译 kvm 时选择需要编译的音频驱动</h1>
+            </header>
+            <div class="entry">
+                <div class="author icon-user">
+                    microjo
+                </div>
+                <div class="entry-content">
+                    <p>使用 kvm 作为虚拟机安装 windows 系统，速度感觉很快，但是音频老是有问题：在进入虚拟机使用声卡后，外面的 ubuntu 不能够播放音乐。使用参数 <code>-audio-help</code> 查询支持的音频输出有哪些，发现有 alsa、oss、wav 等。依次 alsa、oss 作为输出使用都是类似的问题，差点就放弃使用声卡。由于 ubuntu 8.10 使用 PulseAudio 作为系统的声音服务，能够支持多个应用程序播放音频，就想 kvm 是否支持 PulseAudio 输出呢？Google 之后发现从 kvm 71 开始支持，参考官方 wiki 中的编译方法：</p>
+
+<div class="codehilite"><pre><code>tar xzf kvm-release.tar.gz
+<span class="nb">cd </span>kvm-release
+./configure --prefix<span class="o">=</span>/usr/local/kvm
+make
+sudo make install
+sudo /sbin/modprobe kvm-intel
+<span class="c"># or: sudo /sbin/modprobe kvm-amd</span>
+</code></pre></div>
+
+<p>编译安装之后，查询还是没有支持 PulseAudio 输出。于是，用 <code>./configure --help</code> 查询编译参数，里面没有提及声音驱动的设置。进一步查看 configure 的源代码，发现里面还设置了 qemu 目录下文件编译的参数，所以在 qemu 目录下面，执行 <code>./configure --help</code> 发现有了声音驱动的参数设置：</p>
+
+<pre><code>--audio-drv-list=LIST set audio drivers list:
+Available drivers: oss alsa sdl esd pa fmod
+</code></pre>
+
+<p>编译使用参数 <code>--audio-drv-list="alsa oss pa"</code>，其中 pa 表示 PulseAudio。编译安装后，配置参数 <code>export QEMU_AUDIO_DRV=pa</code> 使用 PulseAudio 输出成功解决问题，但是好像稳定性有问题，在虚拟机下面播放音频关闭后，会莫名奇妙的跳出。</p>
+
+                </div>
+                <div class="fn-clear">
+                    <p class="entry-rel">
+                    <a id="prev-entry" class="fn-left" href="/2008/execl_money_conversion.html" title="Excel 金额大小写转换公式" rel="prev">前一篇</a>
+                    <a id="next-entry" class="fn-right" href="/2008/ffsj.html" title="FFSJ: The Fastest File Splitter and Joiner v3.3 号称最快的文件分割、合并工具" rel="next">后一篇</a>
+                    </p>
+                </div>
+            </div>
+            <div class="entry-meta fn-clear">
+                <p class="entry-time icon-time fn-left">发布：
+                <a href="/2008/" rel="index"><time class="created" datetime="2008-12-04T17:33:00+08:00" pubdate="pubdate">2008/12/04</time></a>
+                </p>
+                <p class="entry-tags icon-tag fn-left">标签：
+                <a href="/tag/kvm/" class="tag" rel="tag">kvm</a>
+                <a href="/tag/pulseaudio/" class="tag" rel="tag">PulseAudio</a>
+                <a href="/tag/音频/" class="tag" rel="tag">音频</a>
+                </p>
+            </div>
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+                var disqus_shortname = 'microjo';
+                var disqus_title = '编译 kvm 时选择需要编译的音频驱动';
+                (function() {
+                 var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                 dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                 (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                 })();
+            </script>
+            <script type="text/javascript" src="/static/shadowbox/shadowbox.js?v=0577e"></script>
+            <script type="text/javascript">
+            Shadowbox.init({ handleOversize: "drag" });
+            window.onload = function() {
+                Shadowbox.setup(".entry-content img", { gallery: "编译 kvm 时选择需要编译的音频驱动", counterType: "skip" });
+            };
+            </script>
+        </article>
+
+        <footer id="footer">
+            <p class="copyright">© <a href="http://microjo.github.com/">Jonathan's Blog</a> | 
+                <span class="software">Powered by <a href="http://lab.lepture.com/liquidluck/">Felix Felicis</a> 3.8</span>
+            </p>
+            <p class="theme">Theme <a href="https://github.com/microjo/liquidluck-theme-lovelymod" rel="nofollow">Lovely</a> 1.0 original designed by <a href="http://lepture.com">Hsiaoming Yang</a> | Modified by <a href="http://microjo.github.com">MiCRoJo</a></p>
+        </footer>
+
+        <script type="text/javascript">
+            var currentNav = window.currentNav || "nav-home";
+            document.getElementById(currentNav).className = "current";
+        </script>
+    </body>
+</html>
