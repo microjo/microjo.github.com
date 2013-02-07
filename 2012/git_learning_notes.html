@@ -88,6 +88,50 @@ ssh -o <span class="nv">ProxyCommand</span><span class="o">=</span><span class="
 <li><p>使用的时候，只需要执行命令<code>source /proxy.sh</code></p></li>
 </ol>
 
+<h3 id="h1.2-git">Git 重新组织提交的历史</h3>
+
+<p>摘自 <a href="http://www-cs-students.stanford.edu/~blynn/gitmagic/intl/zh_cn/ch05.html#__43">Git Magic 中文版 - 关于历史 - 更复杂情况</a></p>
+
+<blockquote>
+  <p>在漫长的时间里我们提交了一堆。但你不太喜欢他们的组织方式，而且一些提交信息需要重写。那么键入：</p>
+  
+  <div class="codehilite"><pre><code><span class="nv">$ </span>git rebase -i HEAD~10
+</code></pre></div>
+  
+  <p>并且后 10 个提交会出现在你喜爱的 $EDITOR。一个例子：</p>
+  
+  <div class="codehilite"><pre><code>pick 5c6eb73 Added repo.or.cz link
+pick a311a64 Reordered analogies in <span class="s2">&quot;Work How You Want&quot;</span>
+pick 100834f Added push target to Makefile
+</code></pre></div>
+  
+  <p>之后：</p>
+  
+  <ul>
+  <li>通过删除行来移去提交。</li>
+  <li>通过为行重新排序行来重新排序提交。</li>
+  <li>替换 pick 使用：
+  <ul>
+  <li>edit 标记一个提交需要修订。</li>
+  <li>reword 改变日志信息。</li>
+  <li>squash 将一个提交与其和前一个合并。</li>
+  <li>fixup 将一个提交与其和前一个合并，并丢弃日志信息。</li>
+  </ul></li>
+  </ul>
+  
+  <p>保存退出。如果你把一个提交标记为可编辑，那么运行</p>
+  
+  <div class="codehilite"><pre><code><span class="nv">$ </span>git commit --amend
+</code></pre></div>
+  
+  <p>否则，运行：</p>
+  
+  <div class="codehilite"><pre><code><span class="nv">$ </span>git rebase --continue
+</code></pre></div>
+  
+  <p>这样尽早提交，经常提交：你之后还可以用 rebase 来规整。</p>
+</blockquote>
+
 <h2 id="h2">参考资料</h2>
 
 <ul>
@@ -131,7 +175,7 @@ ssh -o <span class="nv">ProxyCommand</span><span class="o">=</span><span class="
                 <a href="/2012/" rel="index"><time class="created" datetime="2012-05-07T12:00:00+08:00" pubdate="pubdate">2012/05/07</time></a>
                 </p>
                 <p class="entry-modified icon-edit fn-left">修改：
-                <time class="modified" datetime="2013-01-21T15:44:00+08:00">2013/01/21 15:44</time>
+                <time class="modified" datetime="2013-02-07T21:56:00+08:00">2013/02/07 21:56</time>
                 </p>
                 <p class="entry-tags icon-tag fn-left">标签：
                 <a href="/tag/git/" class="tag" rel="tag">Git</a>
