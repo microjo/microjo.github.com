@@ -132,6 +132,24 @@ pick 100834f Added push target to Makefile
   <p>这样尽早提交，经常提交：你之后还可以用 rebase 来规整。</p>
 </blockquote>
 
+<h3 id="h1.3-git-submodule">git submodule</h3>
+
+<p>在一个主项目中引入 submodule 其实 git 做了如下三件事情：</p>
+
+<ul>
+<li>记录引用的仓库，这样 git 知道从哪里获取代码</li>
+<li>记录主项目中 submodule 的目录位置，这样 git 知道需要放置的地方</li>
+<li>记录引用 submodule 的 commit id，这样 git 知道所需要的版本</li>
+</ul>
+
+<blockquote>
+  <ul>
+  <li>摘自 <a href="http://www.kafeitu.me/git/2012/03/27/git-submodule.html">Git Submodule 使用完整教程</a></li>
+  <li><a href="http://blog.wu-boy.com/2011/09/introduction-to-git-submodule/">Git Submodule 介紹與使用</a></li>
+  <li><a href="http://josephjiang.com/entry.php?id=342">Git Submodule 的認識與正確使用</a></li>
+  </ul>
+</blockquote>
+
 <h2 id="h2">参考资料</h2>
 
 <ul>
@@ -175,7 +193,7 @@ pick 100834f Added push target to Makefile
                 <a href="/2012/" rel="index"><time class="created" datetime="2012-05-07T12:00:00+08:00" pubdate="pubdate">2012/05/07</time></a>
                 </p>
                 <p class="entry-modified icon-edit fn-left">修改：
-                <time class="modified" datetime="2013-02-07T21:56:00+08:00">2013/02/07 21:56</time>
+                <time class="modified" datetime="2013-02-08T16:20:00+08:00">2013/02/08 16:20</time>
                 </p>
                 <p class="entry-tags icon-tag fn-left">标签：
                 <a href="/tag/git/" class="tag" rel="tag">Git</a>

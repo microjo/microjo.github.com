@@ -3,14 +3,14 @@
     <title>Jonathan's Blog</title>
     <link href="http://microjo.github.com/feed.xml" rel="self" />
     <link href="http://microjo.github.com/" />
-    <updated>2013-02-07T22:09:41+08:00</updated>
+    <updated>2013-02-08T16:22:33+08:00</updated>
     <id>http://microjo.github.com/</id>
     <entry>
         <title type="html"><![CDATA[Natasha Bedingfield - Soulmate]]></title>
         <author><name>microjo</name></author>
         <link href="http://microjo.github.com/2012/soulmate.html"/>
         <published>2012-06-25T00:03:00+08:00</published>
-        <updated>2013-02-07T20:32:24+08:00</updated>
+        <updated>2013-02-07T20:32:26+08:00</updated>
         <id>http://microjo.github.com/2012/soulmate.html</id>
         <category scheme="http://microjo.github.com/tag/#Natasha Bedingfield" term="Natasha Bedingfield" label="Natasha Bedingfield" />
         <category scheme="http://microjo.github.com/tag/#music" term="music" label="music" />
@@ -116,7 +116,7 @@
         <author><name>microjo</name></author>
         <link href="http://microjo.github.com/2012/humble_indie_bundle_v.html"/>
         <published>2012-06-04T16:33:00+08:00</published>
-        <updated>2013-02-07T20:32:06+08:00</updated>
+        <updated>2013-02-07T20:32:08+08:00</updated>
         <id>http://microjo.github.com/2012/humble_indie_bundle_v.html</id>
         <category scheme="http://microjo.github.com/tag/#humble" term="humble" label="humble" />
         <category scheme="http://microjo.github.com/tag/#indie" term="indie" label="indie" />
@@ -202,7 +202,7 @@
         <author><name>microjo</name></author>
         <link href="http://microjo.github.com/2012/felix_felicis_theme_mod.html"/>
         <published>2012-05-20T13:23:00+08:00</published>
-        <updated>2013-02-07T20:34:24+08:00</updated>
+        <updated>2013-02-07T20:34:26+08:00</updated>
         <id>http://microjo.github.com/2012/felix_felicis_theme_mod.html</id>
         <category scheme="http://microjo.github.com/tag/#Felix Felicis" term="Felix Felicis" label="Felix Felicis" />
         <category scheme="http://microjo.github.com/tag/#theme" term="theme" label="theme" />
@@ -308,7 +308,7 @@
         <author><name>microjo</name></author>
         <link href="http://microjo.github.com/2012/felix_felicis_extend.html"/>
         <published>2012-05-18T10:39:00+08:00</published>
-        <updated>2013-02-07T20:34:18+08:00</updated>
+        <updated>2013-02-07T20:34:20+08:00</updated>
         <id>http://microjo.github.com/2012/felix_felicis_extend.html</id>
         <category scheme="http://microjo.github.com/tag/#Felix Felicis" term="Felix Felicis" label="Felix Felicis" />
         <category scheme="http://microjo.github.com/tag/#markdown" term="markdown" label="markdown" />
@@ -468,7 +468,7 @@
         <author><name>microjo</name></author>
         <link href="http://microjo.github.com/2012/userscripts.html"/>
         <published>2012-05-15T23:28:00+08:00</published>
-        <updated>2013-02-07T20:33:54+08:00</updated>
+        <updated>2013-02-07T20:33:56+08:00</updated>
         <id>http://microjo.github.com/2012/userscripts.html</id>
         <category scheme="http://microjo.github.com/tag/#script" term="script" label="script" />
         <category scheme="http://microjo.github.com/tag/#Firefox" term="Firefox" label="Firefox" />
@@ -499,7 +499,7 @@
         <author><name>microjo</name></author>
         <link href="http://microjo.github.com/2012/add-apt-repository.html"/>
         <published>2012-05-10T17:43:00+08:00</published>
-        <updated>2013-02-07T20:33:35+08:00</updated>
+        <updated>2013-02-07T20:33:36+08:00</updated>
         <id>http://microjo.github.com/2012/add-apt-repository.html</id>
         <category scheme="http://microjo.github.com/tag/#Ubuntu" term="Ubuntu" label="Ubuntu" />
         <category scheme="http://microjo.github.com/tag/#apt" term="apt" label="apt" />
@@ -560,7 +560,7 @@ root@n:~# add-apt-repository ppa:mitya57/ppa
         <author><name>microjo</name></author>
         <link href="http://microjo.github.com/2012/git_learning_notes.html"/>
         <published>2012-05-07T12:00:00+08:00</published>
-        <updated>2013-02-07T22:09:41+08:00</updated>
+        <updated>2013-02-08T16:22:33+08:00</updated>
         <id>http://microjo.github.com/2012/git_learning_notes.html</id>
         <category scheme="http://microjo.github.com/tag/#Git" term="Git" label="Git" />
         <category scheme="http://microjo.github.com/tag/#GitHub" term="GitHub" label="GitHub" />
@@ -648,6 +648,24 @@ pick 100834f Added push target to Makefile
   <p>这样尽早提交，经常提交：你之后还可以用 rebase 来规整。</p>
 </blockquote>
 
+<h3 id="h1.3-git-submodule">git submodule</h3>
+
+<p>在一个主项目中引入 submodule 其实 git 做了如下三件事情：</p>
+
+<ul>
+<li>记录引用的仓库，这样 git 知道从哪里获取代码</li>
+<li>记录主项目中 submodule 的目录位置，这样 git 知道需要放置的地方</li>
+<li>记录引用 submodule 的 commit id，这样 git 知道所需要的版本</li>
+</ul>
+
+<blockquote>
+  <ul>
+  <li>摘自 <a href="http://www.kafeitu.me/git/2012/03/27/git-submodule.html">Git Submodule 使用完整教程</a></li>
+  <li><a href="http://blog.wu-boy.com/2011/09/introduction-to-git-submodule/">Git Submodule 介紹與使用</a></li>
+  <li><a href="http://josephjiang.com/entry.php?id=342">Git Submodule 的認識與正確使用</a></li>
+  </ul>
+</blockquote>
+
 <h2 id="h2">参考资料</h2>
 
 <ul>
@@ -684,7 +702,7 @@ pick 100834f Added push target to Makefile
         <author><name>microjo</name></author>
         <link href="http://microjo.github.com/2012/html5_ie678.html"/>
         <published>2012-05-01T19:45:00+08:00</published>
-        <updated>2013-02-07T20:33:44+08:00</updated>
+        <updated>2013-02-07T20:33:46+08:00</updated>
         <id>http://microjo.github.com/2012/html5_ie678.html</id>
         <category scheme="http://microjo.github.com/tag/#HTML5" term="HTML5" label="HTML5" />
         <category scheme="http://microjo.github.com/tag/#IE" term="IE" label="IE" />
@@ -719,7 +737,7 @@ pick 100834f Added push target to Makefile
         <author><name>microjo</name></author>
         <link href="http://microjo.github.com/2012/markdown_ext.html"/>
         <published>2012-04-28T21:16:00+08:00</published>
-        <updated>2013-02-07T20:34:58+08:00</updated>
+        <updated>2013-02-07T20:35:00+08:00</updated>
         <id>http://microjo.github.com/2012/markdown_ext.html</id>
         <category scheme="http://microjo.github.com/tag/#Markdown" term="Markdown" label="Markdown" />
         <category scheme="http://microjo.github.com/tag/#extension" term="extension" label="extension" />
@@ -982,7 +1000,7 @@ Content Cell  | Content Cell
         <author><name>microjo</name></author>
         <link href="http://microjo.github.com/2012/helloworld.html"/>
         <published>2012-04-26T19:19:00+08:00</published>
-        <updated>2013-02-07T20:34:48+08:00</updated>
+        <updated>2013-02-07T20:34:50+08:00</updated>
         <id>http://microjo.github.com/2012/helloworld.html</id>
         <category scheme="http://microjo.github.com/tag/#hello" term="hello" label="hello" />
         <content type="html" xml:base="http://microjo.github.com/" xml:lang="en">
@@ -1031,7 +1049,7 @@ Content Cell  | Content Cell
         <author><name>microjo</name></author>
         <link href="http://microjo.github.com/2012/qt_learning_notes.html"/>
         <published>2012-03-03T14:32:00+08:00</published>
-        <updated>2013-02-07T20:33:49+08:00</updated>
+        <updated>2013-02-07T20:33:50+08:00</updated>
         <id>http://microjo.github.com/2012/qt_learning_notes.html</id>
         <category scheme="http://microjo.github.com/tag/#Qt" term="Qt" label="Qt" />
         <category scheme="http://microjo.github.com/tag/#Harmattan" term="Harmattan" label="Harmattan" />
@@ -1051,7 +1069,7 @@ Content Cell  | Content Cell
         <author><name>microjo</name></author>
         <link href="http://microjo.github.com/2012/m9firmware.html"/>
         <published>2012-01-19T08:27:00+08:00</published>
-        <updated>2013-02-07T20:34:53+08:00</updated>
+        <updated>2013-02-07T20:34:54+08:00</updated>
         <id>http://microjo.github.com/2012/m9firmware.html</id>
         <category scheme="http://microjo.github.com/tag/#android" term="android" label="android" />
         <category scheme="http://microjo.github.com/tag/#MEIZU" term="MEIZU" label="MEIZU" />
@@ -1133,7 +1151,7 @@ SHA1: 5eb990511d309374625d024db29c11d980eb8dec
         <author><name>microjo</name></author>
         <link href="http://microjo.github.com/2011/apktool_update_usenote.html"/>
         <published>2011-05-18T05:40:00+08:00</published>
-        <updated>2013-02-07T20:33:23+08:00</updated>
+        <updated>2013-02-07T20:33:24+08:00</updated>
         <id>http://microjo.github.com/2011/apktool_update_usenote.html</id>
         <category scheme="http://microjo.github.com/tag/#android" term="android" label="android" />
         <category scheme="http://microjo.github.com/tag/#apktool" term="apktool" label="apktool" />
@@ -1166,7 +1184,7 @@ Exception in thread "main" brut.androlib.err.UndefinedResObject: resource spec: 
         <author><name>microjo</name></author>
         <link href="http://microjo.github.com/2011/humble_frozenbyte_bundle.html"/>
         <published>2011-04-13T17:06:00+08:00</published>
-        <updated>2013-02-07T20:31:52+08:00</updated>
+        <updated>2013-02-07T20:31:54+08:00</updated>
         <id>http://microjo.github.com/2011/humble_frozenbyte_bundle.html</id>
         <category scheme="http://microjo.github.com/tag/#humble" term="humble" label="humble" />
         <category scheme="http://microjo.github.com/tag/#indie" term="indie" label="indie" />
@@ -1216,7 +1234,7 @@ Exception in thread "main" brut.androlib.err.UndefinedResObject: resource spec: 
         <author><name>microjo</name></author>
         <link href="http://microjo.github.com/2011/custom_ovi_installdir.html"/>
         <published>2011-03-22T07:20:00+08:00</published>
-        <updated>2013-02-07T20:33:28+08:00</updated>
+        <updated>2013-02-07T20:33:30+08:00</updated>
         <id>http://microjo.github.com/2011/custom_ovi_installdir.html</id>
         <category scheme="http://microjo.github.com/tag/#诺基亚 Ovi 套件" term="诺基亚 Ovi 套件" label="诺基亚 Ovi 套件" />
         <category scheme="http://microjo.github.com/tag/#Nokia Ovi Suite" term="Nokia Ovi Suite" label="Nokia Ovi Suite" />
@@ -1244,7 +1262,7 @@ Exception in thread "main" brut.androlib.err.UndefinedResObject: resource spec: 
         <author><name>microjo</name></author>
         <link href="http://microjo.github.com/2010/kritcn_jlg.html"/>
         <published>2010-05-28T12:06:00+08:00</published>
-        <updated>2013-02-07T20:32:12+08:00</updated>
+        <updated>2013-02-07T20:32:14+08:00</updated>
         <id>http://microjo.github.com/2010/kritcn_jlg.html</id>
         <category scheme="http://microjo.github.com/tag/#kritCN" term="kritCN" label="kritCN" />
         <category scheme="http://microjo.github.com/tag/#shahkrit" term="shahkrit" label="shahkrit" />
@@ -1335,7 +1353,7 @@ Jane Janesuda（jane）　饰演　Chanetti (Pak-kard)
         <author><name>microjo</name></author>
         <link href="http://microjo.github.com/2010/istuff_theme_m8newui.html"/>
         <published>2010-05-15T09:50:00+08:00</published>
-        <updated>2013-02-07T20:34:29+08:00</updated>
+        <updated>2013-02-07T20:34:30+08:00</updated>
         <id>http://microjo.github.com/2010/istuff_theme_m8newui.html</id>
         <category scheme="http://microjo.github.com/tag/#M8" term="M8" label="M8" />
         <category scheme="http://microjo.github.com/tag/#iStuff" term="iStuff" label="iStuff" />
@@ -1373,7 +1391,7 @@ extract files to data/themes/ folder, and change config.txt to use this style.
         <author><name>microjo</name></author>
         <link href="http://microjo.github.com/2009/vc++_charset_convert.html"/>
         <published>2009-03-16T11:50:00+08:00</published>
-        <updated>2013-02-07T20:33:17+08:00</updated>
+        <updated>2013-02-07T20:33:18+08:00</updated>
         <id>http://microjo.github.com/2009/vc++_charset_convert.html</id>
         <category scheme="http://microjo.github.com/tag/#VC++" term="VC++" label="VC++" />
         <category scheme="http://microjo.github.com/tag/#Unicode" term="Unicode" label="Unicode" />
@@ -1397,7 +1415,7 @@ extract files to data/themes/ folder, and change config.txt to use this style.
         <author><name>microjo</name></author>
         <link href="http://microjo.github.com/2009/subtitle_notes.html"/>
         <published>2009-02-22T12:14:00+08:00</published>
-        <updated>2013-02-07T20:33:12+08:00</updated>
+        <updated>2013-02-07T20:33:14+08:00</updated>
         <id>http://microjo.github.com/2009/subtitle_notes.html</id>
         <category scheme="http://microjo.github.com/tag/#字幕" term="字幕" label="字幕" />
         <category scheme="http://microjo.github.com/tag/#压制" term="压制" label="压制" />
@@ -1415,7 +1433,7 @@ MKV 内嵌字体如果能像 PDF 只嵌入需要的字体子集该多好～ 这�
         <author><name>microjo</name></author>
         <link href="http://microjo.github.com/2008/ubuntu_flash_zh.html"/>
         <published>2008-12-25T10:28:00+08:00</published>
-        <updated>2013-02-07T20:33:06+08:00</updated>
+        <updated>2013-02-07T20:33:08+08:00</updated>
         <id>http://microjo.github.com/2008/ubuntu_flash_zh.html</id>
         <category scheme="http://microjo.github.com/tag/#Flash" term="Flash" label="Flash" />
         <category scheme="http://microjo.github.com/tag/#Ubuntu" term="Ubuntu" label="Ubuntu" />
