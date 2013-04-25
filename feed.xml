@@ -3,9 +3,35 @@
     <title>Jonathan's Blog</title>
     <link href="http://microjo.github.com/feed.xml" rel="self" />
     <link href="http://microjo.github.com/" />
-    <updated>2013-03-19T16:00:05+08:00</updated>
+    <updated>2013-04-25T18:09:53+08:00</updated>
     <id>http://microjo.github.com/</id>
     <entry>
+        <title type="html"><![CDATA[查询 Oracle 语句执行时间]]></title>
+        <author><name>microjo</name></author>
+        <link href="http://microjo.github.com/2013/oracle_v$session_longops.html"/>
+        <published>2013-04-25T17:50:00+08:00</published>
+        <updated>2013-04-25T18:09:53+08:00</updated>
+        <id>http://microjo.github.com/2013/oracle_v$session_longops.html</id>
+        <category scheme="http://microjo.github.com/tag/#oracle" term="oracle" label="oracle" />
+        <content type="html" xml:base="http://microjo.github.com/" xml:lang="en">
+            <![CDATA[ <p>对于长时间执行的 SQL 语句，Oracle 可以查询其执行时间等操作状态，方便监控耗时的操作以便优化。</p>
+
+<div class="codehilite"><pre><code><span class="k">select</span> <span class="n">b</span><span class="p">.</span><span class="o">*</span>
+<span class="k">from</span> <span class="n">v</span><span class="err">$</span><span class="k">session</span> <span class="n">a</span><span class="p">,</span> <span class="n">v</span><span class="err">$</span><span class="n">session_longops</span> <span class="n">b</span>
+<span class="k">where</span> <span class="n">a</span><span class="p">.</span><span class="n">sid</span><span class="o">=</span><span class="n">b</span><span class="p">.</span><span class="n">sid</span>
+<span class="k">and</span> <span class="n">a</span><span class="p">.</span><span class="nb">serial</span><span class="o">#=</span><span class="n">b</span><span class="p">.</span><span class="nb">serial</span><span class="o">#</span>
+</code></pre></div>
+
+<h2 id="h1">参考资料</h2>
+
+<ol>
+<li><a href="http://ysj5125094.iteye.com/blog/1781618">oracle 中 v$session_longops 视图介绍</a></li>
+<li><a href="http://space.itpub.net/12361284/viewspace-620163">利用 v$session_longops 监控 long RUN 操作</a></li>
+<li><a href="http://www.gplivna.eu/papers/v$session_longops.htm">Long running Operations in Oracle (entries in v$session_longops)</a></li>
+</ol>
+]]>
+        </content>
+    </entry><entry>
         <title type="html"><![CDATA[Natasha Bedingfield - Soulmate]]></title>
         <author><name>microjo</name></author>
         <link href="http://microjo.github.com/2012/soulmate.html"/>
@@ -1428,45 +1454,6 @@ MKV 内嵌字体如果能像 PDF 只嵌入需要的字体子集该多好～ 这�
 <li><p><a href="http://shooter.cn/wiki/%E5%9C%A8Linux%E4%B8%8A%E7%94%A8subtitleeditor%E5%88%B6%E4%BD%9C%E5%AD%97%E5%B9%95">在 Linux 上用 subtitleeditor 制作字幕</a> <br />
 很不错的字幕工具，可以在 getdeb.net 下载 0.25 版的 64 位 deb 包，什么时候能够有最新版的 64 位 deb 包呢？</p></li>
 </ul>
-]]>
-        </content>
-    </entry><entry>
-        <title type="html"><![CDATA[Ubuntu 8.04/8.10 Flash 中文显示]]></title>
-        <author><name>microjo</name></author>
-        <link href="http://microjo.github.com/2008/ubuntu_flash_zh.html"/>
-        <published>2008-12-25T10:28:00+08:00</published>
-        <updated>2013-02-07T20:33:08+08:00</updated>
-        <id>http://microjo.github.com/2008/ubuntu_flash_zh.html</id>
-        <category scheme="http://microjo.github.com/tag/#Flash" term="Flash" label="Flash" />
-        <category scheme="http://microjo.github.com/tag/#Ubuntu" term="Ubuntu" label="Ubuntu" />
-        <category scheme="http://microjo.github.com/tag/#中文显示" term="中文显示" label="中文显示" />
-        <content type="html" xml:base="http://microjo.github.com/" xml:lang="en">
-            <![CDATA[ <p>修改 <code>/etc/fonts/conf.d/49-sansserif.conf</code>，文件内容如下所示，其中 <code>WenQuanYi Zen Hei</code> 改为需要的中文字体。</p>
-
-<div class="codehilite"><pre><code><span class="cp">&lt;?xml version=&quot;1.0&quot;?&gt;</span>
-<span class="cp">&lt;!DOCTYPE fontconfig SYSTEM &quot;fonts.dtd&quot;&gt;</span>
-<span class="nt">&lt;fontconfig&gt;</span>
-<span class="c">&lt;!--</span>
-<span class="c">  If the font still has no generic name, add sans-serif</span>
-<span class="c"> --&gt;</span>
-    <span class="nt">&lt;match</span> <span class="na">target=</span><span class="s">&quot;pattern&quot;</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;test</span> <span class="na">qual=</span><span class="s">&quot;all&quot;</span> <span class="na">name=</span><span class="s">&quot;family&quot;</span> <span class="na">compare=</span><span class="s">&quot;not_eq&quot;</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;string&gt;</span>sans-serif<span class="nt">&lt;/string&gt;</span>
-        <span class="nt">&lt;/test&gt;</span>
-        <span class="nt">&lt;test</span> <span class="na">qual=</span><span class="s">&quot;all&quot;</span> <span class="na">name=</span><span class="s">&quot;family&quot;</span> <span class="na">compare=</span><span class="s">&quot;not_eq&quot;</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;string&gt;</span>serif<span class="nt">&lt;/string&gt;</span>
-        <span class="nt">&lt;/test&gt;</span>
-        <span class="nt">&lt;test</span> <span class="na">qual=</span><span class="s">&quot;all&quot;</span> <span class="na">name=</span><span class="s">&quot;family&quot;</span> <span class="na">compare=</span><span class="s">&quot;not_eq&quot;</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;string&gt;</span>monospace<span class="nt">&lt;/string&gt;</span>
-        <span class="nt">&lt;/test&gt;</span>
-        <span class="nt">&lt;edit</span> <span class="na">name=</span><span class="s">&quot;family&quot;</span> <span class="na">mode=</span><span class="s">&quot;append_last&quot;</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;string&gt;</span>WenQuanYi Zen Hei<span class="nt">&lt;/string&gt;</span>
-        <span class="nt">&lt;/edit&gt;</span>
-    <span class="nt">&lt;/match&gt;</span>
-<span class="nt">&lt;/fontconfig&gt;</span>
-</code></pre></div>
-
-<p>该文件是对没有基本字体名称（sans-serif/serif/monospace）的字体添加一个字体。由于 Flash 没有指定显示的字体，因此该文件起作用。</p>
 ]]>
         </content>
     </entry>
