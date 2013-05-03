@@ -3,7 +3,7 @@
 <!--[if (gte IE 8)|!(IE)]><!--> <html lang="zh"> <!--<![endif]-->
     <head>
         <meta charset="UTF-8">
-        <title>查询 Oracle 语句执行时间 | Jonathan's Blog</title>
+        <title>Panasonic microSDHC 16GB CLASS10 速度测试 | Jonathan's Blog</title>
         <link rel="shortcut icon" href="http://www.gravatar.com/avatar/60633c507a57f09b238c710e743f8a61?s=16" />
         <script>if (top !== self) top.location = self.location;</script>
         <!--[if lt IE 9]>
@@ -15,7 +15,7 @@
         <link rel="stylesheet" href="/static/style.css?v=633e6" />
         <link rel="stylesheet" href="/static/syntax.css?v=dbf77" />
         <link rel="stylesheet" href="/static/shadowbox/shadowbox.css?v=f5b13" type="text/css" />
-        <link rel="canonical" href="/2013/oracle_v$session_longops.html" />
+        <link rel="canonical" href="/2013/panasonic_microsdhc_test.html" />
         <script type="text/javascript">
             var _gaq = _gaq || [];
             _gaq.push(['_setAccount', 'UA-31550182-1']);
@@ -42,48 +42,62 @@
         </header>
         <article class="hentry">
             <header class="entry-header fn-clear">
-                <h1 class="entry-title fn-left">查询 Oracle 语句执行时间</h1>
+                <h1 class="entry-title fn-left">Panasonic microSDHC 16GB CLASS10 速度测试</h1>
             </header>
             <div class="entry">
                 <div class="author icon-user">
                     microjo
                 </div>
                 <div class="entry-content">
-                    <p>对于长时间执行的 SQL 语句，Oracle 可以查询其执行时间等操作状态，方便监控耗时的操作以便优化。</p>
+                    <p>最近需要买手机上使用的 microSDHC 存储卡，就在网上搜索相关信息，结果了解到现在很多存储卡（包括 SD/SDHC、microSD/microSDHC 等）使用的存储芯片都已经是 TLC 芯片。几年前还到处是 MLC 芯片，要找 SLC 芯片的比较困难，现在连找 MLC 芯片的存储卡也不是非常容易了。这次测试的存储卡是 Panasonic microSDHC RP-SM16GEJ1K。依据 <a href="http://web.archive.org/web/20111010030656/http://panasonic.jp/sd/line_up/index3.html">Panasonic 日本官网</a>和 <a href="http://panasonic.net/avc/sdcard/product_lineup/index.html#goldmicro">Panasonic Global</a> 相关型号和存储卡图片对比，可以估计使用的是 MLC 芯片。
+<img src="/image/panasonic.jp.microsdhc.png" alt="panasonic.jp.microsdhc.png" />
+<img src="/image/panasonic.global.microsdhc.png" alt="panasonic.global.microsdhc.png" /></p>
 
-<div class="codehilite"><pre><code><span class="k">select</span> <span class="n">b</span><span class="p">.</span><span class="o">*</span>
-<span class="k">from</span> <span class="n">v</span><span class="err">$</span><span class="k">session</span> <span class="n">a</span><span class="p">,</span> <span class="n">v</span><span class="err">$</span><span class="n">session_longops</span> <span class="n">b</span>
-<span class="k">where</span> <span class="n">a</span><span class="p">.</span><span class="n">sid</span><span class="o">=</span><span class="n">b</span><span class="p">.</span><span class="n">sid</span>
-<span class="k">and</span> <span class="n">a</span><span class="p">.</span><span class="nb">serial</span><span class="o">#=</span><span class="n">b</span><span class="p">.</span><span class="nb">serial</span><span class="o">#</span>
-</code></pre></div>
+<p>速度测试使用的是 ATTO Disk Benchmark 2.47，根据xx，可以通过 8K 测试来确定存储卡的速度级别（CLASS 2/4/6/10）。测试结果如下：</p>
 
-<h2 id="h1">参考资料</h2>
+<ul>
+<li><p>联想台式机、PNY 类似U盘读卡器（瑞昱 Realtek RTS5121/RTS5138/RTS5159 主控） <br />
+<img src="/image/panasonic rp-sm16gej1k (台式机 atto2.47) a.png" alt="panasonic rp-sm16gej1k (台式机 atto2.47) a.png" /></p></li>
+<li><p>联想台式机、SSK All in 1 Card Reader II (安国 AlcorMP AU6366/AU6371 主控) <br />
+<img src="/image/panasonic rp-sm16gej1k (台式机 atto2.47).png" alt="panasonic rp-sm16gej1k (台式机 atto2.47).png" /></p></li>
+<li><p>联想 ThinkPad T400 笔记本、SSK All in 1 Card Reader II (安国 AlcorMP AU6366/AU6371 主控) <br />
+<img src="/image/panasonic rp-sm16gej1k (thinkpadT400 atto2.47).png" alt="panasonic rp-sm16gej1k (thinkpadT400 atto2.47).png" /></p></li>
+</ul>
 
-<ol>
-<li><a href="http://ysj5125094.iteye.com/blog/1781618">oracle 中 v$session_longops 视图介绍</a></li>
-<li><a href="http://space.itpub.net/12361284/viewspace-620163">利用 v$session_longops 监控 long RUN 操作</a></li>
-<li><a href="http://www.gplivna.eu/papers/v$session_longops.htm">Long running Operations in Oracle (entries in v$session_longops)</a></li>
-</ol>
+<p>根据以上测试结果，可以发现速度与读卡器、硬件接口都有关系。所以如果需要横向比较的话，必须在相同情况下测试。感觉在联想台式机、SSK All in 1 Card Reader II 这个组合测试条件下能反应一些结果。对比其他在此条件下测试的存储卡结果：</p>
+
+<ul>
+<li><p>不知名 2G 卡，在卡面上有 SD-C02G TAIWAN 字样 <br />
+<img src="/image/sd-c02g (台式机 atto2.47).png" alt="sd-c02g (台式机 atto2.47).png" /></p></li>
+<li><p>SanDisk microSDHC 8G Class4 <br />
+<img src="/image/sandisk 8g (台式机 atto2.47).png" alt="sandisk 8g (台式机 atto2.47).png" /></p></li>
+<li><p>SAMSUNG microSDHC 16G Class6 (MB-MSAGA) <br />
+<img src="/image/samsung mb-msaga (台式机 atto2.47).png" alt="samsung mb-msaga (台式机 atto2.47).png" /></p></li>
+</ul>
 
                 </div>
                 <div class="fn-clear">
                     <p class="entry-rel">
-                    <a id="next-entry" class="fn-right" href="/2013/panasonic_microsdhc_test.html" title="Panasonic microSDHC 16GB CLASS10 速度测试" rel="next">后一篇</a>
+                    <a id="prev-entry" class="fn-left" href="/2013/oracle_v$session_longops.html" title="查询 Oracle 语句执行时间" rel="prev">前一篇</a>
+                    <a id="next-entry" class="fn-right" href="/2012/soulmate.html" title="Natasha Bedingfield - Soulmate" rel="next">后一篇</a>
                     </p>
                 </div>
             </div>
             <div class="entry-meta fn-clear">
                 <p class="entry-time icon-time fn-left">发布：
-                <a href="/2013/" rel="index"><time class="created" datetime="2013-04-25T17:50:00+08:00" pubdate="pubdate">2013/04/25</time></a>
+                <a href="/2013/" rel="index"><time class="created" datetime="2013-03-06T11:10:00+08:00" pubdate="pubdate">2013/03/06</time></a>
+                </p>
+                <p class="entry-modified icon-edit fn-left">修改：
+                <time class="modified" datetime="2013-03-17T21:49:00+08:00">2013/03/17 21:49</time>
                 </p>
                 <p class="entry-tags icon-tag fn-left">标签：
-                <a href="/tag/oracle/" class="tag" rel="tag">oracle</a>
+                <a href="/tag/panasonic-microsdhc/" class="tag" rel="tag">panasonic microsdhc</a>
                 </p>
             </div>
             <div id="disqus_thread"></div>
             <script type="text/javascript">
                 var disqus_shortname = 'microjo';
-                var disqus_title = '查询 Oracle 语句执行时间';
+                var disqus_title = 'Panasonic microSDHC 16GB CLASS10 速度测试';
                 (function() {
                  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
                  dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
@@ -94,7 +108,7 @@
             <script type="text/javascript">
             Shadowbox.init({ handleOversize: "drag" });
             window.onload = function() {
-                Shadowbox.setup(".entry-content img", { gallery: "查询 Oracle 语句执行时间", counterType: "skip" });
+                Shadowbox.setup(".entry-content img", { gallery: "Panasonic microSDHC 16GB CLASS10 速度测试", counterType: "skip" });
             };
             </script>
         </article>
