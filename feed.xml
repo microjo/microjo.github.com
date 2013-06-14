@@ -3,7 +3,7 @@
     <title>Jonathan's Blog</title>
     <link href="http://microjo.github.com/feed.xml" rel="self" />
     <link href="http://microjo.github.com/" />
-    <updated>2013-04-25T18:20:14+08:00</updated>
+    <updated>2013-06-11T22:22:32+08:00</updated>
     <id>http://microjo.github.com/</id>
     <entry>
         <title type="html"><![CDATA[查询 Oracle 语句执行时间]]></title>
@@ -29,6 +29,332 @@
 <li><a href="http://space.itpub.net/12361284/viewspace-620163">利用 v$session_longops 监控 long RUN 操作</a></li>
 <li><a href="http://www.gplivna.eu/papers/v$session_longops.htm">Long running Operations in Oracle (entries in v$session_longops)</a></li>
 </ol>
+]]>
+        </content>
+    </entry><entry>
+        <title type="html"><![CDATA[亚太VI 134.0°E 频道参数]]></title>
+        <author><name>microjo</name></author>
+        <link href="http://microjo.github.com/2013/apstar-vi_134e.html"/>
+        <published>2013-04-08T22:10:00+08:00</published>
+        <updated>2013-06-11T22:22:32+08:00</updated>
+        <id>http://microjo.github.com/2013/apstar-vi_134e.html</id>
+        <content type="html" xml:base="http://microjo.github.com/" xml:lang="en">
+            <![CDATA[ <table>
+    <tr>
+        <th>下行频率</th>
+        <th class="ft-center">LOGO</th>
+        <th>Channel Name<br />
+            频道名称</th>
+        <th class="ft-center">系统<br />
+            加密方式</th>
+        <th>SPID</th>
+        <th>VPID</th>
+        <th>APID</th>
+    </tr>
+    <tr>
+        <td rowspan="10" class="ft-center">
+            <strong>12435 V</strong><br />
+            tp 5<br /><br />
+            <small>SR 27500<br />
+            FEC 3/4</small></td>
+        <td><div style="background:url(/image/134e_12435.png) no-repeat 0px 0px;height:60px;width:100px;"></div></td>
+        <td>CNN International Asia Pacific<br />
+            美国有线电视新闻网 亚洲（CNN）</td>
+        <td rowspan="10" class="ft-center">
+            DVB-S QPSK<br />
+            Irdeto 2</td>
+        <td>301</td>
+        <td>257</td>
+        <td>513</td>
+    </tr>
+    <tr>
+        <td><div style="background:url(/image/134e_12435.png) no-repeat 0px -60px;height:60px;width:100px;"></div></td>
+        <td>HBO Asia<br />
+            家庭影院亚洲频道（HBO）</td>
+        <td>302</td>
+        <td>258</td>
+        <td>514</td>
+    </tr>
+    <tr>
+        <td><div style="background:url(/image/134e_12435.png) no-repeat 0px -120px;height:60px;width:100px;"></div></td>
+        <td>Cinemax Asia<br />
+            Cinemax亚洲频道（CIN）</td>
+        <td>303</td>
+        <td>259</td>
+        <td>515</td>
+    </tr>
+    <tr>
+        <td><div style="background:url(/image/134e_12435.png) no-repeat 0px -180px;height:60px;width:100px;"></div></td>
+        <td>CNBC Asia Pacific<br />
+            全国广播公司亚太财经频道（CNBC）</td>
+        <td>304</td>
+        <td>260</td>
+        <td>516</td>
+    </tr>
+    <tr>
+        <td><div style="background:url(/image/134e_12435.png) no-repeat 0px -240px;height:60px;width:100px;"></div></td>
+        <td>ESPN China<br />
+            娱乐体育节目网亚洲频道（ESPN）</td>
+        <td>305</td>
+        <td>261</td>
+        <td>517</td>
+    </tr>
+    <tr>
+        <td><div style="background:url(/image/134e_12435.png) no-repeat 0px -300px;height:60px;width:100px;"></div></td>
+        <td>National Geographic Channel Asia<br />
+            国家地理亚洲频道（NGC）</td>
+        <td>306</td>
+        <td>262</td>
+        <td>518</td>
+    </tr>
+    <tr>
+        <td><div style="background:url(/image/134e_12435.png) no-repeat 0px -360px;height:60px;width:100px;"></div></td>
+        <td>Star Movies International<br />
+            卫视国际电影台（STAR1）</td>
+        <td>307</td>
+        <td>263</td>
+        <td>519</td>
+    </tr>
+    <tr>
+        <td><div style="background:url(/image/134e_12435.png) no-repeat 0px -420px;height:60px;width:100px;"></div></td>
+        <td>AXN East Asia 2<br />
+            索尼动作影视娱乐频道（AXN）</td>
+        <td>308</td>
+        <td>264</td>
+        <td>520</td>
+    </tr>
+    <tr>
+        <td><div style="background:url(/image/134e_12435.png) no-repeat 0px -480px;height:60px;width:100px;"></div></td>
+        <td>Discovery Channel China<br />
+            探索亚洲频道（DIS）</td>
+        <td>309</td>
+        <td>265</td>
+        <td>521</td>
+    </tr>
+    <tr>
+        <td><div style="background:url(/image/134e_12435.png) no-repeat 0px -540px;height:60px;width:100px;"></div></td>
+        <td>Diva Universal Asia（DIVA）</td>
+        <td>310</td>
+        <td>272</td>
+        <td>528</td>
+    </tr>
+    <tr>
+        <td rowspan="10" class="ft-center">
+            <strong>12515 V</strong><br />
+            tp 7<br /><br />
+            <small>SR 27500<br />
+            FEC 3/4</small></td>
+        <td><div style="background:url(/image/134e_12515.png) no-repeat 0px 0px;height:60px;width:100px;"></td>
+        <td>BBC World News Asia Pacific<br />
+            英国广播公司世界频道（BBC）</td>
+        <td rowspan="10" class="ft-center">
+            DVB-S QPSK<br />
+            Irdeto 2</td>
+        <td>401</td>
+        <td>257</td>
+        <td>513</td>
+    </tr>
+    <tr>
+        <td><div style="background:url(/image/134e_12515.png) no-repeat 0px -60px;height:60px;width:100px;"></td>
+        <td>NHK World Premium<br />
+            日本广播协会收费娱乐电视频道（NHK）</td>
+        <td>402</td>
+        <td>258</td>
+        <td>514</td>
+    </tr>
+    <tr>
+        <td><div style="background:url(/image/134e_12515.png) no-repeat 0px -120px;height:60px;width:100px;"></td>
+        <td>RT English<br />
+            今日俄罗斯 英语频道（RTTV）</td>
+        <td>403</td>
+        <td>259</td>
+        <td>515</td>
+    </tr>
+    <tr>
+        <td><div style="background:url(/image/134e_12515.png) no-repeat 0px -180px;height:60px;width:100px;"></td>
+        <td>Phoenix Movies Channel<br />
+            凤凰卫视电影台（PHOE1）</td>
+        <td>404</td>
+        <td>260</td>
+        <td>516</td>
+    </tr>
+    <tr>
+        <td><div style="background:url(/image/134e_12515.png) no-repeat 0px -240px;height:60px;width:100px;"></td>
+        <td>TVB8<br />
+            香港无线8频道（TVB8）</td>
+        <td>405</td>
+        <td>261</td>
+        <td>517</td>
+    </tr>
+    <tr>
+        <td><div style="background:url(/image/134e_12515.png) no-repeat 0px -300px;height:60px;width:100px;"></td>
+        <td>TVB Xing He<br />
+            香港无线星河频道（TVB）</td>
+        <td>406</td>
+        <td>262</td>
+        <td>518</td>
+    </tr>
+    <tr>
+        <td><div style="background:url(/image/134e_12515.png) no-repeat 0px -360px;height:60px;width:100px;"></td>
+        <td>NOW<br />
+            香港世界网络频道（NOW）</td>
+        <td>407</td>
+        <td>263</td>
+        <td>519</td>
+    </tr>
+    <tr>
+        <td><div style="background:url(/image/134e_12515.png) no-repeat 0px -420px;height:60px;width:100px;"></td>
+        <td>Celestial Movies<br />
+            天映频道（CELES）</td>
+        <td>408</td>
+        <td>264</td>
+        <td>520</td>
+    </tr>
+    <tr>
+        <td><div style="background:url(/image/134e_12515.png) no-repeat 0px -480px;height:60px;width:100px;"></td>
+        <td>Channel NewsAsia<br />
+            新加坡亚洲新闻台（CNAI）</td>
+        <td>409</td>
+        <td>265</td>
+        <td>521</td>
+    </tr>
+    <tr>
+        <td><div style="background:url(/image/134e_12515.png) no-repeat 0px -540px;height:60px;width:100px;"></td>
+        <td>China Entertainment TV<br />
+            华娱卫视（CETV）</td>
+        <td>410</td>
+        <td>272</td>
+        <td>528</td>
+    </tr>
+    <tr>
+        <td rowspan="10" class="ft-center">
+            <strong>12595 V</strong><br />
+            tp 9<br /><br />
+            <small>SR 27500<br />
+            FEC 3/4</small></td>
+        <td><div style="background:url(/image/134e_12595.png) no-repeat 0px 0px;height:60px;width:100px;"></td>
+        <td>MTV China<br />
+            MTV 音乐电视台中文频道（MTV）</td>
+        <td rowspan="10" class="ft-center">
+            DVB-S QPSK<br />
+            Irdeto 2</td>
+        <td>501</td>
+        <td>257</td>
+        <td>513</td>
+    </tr>
+    <tr>
+        <td><div style="background:url(/image/134e_12595.png) no-repeat 0px -60px;height:60px;width:100px;"></td>
+        <td>Channel V China<br />
+            [V] 音乐台（[V]）</td>
+        <td>502</td>
+        <td>258</td>
+        <td>514</td>
+    </tr>
+    <tr>
+        <td><div style="background:url(/image/134e_12595.png) no-repeat 0px -120px;height:60px;width:100px;"></td>
+        <td>Star Sports China<br />
+            卫视体育台 亚洲（STARS）</td>
+        <td>503</td>
+        <td>259</td>
+        <td>515</td>
+    </tr>
+    <tr>
+        <td><div style="background:url(/image/134e_12595.png) no-repeat 0px -180px;height:60px;width:100px;"></td>
+        <td>Phoenix Chinese Channel<br />
+            凤凰卫视中文台（PHOEC）</td>
+        <td>504</td>
+        <td>260</td>
+        <td>516</td>
+    </tr>
+    <tr>
+        <td><div style="background:url(/image/134e_12595.png) no-repeat 0px -240px;height:60px;width:100px;"></td>
+        <td>Macau Asia Satellite TV<br />
+            澳门卫视中文台（MASTV）</td>
+        <td>505</td>
+        <td>261</td>
+        <td>517</td>
+    </tr>
+    <tr>
+        <td><div style="background:url(/image/134e_12595.png) no-repeat 0px -300px;height:60px;width:100px;"></td>
+        <td>TV 5 Monde Asie<br />
+            法国国营电视5台（TV5）</td>
+        <td>506</td>
+        <td>262</td>
+        <td>518</td>
+    </tr>
+    <tr>
+        <td><div style="background:url(/image/134e_12595.png) no-repeat 0px -360px;height:60px;width:100px;"></td>
+        <td>Phoenix InfoNews Channel<br />
+            凤凰卫视资讯台（PHOEN）</td>
+        <td>507</td>
+        <td>263</td>
+        <td>519</td>
+    </tr>
+    <tr>
+        <td><div style="background:url(/image/134e_12595.png) no-repeat 0px -420px;height:60px;width:100px;"></td>
+        <td>Xing Kong International<br />
+            星空卫视（XINGK）</td>
+        <td>508</td>
+        <td>264</td>
+        <td>520</td>
+    </tr>
+    <tr>
+        <td><div style="background:url(/image/134e_12595.png) no-repeat 0px -480px;height:60px;width:100px;"></td>
+        <td>Eurosport News<br />
+            欧洲体育新闻频道（EUROS）</td>
+        <td>509</td>
+        <td>265</td>
+        <td>521</td>
+    </tr>
+    <tr>
+        <td><div style="background:url(/image/134e_12595.png) no-repeat 0px -540px;height:60px;width:100px;"></td>
+        <td>Bloomberg TV Asia<br />
+            彭勃财经亚太频道（BLOOM）</td>
+        <td>510</td>
+        <td>272</td>
+        <td>528</td>
+    </tr>
+    <tr>
+        <td rowspan="4" class="ft-center">
+            <strong>12675 V</strong><br />
+            tp 11<br /><br />
+            <small>SR 27500<br />
+            FEC 3/4</small></td>
+        <td><div style="background:url(/image/134e_12675.png) no-repeat 0px 0px;height:60px;width:100px;"></div></td>
+        <td>RTR Planeta<br />
+            （MTV）</td>
+        <td rowspan="10" class="ft-center">
+            DVB-S QPSK<br />
+            Irdeto 2</td>
+        <td>602</td>
+        <td>258</td>
+        <td>514</td>
+    </tr>
+    <tr>
+        <td><div style="background:url(/image/134e_12675.png) no-repeat 0px -60px;height:60px;width:100px;"></div></td>
+        <td>Cubavisión Internacional<br />
+            古巴视野国际频道（STARS）</td>
+        <td>603</td>
+        <td>259</td>
+        <td>515</td>
+    </tr>
+    <tr>
+        <td><div style="background:url(/image/134e_12675.png) no-repeat 0px -120px;height:60px;width:100px;"></div></td>
+        <td>KBS World<br />
+            （PHOEC）</td>
+        <td>604</td>
+        <td>260</td>
+        <td>516</td>
+    </tr>
+    <tr>
+        <td><div style="background:url(/image/134e_12675.png) no-repeat 0px -180px;height:60px;width:100px;"></div></td>
+        <td>Zee TV Asia Pacific<br />
+            （MASTV）</td>
+        <td>605</td>
+        <td>261</td>
+        <td>517</td>
+    </tr>
+</table>
 ]]>
         </content>
     </entry><entry>
@@ -1447,30 +1773,6 @@ extract files to data/themes/ folder, and change config.txt to use this style.
 <p>0.7  调整首页的样式 <a href="http://img.ly/14hL">截图</a></p>
 
 <p>0.6  初始版本 <a href="http://img.ly/13Tn">截图1</a> <a href="http://img.ly/13IT">截图2</a></p></li>
-</ul>
-]]>
-        </content>
-    </entry><entry>
-        <title type="html"><![CDATA[VC++下面字符集转换（ANSI/Unicode/UTF-8）]]></title>
-        <author><name>microjo</name></author>
-        <link href="http://microjo.github.com/2009/vc++_charset_convert.html"/>
-        <published>2009-03-16T11:50:00+08:00</published>
-        <updated>2013-02-07T20:33:17+08:00</updated>
-        <id>http://microjo.github.com/2009/vc++_charset_convert.html</id>
-        <category scheme="http://microjo.github.com/tag/#VC++" term="VC++" label="VC++" />
-        <category scheme="http://microjo.github.com/tag/#Unicode" term="Unicode" label="Unicode" />
-        <category scheme="http://microjo.github.com/tag/#UTF-8" term="UTF-8" label="UTF-8" />
-        <category scheme="http://microjo.github.com/tag/#转换" term="转换" label="转换" />
-        <content type="html" xml:base="http://microjo.github.com/" xml:lang="en">
-            <![CDATA[ <p>使用 VC++2005 编写 WINCE 的程序需要考虑字符集的问题，尤其使用一些开源库，经常需要字符集的转换。在网上搜索了一些字符集相关的文章或帖子：</p>
-
-<ul>
-<li><p><a href="http://www.cnblogs.com/xiongeee/archive/2007/10/29/942132.html">字符集之间转换(UTF-8,UNICODE,Gb2312)</a> <br />
-使用类中静态方法实现，归入类中比较容易识别。其实是不是可以用命名空间实现？</p></li>
-<li><p><a href="http://topic.csdn.net/u/20081217/17/cfc4ae53-375c-4732-b8c0-23a689e1e6a4.html">unicode 转换成 UTF-8 出现问题</a> <br />
-15、20、27楼的内容。</p></li>
-<li><p><a href="http://www.cnblogs.com/xiaoyz/archive/2008/10/11/1308860.html">C++的中英文字符串表示(string, wstring)</a></p></li>
-<li><p><a href="http://blog.csdn.net/ice197983/article/details/1533878">VS2005：C++ std::string, std::wstring 转换方法</a></p></li>
 </ul>
 ]]>
         </content>
