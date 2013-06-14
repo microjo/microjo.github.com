@@ -3,9 +3,71 @@
     <title>Jonathan's Blog</title>
     <link href="http://microjo.github.com/feed.xml" rel="self" />
     <link href="http://microjo.github.com/" />
-    <updated>2013-06-11T22:22:32+08:00</updated>
+    <updated>2013-06-12T22:11:33+08:00</updated>
     <id>http://microjo.github.com/</id>
     <entry>
+        <title type="html"><![CDATA[用 Fireworks 自制 DM800se 频道图标（Picon）]]></title>
+        <author><name>microjo</name></author>
+        <link href="http://microjo.github.com/2013/using_fireworks_make_picon.html"/>
+        <published>2013-06-11T22:26:00+08:00</published>
+        <updated>2013-06-12T22:11:33+08:00</updated>
+        <id>http://microjo.github.com/2013/using_fireworks_make_picon.html</id>
+        <category scheme="http://microjo.github.com/tag/#dm800se" term="dm800se" label="dm800se" />
+        <category scheme="http://microjo.github.com/tag/#picon" term="picon" label="picon" />
+        <category scheme="http://microjo.github.com/tag/#fireworks" term="fireworks" label="fireworks" />
+        <content type="html" xml:base="http://microjo.github.com/" xml:lang="en">
+            <![CDATA[ <ol>
+<li><p>获取频道的台标，可以从网络上搜索<sup class="footnote-ref" id="fnref-1"><a href="#fn-1">1</a></sup>，也可以从电视视频截取并抠图出来。推荐从 <a href="http://www.lyngsat.com">LyngSat</a> 获取频道台标，此处以自制 CINEMAX 频道图标举例。</p></li>
+<li><p>用 Adobe Fireworks CS5（其他版本 Fireworks 应该都适用）打开频道台标源文件。软件默认自动选择其中的内容，见图中蓝色边框选中的部分。用 Ctrl+C 或编辑菜单的复制功能将内容复制到剪贴板。 <br />
+<img src="/image/fw_picon1.png" alt="图1" title="图1" /></p></li>
+<li><p>新建一个图片，宽度 100，高度 60（DM800se Picon 的分辨率是 100x60），分辨率没有要求。 <br />
+<img src="/image/fw_picon2.png" alt="图2" title="图2" /></p></li>
+<li><p>用 Ctrl+V 或编辑菜单的粘贴功能将剪贴板中的内容复制到新图片中。 <br />
+<img src="/image/fw_picon3.png" alt="图3" title="图3" /></p></li>
+<li><p>选择刚粘贴的内容，点击缩放工具按钮，变成 9 点的黑色控制框。 <br />
+<img src="/image/fw_picon4.png" alt="图4" title="图4" /></p></li>
+<li><p>用鼠标拖动左上角或者右上角的控制点，进行等比例缩放。将其缩放到合适的大小，可通过其位图属性精确控制，见图6。 <br />
+<img src="/image/fw_picon5.png" alt="图5" title="图5" /> <br />
+<img src="/image/fw_picon6.png" alt="图6" title="图6" /></p></li>
+<li><p>打开文件菜单的图像预览功能，选择“PNG 8”格式，“最合适”调色板，“256”色，“Alpha 透明度”<sup class="footnote-ref" id="fnref-2"><a href="#fn-2">2</a></sup>，就能在右侧看到最终需要的图标。此处设置可以保存起来以便重复使用。点击导出按钮，生成需要的 PNG 格式 Picon。
+<img src="/image/fw_picon7.png" alt="图7" title="图7" /></p></li>
+</ol>
+
+<h2 id="h1">使用注意</h2>
+
+<p><img src="/image/alphatest.png" alt="图8" title="图8" /></p>
+
+<p>如上生成的 Picon 如果需要达到完美显示效果，需要将<code>alphatest</code>参数设置成<code>blend</code>。比如将 infinity_hd 皮肤配置文件<code>skin.xml</code>中这部分：</p>
+
+<div class="codehilite"><pre><code><span class="nt">&lt;widget</span> <span class="na">source=</span><span class="s">&quot;session.CurrentService&quot;</span> <span class="na">render=</span><span class="s">&quot;Picon&quot;</span> <span class="na">position=</span><span class="s">&quot;90,556&quot;</span> <span class="na">zPosition=</span><span class="s">&quot;4&quot;</span> <span class="na">size=</span><span class="s">&quot;100,60&quot;</span> <span class="na">alphatest=</span><span class="s">&quot;on&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;convert</span> <span class="na">type=</span><span class="s">&quot;ServiceName&quot;</span><span class="nt">&gt;</span>Reference<span class="nt">&lt;/convert&gt;</span>
+<span class="nt">&lt;/widget&gt;</span>
+</code></pre></div>
+
+<p>修改成：</p>
+
+<div class="codehilite"><pre><code><span class="nt">&lt;widget</span> <span class="na">source=</span><span class="s">&quot;session.CurrentService&quot;</span> <span class="na">render=</span><span class="s">&quot;Picon&quot;</span> <span class="na">position=</span><span class="s">&quot;90,556&quot;</span> <span class="na">zPosition=</span><span class="s">&quot;4&quot;</span> <span class="na">size=</span><span class="s">&quot;100,60&quot;</span> <span class="na">alphatest=</span><span class="s">&quot;blend&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;convert</span> <span class="na">type=</span><span class="s">&quot;ServiceName&quot;</span><span class="nt">&gt;</span>Reference<span class="nt">&lt;/convert&gt;</span>
+<span class="nt">&lt;/widget&gt;</span>
+</code></pre></div>
+
+<h2 id="h2">参考资料</h2>
+
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn-1">
+<p><a href="http://bbs.asiatvro.com/thread-759372-1-1.html">教你自制 PICON 图标，并在 dreamboxEDIT 关联对应的 PICON</a> by usbok@亚洲卫视&nbsp;<a href="#fnref-1" class="footnoteBackLink" title="Jump back to footnote 1 in the text.">&#8617;</a></p>
+</li>
+
+<li id="fn-2">
+<p><a href="http://www.dmtuan.com/?p=589">fireworks 网页图片导出优化</a> by <a href="http://www.dmtuan.com">啄木鸟</a>&nbsp;<a href="#fnref-2" class="footnoteBackLink" title="Jump back to footnote 2 in the text.">&#8617;</a></p>
+</li>
+</ol>
+</div>
+]]>
+        </content>
+    </entry><entry>
         <title type="html"><![CDATA[查询 Oracle 语句执行时间]]></title>
         <author><name>microjo</name></author>
         <link href="http://microjo.github.com/2013/oracle_v$session_longops.html"/>
@@ -1736,44 +1798,6 @@ Jane Janesuda（jane）　饰演　Chanetti (Pak-kard)
 </ul></li>
 <li><a href="http://www.youku.com/playlist_show/id_3939631.html">优酷在线观看</a></li>
 </ol>
-]]>
-        </content>
-    </entry><entry>
-        <title type="html"><![CDATA[iStuff 主题 - M8NewUI]]></title>
-        <author><name>microjo</name></author>
-        <link href="http://microjo.github.com/2010/istuff_theme_m8newui.html"/>
-        <published>2010-05-15T09:50:00+08:00</published>
-        <updated>2013-02-07T20:34:29+08:00</updated>
-        <id>http://microjo.github.com/2010/istuff_theme_m8newui.html</id>
-        <category scheme="http://microjo.github.com/tag/#M8" term="M8" label="M8" />
-        <category scheme="http://microjo.github.com/tag/#iStuff" term="iStuff" label="iStuff" />
-        <category scheme="http://microjo.github.com/tag/#theme" term="theme" label="theme" />
-        <content type="html" xml:base="http://microjo.github.com/" xml:lang="en">
-            <![CDATA[ <p>MEIZU New UI Style, made by microjo (follow me at <a href="https://twitter.com/micro4jo">@micro4jo</a>)</p>
-
-<ul>
-<li>version: 1.2</li>
-<li>requirement: iStuff ver &gt; 1.6.0</li>
-<li>info:
-<ol>
-<li>picture resource is from MEIZU M8 firmware, © MEIZU</li>
-<li>other is © microjo, you can use for free</li>
-</ol></li>
-<li><p>use: <br />
-extract files to data/themes/ folder, and change config.txt to use this style.
-将压缩包中解压缩（含原始目录），将其复制到 iStuff 安装目录 <code>/data/themes</code> 下面，然后修改设置 <code>config.txt</code> 中主题设置项：<code>theme=m8</code>。</p></li>
-<li><p>update:</p>
-
-<p>1.2  修改扩展页面以符合 M8 UI 界面 <a href="http://img.ly/199A">截图1</a> <a href="http://img.ly/199I">截图2</a></p>
-
-<p>1.1  修改快速主页和书签页面，尤其书签页面改动多些，应该比较像 M8 的 UI 界面 <a href="http://img.ly/17LV">截图</a></p>
-
-<p>1.0（使用 iStuff 1.5.0）  修改页面缩放的按钮，谢谢作者修改了界面以配合 <a href="http://img.ly/15rD">截图</a></p>
-
-<p>0.7  调整首页的样式 <a href="http://img.ly/14hL">截图</a></p>
-
-<p>0.6  初始版本 <a href="http://img.ly/13Tn">截图1</a> <a href="http://img.ly/13IT">截图2</a></p></li>
-</ul>
 ]]>
         </content>
     </entry>
