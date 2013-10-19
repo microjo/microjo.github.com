@@ -452,3 +452,12 @@ ul.tagcloud {
     text-align: right;
     padding-right: 3em;
 }
+.ads {
+    float: right;
+    position: fixed !important;
+    top: 3em;
+    position: absolute;
+    z-index: 300;
+    top: expression(offsetParent.scrollTop+3em);
+    right: 10px;
+}
