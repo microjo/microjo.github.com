@@ -1,0 +1,164 @@
+<!DOCTYPE HTML>
+<!--[if lt IE 8]> <html class="iehack" lang="zh"> <![endif]-->
+<!--[if (gte IE 8)|!(IE)]><!--> <html lang="zh"> <!--<![endif]-->
+    <head>
+        <meta charset="UTF-8">
+        <title>新雷4（DM800se SR4）使用技巧 | Jonathan's Blog</title>
+        <link rel="shortcut icon" href="http://www.gravatar.com/avatar/60633c507a57f09b238c710e743f8a61?s=16" />
+        <script>if (top !== self) top.location = self.location;</script>
+        <!--[if lt IE 9]>
+        <script type="text/javascript" src="/static/html5shiv.js?v=bdce9"></script>
+        <![endif]-->
+        <meta name="HandheldFriendly" content="True" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0" />
+        <link rel="alternate" type="application/rss+xml" href="/feed.xml" title="Jonathan's Blog" />
+        <link rel="stylesheet" href="/static/style.css?v=633e6" />
+        <link rel="stylesheet" href="/static/syntax.css?v=dbf77" />
+        <link rel="stylesheet" href="/static/shadowbox/shadowbox.css?v=f5b13" type="text/css" />
+        <link rel="canonical" href="/2013/dm800se-sr4_tips.html" />
+        <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-31550182-1']);
+            _gaq.push(['_trackPageview']);
+            _gaq.push(['_trackPageLoadTime']);
+            (function() {
+              var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+              ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+              var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+             })();
+         </script>
+    </head>
+    <body>
+        <header id="header">
+            <nav class="fn-clear">
+                <ul id="nav" class="fn-right fn-clear">
+                    <li id="nav-home"><a href="/"><i class="icon-home"></i>首页</a></li>
+                    <li id="nav-cat-project"><a href="/project.html"><i class="icon-globe"></i>项目</a></li>
+                    <li id="nav-cat-ent"><a href="/entertainment/"><i class="icon-coffee"></i>休闲</a></li>
+                    <li id="nav-about"><a href="/about.html"><i class="icon-info-sign"></i>关于</a></li>
+                    <li id="nav-tags"><a href="/tag/"><i class="icon-tag"></i>标签</a></li>
+                </ul>
+            </nav>
+        </header>
+        <article class="hentry">
+            <header class="entry-header fn-clear">
+                <h1 class="entry-title fn-left">新雷4（DM800se SR4）使用技巧</h1>
+            </header>
+            <div class="entry">
+                <div class="author icon-user">
+                    microjo
+                </div>
+                <div class="entry-content">
+                    <p>本文主要记录使用新雷4接收卫星/地面波/有线电视时的一些技巧。这些记录下来主要是解决使用过程中遇到的问题，方便以后查阅。</p>
+
+<ol>
+<li><p>enigma2 系统等菜单通过上下导航键进行循环浏览，需要在皮肤配置文件<code>skin.xml</code>中涉及的地方（主要是<code>Listbox</code>这个 render），将其<code>enableWrapAround</code>参数设置成<code>1</code>或<code>on</code>：</p>
+
+<div class="codehilite"><pre><code><span class="nt">&lt;widget</span> <span class="na">source=</span><span class="s">&quot;menu&quot;</span> <span class="na">render=</span><span class="s">&quot;Listbox&quot;</span> <span class="na">position=</span><span class="s">&quot;46,115&quot;</span> <span class="na">size=</span><span class="s">&quot;233,330&quot;</span> <span class="na">scrollbarMode=</span><span class="s">&quot;showNever&quot;</span> <span class="na">enableWrapAround=</span><span class="s">&quot;on&quot;</span> <span class="na">transparent=</span><span class="s">&quot;1&quot;</span><span class="nt">&gt;</span>
+</code></pre></div></li>
+<li><p>使用 Cnigma2 固件，修复部分地区有线不能正常播放的方法<sup class="footnote-ref" id="fnref-cnigma2a"><a href="#fn-cnigma2a">1</a></sup>：</p>
+
+<blockquote>
+  <ol>
+  <li><p>菜单-设置-系统设置-高级设置，将“禁止 PCR PID（解决部分地区有线问题）/Disable PCR PID”设置为“是”。 这个将禁止所有频道的 PCRPID 的写入。</p></li>
+  <li><p>在<code>/etc/</code>建立一个文件，名为<code>pcrpid.ignore</code>，一行一个 pcrpid，pcrpid 可以通过菜单-信息-频道-绿键查看，十进制直接写，十六进制请以<code>0x</code>开头，例如：  </p>
+
+<pre><code>4561
+0x231
+</code></pre>
+  
+  <p>禁用 pcrpid 的频道可能会有音视频不同步的现象，可以按音频/黄键，选择音频同步进行细调。</p></li>
+  </ol>
+</blockquote></li>
+<li><p>最新版本 Cnigma2 固件包含把有线 EPG 映射到卫星 EPG 的功能<sup class="footnote-ref" id="fnref-cnigma2b"><a href="#fn-cnigma2b">2</a></sup>：</p>
+
+<blockquote>
+  <p>首先我们要编辑一个频道映射表，这个映射表存放在<code>/etc/tsonid_save.map</code>文件中，文件格式：</p>
+
+<pre><code>#源tsonid 目的tsonid
+101:1:101 301:2184:3 #CCTV-1
+102:1:101 302:2184:3 #CCTV-2
+691:1:115 800:1:16 #CCTV1高清
+692:1:115 801:1:16 #央视高清
+805:1:205 3521:2184:6 #风云音乐
+806:1:205 3777:2184:6 #世界地理
+</code></pre>
+  
+  <ul>
+  <li>行以<code>#</code>开头表示注释；</li>
+  <li>从第二行开始，每行都是映射数据，用十进制表示；</li>
+  <li>第一组 101:1:101 是源频道的 tsonid，这里是南京有线的 CCTV1 频道，从左至右分别是 sid、onid、tsid，这个数据可以在 Cnigma2 默认皮肤的右下角看到，也可以通过菜单-信息-频道-绿键查询到；</li>
+  <li>第二组 301:2184:3 是目的频道的 tsonid，这里是 115.5 中6B上的 CCTV1 频道，查找和排列方式同第一组；</li>
+  <li>最后<code>#CCTV-1</code>表示注释。</li>
+  </ul>
+  
+  <p>编辑好对照表，大家就可以开始乾坤大挪移了（首先确认你的有线 EPG 已经正常显示）。按 text 键调出 EPG 助手（也可以从插件面板中调用），新版的 EPG 助手多了个蓝键“EPG 映射”，按蓝键即可完成 EPG 乾坤大挪移，回到频道列表，看看是不是 EPG 出来了？按过蓝键后，在<code>/tmp</code>目录下保存了<code>gemini800.tgz</code>这个文件，你还可以把这个文件分享给你的朋友或网友。</p>
+  
+  <p>补充一句：这个方法还可以把你加载好的网络 EPG 导出，供有线或其他卫星使用，原理和方法就自己琢磨吧，呵呵。</p>
+</blockquote></li>
+<li><p>卫星名称修改为中文：</p>
+
+<p>将<code>\etc\tuxbox\satellites.xml</code>用文本编辑器打开，原版文件第一行默认是<code>&lt;?xml version="1.0" encoding="iso-8859-1"?&gt;</code>。修改其中卫星名称为中文的后，需要将第一行改为<code>&lt;?xml version="1.0" encoding="utf-8"?&gt;</code>，并以 UTF-8 编码格式保存。这样才能保证中文能正常显示，不会出现乱码。</p></li>
+</ol>
+
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn-cnigma2a">
+<p><a href="http://blog.nj53.com/index.php/archives/176">修复部分地区有线 DM800 不能正常播放的方法</a> by 南京以东&nbsp;<a href="#fnref-cnigma2a" class="footnoteBackLink" title="Jump back to footnote 1 in the text.">&#8617;</a></p>
+</li>
+
+<li id="fn-cnigma2b">
+<p><a href="http://blog.nj53.com/index.php/archives/196">乾坤大挪移-谈谈 EPG 的映射</a> by 南京以东&nbsp;<a href="#fnref-cnigma2b" class="footnoteBackLink" title="Jump back to footnote 2 in the text.">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+                </div>
+                <div class="fn-clear">
+                    <p class="entry-rel">
+                    <a id="next-entry" class="fn-right" href="/2013/using_fireworks_make_picon.html" title="用 Fireworks 自制 DM800se 频道图标（Picon）" rel="next">后一篇</a>
+                    </p>
+                </div>
+            </div>
+            <div class="entry-meta fn-clear">
+                <p class="entry-time icon-time fn-left">发布：
+                <a href="/2013/" rel="index"><time class="created" datetime="2013-06-15T22:26:00+08:00" pubdate="pubdate">2013/06/15</time></a>
+                </p>
+                <p class="entry-tags icon-tag fn-left">标签：
+                <a href="/tag/dm800se/" class="tag" rel="tag">dm800se</a>
+                <a href="/tag/enigma2/" class="tag" rel="tag">enigma2</a>
+                </p>
+            </div>
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+                var disqus_shortname = 'microjo';
+                var disqus_title = '新雷4（DM800se SR4）使用技巧';
+                (function() {
+                 var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                 dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                 (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                 })();
+            </script>
+            <script type="text/javascript" src="/static/shadowbox/shadowbox.js?v=0577e"></script>
+            <script type="text/javascript">
+            Shadowbox.init({ handleOversize: "drag" });
+            window.onload = function() {
+                Shadowbox.setup(".entry-content img", { gallery: "新雷4（DM800se SR4）使用技巧", counterType: "skip" });
+            };
+            </script>
+        </article>
+
+        <footer id="footer">
+            <p class="copyright">© <a href="http://microjo.github.com/">Jonathan's Blog</a> | 
+                <span class="software">Powered by <a href="http://lab.lepture.com/liquidluck/">Felix Felicis</a> 3.8</span>
+            </p>
+            <p class="theme">Theme <a href="https://github.com/microjo/liquidluck-theme-lovelymod" rel="nofollow">Lovely</a> 1.0 original designed by <a href="http://lepture.com">Hsiaoming Yang</a> | Modified by <a href="http://microjo.github.com">MiCRoJo</a></p>
+        </footer>
+
+        <script type="text/javascript">
+            var currentNav = window.currentNav || "nav-home";
+            document.getElementById(currentNav).className = "current";
+        </script>
+    </body>
+</html>

@@ -6,6 +6,82 @@
     <updated>2013-10-19T16:29:43+08:00</updated>
     <id>http://microjo.github.com/</id>
     <entry>
+        <title type="html"><![CDATA[新雷4（DM800se SR4）使用技巧]]></title>
+        <author><name>microjo</name></author>
+        <link href="http://microjo.github.com/2013/dm800se-sr4_tips.html"/>
+        <published>2013-06-15T22:26:00+08:00</published>
+        <updated>2013-06-25T22:38:18+08:00</updated>
+        <id>http://microjo.github.com/2013/dm800se-sr4_tips.html</id>
+        <category scheme="http://microjo.github.com/tag/#dm800se" term="dm800se" label="dm800se" />
+        <category scheme="http://microjo.github.com/tag/#enigma2" term="enigma2" label="enigma2" />
+        <content type="html" xml:base="http://microjo.github.com/" xml:lang="en">
+            <![CDATA[ <p>本文主要记录使用新雷4接收卫星/地面波/有线电视时的一些技巧。这些记录下来主要是解决使用过程中遇到的问题，方便以后查阅。</p>
+
+<ol>
+<li><p>enigma2 系统等菜单通过上下导航键进行循环浏览，需要在皮肤配置文件<code>skin.xml</code>中涉及的地方（主要是<code>Listbox</code>这个 render），将其<code>enableWrapAround</code>参数设置成<code>1</code>或<code>on</code>：</p>
+
+<div class="codehilite"><pre><code><span class="nt">&lt;widget</span> <span class="na">source=</span><span class="s">&quot;menu&quot;</span> <span class="na">render=</span><span class="s">&quot;Listbox&quot;</span> <span class="na">position=</span><span class="s">&quot;46,115&quot;</span> <span class="na">size=</span><span class="s">&quot;233,330&quot;</span> <span class="na">scrollbarMode=</span><span class="s">&quot;showNever&quot;</span> <span class="na">enableWrapAround=</span><span class="s">&quot;on&quot;</span> <span class="na">transparent=</span><span class="s">&quot;1&quot;</span><span class="nt">&gt;</span>
+</code></pre></div></li>
+<li><p>使用 Cnigma2 固件，修复部分地区有线不能正常播放的方法<sup class="footnote-ref" id="fnref-cnigma2a"><a href="#fn-cnigma2a">1</a></sup>：</p>
+
+<blockquote>
+  <ol>
+  <li><p>菜单-设置-系统设置-高级设置，将“禁止 PCR PID（解决部分地区有线问题）/Disable PCR PID”设置为“是”。 这个将禁止所有频道的 PCRPID 的写入。</p></li>
+  <li><p>在<code>/etc/</code>建立一个文件，名为<code>pcrpid.ignore</code>，一行一个 pcrpid，pcrpid 可以通过菜单-信息-频道-绿键查看，十进制直接写，十六进制请以<code>0x</code>开头，例如：  </p>
+
+<pre><code>4561
+0x231
+</code></pre>
+  
+  <p>禁用 pcrpid 的频道可能会有音视频不同步的现象，可以按音频/黄键，选择音频同步进行细调。</p></li>
+  </ol>
+</blockquote></li>
+<li><p>最新版本 Cnigma2 固件包含把有线 EPG 映射到卫星 EPG 的功能<sup class="footnote-ref" id="fnref-cnigma2b"><a href="#fn-cnigma2b">2</a></sup>：</p>
+
+<blockquote>
+  <p>首先我们要编辑一个频道映射表，这个映射表存放在<code>/etc/tsonid_save.map</code>文件中，文件格式：</p>
+
+<pre><code>#源tsonid 目的tsonid
+101:1:101 301:2184:3 #CCTV-1
+102:1:101 302:2184:3 #CCTV-2
+691:1:115 800:1:16 #CCTV1高清
+692:1:115 801:1:16 #央视高清
+805:1:205 3521:2184:6 #风云音乐
+806:1:205 3777:2184:6 #世界地理
+</code></pre>
+  
+  <ul>
+  <li>行以<code>#</code>开头表示注释；</li>
+  <li>从第二行开始，每行都是映射数据，用十进制表示；</li>
+  <li>第一组 101:1:101 是源频道的 tsonid，这里是南京有线的 CCTV1 频道，从左至右分别是 sid、onid、tsid，这个数据可以在 Cnigma2 默认皮肤的右下角看到，也可以通过菜单-信息-频道-绿键查询到；</li>
+  <li>第二组 301:2184:3 是目的频道的 tsonid，这里是 115.5 中6B上的 CCTV1 频道，查找和排列方式同第一组；</li>
+  <li>最后<code>#CCTV-1</code>表示注释。</li>
+  </ul>
+  
+  <p>编辑好对照表，大家就可以开始乾坤大挪移了（首先确认你的有线 EPG 已经正常显示）。按 text 键调出 EPG 助手（也可以从插件面板中调用），新版的 EPG 助手多了个蓝键“EPG 映射”，按蓝键即可完成 EPG 乾坤大挪移，回到频道列表，看看是不是 EPG 出来了？按过蓝键后，在<code>/tmp</code>目录下保存了<code>gemini800.tgz</code>这个文件，你还可以把这个文件分享给你的朋友或网友。</p>
+  
+  <p>补充一句：这个方法还可以把你加载好的网络 EPG 导出，供有线或其他卫星使用，原理和方法就自己琢磨吧，呵呵。</p>
+</blockquote></li>
+<li><p>卫星名称修改为中文：</p>
+
+<p>将<code>\etc\tuxbox\satellites.xml</code>用文本编辑器打开，原版文件第一行默认是<code>&lt;?xml version="1.0" encoding="iso-8859-1"?&gt;</code>。修改其中卫星名称为中文的后，需要将第一行改为<code>&lt;?xml version="1.0" encoding="utf-8"?&gt;</code>，并以 UTF-8 编码格式保存。这样才能保证中文能正常显示，不会出现乱码。</p></li>
+</ol>
+
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn-cnigma2a">
+<p><a href="http://blog.nj53.com/index.php/archives/176">修复部分地区有线 DM800 不能正常播放的方法</a> by 南京以东&nbsp;<a href="#fnref-cnigma2a" class="footnoteBackLink" title="Jump back to footnote 1 in the text.">&#8617;</a></p>
+</li>
+
+<li id="fn-cnigma2b">
+<p><a href="http://blog.nj53.com/index.php/archives/196">乾坤大挪移-谈谈 EPG 的映射</a> by 南京以东&nbsp;<a href="#fnref-cnigma2b" class="footnoteBackLink" title="Jump back to footnote 2 in the text.">&#8617;</a></p>
+</li>
+</ol>
+</div>
+]]>
+        </content>
+    </entry><entry>
         <title type="html"><![CDATA[用 Fireworks 自制 DM800se 频道图标（Picon）]]></title>
         <author><name>microjo</name></author>
         <link href="http://microjo.github.com/2013/using_fireworks_make_picon.html"/>
@@ -1708,97 +1784,6 @@ Exception in thread "main" brut.androlib.err.UndefinedResObject: resource spec: 
 </blockquote>
 
 <p>经实际使用，确实能达到目的。注意在 Windows Vista 和 Windows 7 下面安装时，必须有管理员权限才能安装。</p>
-]]>
-        </content>
-    </entry><entry>
-        <title type="html"><![CDATA[[kritCN][Jam Luey Gamathep 丘比特的被告][泰语中字]（完结/14集）]]></title>
-        <author><name>microjo</name></author>
-        <link href="http://microjo.github.com/2010/kritcn_jlg.html"/>
-        <published>2010-05-28T12:06:00+08:00</published>
-        <updated>2013-02-07T20:32:12+08:00</updated>
-        <id>http://microjo.github.com/2010/kritcn_jlg.html</id>
-        <category scheme="http://microjo.github.com/tag/#kritCN" term="kritCN" label="kritCN" />
-        <category scheme="http://microjo.github.com/tag/#shahkrit" term="shahkrit" label="shahkrit" />
-        <category scheme="http://microjo.github.com/tag/#Jam Luey Gamathep" term="Jam Luey Gamathep" label="Jam Luey Gamathep" />
-        <category scheme="http://microjo.github.com/tag/#丘比特的被告" term="丘比特的被告" label="丘比特的被告" />
-        <category scheme="http://microjo.github.com/tag/#泰剧" term="泰剧" label="泰剧" />
-        <category scheme="http://microjo.github.com/tag/#tv" term="tv" label="tv" />
-        <content type="html" xml:base="http://microjo.github.com/" xml:lang="en">
-            <![CDATA[ <p><strong>转载请注明“转载自：<a href="http://shahkrityamnarm.5d6d.com/">Shahkrit中文网</a>”，并不可以改动中文剧名，否则谢绝转载！谢谢！</strong></p>
-
-<hr />
-
-<h4 id="h1">【中文剧名】：丘比特的被告</h4>
-
-<h4 id="h1.1-jam-luey-gamathepcupids-defendent">【英文剧名】：Jam Luey Gamathep（译名：Cupid's Defendent）</h4>
-
-<h4 id="h1.1.1">【泰文剧名】：จำเลยกามเทพ</h4>
-
-<h4 id="h1.1.2-200997">【开播时间】：2009年9月7日</h4>
-
-<h4 id="h1.1.3-ch3">【开播电视台】：CH3</h4>
-
-<h4 id="h1.1.4-shahkrit-yamnarmcherry-khemupsorn">【主演】：Shahkrit Yamnarm、Cherry Khemupsorn</h4>
-
-<h4 id="h1.1.5-kritcn">【制作发布】：kritCN字幕组&amp;凤凰天使</h4>
-
-<h4 id="h1.1.6-nik">【海报】：NIK</h4>
-
-<h4 id="h1.1.7">【人物介绍】：</h4>
-
-<pre><code>Shahkrit Yamnarm（krit）　饰演　Manmet (Mek)  
-Cherry Khemupsorn（cherry）　饰演　Nate-Upsorn (Nim)  
-Job Nithi　饰演　Thorani (Kapom)  
-Jane Janesuda（jane）　饰演　Chanetti (Pak-kard)
-</code></pre>
-
-<h4 id="h1.1.8">【剧情介绍】：</h4>
-
-<p>Nate-Upsorn (Nim)，著名女演员，一直以来都跟著名男演员 Thorani (Kapom) 搭档。现实生活中观众们都希望他们真的成为情侣，而同时 Nim 本人也希望他们能假戏真做，成为一对。可事实上，Kapom 在现实生活中已经有女朋友了，叫 Pak-kard。Nim 不断骚扰他们，并威胁要破坏他和女友的婚礼，他很苦恼。</p>
-
-<p>为了能够顺利结婚，他让自己刚从美国回来的弟弟Mek乔装成绑匪，将 Nim 绑架至某个小岛上直到自己完成婚礼。尽管 Mek 不愿意这样做，他还是不得不帮助自己的哥哥。这时候，电视剧《爱的被告》带给了 Mek 很多灵感。他模仿 Harit 把 Nim 绑架到一个私人小岛上，并像电视剧里那样假装自己被她深深的伤害了，不断的通过虐待她来释放心中的仇恨。</p>
-
-<p>然而，事情没有这么简单。因为 Nim 不是哭哭啼啼、逆来顺受的女孩子，她不断的反抗和反虐待，在两人一次又一次的交锋中，彼此的心渐渐靠近，可是真相 却也日渐揭露……明白了真相的 Nim 愤而离去，失去了爱人的 Mek 心痛得不能自已，愿付出一切来挽回这段原本就扭曲的情路。</p>
-
-<h4 id="h1.1.9">【下载地址】：</h4>
-
-<ol>
-<li><del>MEGAUPLOAD 下载（此网盘有效期比较长）</del>
-<ul>
-<li><a href="http://www.megaupload.com/?d=IED3PPF4">【kritCN】【泰剧】【Jam Luey Gamathep 丘比特的被告】01 [DE979255]</a></li>
-<li><a href="http://www.megaupload.com/?d=TLM83IM7">【kritCN】【泰剧】【Jam Luey Gamathep 丘比特的被告】02 [9E1024FB]</a></li>
-<li><a href="http://www.megaupload.com/?d=GCLFVD6F">【kritCN】【泰剧】【Jam Luey Gamathep 丘比特的被告】03 [5477F6BF]</a></li>
-<li><a href="http://www.megaupload.com/?d=R8JJ8K8H">【kritCN】【泰剧】【Jam Luey Gamathep 丘比特的被告】04 [423D2D6E]</a></li>
-<li><a href="http://www.megaupload.com/?d=R2XGMU5A">【kritCN】【泰剧】【Jam Luey Gamathep 丘比特的被告】05 [C0398EB5]</a></li>
-<li><a href="http://www.megaupload.com/?d=JO7G2M8I">【kritCN】【泰剧】【Jam Luey Gamathep 丘比特的被告】06 [7C9EC5DF]</a></li>
-<li><a href="http://www.megaupload.com/?d=CBO3630M">【kritCN】【泰剧】【Jam Luey Gamathep 丘比特的被告】07 [8394F69B]</a></li>
-<li><a href="http://www.megaupload.com/?d=4VNQ51A8">【kritCN】【泰剧】【Jam Luey Gamathep 丘比特的被告】08 [826974ED]</a></li>
-<li><a href="http://www.megaupload.com/?d=S3IU3A3L">【kritCN】【泰剧】【Jam Luey Gamathep 丘比特的被告】09 [7D8642EA]</a></li>
-<li><a href="http://www.megaupload.com/?d=9YX3XN87">【kritCN】【泰剧】【Jam Luey Gamathep 丘比特的被告】10 [2CA6A564]</a></li>
-<li><a href="http://www.megaupload.com/?d=94UWGR87">【kritCN】【泰剧】【Jam Luey Gamathep 丘比特的被告】11 [9838390D]</a></li>
-<li><a href="http://www.megaupload.com/?d=ESDBH4QI">【kritCN】【泰剧】【Jam Luey Gamathep 丘比特的被告】12 [617EFDCB]</a></li>
-<li><a href="http://www.megaupload.com/?d=CBOUW3SH">【kritCN】【泰剧】【Jam Luey Gamathep 丘比特的被告】13 [B03042FB]</a></li>
-<li><a href="http://www.megaupload.com/?d=EGORKJ73">【kritCN】【泰剧】【Jam Luey Gamathep 丘比特的被告】14完结 [5D922D2F]</a></li>
-</ul></li>
-<li><del>115 网盘下载</del>
-<ul>
-<li><a href="http://u.115.com/file/t1d223454b">【kritCN】【泰剧】【Jam Luey Gamathep 丘比特的被告】01 [DE979255]</a></li>
-<li><a href="http://u.115.com/file/t16805170">【kritCN】【泰剧】【Jam Luey Gamathep 丘比特的被告】02 [9E1024FB]</a></li>
-<li><a href="http://u.115.com/file/t13fb0dfe3">【kritCN】【泰剧】【Jam Luey Gamathep 丘比特的被告】03 [5477F6BF]</a></li>
-<li><a href="http://u.115.com/file/t193d044c8">【kritCN】【泰剧】【Jam Luey Gamathep 丘比特的被告】04 [423D2D6E]</a></li>
-<li><a href="http://u.115.com/file/t128c5c8e3">【kritCN】【泰剧】【Jam Luey Gamathep 丘比特的被告】05 [C0398EB5]</a></li>
-<li><a href="http://u.115.com/file/t11a876976">【kritCN】【泰剧】【Jam Luey Gamathep 丘比特的被告】06 [7C9EC5DF]</a></li>
-<li><a href="http://u.115.com/file/t1e6884cde">【kritCN】【泰剧】【Jam Luey Gamathep 丘比特的被告】07 [8394F69B]</a></li>
-<li><a href="http://u.115.com/file/t1f4f9e95a">【kritCN】【泰剧】【Jam Luey Gamathep 丘比特的被告】08 [826974ED]</a></li>
-<li><a href="http://u.115.com/file/t14452bbeb">【kritCN】【泰剧】【Jam Luey Gamathep 丘比特的被告】09 [7D8642EA]</a></li>
-<li><a href="http://u.115.com/file/t18043ecac">【kritCN】【泰剧】【Jam Luey Gamathep 丘比特的被告】10 [2CA6A564]</a></li>
-<li><a href="http://u.115.com/file/t16a3d86f6">【kritCN】【泰剧】【Jam Luey Gamathep 丘比特的被告】11 [9838390D]</a></li>
-<li><a href="http://u.115.com/file/t18b0b59c3">【kritCN】【泰剧】【Jam Luey Gamathep 丘比特的被告】12 [617EFDCB]</a></li>
-<li><a href="http://u.115.com/file/t1c6092c8e">【kritCN】【泰剧】【Jam Luey Gamathep 丘比特的被告】13 [B03042FB]</a></li>
-<li><a href="http://u.115.com/file/t148b0a9f0">【kritCN】【泰剧】【Jam Luey Gamathep 丘比特的被告】14完结 [5D922D2F]</a></li>
-</ul></li>
-<li><a href="http://www.youku.com/playlist_show/id_3939631.html">优酷在线观看</a></li>
-</ol>
 ]]>
         </content>
     </entry>
