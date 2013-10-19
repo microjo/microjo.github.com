@@ -3,21 +3,21 @@
     <title>Jonathan's Blog</title>
     <link href="http://microjo.github.com/feed.xml" rel="self" />
     <link href="http://microjo.github.com/" />
-    <updated>2013-10-19T16:28:14+08:00</updated>
+    <updated>2013-10-19T16:29:43+08:00</updated>
     <id>http://microjo.github.com/</id>
     <entry>
         <title type="html"><![CDATA[用 Fireworks 自制 DM800se 频道图标（Picon）]]></title>
         <author><name>microjo</name></author>
         <link href="http://microjo.github.com/2013/using_fireworks_make_picon.html"/>
         <published>2013-06-11T22:26:00+08:00</published>
-        <updated>2013-10-19T16:28:14+08:00</updated>
+        <updated>2013-10-19T16:29:43+08:00</updated>
         <id>http://microjo.github.com/2013/using_fireworks_make_picon.html</id>
         <category scheme="http://microjo.github.com/tag/#dm800se" term="dm800se" label="dm800se" />
         <category scheme="http://microjo.github.com/tag/#picon" term="picon" label="picon" />
         <category scheme="http://microjo.github.com/tag/#fireworks" term="fireworks" label="fireworks" />
         <content type="html" xml:base="http://microjo.github.com/" xml:lang="en">
             <![CDATA[ <ol>
-<li><p>获取频道的台标，可以从网络上搜索<sup class="footnote-ref" id="fnref-1"><a href="#fn-1">1</a></sup>，也可以从电视视频截取并抠图出来。推荐从 <a href="http://www.lyngsat.com">LyngSat</a> 获取频道台标，此处以自制 CINEMAX 频道图标举例。</p></li>
+<li><p>获取频道的台标，可以从网络上搜索<sup class="footnote-ref" id="fnref-1"><a href="#fn-1">1</a></sup>，也可以从电视视频截取并抠图出来。推荐从 <a href="http://www.lyngsat.com">LyngSat</a> 或 <a href="http://logos.wikia.com/wiki/Logopedia">Logopedia</a> 获取频道台标，此处以自制 CINEMAX 频道图标举例。</p></li>
 <li><p>用 Adobe Fireworks CS5（其他版本 Fireworks 应该都适用）打开频道台标源文件。软件默认自动选择其中的内容，见图中蓝色边框选中的部分。用 Ctrl+C 或编辑菜单的复制功能将内容复制到剪贴板。 <br />
 <img src="/image/fw_picon1.png" alt="图1" title="图1" /></p></li>
 <li><p>新建一个图片，宽度 100，高度 60（DM800se Picon 的分辨率是 100x60），分辨率没有要求。 <br />
