@@ -3,9 +3,57 @@
     <title>Jonathan's Blog</title>
     <link href="http://microjo.github.com/feed.xml" rel="self" />
     <link href="http://microjo.github.com/" />
-    <updated>2013-10-19T16:29:43+08:00</updated>
+    <updated>2013-12-01T22:22:57+08:00</updated>
     <id>http://microjo.github.com/</id>
     <entry>
+        <title type="html"><![CDATA[安卓（Android）刷机入门必看术语]]></title>
+        <author><name>αndroid@机锋网</name></author>
+        <link href="http://microjo.github.com/2013/android_flash_knowledge.html"/>
+        <published>2013-12-01T21:45:00+08:00</published>
+        <updated>2013-12-01T22:22:57+08:00</updated>
+        <id>http://microjo.github.com/2013/android_flash_knowledge.html</id>
+        <category scheme="http://microjo.github.com/tag/#Android" term="Android" label="Android" />
+        <category scheme="http://microjo.github.com/tag/#刷机" term="刷机" label="刷机" />
+        <content type="html" xml:base="http://microjo.github.com/" xml:lang="en">
+            <![CDATA[ <p>转载自<a href="http://bbs.gfan.com/android-4832781-1-1.html">【αndroid】小白入门，必看术语 - 8.15 -3次修改</a>，调整部分格式和内容。</p>
+
+<hr />
+
+<ol>
+<li><p>Flash Rom 刷机 <br />
+可以理解为：给设备（平板/手机）重装系统。</p></li>
+<li><p>Unlock 解锁 <br />
+就是解除 Bootloader 的锁定状态。完成这一步，才能进行更换 Recovery、刷入 ROM 等等操作，一切刷机从这里开始。详见下边“Bootloader”条目。</p></li>
+<li><p>Bootloader <br />
+可以理解为：相当于电脑的 BIOS。整个系统的引导等，都由它来完成，也是进入 Recovery 的入口。怎么进入？在完全关机状态下，同时按住“音量 - 键”和“电源键”。进入后，N7 右侧的音量 +-（加减）键是上下，电源键是确认。Bootloader 默认是 Locked（锁定）状态，在界面最下一行有显示。“解锁”后，会变成 Unlocked（解锁）状态，N7 启动界面 Google 徽标下方会有一把锁的图标出现。</p></li>
+<li><p>Fastboot <br />
+在 Bootloader 模式下的命令，用来解锁、刷机、重启等。熟通 Fastboot，刷机小菜一碟。命令详解（如解锁命令，只适用于 Nexus系列设备）：</p>
+
+<ul>
+<li><p>解锁 <code>fastboot oem unlock</code></p></li>
+<li><p>重启 <code>fastboot reboot</code></p></li>
+<li><p>重启到 Bootloader 模式 <code>fastboot reboot-bootloader</code></p></li>
+<li><p>刷入镜像文件 <code>fastboot flash {partition} {file.img}</code> <br />
+如要刷入 recovery 就是 <code>fastboot flash recovery recovery.img</code>。细说是：fastboot（命令） flash（刷入） recovery（目标分区） recovery.img（指定文件）。这时，recovery.img 文件必须与 fasboot.exe 在同一文件夹中。</p></li>
+<li><p>擦除分区 <code>fastboot erase {partition}</code> <br />
+例如，擦除 system 分区是 <code>fastboot erase system</code>。</p></li>
+<li><p>刷入完整系统包（一般用于刷入官方系统包） <code>fastboot update update.zip</code> <br />
+这时，update.zip 文件必须与 fasboot.exe 在同一文件夹中。</p></li>
+</ul></li>
+<li><p>Recovery <br />
+可以理解为工程界面，类似于 Windows PE 吧。最主要的功能有：刷入ROM、WIPE、备份、恢复系统。比较出名的有 CWM（ClockWorkMod）6.0 系列，此系列有触摸版本。</p></li>
+<li><p>WIPE <br />
+重装系统（刷入其他 ROM），不得给设备格式化么？恩，在 Android 里面就叫 WIPE。在哪里？在 Recovery 里可以找到。何为 双三四 WIPE？双 WIPE 就是 WIPE DATA/FACTORY RESET 和 WIPE CACHE PARTITION 这两个；三 WIPE 的话，Advanced 里的 WIPE DALVIK CACHE；四 WIPE 的话，也在这里面的 WIPE BATTERY STATS。一般来说，普通刷机只需要双 WIPE 即可，也就是常常说的 FULL WIPE。</p></li>
+<li><p>ROM <br />
+ROM 就是你要装的系统，出名的有 CM10，AOKP 系列等。PS：普及一下，CM 是很出名地第三方 ROM 的品牌，全称为 CyanogenMod。CM10 对应 JB 4.1 系统，那 CM9 就对应 ICS 4.0 系统了。</p></li>
+<li><p>ROOT <br />
+用过 Linux/Unix 等的朋友就不说了。可以理解为：管理员权限，无所不能，可以改系统任何文件等。很多系统级应用程序 90% 需要 ROOT 权限，如删除系统级内置程序等等。</p></li>
+</ol>
+
+<p>一般大家所说的“刷机”的步骤：解锁——刷入第三方 Recovery——然后可以刷入 ROOT 包，或带 ROOT 的第三方 ROM。</p>
+]]>
+        </content>
+    </entry><entry>
         <title type="html"><![CDATA[新雷4（DM800se SR4）使用技巧]]></title>
         <author><name>microjo</name></author>
         <link href="http://microjo.github.com/2013/dm800se-sr4_tips.html"/>
@@ -1676,13 +1724,13 @@ SHA1: 5eb990511d309374625d024db29c11d980eb8dec
 ]]>
         </content>
     </entry><entry>
-        <title type="html"><![CDATA[android apktool 升级使用问题一则]]></title>
+        <title type="html"><![CDATA[Android apktool 升级使用问题一则]]></title>
         <author><name>microjo</name></author>
         <link href="http://microjo.github.com/2011/apktool_update_usenote.html"/>
         <published>2011-05-18T05:40:00+08:00</published>
-        <updated>2013-02-07T20:33:23+08:00</updated>
+        <updated>2013-12-01T22:22:37+08:00</updated>
         <id>http://microjo.github.com/2011/apktool_update_usenote.html</id>
-        <category scheme="http://microjo.github.com/tag/#android" term="android" label="android" />
+        <category scheme="http://microjo.github.com/tag/#Android" term="Android" label="Android" />
         <category scheme="http://microjo.github.com/tag/#apktool" term="apktool" label="apktool" />
         <category scheme="http://microjo.github.com/tag/#gui" term="gui" label="gui" />
         <content type="html" xml:base="http://microjo.github.com/" xml:lang="en">
@@ -1756,34 +1804,6 @@ Exception in thread "main" brut.androlib.err.UndefinedResObject: resource spec: 
 <p><em>PS:</em> 本人做为独立制作游戏的粉丝，该系列套装无疑是当下最好的 Linux 平台娱乐选择了，强烈推荐～</p>
 
 <p><a href="http://www.humblebundle.com/">详细说明及购买地址（支持 Paypal 银联卡支付）</a> <strong>注：此地址国内已被墙。</strong></p>
-]]>
-        </content>
-    </entry><entry>
-        <title type="html"><![CDATA[自定义诺基亚 Ovi 套件的安装目录]]></title>
-        <author><name>microjo</name></author>
-        <link href="http://microjo.github.com/2011/custom_ovi_installdir.html"/>
-        <published>2011-03-22T07:20:00+08:00</published>
-        <updated>2013-02-07T20:33:28+08:00</updated>
-        <id>http://microjo.github.com/2011/custom_ovi_installdir.html</id>
-        <category scheme="http://microjo.github.com/tag/#诺基亚 Ovi 套件" term="诺基亚 Ovi 套件" label="诺基亚 Ovi 套件" />
-        <category scheme="http://microjo.github.com/tag/#Nokia Ovi Suite" term="Nokia Ovi Suite" label="Nokia Ovi Suite" />
-        <content type="html" xml:base="http://microjo.github.com/" xml:lang="en">
-            <![CDATA[ <p>真不知是认为现在用户希望安装什么都不用管最好，还是认为现在硬盘大到不需要关心安装到哪里，诺基亚 Ovi 套件在安装的时候根本没有给用户选择的余地，一律安装到系统盘（C）。以下是从网络上搜索到的自定义安装套件路径的方法：</p>
-
-<blockquote>
-  <h3 id="h1-how-to-change-the-installation-directory-for-nokia-ovi1">转载自 <a href="http://discussions.europe.nokia.com/t5/Nokia-Suite/How-to-Change-the-Installation-Directory-for-Nokia-OVI/td-p/583982">How to Change the Installation Directory for Nokia OVI?</a></h3>
-  
-  <p>if you want to install Nokia Ovi Suite to for example D: drive, to directory "D:\Program files", you could start installation application from command line following way:
-  举例将诺基亚 Ovi 套件安装到 <code>D:\Program Files</code> 目录下面，在命令行下面输入下面命令进行安装：</p>
-
-<pre><code>Nokia_Ovi_Suite_webinstaller_ALL.exe /TARGET="D:\Program files"
-</code></pre>
-  
-  <p>This would create a new folder "Nokia Ovi Suite" under D:\Program files\ and install Nokia Ovi Suite there.
-  诺基亚 Ovi 套件会在 <code>D:\Program files</code> 目录下面创建新目录 <code>Nokia Ovi Suite</code>，并安装到此目录下面。</p>
-</blockquote>
-
-<p>经实际使用，确实能达到目的。注意在 Windows Vista 和 Windows 7 下面安装时，必须有管理员权限才能安装。</p>
 ]]>
         </content>
     </entry>

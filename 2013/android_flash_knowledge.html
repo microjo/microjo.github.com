@@ -3,7 +3,7 @@
 <!--[if (gte IE 8)|!(IE)]><!--> <html lang="zh"> <!--<![endif]-->
     <head>
         <meta charset="UTF-8">
-        <title>M9 固件相关信息和工具 | Jonathan's Blog</title>
+        <title>安卓（Android）刷机入门必看术语 | Jonathan's Blog</title>
         <link rel="shortcut icon" href="http://www.gravatar.com/avatar/60633c507a57f09b238c710e743f8a61?s=16" />
         <script>if (top !== self) top.location = self.location;</script>
         <!--[if lt IE 9]>
@@ -15,8 +15,7 @@
         <link rel="stylesheet" href="/static/style.css?v=17ed1" />
         <link rel="stylesheet" href="/static/syntax.css?v=dbf77" />
         <link rel="stylesheet" href="/static/shadowbox/shadowbox.css?v=f5b13" type="text/css" />
-        <link rel="canonical" href="/2012/m9firmware.html" />
-        <meta name="description" content="M9 所有正式固件校验码和 META-INF 数据" />
+        <link rel="canonical" href="/2013/android_flash_knowledge.html" />
         <script type="text/javascript">
             var _gaq = _gaq || [];
             _gaq.push(['_setAccount', 'UA-31550182-1']);
@@ -43,110 +42,70 @@
         </header>
         <article class="hentry">
             <header class="entry-header fn-clear">
-                <h1 class="entry-title fn-left">M9 固件相关信息和工具</h1>
+                <h1 class="entry-title fn-left">安卓（Android）刷机入门必看术语</h1>
             </header>
             <div class="entry">
                 <div class="author icon-user">
-                    microjo
+                    αndroid@机锋网
                 </div>
                 <div class="entry-content">
-                    <div class="toc"><ul>
-  <li><a href="#h1-m9-updatebin">M9 固件 update.bin 校验码</a></li>
-  <li><a href="#h2-m9-meta-inf">M9 固件中 META-INF 数据</a></li>
-  <li><a href="#h3">参考资料</a></li>
-</ul>
-</div>
+                    <p>转载自<a href="http://bbs.gfan.com/android-4832781-1-1.html">【αndroid】小白入门，必看术语 - 8.15 -3次修改</a>，调整部分格式和内容。</p>
 
-<h2 id="h1-m9-updatebin">M9 固件 update.bin 校验码</h2>
+<hr />
 
 <ol>
-<li><p>CN Flyme 1.1.3</p>
+<li><p>Flash Rom 刷机 <br />
+可以理解为：给设备（平板/手机）重装系统。</p></li>
+<li><p>Unlock 解锁 <br />
+就是解除 Bootloader 的锁定状态。完成这一步，才能进行更换 Recovery、刷入 ROM 等等操作，一切刷机从这里开始。详见下边“Bootloader”条目。</p></li>
+<li><p>Bootloader <br />
+可以理解为：相当于电脑的 BIOS。整个系统的引导等，都由它来完成，也是进入 Recovery 的入口。怎么进入？在完全关机状态下，同时按住“音量 - 键”和“电源键”。进入后，N7 右侧的音量 +-（加减）键是上下，电源键是确认。Bootloader 默认是 Locked（锁定）状态，在界面最下一行有显示。“解锁”后，会变成 Unlocked（解锁）状态，N7 启动界面 Google 徽标下方会有一把锁的图标出现。</p></li>
+<li><p>Fastboot <br />
+在 Bootloader 模式下的命令，用来解锁、刷机、重启等。熟通 Fastboot，刷机小菜一碟。命令详解（如解锁命令，只适用于 Nexus系列设备）：</p>
 
-<pre><code>MD5: 7991384b6d312337e282e08e72c740ae
-SHA1: b5e6b51be5e484aad6e2ceba01c0377fd671ad3b
-</code></pre></li>
-<li><p>CN Flyme 1.1</p>
-
-<pre><code>MD5: 7f8c70177705da38d5a50097c001d216
-SHA1: c640251daf6ed64b02efdf0a6c9352f56280ff42
-</code></pre></li>
-<li><p>CN 2.0.6-12169</p>
-
-<pre><code>MD5: 8aaee7dea351a5187c61da3a32d01a89
-SHA1: 99996a8e516b1c827d1864a8f0438dcafd4eda79
-</code></pre></li>
-<li><p>CZ 2.0.5-11282</p>
-
-<pre><code> MD5: cbbf0daf59815a20783647eac6085dd6
-SHA1: f3d279cb500fef0d714811d77f03bf3460293107
-</code></pre></li>
-<li><p>CN 2.0.5-11241</p>
-
-<pre><code> MD5: c4f6ab9b82bb10f35d6e03325bd0645b
-SHA1: ea124d3b39af5ed50d0919bd50855815e6ec1a0f
-</code></pre></li>
-<li><p>CN 2.0.3-9345</p>
-
-<pre><code> MD5: 3d916d021a87d22b286405796b686270
-SHA1: 332f91c0706e05eeb18b0458b887a84ae543e017
-</code></pre></li>
-<li><p>CN 2.0.2-6883</p>
-
-<pre><code> MD5: b354cc8bada7f181d209674c57f174cd
-SHA1: b7445c3ef7c19a2c3ec84d5d2a07639ec47945b7
-</code></pre></li>
-<li><p>CN 2.0.1-5212</p>
-
-<pre><code> MD5: d8d6012955febd8bdc85a92ce890858c
-SHA1: 5eb990511d309374625d024db29c11d980eb8dec
-</code></pre></li>
+<ul>
+<li><p>解锁 <code>fastboot oem unlock</code></p></li>
+<li><p>重启 <code>fastboot reboot</code></p></li>
+<li><p>重启到 Bootloader 模式 <code>fastboot reboot-bootloader</code></p></li>
+<li><p>刷入镜像文件 <code>fastboot flash {partition} {file.img}</code> <br />
+如要刷入 recovery 就是 <code>fastboot flash recovery recovery.img</code>。细说是：fastboot（命令） flash（刷入） recovery（目标分区） recovery.img（指定文件）。这时，recovery.img 文件必须与 fasboot.exe 在同一文件夹中。</p></li>
+<li><p>擦除分区 <code>fastboot erase {partition}</code> <br />
+例如，擦除 system 分区是 <code>fastboot erase system</code>。</p></li>
+<li><p>刷入完整系统包（一般用于刷入官方系统包） <code>fastboot update update.zip</code> <br />
+这时，update.zip 文件必须与 fasboot.exe 在同一文件夹中。</p></li>
+</ul></li>
+<li><p>Recovery <br />
+可以理解为工程界面，类似于 Windows PE 吧。最主要的功能有：刷入ROM、WIPE、备份、恢复系统。比较出名的有 CWM（ClockWorkMod）6.0 系列，此系列有触摸版本。</p></li>
+<li><p>WIPE <br />
+重装系统（刷入其他 ROM），不得给设备格式化么？恩，在 Android 里面就叫 WIPE。在哪里？在 Recovery 里可以找到。何为 双三四 WIPE？双 WIPE 就是 WIPE DATA/FACTORY RESET 和 WIPE CACHE PARTITION 这两个；三 WIPE 的话，Advanced 里的 WIPE DALVIK CACHE；四 WIPE 的话，也在这里面的 WIPE BATTERY STATS。一般来说，普通刷机只需要双 WIPE 即可，也就是常常说的 FULL WIPE。</p></li>
+<li><p>ROM <br />
+ROM 就是你要装的系统，出名的有 CM10，AOKP 系列等。PS：普及一下，CM 是很出名地第三方 ROM 的品牌，全称为 CyanogenMod。CM10 对应 JB 4.1 系统，那 CM9 就对应 ICS 4.0 系统了。</p></li>
+<li><p>ROOT <br />
+用过 Linux/Unix 等的朋友就不说了。可以理解为：管理员权限，无所不能，可以改系统任何文件等。很多系统级应用程序 90% 需要 ROOT 权限，如删除系统级内置程序等等。</p></li>
 </ol>
 
-<h2 id="h2-m9-meta-inf">M9 固件中 META-INF 数据</h2>
-
-<p>CERT.RSA 中前 1376 字节都相同，说明公钥是同一组。</p>
-
-<ul>
-<li><em>CN</em> <a href="http://115.com/file/dwizg2id">M9 固件(Flyme 1.1.3)</a></li>
-<li><em>CN</em> <a href="http://115.com/file/eisndh79">M9 固件(Flyme 1.1)</a></li>
-<li><em>CN</em> <a href="http://115.com/file/angnm7bo#M9-cn-FW-V2.0.6-12169-META-INF.zip">M9 固件(版本:V2.0.6-12169)</a></li>
-<li><em>CZ</em> <a href="http://115.com/file/be6g3w6s#M9-cz-FW-2.0.5-11282-META-INF.zip">M9 FW 2.0.5-11282</a></li>
-<li><em>CN</em> <a href="http://115.com/file/e73twf9i#M9-cn-FW-2.0.5-11241-META-INF.zip">M9 固件(版本:V2.0.5-11241)</a></li>
-<li><em>CN</em> <a href="http://115.com/file/c2u3mby7#M9-cn-FW-2.0.3-9345-META-INF.zip">M9 固件(版本:V2.0.3-9345)</a></li>
-<li><em>CN</em> <a href="http://115.com/file/e73twwk0#M9-cn-FW-2.0.2-6883-META-INF.zip">M9 固件(版本:V2.0.2-6883)</a></li>
-<li><em>CN</em> <a href="http://115.com/file/aniut4s4#M9-cn-FW-2.0.1-5212-META-INF.zip">M9 固件(版本:V2.0.1-5212)</a></li>
-</ul>
-
-<h2 id="h3">参考资料</h2>
-
-<ul>
-<li><a href="http://www.blogjava.net/zh-weir/archive/2011/07/19/354663.html">Android APK 签名比对</a></li>
-</ul>
+<p>一般大家所说的“刷机”的步骤：解锁——刷入第三方 Recovery——然后可以刷入 ROOT 包，或带 ROOT 的第三方 ROM。</p>
 
                 </div>
                 <div class="fn-clear">
                     <p class="entry-rel">
-                    <a id="prev-entry" class="fn-left" href="/2012/qt_learning_notes.html" title="Qt Learning Notes" rel="prev">前一篇</a>
-                    <a id="next-entry" class="fn-right" href="/2011/apktool_update_usenote.html" title="Android apktool 升级使用问题一则" rel="next">后一篇</a>
+                    <a id="next-entry" class="fn-right" href="/2013/dm800se-sr4_tips.html" title="新雷4（DM800se SR4）使用技巧" rel="next">后一篇</a>
                     </p>
                 </div>
             </div>
             <div class="entry-meta fn-clear">
                 <p class="entry-time icon-time fn-left">发布：
-                <a href="/2012/" rel="index"><time class="created" datetime="2012-01-19T08:27:00+08:00" pubdate="pubdate">2012/01/19</time></a>
+                <a href="/2013/" rel="index"><time class="created" datetime="2013-12-01T21:45:00+08:00" pubdate="pubdate">2013/12/01</time></a>
                 </p>
                 <p class="entry-tags icon-tag fn-left">标签：
-                <a href="/tag/android/" class="tag" rel="tag">android</a>
-                <a href="/tag/meizu/" class="tag" rel="tag">MEIZU</a>
-                <a href="/tag/m9/" class="tag" rel="tag">M9</a>
-                <a href="/tag/魅族/" class="tag" rel="tag">魅族</a>
-                <a href="/tag/固件/" class="tag" rel="tag">固件</a>
+                <a href="/tag/android/" class="tag" rel="tag">Android</a>
+                <a href="/tag/刷机/" class="tag" rel="tag">刷机</a>
                 </p>
             </div>
             <div id="disqus_thread"></div>
             <script type="text/javascript">
                 var disqus_shortname = 'microjo';
-                var disqus_title = 'M9 固件相关信息和工具';
+                var disqus_title = '安卓（Android）刷机入门必看术语';
                 (function() {
                  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
                  dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
@@ -157,7 +116,7 @@ SHA1: 5eb990511d309374625d024db29c11d980eb8dec
             <script type="text/javascript">
             Shadowbox.init({ handleOversize: "drag" });
             window.onload = function() {
-                Shadowbox.setup(".entry-content img", { gallery: "M9 固件相关信息和工具", counterType: "skip" });
+                Shadowbox.setup(".entry-content img", { gallery: "安卓（Android）刷机入门必看术语", counterType: "skip" });
             };
             </script>
         </article>
